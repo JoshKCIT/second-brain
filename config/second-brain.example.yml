@@ -1,0 +1,111 @@
+# Second Brain - User Configuration
+#
+# Copy this file to config/second-brain.yml and fill in your values.
+# config/second-brain.yml is gitignored; this template is tracked.
+#
+# Most fields can be set at onboarding via /second-brain prompt; this file
+# documents the schema and lets you edit by hand.
+
+# ============================================================
+# Atlassian tenant
+# ============================================================
+# Authoritative copy is in .env; mirrored here for the agent's convenience.
+atlassian:
+  site_url: https://yourcompany.atlassian.net
+  email: your.email@yourcompany.com
+
+# ============================================================
+# Default in-scope Confluence spaces
+# ============================================================
+# Spaces ingested by default and considered for retrieval and alignment in
+# every project. Per-project meta.yml can extend this list.
+default_in_scope_spaces:
+  - key: ARCH
+    name: Architecture
+    authority: standard
+    domain: internal
+
+  - key: SEC
+    name: Security
+    authority: standard
+    domain: internal
+
+  - key: AUDIT
+    name: Audit
+    authority: standard
+    domain: internal
+
+  - key: DATA
+    name: Data Modeling
+    authority: standard
+    domain: internal
+
+  - key: SRE
+    name: SRE Runbooks
+    authority: recommendation
+    domain: internal
+
+  # Add more as needed. Each entry: key, name, authority, domain.
+  # Authority values: standard | recommendation | informational
+  # Domain values: internal | vendor:{name} | industry:{name}
+
+# ============================================================
+# Vendor doc revalidation (TTL)
+# ============================================================
+vendor_revalidation:
+  default_ttl_days: 90
+
+  # Per-vendor overrides
+  per_vendor: {}
+    # aws: 60
+    # snowflake: 30
+    # atlassian: 90
+
+  hard_max_age_days: 365
+
+# ============================================================
+# Confluence sync cadence
+# ============================================================
+confluence_sync:
+  default_cadence: weekly  # weekly | daily | manual
+  reminder_after_days: 7
+
+# ============================================================
+# Alignment defaults
+# ============================================================
+# Quality tier expected per align command; affects whether failures block
+# publish or are advisory.
+alignment_defaults:
+  align_cite: production       # gating
+  align_vendor_truth: production  # gating
+  align_closure: production    # gating
+  align_conformance: best-effort  # advisory
+  align_coverage: best-effort  # advisory
+
+# ============================================================
+# Persona
+# ============================================================
+# Which template populates this user's instance.
+# In v1, only "ceo" is fully populated; other personas are stubs in v1.x.
+operator_persona: ceo
+
+# ============================================================
+# Optional: cost ceiling (advisory)
+# ============================================================
+# monthly_budget_usd: 50
+
+# ============================================================
+# Optional: archive default behavior
+# ============================================================
+archive:
+  exclude_from_default_search: true
+  exclude_from_default_reference: true
+
+# ============================================================
+# Optional: Jira (v1.x)
+# ============================================================
+# default_in_scope_jira_projects:
+#   - key: PROJ
+#     name: My Project
+#     authority: informational
+#     domain: internal

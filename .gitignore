@@ -1,0 +1,94 @@
+# Second Brain - .gitignore
+
+# Secrets
+.env
+.env.local
+*.secret
+
+# Personal config (user-specific overrides)
+config/second-brain.yml
+
+# Runtime content (per-user; never shared)
+raw/confluence/*
+raw/jira/*
+raw/external/*
+!raw/confluence/.gitkeep
+!raw/jira/.gitkeep
+!raw/external/.gitkeep
+
+wiki/standards/*
+wiki/recommendations/*
+wiki/informational/*
+wiki/concepts/*
+wiki/connections/*
+wiki/qa/*
+wiki/projects/*
+wiki/archives/*
+!wiki/standards/.gitkeep
+!wiki/recommendations/.gitkeep
+!wiki/informational/.gitkeep
+!wiki/concepts/.gitkeep
+!wiki/connections/.gitkeep
+!wiki/qa/.gitkeep
+!wiki/projects/.gitkeep
+!wiki/archives/.gitkeep
+
+# Wiki views may be tracked or per-user; default tracked (Bases are user-curated)
+# Uncomment to ignore if you prefer per-user Bases:
+# wiki/views/*
+# !wiki/views/.gitkeep
+
+# Wiki index and log are per-user (your knowledge state)
+wiki/index.md
+wiki/log.md
+
+# Runtime output
+confluence-review/
+quarantine/
+reports/
+
+# State tracking (gitignored; regenerated)
+state.json
+last-flush.json
+
+# Build inputs (planning-time references; not part of shipped repo functionality)
+build-inputs/
+building-second-brain-reference-docs/
+
+# Reference documents folder (manual drops of external standards)
+reference-documents/*
+!reference-documents/.gitkeep
+!reference-documents/README.md
+
+# Temp files
+*.tmp
+*.bak
+*~
+.DS_Store
+Thumbs.db
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.pytest_cache/
+
+# Node (if scripts use Node tooling)
+node_modules/
+package-lock.json
+yarn.lock
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Obsidian per-user state (the bundled .obsidian/ defaults are tracked;
+# user-specific workspace state is not)
+.obsidian/workspace.json
+.obsidian/workspaces.json
+.obsidian/cache
+.obsidian/.cache

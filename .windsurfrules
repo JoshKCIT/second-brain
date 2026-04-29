@@ -1,0 +1,50 @@
+# Second Brain - Windsurf Rules
+
+You are operating in a Second Brain repository: a personal LLM-maintained knowledge base and documentation production system. Read `AGENTS.md` at the repository root for the canonical operating spec. This file is the Windsurf-specific shim and is operationally sufficient on its own.
+
+## Architecture
+
+Three layers: `raw/` (immutable source), `wiki/` (LLM-curated), `AGENTS.md` (schema you read).
+
+Agent chain for new projects: CEO → VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → finalize. CEO reviews between stages.
+
+Operations: ingest, compile, query, align (cite/conformance/coverage/vendor-truth/closure), publish, archive, lint.
+
+## Critical rules
+
+1. Filesystem-first; Markdown and JSON only
+2. Citation-grounded; every claim has a source link
+3. Authority + domain tagged sources; vendor claims cite vendor; internal claims cite internal
+4. Approval-gated mutations; ingest/sync/archive/remove/publish require explicit user approval
+5. Scoped retrieval per project from `config/second-brain.yml`
+6. Multi-step orchestration; agents hand off through `wiki/projects/{slug}/0X-{stage}/`
+7. The LLM owns `wiki/`; humans read it
+8. Vendor truth fetched-cached-validated (90-day default TTL)
+9. Project closure: jr-engineer-executable from published artifact set alone
+10. Body-prose-clean at review and published; wikilinks allowed at draft; navigation in `## See Also`
+11. Three-state lifecycle: in-progress → published → archived; no cross in-progress dependencies
+12. Vendor citation: parenthetical + See Also link; Internal standards: inline rules + Confluence URL
+13. Safety: fail closed, explicit allowlists, append-only audit, no secrets
+14. No telemetry
+
+## How to invoke verbs
+
+Prompt files in `.github/prompts/`:
+
+`start-project`, `second-brain`, `ingest-confluence`, `ingest-vendor-doc`, `compile`, `query`, `align-cite`, `align-conformance`, `align-coverage`, `align-vendor-truth`, `align-closure`, `publish`, `archive`, `unarchive`, `lint`
+
+## Skills available
+
+`.github/skills/`:
+
+- `obsidian-markdown/` — Obsidian Flavored Markdown
+- `obsidian-bases/` — `.base` live views
+- `defuddle/` — clean Markdown extraction from web pages
+
+## Authoring quality bar
+
+Match `docs/style/exemplar-published-doc.md`.
+
+## Where to read more
+
+`AGENTS.md` at repo root.
