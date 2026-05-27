@@ -100,7 +100,7 @@ This document records the design decisions behind Second Brain v1, the alternati
 
 ## 6. Vendor doc handling: fetch-on-demand + cache + TTL
 
-**Decision:** Vendor docs are fetched on demand when an agent is about to cite a vendor capability. Cached to `raw/external/{vendor}/{topic}/` with frontmatter. Default TTL 90 days; per-vendor overrides; hard max 365 days. Defuddle CLI extracts clean Markdown.
+**Decision:** Vendor docs are fetched on demand when an agent is about to cite a vendor capability. Cached to `raw/workspace-external/{vendor}/{topic}/` with frontmatter. Default TTL 90 days; per-vendor overrides; hard max 365 days. Defuddle CLI extracts clean Markdown.
 
 **Alternatives considered:**
 
@@ -146,7 +146,7 @@ This document records the design decisions behind Second Brain v1, the alternati
 | Multi-agent with autonomous handoffs (no CEO review between stages) | Loses CEO control; LLM errors compound across stages without correction opportunity |
 | Heavy multi-agent orchestration with sub-agent spawning | Research-grade complexity; out of scope for v1 |
 
-**Why staged with checkpoints:** Each artifact (brief, PRD, architecture, implementation specs) is a distinct deliverable with its own quality criteria. CEO review between stages catches errors early. Filesystem checkpoints at `wiki/projects/{slug}/0X-{stage}/` provide explicit handoff state.
+**Why staged with checkpoints:** Each artifact (brief, PRD, architecture, implementation specs) is a distinct deliverable with its own quality criteria. CEO review between stages catches errors early. Filesystem checkpoints at `wiki/workspace-projects/{slug}/0X-{stage}/` provide explicit handoff state.
 
 **Tradeoff:** Multi-stage takes longer wall-clock than single-shot. Mitigation: each stage produces a useful artifact; the CEO can stop at any stage if the project does not warrant the full chain.
 

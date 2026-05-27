@@ -6,7 +6,7 @@ Hook configurations ported from awesome-copilot. Each hook is a folder containin
 
 These hooks target the GitHub Copilot coding-agent session model and use events: `sessionStart`, `sessionEnd`, `userPromptSubmitted`, `preToolUse`, `postToolUse`, `errorOccurred`.
 
-Our primary workflow is prompt-file invocations from Copilot chat (`/start-project`, `/ingest-confluence`, etc.), which may or may not fire the same events depending on Copilot's current session model. Before relying on any hook in production:
+Our primary workflow is prompt-file invocations from Copilot chat (`/workspace-start-project`, `/workspace-ingest-confluence`, etc.), which may or may not fire the same events depending on Copilot's current session model. Before relying on any hook in production:
 
 1. Verify the hook actually fires when expected during our prompt-driven workflow
 2. Test with a small repo and observe whether `sessionEnd` and other events trigger

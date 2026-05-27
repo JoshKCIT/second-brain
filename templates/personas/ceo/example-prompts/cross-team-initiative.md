@@ -11,7 +11,7 @@ The CEO is launching a customer-data-platform replatform initiative that touches
 ### Step 1: Start the project
 
 ```
-/start-project
+/workspace-start-project
 ```
 
 Declare intent:
@@ -80,9 +80,9 @@ The Engineer Agent runs the finalize step on every artifact in the project. Body
 ### Step 8: Pre-publish align gates
 
 ```
-/align-cite
-/align-vendor-truth
-/align-closure
+/workspace-align-cite
+/workspace-align-vendor-truth
+/workspace-align-closure
 ```
 
 All three should pass. If `align-coverage` is invoked (advisory), it surfaces any standard requirements not addressed.
@@ -100,8 +100,8 @@ After Confluence publication, the affected teams review and provide feedback. Th
 When the implementation is delivered:
 
 - Update each artifact to reflect what was actually built (if it diverged from spec)
-- Run a final `/align-cite` and `/align-closure`
-- Archive: `/archive wiki/projects/customer-data-platform-replatform/`
+- Run a final `/workspace-align-cite` and `/workspace-align-closure`
+- Archive: `/workspace-archive wiki/workspace-projects/customer-data-platform-replatform/`
 - The archived project's content stays on disk (gitignored locally) for future audit
 
 ## Notes

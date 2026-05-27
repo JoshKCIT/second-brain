@@ -29,11 +29,11 @@ A quick checklist for first-time setup. Detailed walkthrough is in `setup-kit.md
 - [ ] `config/second-brain.yml` saved and reviewed
 - [ ] Ran first ingest of a small Confluence space (10-20 pages recommended)
 - [ ] Verified `wiki/index.md` populated in Obsidian
-- [ ] Ran `/lint`; no errors
+- [ ] Ran `/workspace-lint`; no errors
 
 ## First project checklist
 
-- [ ] Invoked `/start-project`
+- [ ] Invoked `/workspace-start-project`
 - [ ] Declared project intent
 - [ ] VP Agent produced `01-vp-brief/product-brief.md`
 - [ ] Reviewed and approved (or edited) the VP brief
@@ -45,16 +45,16 @@ A quick checklist for first-time setup. Detailed walkthrough is in `setup-kit.md
 - [ ] Reviewed and approved drafts
 - [ ] Engineer Agent ran finalize step; status moved to `review`
 - [ ] Pre-publish align: `align-cite` and `align-closure` passed (or violations resolved)
-- [ ] Ran `/publish` → review; opened HTML preview folder
+- [ ] Ran `/workspace-publish` → review; opened HTML preview folder
 - [ ] Read the preview in browser; verified jr-engineer-executable bar
-- [ ] Ran `/publish` → confluence (or kept as review only); pages created in Confluence
+- [ ] Ran `/workspace-publish` → confluence (or kept as review only); pages created in Confluence
 - [ ] Project status moved to `published`
 
 ## Ongoing rhythm checklist
 
-- [ ] Weekly: `/ingest-confluence --sync` to refresh in-scope spaces
-- [ ] Monthly: `/lint` for wiki health check
-- [ ] Per query: if vendor truth is involved, run `/align-vendor-truth` and accept or refresh stale caches
+- [ ] Weekly: `/workspace-ingest-confluence --sync` to refresh in-scope spaces
+- [ ] Monthly: `/workspace-lint` for wiki health check
+- [ ] Per query: if vendor truth is involved, run `/workspace-align-vendor-truth` and accept or refresh stale caches
 - [ ] After 90 days: vendor docs revalidate via `/revalidate-vendor-docs`
 - [ ] Per project: archive when complete; do not let archived projects bleed into active work
 

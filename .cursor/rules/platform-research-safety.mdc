@@ -1,0 +1,13 @@
+---
+alwaysApply: true
+---
+
+# Second Brain Research Safety Rule
+
+For Second Brain:
+
+- Treat `raw/**` as immutable source evidence.
+- Treat researcher transcripts as product-intelligence evidence, not canonical knowledge.
+- Do not promote transcript-derived claims into `wiki/workspace-standards/**`, `wiki/workspace-recommendations/**`, `PRD.md`, `product-brief.md`, `docs/roadmap.md`, or `docs/architecture-rationale.md` without an explicit user-approved decision record.
+- If the task involves transcripts, researcher discussions, product claims, feature ideas, roadmap recommendations, or "would this make Second Brain better," invoke or recommend the `platform-research-reviewer` subagent.
+- Prefer claim extraction, skeptical review, impact scoring, and draft ADRs over direct canonical edits.

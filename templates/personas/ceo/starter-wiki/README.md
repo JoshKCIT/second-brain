@@ -45,7 +45,7 @@ Beyond the default Base views, the CEO may benefit from:
 - `views/commitments.base` — articles tagged `#commitment` from Strategy and team-leadership spaces
 - `views/board-relevant.base` — articles tagged `#board-relevant` for quick board-prep retrieval
 
-Define these in `wiki/views/*.base` files using the `obsidian-bases` skill format.
+Define these in `wiki/workspace-views/*.base` files using the `obsidian-bases` skill format.
 
 ## Tagging recommendations for CEO use
 

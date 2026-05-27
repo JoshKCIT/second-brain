@@ -52,7 +52,7 @@ Reconciled against public evidence as of April 29, 2026 (third-party scan of Rov
 - Rovo truncates on non-trivial generation tasks (§1.1, direct observation)
 - Rovo cannot apply formatting templates across multiple pages in one workflow (§1.1, direct observation)
 - Rovo gives sub-par or no answer on architectural-synthesis queries (§1.1, direct observation)
-- Manual space selection/publishing required for Rovo-generated Confluence pages (Atlassian Community 2025-2026)
+- Manual space selection/workspace-publishing required for Rovo-generated Confluence pages (Atlassian Community 2025-2026)
 - Rovo agents cannot output Confluence storage-format XML/HTML or trigger richer formatting (Atlassian Community)
 - Rovo unreliable at reading Confluence databases, attachments, images, and Assets objects (Reddit/Community reports)
 

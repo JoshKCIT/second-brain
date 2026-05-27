@@ -7,43 +7,43 @@
 
 # Personal config (user-specific overrides)
 config/second-brain.yml
-config/research-review.yml
+config/platform-research-review.yml
 
 # Runtime content (per-user; never shared)
-raw/confluence/*
-raw/jira/*
-raw/external/*
-raw/transcripts/*
-!raw/confluence/.gitkeep
-!raw/jira/.gitkeep
-!raw/external/.gitkeep
-!raw/transcripts/.gitkeep
+raw/workspace-confluence/*
+raw/workspace-jira/*
+raw/workspace-external/*
+raw/platform-transcripts/*
+!raw/workspace-confluence/.gitkeep
+!raw/workspace-jira/.gitkeep
+!raw/workspace-external/.gitkeep
+!raw/platform-transcripts/.gitkeep
 
-wiki/standards/*
-wiki/recommendations/*
-wiki/informational/*
-wiki/concepts/*
-wiki/connections/*
-wiki/qa/*
-wiki/research/*
-wiki/projects/*
-wiki/archives/*
-!wiki/standards/.gitkeep
-!wiki/recommendations/.gitkeep
-!wiki/informational/.gitkeep
-!wiki/concepts/.gitkeep
-!wiki/connections/.gitkeep
-!wiki/qa/.gitkeep
-!wiki/research/.gitkeep
-!wiki/research/transcript-analyses/
-!wiki/research/transcript-analyses/.gitkeep
-!wiki/projects/.gitkeep
-!wiki/archives/.gitkeep
+wiki/workspace-standards/*
+wiki/workspace-recommendations/*
+wiki/workspace-informational/*
+wiki/workspace-concepts/*
+wiki/workspace-connections/*
+wiki/workspace-qa/*
+wiki/platform-research/*
+wiki/workspace-projects/*
+wiki/workspace-archives/*
+!wiki/workspace-standards/.gitkeep
+!wiki/workspace-recommendations/.gitkeep
+!wiki/workspace-informational/.gitkeep
+!wiki/workspace-concepts/.gitkeep
+!wiki/workspace-connections/.gitkeep
+!wiki/workspace-qa/.gitkeep
+!wiki/platform-research/.gitkeep
+!wiki/platform-research/transcript-analyses/
+!wiki/platform-research/transcript-analyses/.gitkeep
+!wiki/workspace-projects/.gitkeep
+!wiki/workspace-archives/.gitkeep
 
 # Wiki views may be tracked or per-user; default tracked (Bases are user-curated)
 # Uncomment to ignore if you prefer per-user Bases:
-# wiki/views/*
-# !wiki/views/.gitkeep
+# wiki/workspace-views/*
+# !wiki/workspace-views/.gitkeep
 
 # Wiki index and log are per-user (your knowledge state)
 wiki/index.md
@@ -53,8 +53,8 @@ wiki/log.md
 confluence-review/
 quarantine/
 reports/*
-!reports/research-review/
-!reports/research-review/.gitkeep
+!reports/platform-research-review/
+!reports/platform-research-review/.gitkeep
 
 # State tracking (gitignored; regenerated)
 state.json

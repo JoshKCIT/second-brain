@@ -11,7 +11,7 @@ The CEO needs to prepare materials for the next board meeting covering: Q3 progr
 ### Step 1: Start the project
 
 ```
-/start-project
+/workspace-start-project
 ```
 
 Declare intent:
@@ -54,8 +54,8 @@ If the architecture doc or engineer specs need to reference past published proje
 Before publish:
 
 ```
-/align-cite (runs automatically pre-publish)
-/align-vendor-truth (run on demand for board materials)
+/workspace-align-cite (runs automatically pre-publish)
+/workspace-align-vendor-truth (run on demand for board materials)
 ```
 
 `align-vendor-truth` verifies every Snowflake claim cites the vendor doc, not internal interpretations.
@@ -63,7 +63,7 @@ Before publish:
 ### Step 6: Publish to review
 
 ```
-/publish
+/workspace-publish
 ```
 
 Choose `review`. Open the HTML preview in browser. Read as if you were a board member: is each claim supported? Is the language at the right altitude for board consumption?
@@ -79,4 +79,4 @@ When the preview reads well and align checks pass, publish to Confluence (or exp
 ## Notes
 
 - For a board prep specifically, you may want to run `align-coverage` against any compliance standards that obligate disclosure (e.g., regulatory teams' documentation standards). It is best-effort but useful as a safety net.
-- The artifact set lives in `wiki/projects/q4-board-prep/`. Archive after the meeting if you want it out of active reference; the content stays on disk.
+- The artifact set lives in `wiki/workspace-projects/q4-board-prep/`. Archive after the meeting if you want it out of active reference; the content stays on disk.

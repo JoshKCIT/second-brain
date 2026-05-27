@@ -1,0 +1,56 @@
+# Example configuration for Second Brain platform-research-review scoring.
+# Copy to config/platform-research-review.yml and adjust locally if needed.
+
+platform_research:
+  north_star: >
+    A governed documentation compiler that produces stage-gated, source-arbitrated,
+    junior-engineer-executable artifact sets with claim-level traceability.
+
+  allowed_write_paths:
+    - wiki/platform-research/**
+    - reports/platform-research-review/**
+    - docs/platform-decision-records/DRAFT-*.md
+
+  protected_paths:
+    - raw/**
+    - wiki/workspace-standards/**
+    - wiki/workspace-recommendations/**
+    - PRD.md
+    - product-brief.md
+    - docs/roadmap.md
+    - docs/architecture-rationale.md
+    - AGENTS.md
+
+  scoring_axes:
+    - governance
+    - closure
+    - grounding
+    - vendor_truth
+    - inspectability
+    - maintainability
+    - differentiation
+    - enterprise_fit
+    - human_review_leverage
+
+  decisions:
+    adopt:
+      min_total_score: 6
+      allow_negative_two: false
+      requires_low_uncertainty: true
+      requires_no_unresolved_authority_conflict: true
+    experiment:
+      min_total_score: 2
+      max_total_score: 5
+    reject:
+      max_total_score: 0
+    monitor:
+      applies_to:
+        - market_claim
+
+  required_project_docs:
+    - AGENTS.md
+    - product-brief.md
+    - PRD.md
+    - docs/architecture-rationale.md
+    - docs/roadmap.md
+    - wiki/platform-research/claim-register.md

@@ -94,24 +94,24 @@ N/A. Second Brain is single-user local in v1. Each user runs their own instance 
 
 - `/second-brain` prompt (invoked from Copilot chat) walks the user through: default in-scope Confluence spaces with authority and domain mappings, naming conventions, first project setup
 - Conversation produces `config/second-brain.yml` with user's choices
-- Conversation creates an initial `wiki/projects/{first-slug}/` skeleton
+- Conversation creates an initial `wiki/workspace-projects/{first-slug}/` skeleton
 
 ### 4.3 Project lifecycle (Priority: High)
 
 - `start-project` prompt orchestrates the agent chain: CEO declares intent → VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → Engineer-led finalize step
-- Each agent reads the prior agent's output and produces its own artifact in `wiki/projects/{slug}/0X-{stage}/`
+- Each agent reads the prior agent's output and produces its own artifact in `wiki/workspace-projects/{slug}/0X-{stage}/`
 - CEO reviews and edits between stages; explicit approval required to invoke the next agent
 - Three lifecycle states: `in-progress` (sub-states `draft`, `review`), `published`, `archived`
 - Status field in frontmatter; lint enforces stage-appropriate rules
-- Archive operation moves the project's directory to `wiki/archives/projects/{slug}/`; opt-in to include in search and reference; `unarchive` reverses
+- Archive operation moves the project's directory to `wiki/workspace-archives/projects/{slug}/`; opt-in to include in search and reference; `unarchive` reverses
 - Cross-project dependency rule: an `in-progress` project cannot reference another `in-progress` or `archived` project. Resolution is finish, archive, or restate.
 
 ### 4.4 Confluence ingestion (Priority: High)
 
 - User provides a space key, page ID, page URL, or list of these
 - Ingestion uses the user's existing API-based skill (REST API v2; ADF body format) ported into the repo with file format adapted to Second Brain frontmatter
-- Per-page output: `raw/confluence/{space-key}/pages/{page-id}--{slug}.md` with frontmatter (`source_url`, `space_key`, `page_id`, `title`, `ancestors`, `version`, `last_modified`, `labels`, `ingested_at`, `content_hash`, `domain`, `authority`)
-- Attachments captured under `raw/confluence/{space-key}/attachments/`
+- Per-page output: `raw/workspace-confluence/{space-key}/pages/{page-id}--{slug}.md` with frontmatter (`source_url`, `space_key`, `page_id`, `title`, `ancestors`, `version`, `last_modified`, `labels`, `ingested_at`, `content_hash`, `domain`, `authority`)
+- Attachments captured under `raw/workspace-confluence/{space-key}/attachments/`
 - Compile stage runs synchronously: each ingested page is integrated into the wiki layer (concept extraction, standards classification, index update)
 - Quarantine for conversion failures: `quarantine/{date}/{page-id}/` with raw payload and error report; does not block the rest of the run
 - Post-ingest manifest: agent prints page count, success count, quarantined count with reasons, wiki articles created or updated, index status, optional smoke-test query
@@ -123,7 +123,7 @@ N/A. Second Brain is single-user local in v1. Each user runs their own instance 
 - Triggered on demand: when an agent is about to cite a vendor capability, it offers to fetch the relevant vendor doc
 - User opts in per claim
 - Fetch uses `defuddle` to extract clean Markdown
-- Output: `raw/external/{vendor}/{topic}/{slug}.md` with frontmatter (`source_url`, `vendor`, `topic`, `fetched_at`, `revalidate_after`, `domain` (e.g., `vendor:aws`), `authority`)
+- Output: `raw/workspace-external/{vendor}/{topic}/{slug}.md` with frontmatter (`source_url`, `vendor`, `topic`, `fetched_at`, `revalidate_after`, `domain` (e.g., `vendor:aws`), `authority`)
 - TTL defaults: 90 days (`vendor_revalidation.default_ttl_days`); per-vendor overrides supported; hard max 365 days
 - Within TTL: cache treated as fresh; cited with `(cached YYYY-MM-DD)` annotation in agent output
 - Past TTL but under hard max: agent flags stale and offers refetch before citing
@@ -144,7 +144,7 @@ N/A. Second Brain is single-user local in v1. Each user runs their own instance 
   - `views/` (Obsidian Base files for live navigation)
 - Every wiki article carries YAML frontmatter (title, type, authority, domain, sources, status, created, updated)
 - Compile stage uses `obsidian-markdown` skill to ensure valid Obsidian Flavored Markdown output
-- Base views in `wiki/views/`: standards-by-team, recommendations-by-team, active-projects, recent-activity, stale-vendor-docs, lint-flagged
+- Base views in `wiki/workspace-views/`: standards-by-team, recommendations-by-team, active-projects, recent-activity, stale-vendor-docs, lint-flagged
 - Atomic publish: a compile run that fails partway leaves the index and articles unchanged
 
 ### 4.7 Query (Priority: High)
@@ -152,7 +152,7 @@ N/A. Second Brain is single-user local in v1. Each user runs their own instance 
 - Index-guided retrieval: agent reads `wiki/index.md` and Base views first, identifies relevant articles, reads them in full, synthesizes answer
 - Embeddings deferred (revisit only if wiki passes ~500 articles)
 - Citations to source pages and section anchors required in the answer
-- Optional `--file-back`: persists the answer as a `wiki/qa/` article and updates `index.md` and `log.md`
+- Optional `--file-back`: persists the answer as a `wiki/workspace-qa/` article and updates `index.md` and `log.md`
 - Project-scoped queries: when invoked from inside a project context, retrieval is filtered to in-scope sources for that project
 
 ### 4.8 Documentation generation via agent chain (Priority: High)
@@ -199,7 +199,7 @@ Engineering additions:
 - Status-aware closure violations
 - Cross-project dependency violations
 
-Lint reports written to `reports/lint-{date}.md` with severity (error, warning, suggestion).
+Lint reports written to `reports/workspace-lint-{date}.md` with severity (error, warning, suggestion).
 
 ### 4.11 Publish (Priority: High)
 
@@ -211,7 +211,7 @@ Lint reports written to `reports/lint-{date}.md` with severity (error, warning, 
 
 ### 4.12 Archive (Priority: Medium)
 
-- `archive` prompt moves a completed or deprecated project's directory to `wiki/archives/projects/{slug}/` (or analogous for standards/recommendations)
+- `archive` prompt moves a completed or deprecated project's directory to `wiki/workspace-archives/projects/{slug}/` (or analogous for standards/recommendations)
 - Frontmatter `archived: true` and `archived_at: timestamp` set on every file in the moved set
 - Excluded from default search and reference; included only on explicit opt-in
 - `unarchive` reverses the operation; logged in `wiki/log.md`
@@ -244,7 +244,7 @@ Lint reports written to `reports/lint-{date}.md` with severity (error, warning, 
 ### 5.2 Core experience
 
 - **Setup:** `verify-setup.py` runs, prints success summary
-- **Onboard:** `/second-brain` walks the conversation, persists `config/second-brain.yml`, creates `wiki/projects/{first-slug}/`
+- **Onboard:** `/second-brain` walks the conversation, persists `config/second-brain.yml`, creates `wiki/workspace-projects/{first-slug}/`
 - **Ingest a Confluence space:** the agent uses the API-based skill, ingests pages, compiles into wiki, prints manifest
 - **Start a project:** CEO declares intent; agent chain produces VP brief → PM PRD → Architect doc (if technical) → Engineer specs; CEO reviews between stages
 - **Query the wiki:** ask a question in Copilot chat; agent reads index, identifies relevant articles, synthesizes answer with citations
@@ -253,7 +253,7 @@ Lint reports written to `reports/lint-{date}.md` with severity (error, warning, 
 - **Publish to review:** HTML output to `confluence-review/`, folder opens for inspection
 - **Publish to Confluence:** API publishes new pages; user verifies in Confluence
 - **Sync:** weekly reminder; user-invoked sync command refreshes in-scope spaces
-- **Archive:** completed or deprecated content moves to `wiki/archives/`
+- **Archive:** completed or deprecated content moves to `wiki/workspace-archives/`
 
 ### 5.3 Advanced features and edge cases
 
@@ -322,7 +322,7 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 - Confluence content access governed by user's API token; no ACL bypass
 - Vendor doc cache retains content for the configured TTL (90 days default; 365 day hard max)
 - Quarantine artifacts retained indefinitely for audit
-- Generated drafts written to `wiki/projects/{slug}/`; user is responsible for what is shared
+- Generated drafts written to `wiki/workspace-projects/{slug}/`; user is responsible for what is shared
 
 ### 8.3 Scalability and performance
 
@@ -365,14 +365,14 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 
 - **Phase 2 (week 3-4): Wiki layer + compile workflow**
   - `wiki/` directory layout
-  - `compile.prompt.md` and the obsidian-markdown skill integration
+  - `workspace-compile.prompt.md` and the obsidian-markdown skill integration
   - `index.md` and `log.md` formats
   - Quarantine, post-ingest manifest
   - Frontmatter schema for raw/ and wiki/ articles
   - Lint scaffold (structural checks)
 
 - **Phase 3 (week 5-6): Query + agent chain skeleton**
-  - `query.prompt.md` (index-guided)
+  - `workspace-query.prompt.md` (index-guided)
   - Agent prompt files: `vp-agent`, `pm-agent`, `architect-agent`, `engineer-agent`, `start-project`, `finalize`
   - Project lifecycle: status, in-progress vs published vs archived
   - Cross-project dependency rules in lint
@@ -386,11 +386,11 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
   - `revalidate-vendor-docs` prompt
 
 - **Phase 5 (week 9-10): Publish + archive + obsidian-bases integration**
-  - `publish.prompt.md` with review and Confluence branches
-  - `prepare-for-confluence.prompt.md` (Markdown to HTML)
-  - `publish-to-confluence.prompt.md` (API publish; MCP alternative)
+  - `workspace-publish.prompt.md` with review and Confluence branches
+  - `workspace-prepare-for-confluence.prompt.md` (Markdown to HTML)
+  - `workspace-publish-to-confluence.prompt.md` (API publish; MCP alternative)
   - `archive` and `unarchive` prompts
-  - obsidian-bases skill integration; `wiki/views/` Base files
+  - obsidian-bases skill integration; `wiki/workspace-views/` Base files
 
 - **Phase 6 (week 11-12): Persona templates + writing exemplar + polish**
   - CEO persona template fully populated
@@ -426,7 +426,7 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 - Acceptance criteria:
   - Invoking the `second-brain` prompt walks through default in-scope spaces with authority and domain
   - Conversation persists `config/second-brain.yml`
-  - Conversation creates `wiki/projects/{first-slug}/` skeleton
+  - Conversation creates `wiki/workspace-projects/{first-slug}/` skeleton
 
 ### 10.3 Ingest a Confluence space
 
@@ -434,7 +434,7 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 - Description: As the CEO, I want to ingest a Confluence space so that its standards become referenceable in my wiki.
 - Acceptance criteria:
   - User provides a space key, page ID, page URL, or list
-  - Pages land in `raw/confluence/{space-key}/pages/...` with frontmatter
+  - Pages land in `raw/workspace-confluence/{space-key}/pages/...` with frontmatter
   - Wiki layer compiles synchronously
   - Quarantine catches conversion failures without blocking the run
   - Post-ingest manifest reports outcome
@@ -455,7 +455,7 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 - Acceptance criteria:
   - When the agent is about to cite a vendor capability, it offers to fetch the relevant page
   - On opt-in, defuddle extracts clean Markdown
-  - Page lands in `raw/external/{vendor}/{topic}/{slug}.md` with TTL frontmatter
+  - Page lands in `raw/workspace-external/{vendor}/{topic}/{slug}.md` with TTL frontmatter
   - Cached pages within TTL are reused without prompting
 
 ### 10.6 Revalidate vendor docs
@@ -465,7 +465,7 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 - Acceptance criteria:
   - `revalidate-vendor-docs` prompt enumerates docs past TTL or hard max
   - User can opt to refetch in batch or per item
-  - Refreshed docs replace cached versions; previous version retained in `raw/external/{vendor}/{topic}/.history/` (optional)
+  - Refreshed docs replace cached versions; previous version retained in `raw/workspace-external/{vendor}/{topic}/.history/` (optional)
 
 ### 10.7 Start a new project
 
@@ -474,7 +474,7 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 - Acceptance criteria:
   - `start-project` orchestrates VP → PM → Architect (if technical) → Engineer
   - CEO reviews and edits between stages
-  - Each agent's output written to `wiki/projects/{slug}/0X-{stage}/`
+  - Each agent's output written to `wiki/workspace-projects/{slug}/0X-{stage}/`
   - Status field set on every file; defaults to `draft`
 
 ### 10.8 Run finalize step
@@ -542,7 +542,7 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 - Acceptance criteria:
   - Agent reads `wiki/index.md` and Base views, identifies relevant articles, reads them, synthesizes
   - Answer includes section-level citations
-  - Optional `--file-back` persists as `wiki/qa/` article and updates index and log
+  - Optional `--file-back` persists as `wiki/workspace-qa/` article and updates index and log
   - Project-scoped query filters to in-scope sources
 
 ### 10.15 Archive a completed project
@@ -550,7 +550,7 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 - ID: US-015
 - Description: As the CEO, I want to archive a finished project so that it stays on disk but does not clutter active search.
 - Acceptance criteria:
-  - `archive` prompt moves project directory to `wiki/archives/projects/{slug}/`
+  - `archive` prompt moves project directory to `wiki/workspace-archives/projects/{slug}/`
   - Frontmatter `archived: true` and `archived_at` set on every file
   - Excluded from default search and reference; opt-in to include
   - `unarchive` reverses
@@ -561,7 +561,7 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 - Description: As the CEO, I want a periodic health check so that the wiki does not silently degrade.
 - Acceptance criteria:
   - `lint` runs all seven structural checks plus engineering additions
-  - Report written to `reports/lint-{date}.md` with severity per finding
+  - Report written to `reports/workspace-lint-{date}.md` with severity per finding
   - Status-aware closure violations included
 
 ### 10.17 Resolve cross-project dependency

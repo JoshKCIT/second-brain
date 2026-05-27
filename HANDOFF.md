@@ -23,7 +23,7 @@ The repo contains:
 - **Top-level:** `README.md`, `AGENTS.md`, `CLAUDE.md`, `PRD.md`, `product-brief.md`, `.windsurfrules`, `.env.example`, `.gitignore`, `HANDOFF.md` (this file)
 - **Per-agent shims:** `.github/copilot-instructions.md`, `.cursor/rules/agents.mdc`, plus `CLAUDE.md` and `.windsurfrules` at root
 - **17 prompts** in `.github/prompts/`: orchestration (`start-project`), agent chain (`vp-agent`, `pm-agent`, `architect-agent`, `engineer-agent`), align (`align-cite`, `align-vendor-truth`, `align-closure`, `align-conformance`, `align-coverage`), ingest (`ingest-confluence`, `ingest-vendor-doc`), `compile`, `query`, publish (`publish`, `prepare-for-confluence`, `publish-to-confluence`), lifecycle (`archive`, `unarchive`), `lint`, onboarding (`second-brain`)
-- **1 specialized agent** in `.github/agents/`: `adr-generator.agent.md`
+- **1 specialized agent** in `.github/agents/`: `workspace-adr-generator.agent.md`
 - **3 skills** in `.github/skills/`: `obsidian-markdown`, `obsidian-bases`, `defuddle` (copied from `build-inputs/skills/`)
 - **4 hooks** in `.github/hooks/`: `secrets-scanner`, `tool-guardian`, `session-logger`, `governance-audit` — **PORTED BUT NOT VERIFIED for Copilot compatibility** (your Phase 1 task; see `.github/hooks/README.md`)
 - **docs/**: `product-brief.md`, `PRD.md`, `architecture-rationale.md`, `roadmap.md`, `setup-kit.md`, `adoption-checklist.md`, `progress-log.md`, `style/exemplar-published-doc.md`
@@ -58,7 +58,7 @@ Per `docs/roadmap.md` Phase 1, in order of priority:
 2. Configure in `.env` (extend `.env.example` with the MCP fields if needed)
 3. Pick a small test space (5-10 pages) the user designates
 4. Use the MCP to fetch one page; verify the response contains all required metadata
-5. **If MCP provides everything:** proceed with MCP-first ingestion path; wire `ingest-confluence.prompt.md` to use MCP tools
+5. **If MCP provides everything:** proceed with MCP-first ingestion path; wire `workspace-ingest-confluence.prompt.md` to use MCP tools
 6. **If MCP is insufficient:** identify exactly what is missing or filtered; fall back to porting the user's existing API-based Confluence ingestion skill (Step 4 below)
 
 Decision rationale: `docs/architecture-rationale.md` §5.
@@ -67,7 +67,7 @@ Decision rationale: `docs/architecture-rationale.md` §5.
 
 Specification:
 - Validates `.env` is present and Atlassian credentials parse
-- Creates required runtime directories (`raw/confluence/`, `raw/external/`, `wiki/standards/`, `wiki/concepts/`, etc., per the layout in `AGENTS.md`)
+- Creates required runtime directories (`raw/workspace-confluence/`, `raw/workspace-external/`, `wiki/workspace-standards/`, `wiki/workspace-concepts/`, etc., per the layout in `AGENTS.md`)
 - Initializes `wiki/index.md` and `wiki/log.md` if missing (with the structure documented in `AGENTS.md`)
 - Tests Atlassian connectivity (one read-only API call against the configured tenant)
 - Prints a success summary with what was created and verified
@@ -91,9 +91,9 @@ If hooks do not fire as expected in Copilot's prompt-driven model, document the 
 If Step 1 showed MCP cannot provide complete metadata:
 
 - Get the user's existing skill code (ask)
-- Port into the repo (likely under `scripts/` or invoked by `.github/prompts/ingest-confluence.prompt.md`)
+- Port into the repo (likely under `scripts/` or invoked by `.github/prompts/workspace-ingest-confluence.prompt.md`)
 - Adapt the output format to match the frontmatter schema in `AGENTS.md` (source_url, space_key, page_id, version, content_hash, authority, domain, etc.)
-- Confirm the ported skill produces files matching `raw/confluence/{space-key}/pages/{page-id}--{slug}.md`
+- Confirm the ported skill produces files matching `raw/workspace-confluence/{space-key}/pages/{page-id}--{slug}.md`
 
 ### 5. Update `docs/progress-log.md`
 
@@ -144,7 +144,7 @@ After each session, append an entry per the format already in the file:
 - **Vendor citation pattern:** parenthetical attribution + See Also link
 - **Internal standard pattern:** inline relevant rules + Confluence URL in See Also
 - **Three align levels in v1:** `align-cite` (production), `align-conformance` and `align-coverage` (best-effort with documented quality tier); plus `align-vendor-truth` and `align-closure` (production)
-- **Vendor truth handling:** fetch-on-demand via `defuddle`, cache to `raw/external/`, 90-day TTL default, 365-day hard max
+- **Vendor truth handling:** fetch-on-demand via `defuddle`, cache to `raw/workspace-external/`, 90-day TTL default, 365-day hard max
 - **Confluence sync cadence:** weekly default; reminder after 7 days
 - **Publish flow:** branch on review (HTML to `confluence-review/`) vs Confluence (MCP primary if validated, API fallback)
 - **Embeddings deferred:** revisit only if wiki passes ~500 articles
@@ -179,7 +179,7 @@ After each session, append an entry per the format already in the file:
 | Per-agent shims | `.github/copilot-instructions.md`, `CLAUDE.md`, `.cursor/rules/agents.mdc`, `.windsurfrules` |
 | Reusable prompts (verbs) | `.github/prompts/*.prompt.md` |
 | Reusable skills | `.github/skills/{obsidian-markdown,obsidian-bases,defuddle}/SKILL.md` |
-| Specialized agents | `.github/agents/adr-generator.agent.md` |
+| Specialized agents | `.github/agents/workspace-adr-generator.agent.md` |
 | Safety hooks (verify before relying) | `.github/hooks/{secrets-scanner,tool-guardian,session-logger,governance-audit}/` |
 | Planning docs | `docs/{product-brief,PRD,architecture-rationale,roadmap,setup-kit,adoption-checklist,progress-log}.md` |
 | Writing-style exemplar | `docs/style/exemplar-published-doc.md` |

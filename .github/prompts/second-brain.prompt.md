@@ -67,11 +67,11 @@ alignment_defaults:
 
 ### Step 4: First project (optional)
 
-Ask: do you want to create your first project now? If yes, invoke `start-project.prompt.md`. If no, tell the user they can run `/start-project` anytime.
+Ask: do you want to create your first project now? If yes, invoke `workspace-start-project.prompt.md`. If no, tell the user they can run `/workspace-start-project` anytime.
 
 ### Step 5: Initial ingest (optional)
 
-Ask: do you want to ingest one of the in-scope spaces now to populate the wiki? If yes, invoke `ingest-confluence.prompt.md` for the chosen space. If no, the user can ingest later.
+Ask: do you want to ingest one of the in-scope spaces now to populate the wiki? If yes, invoke `workspace-ingest-confluence.prompt.md` for the chosen space. If no, the user can ingest later.
 
 ### Step 6: Closing
 

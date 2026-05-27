@@ -13,18 +13,18 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
-## [2026-05-27] session | research review import
+## [2026-05-27] session | platform research review import
 
 - Changed:
-  - Promoted the draft research-review kit into first-class project locations: prompt operation, Cursor agent and rule, GitHub skill, templates, product-intelligence docs, config example, and runtime placeholders.
-  - Added research-review semantics to `AGENTS.md` and per-agent shims: transcripts are product-intelligence evidence, not canonical knowledge.
-  - Added ignore rules for live transcripts and generated research-review outputs while preserving tracked templates and placeholders.
+  - Promoted the draft platform-research-review kit into first-class project locations: prompt operation, Cursor agent and rule, GitHub skill, templates, product-intelligence docs, config example, and runtime placeholders.
+  - Added platform-research-review semantics to `AGENTS.md` and per-agent shims: transcripts are product-intelligence evidence, not canonical knowledge.
+  - Added ignore rules for live transcripts and generated platform-research-review outputs while preserving tracked templates and placeholders.
 
 - Open:
   - Run the validation suite and confirm `draft-version/` has no remaining unique keep-worthy content before removal.
 
 - Next:
-  - Wire research-review lint checks and tests, then delete `draft-version/` after validation.
+  - Wire platform-research-review lint checks and tests, then delete `draft-version/` after validation.
 
 ---
 
@@ -39,7 +39,7 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
   - Wrote per-agent shims: `.github/copilot-instructions.md`, `CLAUDE.md`, `.cursor/rules/agents.mdc`, `.windsurfrules`
   - Wrote agent chain prompts: `start-project`, `vp-agent`, `pm-agent`, `architect-agent`, `engineer-agent`
   - Wrote operational prompts: `second-brain` (onboarding), `ingest-confluence`, `ingest-vendor-doc`, `compile`, `query`, `align-cite`, `align-vendor-truth`, `align-closure`, `align-conformance`, `align-coverage`, `publish`, `prepare-for-confluence`, `publish-to-confluence`, `archive`, `unarchive`, `lint`
-  - Wrote `.github/agents/adr-generator.agent.md`
+  - Wrote `.github/agents/workspace-adr-generator.agent.md`
   - Wrote `.env.example`, `.gitignore`, `config/second-brain.example.yml`
   - Wrote docs: roadmap.md, setup-kit.md, adoption-checklist.md, progress-log.md (this file)
   - Copied `writing-example.md` to `docs/style/exemplar-published-doc.md` (cleanup of export artifacts pending)
