@@ -27,7 +27,16 @@ Second Brain produces new documentation by:
 
 ## Architecture in three sentences
 
-Three layers: `raw/` is the immutable source mirror (Confluence pages, vendor docs, and product-intelligence transcripts); `wiki/` is the LLM-curated knowledge layer organized by article type and authority; `AGENTS.md` is the operating spec the LLM reads. Operations: ingest (Confluence pages, vendor docs on demand), compile (raw → wiki), query (index-guided), research-review (transcripts to grounded claim records), align (5 verification levels), publish (review-folder HTML or Confluence pages), archive. The pattern combines Karpathy's wiki model with Cole's compiler refinements, adapted for engineering documentation.
+Three layers: `raw/` is the immutable source mirror (Confluence pages, vendor docs, and product-intelligence transcripts); `wiki/` is the LLM-curated knowledge layer organized by article type and authority; `AGENTS.md` is the operating spec the LLM reads. Operations: ingest (Confluence pages, vendor docs on demand), compile (raw → wiki), query (index-guided), platform-research-review (transcripts to grounded claim records), align (5 verification levels), publish (review-folder HTML or Confluence pages), archive. The pattern combines Karpathy's wiki model with Cole's compiler refinements, adapted for engineering documentation.
+
+## Two Lanes
+
+Second Brain uses explicit path prefixes so occasional contributors can tell what a file is for:
+
+- `workspace-*` means everyday use of Second Brain for company/project work. Examples: `raw/workspace-confluence/`, `wiki/workspace-standards/`, `.github/prompts/workspace-query.prompt.md`.
+- `platform-*` means work on Second Brain itself. Examples: `raw/platform-transcripts/`, `wiki/platform-research/`, `.cursor/agents/platform-research-reviewer.md`.
+
+If the task is "use Second Brain to ingest, query, generate, align, publish, or archive work docs," use the workspace lane. If the task is "make Second Brain better," use the platform lane.
 
 ## Quick start
 
@@ -86,24 +95,26 @@ Avoid: Foam and Dendron (alternatives to Obsidian, not complements; conflict wit
 ```
 README.md                 You are here
 AGENTS.md                 Canonical operating spec for any agent
-.github/                  Copilot shim, prompts, agent skills (obsidian-markdown, obsidian-bases, defuddle)
+.github/                  Copilot shim, lane-labeled prompts, agent skills
 CLAUDE.md, .cursor/, .windsurfrules   Per-agent shims
 docs/                     Brief, PRD, architecture rationale, roadmap, setup kit, writing-style exemplar
 config/                   second-brain.example.yml; user's local config gitignored
 templates/personas/       CEO populated in v1; Engineer/Architect/PM/Director/VP stubs for v1.x
-raw/                      Immutable source mirror (gitignored content)
-wiki/                     LLM-curated knowledge layer (gitignored content)
+raw/workspace-*           Everyday source mirror (gitignored content)
+raw/platform-*            Second Brain platform research sources (gitignored content)
+wiki/workspace-*          Everyday curated knowledge layer (gitignored content)
+wiki/platform-*           Second Brain platform research outputs (gitignored content)
 confluence-review/        Local HTML preview output (gitignored)
 quarantine/               Failed conversion artifacts (gitignored)
-reports/                  Lint and research-review reports (gitignored)
+reports/                  Lint and platform-research-review reports (gitignored)
 reference-documents/      Manual drops of external standards or specs
 .obsidian/                Bundled vault config defaults
 scripts/                  verify-setup.py and minimal helpers (most operations are LLM-driven)
 ```
 
-## Optional Research Review
+## Optional Platform Research Review
 
-Use `/research-review` when transcripts, interviews, meeting notes, or product ideas discuss how to improve Second Brain. The workflow extracts atomic claims, grounds them against `AGENTS.md`, `product-brief.md`, `PRD.md`, and related docs, then writes claim records and impact reports under `wiki/research/` and `reports/research-review/`.
+Use `/platform-research-review` when transcripts, interviews, meeting notes, or product ideas discuss how to improve Second Brain. The workflow extracts atomic claims, grounds them against `AGENTS.md`, `product-brief.md`, `PRD.md`, and related docs, then writes claim records and impact reports under `wiki/platform-research/` and `reports/platform-research-review/`.
 
 Research review is intentionally not a compile path: transcripts can influence draft ADRs and experiments, but they do not directly become canonical standards, roadmap items, or product requirements.
 
@@ -118,7 +129,7 @@ Research review is intentionally not a compile path: transcripts can influence d
 | `docs/roadmap.md` | Phase sequencing for v1 |
 | `docs/setup-kit.md` | Step-by-step adoption guide |
 | `docs/adoption-checklist.md` | Quick first-run checklist |
-| `docs/product-intelligence/research-review-setup.md` | Optional transcript-to-claim review workflow |
+| `docs/platform-intelligence/platform-research-review-setup.md` | Optional transcript-to-claim review workflow |
 | `docs/style/exemplar-published-doc.md` | Writing-quality target for authored artifacts |
 
 ## Enterprise considerations

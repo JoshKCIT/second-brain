@@ -10,9 +10,9 @@ Three layers:
 2. `wiki/` — LLM-curated knowledge layer organized by article type and authority
 3. `AGENTS.md` — canonical operating spec
 
-Agent chain for new projects: CEO → VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → finalize. CEO reviews between stages.
+Workspace agent chain for new projects: CEO → VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → finalize. CEO reviews between stages.
 
-Operations: ingest, compile, query, research-review, align (5 levels), publish, archive, lint.
+Operations are lane-labeled: `workspace-*` for everyday project/documentation work, and `platform-*` for improving Second Brain itself.
 
 ## Critical rules
 
@@ -21,7 +21,7 @@ Operations: ingest, compile, query, research-review, align (5 levels), publish, 
 3. Authority + domain tagged sources. Vendor claims cite vendor sources; internal claims cite internal sources.
 4. Approval-gated mutations. Ingest, sync, archive, remove, publish require explicit user approval.
 5. Scoped retrieval per project from `config/second-brain.yml`.
-6. Multi-step orchestration with persistent state. Agents hand off through `wiki/projects/{slug}/0X-{stage}/`.
+6. Multi-step orchestration with persistent state. Agents hand off through `wiki/workspace-projects/{slug}/0X-{stage}/`.
 7. The LLM owns the wiki layer. Direct human edits set `manually_edited: true`.
 8. Vendor truth fetched, cached, validated (90-day default TTL).
 9. Project deliverable closure: jr-engineer-executable from the published artifact set alone.
@@ -35,11 +35,12 @@ Operations: ingest, compile, query, research-review, align (5 levels), publish, 
 
 Prompt files in `.github/prompts/`:
 
-- `start-project` (orchestrates the agent chain)
+- `workspace-start-project` (orchestrates the workspace agent chain)
 - `second-brain` (onboarding)
-- `ingest-confluence`, `ingest-vendor-doc`, `compile`, `query`, `research-review`
-- `align-cite`, `align-conformance`, `align-coverage`, `align-vendor-truth`, `align-closure`
-- `publish`, `archive`, `unarchive`, `lint`
+- `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`
+- `platform-research-review`
+- `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`
+- `workspace-publish`, `workspace-archive`, `workspace-unarchive`, `workspace-lint`
 
 ## Skills available
 
@@ -48,7 +49,7 @@ Prompt files in `.github/prompts/`:
 - `obsidian-markdown/` — Obsidian Flavored Markdown (use when authoring wiki content)
 - `obsidian-bases/` — `.base` files for live navigation views
 - `defuddle/` — clean Markdown extraction from web pages (use when ingesting vendor docs)
-- `research-review/` — transcript-to-claim review with grounding, skeptical scoring, and draft ADR routing
+- `platform-research-review/` — transcript-to-claim review with grounding, skeptical scoring, and draft ADR routing
 
 ## Authoring quality bar
 

@@ -42,15 +42,30 @@ The user does not manually organize the wiki. They configure scope, request oper
 
 ---
 
+## Lane vocabulary: platform vs workspace
+
+Second Brain has two explicit operating lanes. Classify the user's task before touching files.
+
+| Lane | Meaning | Use when... | Path prefix |
+|---|---|---|---|
+| `platform` | Work that improves Second Brain itself | The user provides transcripts, product ideas, competitor research, architecture proposals, or asks how to make Second Brain better | `platform-*` |
+| `workspace` | Everyday use of Second Brain for company/project documentation | The user ingests, compiles, queries, aligns, publishes, archives, or authors normal work artifacts from Confluence/vendor sources | `workspace-*` |
+
+Platform-lane evidence may produce claim records, reports, experiments, and draft platform decision records. It must not directly mutate workspace standards, workspace recommendations, workspace projects, the PRD, roadmap, architecture rationale, or `AGENTS.md` without explicit user approval.
+
+Workspace-lane operations must not read platform research outputs by default. Use platform research only when the user explicitly asks to improve Second Brain or review product-intelligence evidence.
+
+---
+
 ## Architecture: three layers + agent chain
 
 ### Three layers
 
 1. **`raw/` - immutable source**
-   - `raw/confluence/{space-key}/pages/{page-id}--{slug}.md` and `attachments/`
-   - `raw/jira/{project-key}/tickets/` (v1.x)
-   - `raw/external/{vendor}/{topic}/{slug}.md` for cached vendor docs
-   - `raw/transcripts/{slug}/transcript.md` for product-intelligence transcripts
+   - `raw/workspace-confluence/{space-key}/pages/{page-id}--{slug}.md` and `attachments/`
+   - `raw/workspace-jira/{project-key}/tickets/` (v1.x)
+   - `raw/workspace-external/{vendor}/{topic}/{slug}.md` for cached vendor docs
+   - `raw/platform-transcripts/{slug}/transcript.md` for product-intelligence transcripts
    - You read from here; you never modify it after the initial ingest write.
 
 2. **`wiki/` - LLM-curated knowledge**
@@ -67,18 +82,18 @@ When the user (CEO) declares a project intent, you orchestrate this chain:
 ```
 CEO declares high-level project intent
    ↓
-VP Agent (works with CEO) → wiki/projects/{slug}/01-vp-brief/product-brief.md
+VP Agent (works with CEO) → wiki/workspace-projects/{slug}/01-vp-brief/product-brief.md
    ↓
-PM Agent (uses VP output) → wiki/projects/{slug}/02-pm-prd/product-requirements.md
+PM Agent (uses VP output) → wiki/workspace-projects/{slug}/02-pm-prd/product-requirements.md
    ↓
-Architect Agent (if technical) → wiki/projects/{slug}/03-architecture/architectural-approaches.md
+Architect Agent (if technical) → wiki/workspace-projects/{slug}/03-architecture/architectural-approaches.md
    ↓
-Engineer Agent → wiki/projects/{slug}/04-engineering/{spec-files}.md
+Engineer Agent → wiki/workspace-projects/{slug}/04-engineering/{spec-files}.md
    ↓
 Engineer-led finalize step → status: review
 ```
 
-Each agent has a prompt file in `.github/prompts/{agent}-agent.prompt.md` with role definition, input contract, output contract, source-of-truth scope, and human checkpoint logic.
+Each workspace agent has a prompt file in `.github/prompts/workspace-{agent}-agent.prompt.md` with role definition, input contract, output contract, source-of-truth scope, and human checkpoint logic.
 
 CEO reviews and edits between stages. Do not invoke the next agent without explicit CEO approval.
 
@@ -110,7 +125,7 @@ Every source carries two tags:
 
 When citing in generated artifacts:
 - Internal architecture claims: cite internal sources (Architecture, Security, Audit, etc.)
-- Vendor capability claims: cite vendor docs from `raw/external/{vendor}/`
+- Vendor capability claims: cite vendor docs from `raw/workspace-external/{vendor}/`
 - Compliance claims: cite industry standards
 
 ---
@@ -121,19 +136,19 @@ When citing in generated artifacts:
 wiki/
 ├── index.md              # Master catalog; Obsidian home; embeds Base views
 ├── log.md                # Append-only chronological build log
-├── standards/            # Authority: standard
-├── recommendations/      # Authority: recommendation
-├── informational/        # Authority: informational (default for ungraded)
-├── concepts/             # Atomic knowledge articles compiled from raw sources
-├── connections/          # Cross-cutting insights linking 2+ concepts
-├── qa/                   # Filed query answers (compounding knowledge)
-├── research/             # Transcript-derived product intelligence; not canonical knowledge
-├── projects/{slug}/      # Project-specific artifact sets (per-stage subdirs)
-├── archives/             # Completed and deprecated content (excluded from default search)
-└── views/                # Obsidian Base files for live navigation
+├── workspace-standards/            # Authority: standard
+├── workspace-recommendations/      # Authority: recommendation
+├── workspace-informational/        # Authority: informational (default for ungraded)
+├── workspace-concepts/             # Atomic knowledge articles compiled from workspace raw sources
+├── workspace-connections/          # Cross-cutting insights linking 2+ concepts
+├── workspace-qa/                   # Filed query answers (compounding knowledge)
+├── workspace-projects/{slug}/      # Project-specific artifact sets (per-stage subdirs)
+├── workspace-archives/             # Completed and deprecated content (excluded from default search)
+├── workspace-views/                # Obsidian Base files for live navigation
+└── platform-research/              # Transcript-derived platform intelligence; not canonical workspace knowledge
 ```
 
-### Concept article (`wiki/concepts/{slug}.md`)
+### Concept article (`wiki/workspace-concepts/{slug}.md`)
 
 ```markdown
 ---
@@ -144,7 +159,7 @@ domain: internal | vendor:aws | industry:nist | ...
 aliases: [alternate-name]
 tags: [domain, topic]
 sources:
-  - "raw/confluence/SECURITY/pages/12345--encryption-at-rest.md"
+  - "raw/workspace-confluence/SECURITY/pages/12345--encryption-at-rest.md"
 status: published
 created: 2026-04-28
 updated: 2026-04-28
@@ -164,28 +179,28 @@ updated: 2026-04-28
 
 ## See Also
 
-- [[concepts/related-concept]] — How it connects
+- [[workspace-concepts/related-concept]] — How it connects
 
 ## Sources
 
-- [[raw/confluence/SECURITY/pages/12345--encryption-at-rest]] (Section 3.2)
+- [[raw/workspace-confluence/SECURITY/pages/12345--encryption-at-rest]] (Section 3.2)
 ```
 
 ### Standard / Recommendation / Informational article
 
-Same shape as concept; lives in `wiki/standards/{team}/{slug}.md` etc. The directory placement encodes the authority. Frontmatter `domain` is required.
+Same shape as concept; lives in `wiki/workspace-standards/{team}/{slug}.md` etc. The directory placement encodes the authority. Frontmatter `domain` is required.
 
-### Connection article (`wiki/connections/{slug}.md`)
+### Connection article (`wiki/workspace-connections/{slug}.md`)
 
 ```markdown
 ---
 title: "Connection: X and Y"
 type: connection
 connects:
-  - "concepts/concept-x"
-  - "concepts/concept-y"
+  - "workspace-concepts/concept-x"
+  - "workspace-concepts/concept-y"
 sources:
-  - "raw/confluence/SPACE/pages/...md"
+  - "raw/workspace-confluence/SPACE/pages/...md"
 status: published
 created: 2026-04-28
 updated: 2026-04-28
@@ -207,11 +222,11 @@ updated: 2026-04-28
 
 ## See Also
 
-- [[concepts/concept-x]]
-- [[concepts/concept-y]]
+- [[workspace-concepts/concept-x]]
+- [[workspace-concepts/concept-y]]
 ```
 
-### Q&A article (`wiki/qa/{slug}.md`)
+### Q&A article (`wiki/workspace-qa/{slug}.md`)
 
 ```markdown
 ---
@@ -219,8 +234,8 @@ title: "Q: Original Question"
 type: qa
 question: "The exact question asked"
 consulted:
-  - "concepts/article-1"
-  - "concepts/article-2"
+  - "workspace-concepts/article-1"
+  - "workspace-concepts/article-2"
 status: published
 filed: 2026-04-28
 ---
@@ -233,15 +248,15 @@ filed: 2026-04-28
 
 ## Sources Consulted
 
-- [[concepts/article-1]] — Relevant because...
-- [[concepts/article-2]] — Provided context on...
+- [[workspace-concepts/article-1]] — Relevant because...
+- [[workspace-concepts/article-2]] — Provided context on...
 
 ## Follow-Up Questions
 
 - [Open questions raised by the answer]
 ```
 
-### Research claim register (`wiki/research/claim-register.md`)
+### Research claim register (`wiki/platform-research/claim-register.md`)
 
 Research review captures transcript-derived product-intelligence claims. These claims are evidence for product decisions, not canonical internal standards, vendor truth, or roadmap facts.
 
@@ -252,7 +267,7 @@ Research review captures transcript-derived product-intelligence claims. These c
 
 ```yaml
 claim_id: RC-YYYY-MM-DD-001
-source_transcript: raw/transcripts/path/to/transcript.md
+source_transcript: raw/platform-transcripts/path/to/transcript.md
 claim_type: product_requirement
 atomic_claim: ""
 current_design_status: unsupported
@@ -273,9 +288,9 @@ next_action: ""
 ```
 ````
 
-Research-review agents may write `wiki/research/**`, `reports/research-review/**`, and `docs/decision-records/DRAFT-*.md`. They must not directly update `wiki/standards/**`, `wiki/recommendations/**`, `PRD.md`, `product-brief.md`, `docs/roadmap.md`, `docs/architecture-rationale.md`, `AGENTS.md`, or any `raw/**` source mirror based on transcript claims.
+Platform research-review agents may write `wiki/platform-research/**`, `reports/platform-research-review/**`, and `docs/platform-decision-records/DRAFT-*.md`. They must not directly update `wiki/workspace-standards/**`, `wiki/workspace-recommendations/**`, `PRD.md`, `product-brief.md`, `docs/roadmap.md`, `docs/architecture-rationale.md`, `AGENTS.md`, or any `raw/**` source mirror based on transcript claims.
 
-### Project stage artifact (`wiki/projects/{slug}/0X-{stage}/{name}.md`)
+### Project stage artifact (`wiki/workspace-projects/{slug}/0X-{stage}/{name}.md`)
 
 ```markdown
 ---
@@ -286,8 +301,8 @@ stage: "vp-brief" | "pm-prd" | "architecture" | "engineering"
 status: draft | review | published | archived
 authored_by_agent: vp | pm | architect | engineer
 sources:
-  - "wiki/standards/architecture/microservice-sizing.md"
-  - "raw/external/aws/s3/encryption.md"
+  - "wiki/workspace-standards/architecture/microservice-sizing.md"
+  - "raw/workspace-external/aws/s3/encryption.md"
 created: 2026-04-28
 updated: 2026-04-28
 ---
@@ -316,21 +331,21 @@ updated: 2026-04-28
 
 ## Active projects
 
-[Embed: wiki/views/active-projects.base, or table here]
+[Embed: wiki/workspace-views/active-projects.base, or table here]
 
 ## Standards by team
 
-[Embed: wiki/views/standards-by-team.base]
+[Embed: wiki/workspace-views/standards-by-team.base]
 
 ## Recent activity
 
-[Embed: wiki/views/recent-activity.base]
+[Embed: wiki/workspace-views/recent-activity.base]
 
 ## All concepts
 
 | Article | Authority | Domain | Sources | Updated |
 |---|---|---|---|---|
-| [[concepts/encryption-at-rest]] | Standard | Internal | 2 | 2026-04-28 |
+| [[workspace-concepts/encryption-at-rest]] | Standard | Internal | 2 | 2026-04-28 |
 | ... |
 
 ## All connections
@@ -340,7 +355,7 @@ updated: 2026-04-28
 
 ## Stale vendor docs
 
-[Embed: wiki/views/stale-vendor-docs.base]
+[Embed: wiki/workspace-views/stale-vendor-docs.base]
 ```
 
 You update this file on every compile. It is the agent's primary retrieval mechanism for queries: read `index.md` first to identify relevant articles, then read those articles in full.
@@ -358,19 +373,19 @@ You update this file on every compile. It is the agent's primary retrieval mecha
 - Pages fetched: 47
 - Pages compiled: 45
 - Quarantined: 2 ([[quarantine/2026-04-28/12345]], [[quarantine/2026-04-28/12346]])
-- Wiki articles created: [[concepts/microservice-sizing]], [[standards/architecture/microservice-sizing]]
+- Wiki articles created: [[workspace-concepts/microservice-sizing]], [[workspace-standards/architecture/microservice-sizing]]
 - Index updated
 
 ## [2026-04-28T15:12:00Z] query | "What is our microservice sizing standard?"
-- Consulted: [[standards/architecture/microservice-sizing]], [[concepts/service-boundaries]]
-- Filed to: [[qa/microservice-sizing-explained]]
+- Consulted: [[workspace-standards/architecture/microservice-sizing]], [[workspace-concepts/service-boundaries]]
+- Filed to: [[workspace-qa/microservice-sizing-explained]]
 
-## [2026-04-28T16:00:00Z] align-vendor-truth | wiki/projects/customer-data-replatform/02-pm-prd/product-requirements.md
+## [2026-04-28T16:00:00Z] align-vendor-truth | wiki/workspace-projects/customer-data-replatform/02-pm-prd/product-requirements.md
 - Vendor claims checked: 7
 - Violations: 1 (Snowflake claim cited internal source instead of vendor doc)
-- Resolution suggested: refetch raw/external/snowflake/data-types.md
+- Resolution suggested: refetch raw/workspace-external/snowflake/data-types.md
 
-## [2026-04-28T16:30:00Z] publish | review | wiki/projects/customer-data-replatform/02-pm-prd/product-requirements.md
+## [2026-04-28T16:30:00Z] publish | review | wiki/workspace-projects/customer-data-replatform/02-pm-prd/product-requirements.md
 - Output: confluence-review/customer-data-replatform/product-requirements-2026-04-28-1630.html
 - align-cite: passed
 - align-closure: passed
@@ -382,7 +397,7 @@ You update this file on every compile. It is the agent's primary retrieval mecha
 
 ### Closure rule
 
-A project's **active authored set** is the documents inside `wiki/projects/{slug}/0X-{stage}/`. The set must be jr-engineer-executable using only itself.
+A project's **active authored set** is the documents inside `wiki/workspace-projects/{slug}/0X-{stage}/`. The set must be jr-engineer-executable using only itself.
 
 ### Body prose rule (status-aware)
 
@@ -403,13 +418,13 @@ An `in-progress` project (status `draft` or `review` on any of its files) cannot
 
 It CAN reference:
 - A `published` project
-- Internal `wiki/standards/`, `wiki/recommendations/`, `wiki/concepts/` content
-- External vendor docs (in raw/external/)
+- Internal `wiki/workspace-standards/`, `wiki/workspace-recommendations/`, `wiki/workspace-concepts/` content
+- External vendor docs (in raw/workspace-external/)
 - External public URLs
 
 When `align-closure` detects a forbidden cross-project dependency, present the user with options:
 1. Finish the dependency project (move it to `published`)
-2. Archive the dependency project (move it to `wiki/archives/`; the dependent project must then be restated)
+2. Archive the dependency project (move it to `wiki/workspace-archives/`; the dependent project must then be restated)
 3. Restate the dependent project to remove the dependency
 
 ### Vendor citation pattern
@@ -420,7 +435,7 @@ In body prose: parenthetical attribution.
 In `## See Also`: external link.
 > - [AWS S3 Server-Side Encryption](https://docs.aws.amazon.com/AmazonS3/latest/userguide/serv-side-encryption.html) (cached 2026-04-28)
 
-The cached vendor doc in `raw/external/{vendor}/{topic}/{slug}.md` is the actual source; the See Also URL points to the live source for the reader to verify.
+The cached vendor doc in `raw/workspace-external/{vendor}/{topic}/{slug}.md` is the actual source; the See Also URL points to the live source for the reader to verify.
 
 ### Internal standard reference pattern
 
@@ -442,7 +457,7 @@ Use the user's existing API-based skill (REST API v2 with `body-format=atlas_doc
 
 1. Fetch the page (and attachments and comments)
 2. Convert ADF to Markdown
-3. Write `raw/confluence/{space-key}/pages/{page-id}--{slug}.md` with frontmatter (`source_url`, `space_key`, `page_id`, `title`, `ancestors`, `version`, `last_modified`, `labels`, `ingested_at`, `content_hash`, `domain`, `authority`)
+3. Write `raw/workspace-confluence/{space-key}/pages/{page-id}--{slug}.md` with frontmatter (`source_url`, `space_key`, `page_id`, `title`, `ancestors`, `version`, `last_modified`, `labels`, `ingested_at`, `content_hash`, `domain`, `authority`)
 4. Compile (see operation 3 below) synchronously
 5. Update `wiki/index.md` and `wiki/log.md`
 6. On conversion failure: write payload + error to `quarantine/{date}/{page-id}/`; do NOT block the run
@@ -462,20 +477,20 @@ The Atlassian Remote MCP Server is documented as an alternative path. Build week
 ### 2. Ingest (vendor doc, on demand)
 
 When you are about to cite a vendor capability, check:
-- Is there a cached doc in `raw/external/{vendor}/` covering the topic?
+- Is there a cached doc in `raw/workspace-external/{vendor}/` covering the topic?
 - Is it within TTL (90 days default; per-vendor overrides; 365 day hard max)?
 
 If no cache or stale: offer to fetch.
 
 ```
 About to cite: "S3 supports server-side encryption with KMS-managed keys"
-Cached AWS doc: raw/external/aws/s3/encryption.md (fetched 2026-01-15, 103 days old, beyond 90-day TTL)
+Cached AWS doc: raw/workspace-external/aws/s3/encryption.md (fetched 2026-01-15, 103 days old, beyond 90-day TTL)
 Refetch? (y/n)
 ```
 
 If yes:
 1. Use `defuddle` skill to fetch and clean Markdown from the vendor URL
-2. Write `raw/external/{vendor}/{topic}/{slug}.md` with frontmatter (`source_url`, `vendor`, `topic`, `fetched_at`, `revalidate_after`, `domain`, `authority`)
+2. Write `raw/workspace-external/{vendor}/{topic}/{slug}.md` with frontmatter (`source_url`, `vendor`, `topic`, `fetched_at`, `revalidate_after`, `domain`, `authority`)
 3. Update `wiki/index.md`
 4. Append to `wiki/log.md`
 
@@ -488,9 +503,9 @@ When processing newly ingested raw/ pages:
 3. Read existing wiki articles that may be affected
 4. For each piece of knowledge in the raw page:
    - If a concept article covers this topic: UPDATE it; add the raw page as a source
-   - If new: CREATE a new `wiki/concepts/` article
-   - If the page is a standard (per the source-domain mapping in `config/second-brain.yml`): CREATE or UPDATE in `wiki/standards/{team}/`
-5. If the page reveals a non-obvious connection between 2+ existing concepts: CREATE a `wiki/connections/` article
+   - If new: CREATE a new `wiki/workspace-concepts/` article
+   - If the page is a standard (per the source-domain mapping in `config/second-brain.yml`): CREATE or UPDATE in `wiki/workspace-standards/{team}/`
+5. If the page reveals a non-obvious connection between 2+ existing concepts: CREATE a `wiki/workspace-connections/` article
 6. Use the `obsidian-markdown` skill for output formatting (frontmatter, wikilinks, callouts)
 7. UPDATE `wiki/index.md` with new or modified entries
 8. APPEND to `wiki/log.md`
@@ -507,23 +522,23 @@ Guidelines:
 2. Identify 3-10 relevant articles based on the question
 3. Read those articles in full
 4. Synthesize an answer with section-anchored citations
-5. If `--file-back`: create a `wiki/qa/` article and update index and log
+5. If `--file-back`: create a `wiki/workspace-qa/` article and update index and log
 
 ### 5. Research review
 
-Use `research-review` for transcripts, meeting notes, interviews, or product-improvement discussions about Second Brain.
+Use `platform-research-review` for transcripts, meeting notes, interviews, or product-improvement discussions about Second Brain.
 
-1. Read the transcript under `raw/transcripts/**` or the user-specified source note
-2. Read `AGENTS.md`, `product-brief.md`, `PRD.md`, `docs/architecture-rationale.md`, `docs/roadmap.md`, and `wiki/research/claim-register.md` when present
+1. Read the transcript under `raw/platform-transcripts/**` or the user-specified source note
+2. Read `AGENTS.md`, `product-brief.md`, `PRD.md`, `docs/architecture-rationale.md`, `docs/roadmap.md`, and `wiki/platform-research/claim-register.md` when present
 3. Segment the source into discussion blocks
 4. Extract atomic claims and classify each claim
 5. Ground claims against existing Second Brain docs and vendor docs when relevant
 6. Run skeptical review and score each claim on governance, closure, grounding, vendor truth, inspectability, maintainability, differentiation, enterprise fit, and human review leverage
 7. Decide `adopt`, `experiment`, `defer`, `reject`, or `monitor`
-8. Write `wiki/research/transcript-analyses/{slug}-claims.md`
-9. Update `wiki/research/claim-register.md`
-10. Write `reports/research-review/{slug}-impact-report.md`
-11. Create draft ADRs under `docs/decision-records/DRAFT-*.md` only for adopted or experimental claims
+8. Write `wiki/platform-research/transcript-analyses/{slug}-claims.md`
+9. Update `wiki/platform-research/claim-register.md`
+10. Write `reports/platform-research-review/{slug}-impact-report.md`
+11. Create draft ADRs under `docs/platform-decision-records/DRAFT-*.md` only for adopted or experimental claims
 
 Research review is deliberately separated from compile. Transcripts may influence Second Brain through review artifacts and draft ADRs, but they do not become canonical knowledge by default.
 
@@ -548,7 +563,7 @@ Three depths. Run `align-cite` automatically before publish; others on demand.
 ### 7. Align (vendor-truth)
 
 - Identify vendor-domain claims in the artifact (claims about AWS, Snowflake, etc.)
-- Verify each claim's citation is in the matching vendor domain (`raw/external/{vendor}/`)
+- Verify each claim's citation is in the matching vendor domain (`raw/workspace-external/{vendor}/`)
 - Flag claims that cite internal sources instead of vendor sources
 - For flagged claims, suggest the vendor doc to fetch
 
@@ -579,12 +594,12 @@ Branch on user choice:
 
 ### 10. Archive
 
-1. Move project directory: `wiki/projects/{slug}/` → `wiki/archives/projects/{slug}/`
+1. Move project directory: `wiki/workspace-projects/{slug}/` → `wiki/workspace-archives/projects/{slug}/`
 2. Set `archived: true` and `archived_at: timestamp` in frontmatter on every file
 3. Update `wiki/index.md` to remove from active project lists
 4. Append to `wiki/log.md`
 
-`unarchive` reverses: moves back to `wiki/projects/{slug}/`, removes archived frontmatter, updates index.
+`unarchive` reverses: moves back to `wiki/workspace-projects/{slug}/`, removes archived frontmatter, updates index.
 
 ### 11. Lint
 
@@ -607,7 +622,7 @@ Seven structural checks plus engineering additions:
 | Status-aware closure | Engineering | Body wikilinks at review/published; cross-project violations |
 | Research review integrity | Engineering | Invalid claim records, report shape gaps, protected-file contamination |
 
-Output: `reports/lint-{date}.md` with severity per finding.
+Output: `reports/workspace-lint-{date}.md` with severity per finding.
 
 ---
 
@@ -655,31 +670,31 @@ second-brain/
 │   ├── copilot-instructions.md            # Copilot shim
 │   ├── prompts/
 │   │   ├── second-brain.prompt.md
-│   │   ├── start-project.prompt.md
-│   │   ├── vp-agent.prompt.md
-│   │   ├── pm-agent.prompt.md
-│   │   ├── architect-agent.prompt.md
-│   │   ├── engineer-agent.prompt.md
+│   │   ├── workspace-start-project.prompt.md
+│   │   ├── workspace-vp-agent.prompt.md
+│   │   ├── workspace-pm-agent.prompt.md
+│   │   ├── workspace-architect-agent.prompt.md
+│   │   ├── workspace-engineer-agent.prompt.md
 │   │   ├── finalize.prompt.md
-│   │   ├── ingest-confluence.prompt.md
+│   │   ├── workspace-ingest-confluence.prompt.md
 │   │   ├── ingest-jira.prompt.md          # v1.x
-│   │   ├── ingest-vendor-doc.prompt.md
+│   │   ├── workspace-ingest-vendor-doc.prompt.md
 │   │   ├── revalidate-vendor-docs.prompt.md
-│   │   ├── compile.prompt.md
-│   │   ├── query.prompt.md
-│   │   ├── research-review.prompt.md
-│   │   ├── research-review/
-│   │   ├── align-cite.prompt.md
-│   │   ├── align-conformance.prompt.md
-│   │   ├── align-coverage.prompt.md
-│   │   ├── align-vendor-truth.prompt.md
-│   │   ├── align-closure.prompt.md
-│   │   ├── publish.prompt.md
-│   │   ├── prepare-for-confluence.prompt.md
-│   │   ├── publish-to-confluence.prompt.md
-│   │   ├── archive.prompt.md
-│   │   ├── unarchive.prompt.md
-│   │   └── lint.prompt.md
+│   │   ├── workspace-compile.prompt.md
+│   │   ├── workspace-query.prompt.md
+│   │   ├── platform-research-review.prompt.md
+│   │   ├── platform-research-review/
+│   │   ├── workspace-align-cite.prompt.md
+│   │   ├── workspace-align-conformance.prompt.md
+│   │   ├── workspace-align-coverage.prompt.md
+│   │   ├── workspace-align-vendor-truth.prompt.md
+│   │   ├── workspace-align-closure.prompt.md
+│   │   ├── workspace-publish.prompt.md
+│   │   ├── workspace-prepare-for-confluence.prompt.md
+│   │   ├── workspace-publish-to-confluence.prompt.md
+│   │   ├── workspace-archive.prompt.md
+│   │   ├── workspace-unarchive.prompt.md
+│   │   └── workspace-lint.prompt.md
 │   ├── agents/                            # placeholder
 │   │   └── README.md
 │   └── skills/
@@ -687,7 +702,7 @@ second-brain/
 │       ├── obsidian-markdown/SKILL.md
 │       ├── obsidian-bases/SKILL.md
 │       ├── defuddle/SKILL.md
-│       └── research-review/SKILL.md
+│       └── platform-research-review/SKILL.md
 │
 ├── CLAUDE.md                              # Claude Code shim
 ├── .cursor/rules/agents.mdc               # Cursor shim
@@ -699,7 +714,8 @@ second-brain/
 │   ├── architecture-rationale.md
 │   ├── roadmap.md
 │   ├── progress-log.md
-│   ├── product-intelligence/
+│   ├── platform-intelligence/
+│   ├── platform-decision-records/
 │   ├── setup-kit.md
 │   ├── adoption-checklist.md
 │   └── style/
@@ -720,24 +736,24 @@ second-brain/
 │
 ├── raw/                                   # content gitignored; structure tracked
 │   ├── README.md
-│   ├── confluence/
-│   ├── jira/                              # v1.x
-│   ├── external/
-│   └── transcripts/
+│   ├── workspace-confluence/
+│   ├── workspace-jira/                    # v1.x
+│   ├── workspace-external/
+│   └── platform-transcripts/
 │
 ├── wiki/                                  # content gitignored; structure tracked
 │   ├── index.md
 │   ├── log.md
-│   ├── standards/
-│   ├── recommendations/
-│   ├── informational/
-│   ├── concepts/
-│   ├── connections/
-│   ├── qa/
-│   ├── research/
-│   ├── projects/
-│   ├── archives/
-│   └── views/
+│   ├── workspace-standards/
+│   ├── workspace-recommendations/
+│   ├── workspace-informational/
+│   ├── workspace-concepts/
+│   ├── workspace-connections/
+│   ├── workspace-qa/
+│   ├── workspace-projects/
+│   ├── workspace-archives/
+│   ├── workspace-views/
+│   └── platform-research/
 │
 ├── confluence-review/                     # gitignored
 ├── quarantine/                            # gitignored

@@ -21,7 +21,7 @@ Exit: `verify-setup.py` passes against Atlassian Cloud Enterprise; one small Con
 ### Phase 2: Wiki layer and compile workflow (week 3-4)
 
 - `wiki/` directory layout with `.gitkeep` placeholders
-- `compile.prompt.md` (in place; verify integration with `obsidian-markdown` skill)
+- `workspace-compile.prompt.md` (in place; verify integration with `obsidian-markdown` skill)
 - `wiki/index.md` and `wiki/log.md` formats
 - Quarantine folder behavior
 - Post-ingest manifest UX
@@ -32,9 +32,9 @@ Exit: a 100-page Confluence ingest produces a coherent wiki layer with index, lo
 
 ### Phase 3: Query and agent chain skeleton (week 5-6)
 
-- `query.prompt.md` exercises (in place)
+- `workspace-query.prompt.md` exercises (in place)
 - Agent prompts (in place; refine based on early use)
-- `start-project.prompt.md` orchestration (in place)
+- `workspace-start-project.prompt.md` orchestration (in place)
 - Project lifecycle: status field, draft → review transitions
 - Cross-project dependency rules in lint
 - First end-to-end project run (a small internal initiative)
@@ -55,9 +55,9 @@ Exit: align-cite passes on a project's full artifact set; align-vendor-truth cat
 
 ### Phase 5: Publish, archive, and Bases integration (week 9-10)
 
-- `publish.prompt.md`, `prepare-for-confluence.prompt.md`, `publish-to-confluence.prompt.md` (in place; refine Markdown-to-storage-format conversion)
-- `archive.prompt.md` and `unarchive.prompt.md`
-- `obsidian-bases` skill integration; `wiki/views/` Base files for live navigation
+- `workspace-publish.prompt.md`, `workspace-prepare-for-confluence.prompt.md`, `workspace-publish-to-confluence.prompt.md` (in place; refine Markdown-to-storage-format conversion)
+- `workspace-archive.prompt.md` and `workspace-unarchive.prompt.md`
+- `obsidian-bases` skill integration; `wiki/workspace-views/` Base files for live navigation
 
 Exit: one project published to Confluence successfully; Bases views render in Obsidian.
 

@@ -10,9 +10,9 @@ Three layers:
 2. `wiki/` — LLM-curated knowledge layer organized by article type and authority
 3. `AGENTS.md` — canonical schema you read
 
-Agent chain (invoked when the user starts a project): CEO declares intent → VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → finalize step. CEO reviews and edits between stages.
+Workspace agent chain (invoked when the user starts a project): CEO declares intent → VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → finalize step. CEO reviews and edits between stages.
 
-Operations: ingest (Confluence pages, vendor docs on demand), compile (raw → wiki), query (index-guided), research-review (transcripts to product-intelligence claims), align (cite, conformance, coverage, vendor-truth, closure), publish (review folder or Confluence), archive, lint.
+Operations are lane-labeled: `workspace-*` for everyday project/documentation work, and `platform-*` for improving Second Brain itself. Classify the user's task before touching files.
 
 ## Critical rules
 
@@ -21,7 +21,7 @@ Operations: ingest (Confluence pages, vendor docs on demand), compile (raw → w
 3. **Authority + domain tagged sources.** Each source carries `authority` (`standard`/`recommendation`/`informational`) and `domain` (`internal`/`vendor:aws`/`industry:nist`/etc.). Vendor capability claims cite vendor sources; internal architecture claims cite internal sources. The source authoritative for the claim's domain wins.
 4. **Approval-gated mutations.** Ingest, sync, archive, remove, publish all require explicit user approval after diff or preview.
 5. **Scoped retrieval per project.** Default in-scope sources from `config/second-brain.yml`; projects layer additional scope.
-6. **Multi-step orchestration with persistent state.** Iterative, resumable; agents hand off through the filesystem at `wiki/projects/{slug}/0X-{stage}/`.
+6. **Multi-step orchestration with persistent state.** Iterative, resumable; agents hand off through the filesystem at `wiki/workspace-projects/{slug}/0X-{stage}/`.
 7. **The LLM owns the wiki layer.** Humans read; you write. Direct human edits set `manually_edited: true` in frontmatter for lint visibility.
 8. **Vendor truth: fetched, cached, time-validated.** Vendor docs cached on first use, revalidated per TTL (90 days default; 365 hard max).
 9. **Project deliverable closure.** A published project's authored set must be jr-engineer-executable using only that set.
@@ -35,26 +35,26 @@ Operations: ingest (Confluence pages, vendor docs on demand), compile (raw → w
 
 The user triggers operations by invoking prompt files in `.github/prompts/`:
 
-- `/start-project` → orchestrates the agent chain for a new project
+- `/workspace-start-project` → orchestrates the agent chain for a new project
 - `/second-brain` → onboarding; configures in-scope sources, authority and domain mappings
-- `/ingest-confluence` → Confluence ingestion using the user's API-based skill
-- `/ingest-vendor-doc` → on-demand vendor doc fetch via the `defuddle` skill
-- `/compile` → compile new raw/ pages into wiki/ articles
-- `/query` → index-guided query against the wiki
-- `/research-review` → turn transcripts or meeting notes into grounded claim records, impact reports, and draft ADRs without directly mutating canonical docs
-- `/align-cite`, `/align-conformance`, `/align-coverage`, `/align-vendor-truth`, `/align-closure` → verification checks
-- `/publish` → branch dispatcher (review folder or Confluence)
-- `/archive`, `/unarchive` → lifecycle transitions
-- `/lint` → health check
+- `/workspace-ingest-confluence` → Confluence ingestion using the user's API-based skill
+- `/workspace-ingest-vendor-doc` → on-demand vendor doc fetch via the `defuddle` skill
+- `/workspace-compile` → compile new raw/ pages into wiki/ articles
+- `/workspace-query` → index-guided query against the wiki
+- `/platform-research-review` → turn transcripts or meeting notes into grounded claim records, impact reports, and draft ADRs without directly mutating canonical docs
+- `/workspace-align-cite`, `/workspace-align-conformance`, `/workspace-align-coverage`, `/workspace-align-vendor-truth`, `/workspace-align-closure` → verification checks
+- `/workspace-publish` → branch dispatcher (review folder or Confluence)
+- `/workspace-archive`, `/workspace-unarchive` → lifecycle transitions
+- `/workspace-lint` → health check
 
 ## Skills available
 
 Located in `.github/skills/`:
 
-- `obsidian-markdown/` — produce valid Obsidian Flavored Markdown (wikilinks, callouts, frontmatter, embeds). Use when authoring any wiki article or project artifact.
-- `obsidian-bases/` — create `.base` files for live navigation views in `wiki/views/`.
+- `obsidian-markdown/` — produce valid Obsidian Flavored Markdown (wikilinks, callouts, frontmatter, embeds). Use when authoring any workspace wiki article or project artifact.
+- `obsidian-bases/` — create `.base` files for live navigation views in `wiki/workspace-views/`.
 - `defuddle/` — extract clean Markdown from web pages. Use when ingesting vendor docs.
-- `research-review/` — extract, ground, score, and adjudicate transcript-derived claims without treating them as canonical knowledge.
+- `platform-research-review/` — extract, ground, score, and adjudicate transcript-derived claims without treating them as canonical knowledge.
 
 ## Authoring quality bar
 

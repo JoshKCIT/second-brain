@@ -12,9 +12,9 @@ You are operating in a Second Brain repository: a personal LLM-maintained knowle
 
 Three layers: `raw/` (immutable source), `wiki/` (LLM-curated), `AGENTS.md` (schema you read).
 
-Agent chain for new projects: CEO → VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → finalize. CEO reviews between stages.
+Workspace agent chain for new projects: CEO → VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → finalize. CEO reviews between stages.
 
-Operations: ingest, compile, query, research-review, align (cite/conformance/coverage/vendor-truth/closure), publish, archive, lint.
+Operations are lane-labeled: `workspace-*` for everyday project/documentation work, and `platform-*` for improving Second Brain itself. Classify the task before touching files.
 
 ## Critical rules
 
@@ -23,7 +23,7 @@ Operations: ingest, compile, query, research-review, align (cite/conformance/cov
 3. Authority + domain tagged sources; vendor claims cite vendor; internal claims cite internal; conflicts resolved by claim domain
 4. Approval-gated mutations; ingest/sync/archive/remove/publish require explicit user approval
 5. Scoped retrieval per project from `config/second-brain.yml`
-6. Multi-step orchestration; agents hand off through `wiki/projects/{slug}/0X-{stage}/`
+6. Multi-step orchestration; agents hand off through `wiki/workspace-projects/{slug}/0X-{stage}/`
 7. The LLM owns `wiki/`; humans read it
 8. Vendor truth fetched-cached-validated (90-day default TTL)
 9. Project closure: jr-engineer-executable from published artifact set alone
@@ -37,7 +37,7 @@ Operations: ingest, compile, query, research-review, align (cite/conformance/cov
 
 Prompt files in `.github/prompts/`:
 
-`start-project`, `second-brain` (onboarding), `ingest-confluence`, `ingest-vendor-doc`, `compile`, `query`, `research-review`, `align-cite`, `align-conformance`, `align-coverage`, `align-vendor-truth`, `align-closure`, `publish`, `archive`, `unarchive`, `lint`
+`workspace-start-project`, `second-brain` (onboarding), `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`, `platform-research-review`, `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`, `workspace-publish`, `workspace-archive`, `workspace-unarchive`, `workspace-lint`
 
 ## Skills available
 
@@ -46,7 +46,7 @@ Prompt files in `.github/prompts/`:
 - `obsidian-markdown/` — Obsidian Flavored Markdown
 - `obsidian-bases/` — `.base` live views
 - `defuddle/` — clean Markdown extraction from web pages
-- `research-review/` — transcript-derived claim review and product-impact scoring
+- `platform-research-review/` — transcript-derived claim review and product-impact scoring
 
 ## Authoring quality bar
 

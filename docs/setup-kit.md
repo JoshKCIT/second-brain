@@ -68,6 +68,15 @@ Open Obsidian → "Open another vault" → select the `second-brain` folder.
 
 The bundled `.obsidian/` config opens to `wiki/index.md`. Initially, the index is empty; it populates after your first ingest.
 
+### Lane labels
+
+Second Brain uses two explicit path prefixes:
+
+- `workspace-*` is for everyday company/project documentation work, such as `raw/workspace-confluence/` and `wiki/workspace-projects/`.
+- `platform-*` is for improving Second Brain itself, such as `raw/platform-transcripts/` and `wiki/platform-research/`.
+
+Use workspace commands for normal work. Use platform commands only when reviewing ideas, transcripts, or research about improving Second Brain.
+
 ### 6. Run onboarding
 
 In Copilot chat, invoke the onboarding prompt:
@@ -88,7 +97,7 @@ The conversation walks you through:
 ### 7. First ingest (if not done in onboarding)
 
 ```
-/ingest-confluence
+/workspace-ingest-confluence
 ```
 
 Provide a Confluence space key, page URL, or page ID list. The agent fetches, converts, compiles, and reports a manifest. The wiki layer populates.
@@ -96,7 +105,7 @@ Provide a Confluence space key, page URL, or page ID list. The agent fetches, co
 ### 8. First project (if not done in onboarding)
 
 ```
-/start-project
+/workspace-start-project
 ```
 
 The agent walks you through declaring intent, then orchestrates the chain: VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → finalize. You review and edit between stages.
@@ -106,7 +115,7 @@ The agent walks you through declaring intent, then orchestrates the chain: VP Ag
 After the agent chain produces artifacts and the finalize step transitions them to status `review`:
 
 ```
-/publish
+/workspace-publish
 ```
 
 Choose `review` for an HTML preview (opens the `confluence-review/` folder); choose `confluence` for actual API push.
@@ -116,10 +125,10 @@ Choose `review` for an HTML preview (opens the `confluence-review/` folder); cho
 Use this when transcripts, interviews, meeting notes, or product-improvement discussions contain claims about how Second Brain should evolve:
 
 ```text
-/research-review
+/platform-research-review
 ```
 
-Place live transcripts under `raw/transcripts/{slug}/transcript.md`. The workflow writes product-intelligence artifacts under `wiki/research/` and `reports/research-review/`, and may draft ADRs under `docs/decision-records/`. It does not directly edit canonical standards, `PRD.md`, `product-brief.md`, `docs/roadmap.md`, `docs/architecture-rationale.md`, or `AGENTS.md`.
+Place live transcripts under `raw/platform-transcripts/{slug}/transcript.md`. The workflow writes product-intelligence artifacts under `wiki/platform-research/` and `reports/platform-research-review/`, and may draft ADRs under `docs/platform-decision-records/`. It does not directly edit canonical standards, `PRD.md`, `product-brief.md`, `docs/roadmap.md`, `docs/architecture-rationale.md`, or `AGENTS.md`.
 
 ## Per-agent setup variants
 
@@ -150,10 +159,10 @@ Place live transcripts under `raw/transcripts/{slug}/transcript.md`. The workflo
 - **`defuddle` not found:** install with `npm install -g defuddle`. Verify with `defuddle --version`.
 - **Vendor fetches fail:** the vendor's site may have dynamic JavaScript that breaks defuddle. Try `defuddle parse {URL} --md` directly to debug.
 - **Confluence rate limits:** Atlassian Cloud rate-limits per token. If a large ingest hits 429s, the agent backs off; for very large spaces, ingest in batches.
-- **Permission changes:** if a Confluence page becomes inaccessible after ingest, the cached `raw/` copy remains; the user's permissions are checked at fetch time, not query time. Run `/lint` to detect stale references.
+- **Permission changes:** if a Confluence page becomes inaccessible after ingest, the cached `raw/` copy remains; the user's permissions are checked at fetch time, not query time. Run `/workspace-lint` to detect stale references.
 
 ## When you finish setup
 
-Run `/lint` to verify the wiki is in a clean state. Browse `wiki/index.md` in Obsidian. Read `PRD.md` and `AGENTS.md` to deepen your understanding of how the system operates.
+Run `/workspace-lint` to verify the wiki is in a clean state. Browse `wiki/index.md` in Obsidian. Read `PRD.md` and `AGENTS.md` to deepen your understanding of how the system operates.
 
 If you are adopting Second Brain for a non-CEO operator persona, consult `templates/personas/{your-persona}/` for persona-specific tailoring (note: only `ceo/` is fully populated in v1; other personas have stubs that v1.x will fill in).
