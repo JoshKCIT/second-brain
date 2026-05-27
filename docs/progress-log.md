@@ -13,6 +13,21 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-27] session | research review import
+
+- Changed:
+  - Promoted the draft research-review kit into first-class project locations: prompt operation, Cursor agent and rule, GitHub skill, templates, product-intelligence docs, config example, and runtime placeholders.
+  - Added research-review semantics to `AGENTS.md` and per-agent shims: transcripts are product-intelligence evidence, not canonical knowledge.
+  - Added ignore rules for live transcripts and generated research-review outputs while preserving tracked templates and placeholders.
+
+- Open:
+  - Run the validation suite and confirm `draft-version/` has no remaining unique keep-worthy content before removal.
+
+- Next:
+  - Wire research-review lint checks and tests, then delete `draft-version/` after validation.
+
+---
+
 ## [2026-04-28] session | initial planning and core repo scaffolding
 
 - Changed:

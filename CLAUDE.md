@@ -12,7 +12,7 @@ Three layers:
 
 Agent chain for new projects: CEO → VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → finalize. CEO reviews between stages.
 
-Operations: ingest, compile, query, align (5 levels), publish, archive, lint.
+Operations: ingest, compile, query, research-review, align (5 levels), publish, archive, lint.
 
 ## Critical rules
 
@@ -37,7 +37,7 @@ Prompt files in `.github/prompts/`:
 
 - `start-project` (orchestrates the agent chain)
 - `second-brain` (onboarding)
-- `ingest-confluence`, `ingest-vendor-doc`, `compile`, `query`
+- `ingest-confluence`, `ingest-vendor-doc`, `compile`, `query`, `research-review`
 - `align-cite`, `align-conformance`, `align-coverage`, `align-vendor-truth`, `align-closure`
 - `publish`, `archive`, `unarchive`, `lint`
 
@@ -48,6 +48,7 @@ Prompt files in `.github/prompts/`:
 - `obsidian-markdown/` — Obsidian Flavored Markdown (use when authoring wiki content)
 - `obsidian-bases/` — `.base` files for live navigation views
 - `defuddle/` — clean Markdown extraction from web pages (use when ingesting vendor docs)
+- `research-review/` — transcript-to-claim review with grounding, skeptical scoring, and draft ADR routing
 
 ## Authoring quality bar
 

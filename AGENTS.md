@@ -50,6 +50,7 @@ The user does not manually organize the wiki. They configure scope, request oper
    - `raw/confluence/{space-key}/pages/{page-id}--{slug}.md` and `attachments/`
    - `raw/jira/{project-key}/tickets/` (v1.x)
    - `raw/external/{vendor}/{topic}/{slug}.md` for cached vendor docs
+   - `raw/transcripts/{slug}/transcript.md` for product-intelligence transcripts
    - You read from here; you never modify it after the initial ingest write.
 
 2. **`wiki/` - LLM-curated knowledge**
@@ -126,6 +127,7 @@ wiki/
 ├── concepts/             # Atomic knowledge articles compiled from raw sources
 ├── connections/          # Cross-cutting insights linking 2+ concepts
 ├── qa/                   # Filed query answers (compounding knowledge)
+├── research/             # Transcript-derived product intelligence; not canonical knowledge
 ├── projects/{slug}/      # Project-specific artifact sets (per-stage subdirs)
 ├── archives/             # Completed and deprecated content (excluded from default search)
 └── views/                # Obsidian Base files for live navigation
@@ -238,6 +240,40 @@ filed: 2026-04-28
 
 - [Open questions raised by the answer]
 ```
+
+### Research claim register (`wiki/research/claim-register.md`)
+
+Research review captures transcript-derived product-intelligence claims. These claims are evidence for product decisions, not canonical internal standards, vendor truth, or roadmap facts.
+
+````markdown
+# Research Claim Register
+
+## Claim Records
+
+```yaml
+claim_id: RC-YYYY-MM-DD-001
+source_transcript: raw/transcripts/path/to/transcript.md
+claim_type: product_requirement
+atomic_claim: ""
+current_design_status: unsupported
+impact_scores:
+  governance: 0
+  closure: 0
+  grounding: 0
+  vendor_truth: 0
+  inspectability: 0
+  maintainability: 0
+  differentiation: 0
+  enterprise_fit: 0
+  human_review_leverage: 0
+total_score: 0
+decision: adopt | experiment | defer | reject | monitor
+decision_rationale: ""
+next_action: ""
+```
+````
+
+Research-review agents may write `wiki/research/**`, `reports/research-review/**`, and `docs/decision-records/DRAFT-*.md`. They must not directly update `wiki/standards/**`, `wiki/recommendations/**`, `PRD.md`, `product-brief.md`, `docs/roadmap.md`, `docs/architecture-rationale.md`, `AGENTS.md`, or any `raw/**` source mirror based on transcript claims.
 
 ### Project stage artifact (`wiki/projects/{slug}/0X-{stage}/{name}.md`)
 
@@ -473,7 +509,25 @@ Guidelines:
 4. Synthesize an answer with section-anchored citations
 5. If `--file-back`: create a `wiki/qa/` article and update index and log
 
-### 5. Align (cite | conformance | coverage)
+### 5. Research review
+
+Use `research-review` for transcripts, meeting notes, interviews, or product-improvement discussions about Second Brain.
+
+1. Read the transcript under `raw/transcripts/**` or the user-specified source note
+2. Read `AGENTS.md`, `product-brief.md`, `PRD.md`, `docs/architecture-rationale.md`, `docs/roadmap.md`, and `wiki/research/claim-register.md` when present
+3. Segment the source into discussion blocks
+4. Extract atomic claims and classify each claim
+5. Ground claims against existing Second Brain docs and vendor docs when relevant
+6. Run skeptical review and score each claim on governance, closure, grounding, vendor truth, inspectability, maintainability, differentiation, enterprise fit, and human review leverage
+7. Decide `adopt`, `experiment`, `defer`, `reject`, or `monitor`
+8. Write `wiki/research/transcript-analyses/{slug}-claims.md`
+9. Update `wiki/research/claim-register.md`
+10. Write `reports/research-review/{slug}-impact-report.md`
+11. Create draft ADRs under `docs/decision-records/DRAFT-*.md` only for adopted or experimental claims
+
+Research review is deliberately separated from compile. Transcripts may influence Second Brain through review artifacts and draft ADRs, but they do not become canonical knowledge by default.
+
+### 6. Align (cite | conformance | coverage)
 
 Three depths. Run `align-cite` automatically before publish; others on demand.
 
@@ -491,14 +545,14 @@ Three depths. Run `align-cite` automatically before publish; others on demand.
 - Check the artifact addresses each relevant requirement
 - Output: advisory report listing addressed and missing requirements
 
-### 6. Align (vendor-truth)
+### 7. Align (vendor-truth)
 
 - Identify vendor-domain claims in the artifact (claims about AWS, Snowflake, etc.)
 - Verify each claim's citation is in the matching vendor domain (`raw/external/{vendor}/`)
 - Flag claims that cite internal sources instead of vendor sources
 - For flagged claims, suggest the vendor doc to fetch
 
-### 7. Align (closure)
+### 8. Align (closure)
 
 Status-aware. Read the artifact's `status` frontmatter and apply rules:
 
@@ -508,7 +562,7 @@ Status-aware. Read the artifact's `status` frontmatter and apply rules:
 
 Output: structured report. Run automatically before publish.
 
-### 8. Publish
+### 9. Publish
 
 Branch on user choice:
 
@@ -523,7 +577,7 @@ Branch on user choice:
 2. Convert Markdown to Confluence storage format (or ADF)
 3. Use the user's existing API code (or MCP server alternative) to create new pages in the target Confluence space
 
-### 9. Archive
+### 10. Archive
 
 1. Move project directory: `wiki/projects/{slug}/` → `wiki/archives/projects/{slug}/`
 2. Set `archived: true` and `archived_at: timestamp` in frontmatter on every file
@@ -532,7 +586,7 @@ Branch on user choice:
 
 `unarchive` reverses: moves back to `wiki/projects/{slug}/`, removes archived frontmatter, updates index.
 
-### 10. Lint
+### 11. Lint
 
 Seven structural checks plus engineering additions:
 
@@ -551,6 +605,7 @@ Seven structural checks plus engineering additions:
 | Incomplete ingestion | Engineering | Page in `raw/` without a wiki article referencing it |
 | Stale vendor docs | Engineering | Past TTL or hard max |
 | Status-aware closure | Engineering | Body wikilinks at review/published; cross-project violations |
+| Research review integrity | Engineering | Invalid claim records, report shape gaps, protected-file contamination |
 
 Output: `reports/lint-{date}.md` with severity per finding.
 
@@ -612,6 +667,8 @@ second-brain/
 │   │   ├── revalidate-vendor-docs.prompt.md
 │   │   ├── compile.prompt.md
 │   │   ├── query.prompt.md
+│   │   ├── research-review.prompt.md
+│   │   ├── research-review/
 │   │   ├── align-cite.prompt.md
 │   │   ├── align-conformance.prompt.md
 │   │   ├── align-coverage.prompt.md
@@ -629,7 +686,8 @@ second-brain/
 │       ├── README.md
 │       ├── obsidian-markdown/SKILL.md
 │       ├── obsidian-bases/SKILL.md
-│       └── defuddle/SKILL.md
+│       ├── defuddle/SKILL.md
+│       └── research-review/SKILL.md
 │
 ├── CLAUDE.md                              # Claude Code shim
 ├── .cursor/rules/agents.mdc               # Cursor shim
@@ -641,6 +699,7 @@ second-brain/
 │   ├── architecture-rationale.md
 │   ├── roadmap.md
 │   ├── progress-log.md
+│   ├── product-intelligence/
 │   ├── setup-kit.md
 │   ├── adoption-checklist.md
 │   └── style/
@@ -663,7 +722,8 @@ second-brain/
 │   ├── README.md
 │   ├── confluence/
 │   ├── jira/                              # v1.x
-│   └── external/
+│   ├── external/
+│   └── transcripts/
 │
 ├── wiki/                                  # content gitignored; structure tracked
 │   ├── index.md
@@ -674,6 +734,7 @@ second-brain/
 │   ├── concepts/
 │   ├── connections/
 │   ├── qa/
+│   ├── research/
 │   ├── projects/
 │   ├── archives/
 │   └── views/

@@ -14,7 +14,7 @@ Three layers: `raw/` (immutable source), `wiki/` (LLM-curated), `AGENTS.md` (sch
 
 Agent chain for new projects: CEO → VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → finalize. CEO reviews between stages.
 
-Operations: ingest, compile, query, align (cite/conformance/coverage/vendor-truth/closure), publish, archive, lint.
+Operations: ingest, compile, query, research-review, align (cite/conformance/coverage/vendor-truth/closure), publish, archive, lint.
 
 ## Critical rules
 
@@ -37,7 +37,7 @@ Operations: ingest, compile, query, align (cite/conformance/coverage/vendor-trut
 
 Prompt files in `.github/prompts/`:
 
-`start-project`, `second-brain` (onboarding), `ingest-confluence`, `ingest-vendor-doc`, `compile`, `query`, `align-cite`, `align-conformance`, `align-coverage`, `align-vendor-truth`, `align-closure`, `publish`, `archive`, `unarchive`, `lint`
+`start-project`, `second-brain` (onboarding), `ingest-confluence`, `ingest-vendor-doc`, `compile`, `query`, `research-review`, `align-cite`, `align-conformance`, `align-coverage`, `align-vendor-truth`, `align-closure`, `publish`, `archive`, `unarchive`, `lint`
 
 ## Skills available
 
@@ -46,6 +46,7 @@ Prompt files in `.github/prompts/`:
 - `obsidian-markdown/` — Obsidian Flavored Markdown
 - `obsidian-bases/` — `.base` live views
 - `defuddle/` — clean Markdown extraction from web pages
+- `research-review/` — transcript-derived claim review and product-impact scoring
 
 ## Authoring quality bar
 

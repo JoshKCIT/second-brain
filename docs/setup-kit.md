@@ -111,6 +111,16 @@ After the agent chain produces artifacts and the finalize step transitions them 
 
 Choose `review` for an HTML preview (opens the `confluence-review/` folder); choose `confluence` for actual API push.
 
+### Optional: Research review
+
+Use this when transcripts, interviews, meeting notes, or product-improvement discussions contain claims about how Second Brain should evolve:
+
+```text
+/research-review
+```
+
+Place live transcripts under `raw/transcripts/{slug}/transcript.md`. The workflow writes product-intelligence artifacts under `wiki/research/` and `reports/research-review/`, and may draft ADRs under `docs/decision-records/`. It does not directly edit canonical standards, `PRD.md`, `product-brief.md`, `docs/roadmap.md`, `docs/architecture-rationale.md`, or `AGENTS.md`.
+
 ## Per-agent setup variants
 
 ### GitHub Copilot (VS Code) — primary v1 surface
@@ -144,6 +154,6 @@ Choose `review` for an HTML preview (opens the `confluence-review/` folder); cho
 
 ## When you finish setup
 
-Run `/lint` to verify the wiki is in a clean state. Browse `wiki/index.md` in Obsidian. Read `docs/PRD.md` and `AGENTS.md` to deepen your understanding of how the system operates.
+Run `/lint` to verify the wiki is in a clean state. Browse `wiki/index.md` in Obsidian. Read `PRD.md` and `AGENTS.md` to deepen your understanding of how the system operates.
 
 If you are adopting Second Brain for a non-CEO operator persona, consult `templates/personas/{your-persona}/` for persona-specific tailoring (note: only `ceo/` is fully populated in v1; other personas have stubs that v1.x will fill in).

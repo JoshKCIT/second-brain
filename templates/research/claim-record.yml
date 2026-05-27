@@ -1,0 +1,40 @@
+claim_id: RC-YYYY-MM-DD-001
+source_transcript: raw/transcripts/path/to/transcript.md
+speaker: unknown
+timestamp: unknown
+claim_type: product_requirement
+atomic_claim: ""
+verbatim_excerpt: ""
+implied_assumption: ""
+current_design_status: unsupported
+supporting_project_docs: []
+conflicting_project_docs: []
+evidence_supplied_by_speaker: none
+requires_external_validation: false
+validation_status: unvalidated
+affected_components:
+  - ""
+related_second_brain_principles:
+  - source_authority
+  - claim_level_conflict_resolution
+  - junior_engineer_closure
+expected_benefit: ""
+possible_regression: ""
+validation_method: ""
+impact_scores:
+  governance: 0
+  closure: 0
+  grounding: 0
+  vendor_truth: 0
+  inspectability: 0
+  maintainability: 0
+  differentiation: 0
+  enterprise_fit: 0
+  human_review_leverage: 0
+total_score: 0
+decision: experiment
+decision_rationale: ""
+next_action: ""
+owner: unassigned
+status: open
+last_reviewed: YYYY-MM-DD

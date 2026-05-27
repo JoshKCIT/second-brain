@@ -7,14 +7,17 @@
 
 # Personal config (user-specific overrides)
 config/second-brain.yml
+config/research-review.yml
 
 # Runtime content (per-user; never shared)
 raw/confluence/*
 raw/jira/*
 raw/external/*
+raw/transcripts/*
 !raw/confluence/.gitkeep
 !raw/jira/.gitkeep
 !raw/external/.gitkeep
+!raw/transcripts/.gitkeep
 
 wiki/standards/*
 wiki/recommendations/*
@@ -22,6 +25,7 @@ wiki/informational/*
 wiki/concepts/*
 wiki/connections/*
 wiki/qa/*
+wiki/research/*
 wiki/projects/*
 wiki/archives/*
 !wiki/standards/.gitkeep
@@ -30,6 +34,9 @@ wiki/archives/*
 !wiki/concepts/.gitkeep
 !wiki/connections/.gitkeep
 !wiki/qa/.gitkeep
+!wiki/research/.gitkeep
+!wiki/research/transcript-analyses/
+!wiki/research/transcript-analyses/.gitkeep
 !wiki/projects/.gitkeep
 !wiki/archives/.gitkeep
 
@@ -45,7 +52,9 @@ wiki/log.md
 # Runtime output
 confluence-review/
 quarantine/
-reports/
+reports/*
+!reports/research-review/
+!reports/research-review/.gitkeep
 
 # State tracking (gitignored; regenerated)
 state.json

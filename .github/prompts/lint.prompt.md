@@ -33,10 +33,11 @@ You are running the full lint pass on the wiki. Catches drift, orphans, contradi
 12. **Stale vendor docs.** Cached vendor docs past `revalidate_after`. Flag with action: refetch.
 13. **Status-aware closure violations.** Artifacts at `review` or `published` with body wikilinks; cross-project dependency violations. Flag (use `align-closure` for full check).
 14. **Manually edited content.** Articles with `manually_edited: true` in frontmatter; flag for LLM review (the LLM owns the wiki layer).
+15. **Research-review integrity.** If research artifacts exist, validate `wiki/research/claim-register.md` claim-record fields, decision values, impact score ranges, required report sections, and transcript-derived claim leakage into protected canonical files. The helper script is `python scripts/lint-research.py --root .`; use `--strict` when release validation requires research-review artifacts to exist.
 
 ### LLM-driven (skipped with `--structural-only`)
 
-15. **Contradictions.** Two articles making conflicting claims on the same topic. LLM-judged; flag for resolution.
+16. **Contradictions.** Two articles making conflicting claims on the same topic. LLM-judged; flag for resolution.
 
 ## Output
 
@@ -72,6 +73,7 @@ Total articles checked: {N}
 |---|---|---|
 | Broken links | {N} | error |
 | Orphan pages | {N} | warning |
+| Research-review integrity | {N} | error/warning |
 | ... |
 
 ## Recommended actions

@@ -12,7 +12,7 @@ Three layers:
 
 Agent chain (invoked when the user starts a project): CEO declares intent → VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → finalize step. CEO reviews and edits between stages.
 
-Operations: ingest (Confluence pages, vendor docs on demand), compile (raw → wiki), query (index-guided), align (cite, conformance, coverage, vendor-truth, closure), publish (review folder or Confluence), archive, lint.
+Operations: ingest (Confluence pages, vendor docs on demand), compile (raw → wiki), query (index-guided), research-review (transcripts to product-intelligence claims), align (cite, conformance, coverage, vendor-truth, closure), publish (review folder or Confluence), archive, lint.
 
 ## Critical rules
 
@@ -41,6 +41,7 @@ The user triggers operations by invoking prompt files in `.github/prompts/`:
 - `/ingest-vendor-doc` → on-demand vendor doc fetch via the `defuddle` skill
 - `/compile` → compile new raw/ pages into wiki/ articles
 - `/query` → index-guided query against the wiki
+- `/research-review` → turn transcripts or meeting notes into grounded claim records, impact reports, and draft ADRs without directly mutating canonical docs
 - `/align-cite`, `/align-conformance`, `/align-coverage`, `/align-vendor-truth`, `/align-closure` → verification checks
 - `/publish` → branch dispatcher (review folder or Confluence)
 - `/archive`, `/unarchive` → lifecycle transitions
@@ -53,6 +54,7 @@ Located in `.github/skills/`:
 - `obsidian-markdown/` — produce valid Obsidian Flavored Markdown (wikilinks, callouts, frontmatter, embeds). Use when authoring any wiki article or project artifact.
 - `obsidian-bases/` — create `.base` files for live navigation views in `wiki/views/`.
 - `defuddle/` — extract clean Markdown from web pages. Use when ingesting vendor docs.
+- `research-review/` — extract, ground, score, and adjudicate transcript-derived claims without treating them as canonical knowledge.
 
 ## Authoring quality bar
 

@@ -8,8 +8,8 @@ This document tells the next agent session (VS Code with GitHub Copilot in agent
 
 1. `.github/copilot-instructions.md` — your shim and operating instructions for this repo
 2. `AGENTS.md` — canonical operating spec (longer; comprehensive)
-3. `docs/product-brief.md` — problem statement, scope, constraints, decisions log
-4. `docs/PRD.md` — what v1 builds (functional requirements, user stories, milestones)
+3. `product-brief.md` — problem statement, scope, constraints, decisions log
+4. `PRD.md` — what v1 builds (functional requirements, user stories, milestones)
 5. `docs/roadmap.md` — phase plan (your build sequence)
 6. `docs/architecture-rationale.md` — why the architectural choices were made
 7. `docs/progress-log.md` — where the planning session left off; where you append your sessions
@@ -124,7 +124,7 @@ After each session, append an entry per the format already in the file:
 
 7. **The user is the CEO operator.** Tone of all interactions: direct, terse, technical. Skip pleasantries; surface substantive answers first.
 
-8. **Brief is the user's domain.** `docs/product-brief.md` is currently at v0.1 with several updates applied during planning. Do not modify it without explicit user request. The PRD, AGENTS.md, README, and architecture-rationale carry the operational decisions and are canonical for build behavior.
+8. **Brief is the user's domain.** `product-brief.md` is currently at v0.1 with several updates applied during planning. Do not modify it without explicit user request. The PRD, AGENTS.md, README, and architecture-rationale carry the operational decisions and are canonical for build behavior.
 
 9. **Surface decisions before acting.** If you propose changing AGENTS.md, prompts, or any `docs/` file, surface the proposed change to the user via Copilot chat first. Do not silently update operational specs.
 
