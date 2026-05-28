@@ -1,8 +1,15 @@
-# DRAFT ADR: RC-2026-05-27-001 - Page-Index Retrieval Default
+# ADR: RC-2026-05-27-001 - Page-Index Retrieval Default
 
 ## Status
 
-Draft
+Accepted
+
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-003
+- Bundled claim: RC-2026-05-27-002 (citation ≠ similarity)
+- Notes: User approved via continue; implementation pass applied.
 
 ## Source Claim
 

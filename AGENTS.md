@@ -551,11 +551,17 @@ Guidelines:
 
 ### 4. Query (index-guided)
 
+**v1 retrieval policy (RC-2026-05-27-001, RC-2026-05-27-002):** Page-index / structure-aware retrieval is the default. The agent navigates by catalog entries, document hierarchy, and section anchors—not embedding similarity alone. **Retrieved context is not citation support.** Similarity, chunk proximity, or retrieval confidence never substitutes for `align-cite` verification before publish.
+
+For long structured sources (Confluence pages, multi-section artifacts), prefer section-tree navigation over blind chunking. Any future vector, hybrid, graph, or rerank retriever must pass a holdout evaluation showing improved citation precision and inspectability without weakening junior-engineer closure before adoption.
+
 1. Read `wiki/index.md` first
 2. Identify 3-10 relevant articles based on the question
 3. Read those articles in full
 4. Synthesize an answer with section-anchored citations
 5. If `--file-back`: create a `wiki/workspace-qa/` article and update index and log
+
+Decision record: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`
 
 ### 5. Research review
 

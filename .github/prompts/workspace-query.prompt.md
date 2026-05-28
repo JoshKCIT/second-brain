@@ -5,7 +5,11 @@ mode: agent
 
 # /workspace-query
 
-You are answering a user question by reading the wiki layer (no embeddings, no vector search). Index-guided retrieval: read `wiki/index.md` first, identify relevant articles, read them in full, synthesize.
+You are answering a user question by reading the wiki layer (no embeddings, no vector search). **Page-index retrieval:** read `wiki/index.md` first, identify relevant articles, read them in full, synthesize. For long structured sources, navigate by hierarchy and section anchors—not similarity chunking alone.
+
+**Citation ≠ retrieval:** Retrieved context is not citation support. Do not treat semantic similarity or retrieval confidence as verified evidence. Answers must cite section-anchored sources; project artifacts require `align-cite` before publish.
+
+Policy ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`
 
 ## Inputs
 

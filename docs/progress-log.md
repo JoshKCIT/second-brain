@@ -74,6 +74,34 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-27] session | PIC-2026-05-27-003 implemented
+
+- Changed:
+  - Page-index retrieval default and citation≠similarity policy codified in AGENTS.md, architecture-rationale.md, PRD.md, and workspace-query prompt.
+  - RC-001 ADR promoted to Accepted; RC-002 bundled.
+
+- Open:
+  - User accept/reject of PIC-2026-05-27-003.
+
+- Next:
+  - On accept: mark RC-001 and RC-002 accepted; queue RC-015 or RC-003 next.
+
+---
+
+## [2026-05-27] session | PIC-2026-05-27-003 accepted
+
+- Changed:
+  - User accepted RC-2026-05-27-001 and RC-2026-05-27-002 page-index retrieval bundle.
+  - Closed PIC-2026-05-27-003; opened PIC-2026-05-27-004 for RC-015 lightweight intent records.
+
+- Open:
+  - User ADR review for RC-2026-05-27-015 before cycle 4 implementation.
+
+- Next:
+  - Present DRAFT-RC-2026-05-27-015 for approval.
+
+---
+
 ## [2026-05-27] session | platform research review import
 
 - Changed:

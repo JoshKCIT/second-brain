@@ -149,11 +149,14 @@ N/A. Second Brain is single-user local in v1. Each user runs their own instance 
 
 ### 4.7 Query (Priority: High)
 
-- Index-guided retrieval: agent reads `wiki/index.md` and Base views first, identifies relevant articles, reads them in full, synthesizes answer
-- Embeddings deferred (revisit only if wiki passes ~500 articles)
+- **Page-index retrieval default (RC-2026-05-27-001):** Agent reads `wiki/index.md` and Base views first, identifies relevant articles, reads them in full, synthesizes answer. For long structured sources, navigate by document hierarchy and section anchors—not blind chunking or similarity alone.
+- **Citation ≠ similarity (RC-2026-05-27-002):** Retrieval confidence or semantic proximity does not satisfy citation requirements. `align-cite` verifies claim-level support before publish.
+- Embeddings deferred (revisit only if wiki passes ~500 articles and a holdout eval justifies an alternative retriever)
 - Citations to source pages and section anchors required in the answer
 - Optional `--file-back`: persists the answer as a `wiki/workspace-qa/` article and updates `index.md` and `log.md`
 - Project-scoped queries: when invoked from inside a project context, retrieval is filtered to in-scope sources for that project
+
+Decision record: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`
 
 ### 4.8 Documentation generation via agent chain (Priority: High)
 

@@ -195,7 +195,13 @@ This document records the design decisions behind Second Brain v1, the alternati
 
 ## 11. Defer embeddings until wiki passes ~500 articles
 
-**Decision:** No embeddings, no vector search, no hybrid retrieval in v1. Index-guided retrieval (LLM reads `wiki/index.md` and Base views, identifies relevant articles, reads them in full).
+**Decision:** No embeddings, no vector search, no hybrid retrieval in v1. **Page-index / structure-aware retrieval** is the default: the agent reads `wiki/index.md` and Base views, identifies relevant articles, reads them in full, and navigates long documents by hierarchy and section anchors rather than similarity chunking alone.
+
+**Citation ≠ retrieval (RC-2026-05-27-002):** Semantic similarity or chunk proximity is not evidence of citation support. Retrieved context may inform drafting; `align-cite` verifies that each cited claim resolves to supporting source content before publish.
+
+**Future retriever gate:** Any vector, hybrid, graph, or rerank retriever added after v1 must pass a holdout evaluation on long structured pages, demonstrating improved citation precision and inspectability without weakening junior-engineer closure. Until then, keep `align-cite` as a publish blocker.
+
+Decision record: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`
 
 **Alternatives considered:**
 
