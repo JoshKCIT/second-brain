@@ -144,6 +144,35 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-27] session | PIC-2026-05-27-005 accepted
+
+- Changed:
+  - User accepted RC-2026-05-27-003 controlled gap-review experiment.
+  - Closed PIC-2026-05-27-005; opened PIC-2026-05-27-006 for RC-007 disposable graph projection.
+
+- Open:
+  - User ADR review for RC-2026-05-27-007 before cycle 6 implementation.
+
+- Next:
+  - Present DRAFT-RC-2026-05-27-007 for approval.
+
+---
+
+## [2026-05-27] session | graph experiments deferred
+
+- Changed:
+  - User deferred RC-007 and RC-008; prefers Obsidian graph over custom graph projection.
+  - Closed PIC-2026-05-27-006 without implementation; active backlog queue now empty.
+
+- Open:
+  - RC-012 still blocked on failure data.
+  - H-001, H-005 experiments active on gap-review and ADR intent sections.
+
+- Next:
+  - Run `/platform-gap-review` when ready, or re-queue RC-007 when Obsidian graph is insufficient.
+
+---
+
 ## [2026-05-27] session | platform research review import
 
 - Changed:
