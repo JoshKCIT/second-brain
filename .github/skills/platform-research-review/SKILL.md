@@ -28,7 +28,7 @@ Research transcripts may influence Second Brain, but they may not directly becom
 9. Update `wiki/platform-research/claim-register.md`.
 10. Write `reports/platform-research-review/{slug}-impact-report.md`.
 11. Create draft ADRs for adopted or experimental claims only.
-12. Mirror rejected claims in `wiki/platform-research/rejected-ideas.md`.
+12. Mirror rejected claims in `wiki/platform-research/rejected-ideas.md` (or run `python scripts/sync-rejected-register.py --root .` after claim-register edits).
 13. Update `wiki/platform-research/open-hypotheses.md` for experiments.
 14. Update `wiki/platform-research/implementation-backlog.md` when batch reviews produce adopt/experiment/defer claims needing stack-lift ordering.
 15. Run `python scripts/sync-transcript-register.py --root .`.

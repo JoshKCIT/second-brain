@@ -39,6 +39,14 @@ Retrieval is not citation support; `align-cite` still required before publish.
 
 On invoke, read `wiki/workspace-projects/{slug}/meta.yml`. Confirm `current_stage` is `vp-brief` (or CEO explicitly restarted this stage). Do not advance `current_stage` or set `last_completed`—orchestrator updates those at CEO approval.
 
+## Invalidated artifacts (PH-005)
+
+Do not read or cite project artifacts with `invalidated: true` in frontmatter. If `meta.yml` lists `invalidated_stages`, treat downstream work as stale until orchestrator clears flags.
+
+## Inter-stage output (PH-003)
+
+First stage: no upstream forward. Populate `01-vp-brief/handoff.md` **Open decisions (this stage)** and artifact `## Open questions for PM Agent` so the orchestrator can lock or forward at the VP→PM gate. On session end, leave **Locked decisions** empty until CEO approves the brief.
+
 ## Inputs
 
 When invoked from `start-project`, you receive:
@@ -144,15 +152,16 @@ The VP brief is one page (roughly 400-600 words rendered). It is strategic, not 
 After your brief is written:
 
 1. Confirm structure is complete (all sections populated or marked `[NEEDS INPUT]`)
-2. Append to `wiki/log.md`:
+2. Ensure `handoff.md` lists open decisions and questions the PM must inherit (PH-003); orchestrator builds `02-pm-prd/handoff.md` at CEO gate
+3. Append to `wiki/log.md`:
    ```
    ## [{ISO timestamp}] vp-agent | {slug}
    - Output: wiki/workspace-projects/{slug}/01-vp-brief/product-brief.md
    - Sources consulted: {list}
    - Open questions for PM: {count}
    ```
-3. Tell the CEO the brief is ready for review
-4. Do not invoke the PM Agent yourself; wait for `start-project` orchestration to handle the handoff after CEO approval
+4. Tell the CEO the brief is ready for review
+5. Do not invoke the PM Agent yourself; wait for `start-project` orchestration to handle the handoff after CEO approval
 
 ## On insufficient information
 

@@ -30,11 +30,13 @@ wiki/workspace-projects/{slug}/0X-{stage}/
 
 ## Agent usage
 
-**On resume:** Read `handoff.md`, then scan `daily-progress/` (newest first, last 3 files) for catch-up.
+**On resume:** Read `handoff.md` (including PH-003 locked and forwarded open decisions when present), then scan `daily-progress/` (newest first, last 3 files) for catch-up.
 
 **During work:** Write reading notes to `research/`; append session summary to `daily-progress/YYYY-MM-DD.md`.
 
 **On session end:** Update `handoff.md`; ask CEO to confirm. Do not promote scaffold files to `review` or publish set.
+
+**On reopen (PH-005):** Invalidated stage scaffolds stay on disk; do not promote to publish set until stage is re-approved.
 
 **On publish:** Archive or delete scaffold folders per CEO choice; published set remains stage artifacts only.
 

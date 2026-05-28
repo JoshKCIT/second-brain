@@ -15,9 +15,9 @@ Post-implementation review of the workspace agent hierarchy (RC-161, RC-058) ide
 |---|---|---|---|
 | PH-2026-05-27-001 | hygiene | accepted | meta.yml stage state machine |
 | PH-2026-05-27-002 | hygiene | accepted | start-project finalize alignment |
-| PH-2026-05-27-003 | hygiene | queued | inter-stage output contract |
+| PH-2026-05-27-003 | hygiene | accepted | inter-stage output contract (PIC-013) |
 | PH-2026-05-27-004 | hygiene | queued | advisory align-cite per stage |
-| PH-2026-05-27-005 | hygiene | queued | reopen stage protocol |
+| PH-2026-05-27-005 | hygiene | accepted | reopen stage protocol (PIC-014) |
 | PH-2026-05-27-006 | hygiene | queued | platform escalation routing (RC-162 bundle) |
 
 ## Highest-Value Claims
@@ -38,7 +38,7 @@ Post-implementation review of the workspace agent hierarchy (RC-161, RC-058) ide
 
 1. Accept PIC-011 (RC-130 stage scaffold) if review passes.
 2. Implement **PH-001** next (meta.yml `current_stage`, `stage_gate`, `last_completed`).
-3. Implement **PH-003** (extend handoff with forwarded decisions).
+3. ~~Implement **PH-003**~~ Done (PIC-013): extend handoff with forwarded decisions.
 4. Bundle **PH-006** with RC-162 routing map.
 
 ## Protected Files Not Modified

@@ -20,6 +20,10 @@ current_stage: vp-brief      # vp-brief | pm-prd | architecture | engineering | 
 stage_gate: agent_work         # agent_work | awaiting_ceo_review | approved | blocked
 last_completed: null           # null | vp-brief | pm-prd | architecture | engineering | finalize
 
+# PH-005 reopen / invalidation
+invalidated_stages: []         # downstream artifact stages not CEO-authoritative (e.g. architecture, engineering)
+reopen_reason: ""              # CEO reason for last reopen; clear after target stage re-approved
+
 in_scope_spaces:
   - {space-key}
 in_scope_jira_projects: []
@@ -37,6 +41,8 @@ alignment_defaults:
 | `current_stage` | `vp-brief`, `pm-prd`, `architecture`, `engineering`, `finalize`, `align`, `ready-for-publish` | Active chain step |
 | `stage_gate` | `agent_work`, `awaiting_ceo_review`, `approved`, `blocked` | Who acts next |
 | `last_completed` | stage id or `null` | Last CEO-approved stage |
+| `invalidated_stages` | list of stage ids | Downstream artifacts marked stale after PH-005 reopen |
+| `reopen_reason` | string | Last reopen rationale; empty when none active |
 
 ## Transition rules
 
@@ -51,6 +57,8 @@ alignment_defaults:
 | Finalize complete | `sub_status: review`, `current_stage: align`, `stage_gate: agent_work`, `last_completed: finalize` |
 | Align gates pass | `current_stage: ready-for-publish`, `stage_gate: awaiting_ceo_review` |
 | Publish (Confluence) | `status: published`, `stage_gate: approved` |
+| CEO reopens to `{target}` (PH-005) | `current_stage: {target}`, `stage_gate: agent_work`, `last_completed` = stage before target (or `null`), `invalidated_stages` = downstream per reopen protocol, `sub_status: draft`, set `reopen_reason` |
+| Target re-approved after reopen | Remove re-approved stages from `invalidated_stages`, clear `reopen_reason`, then PH-003 forward as normal |
 
 ## Non-technical projects
 
@@ -59,7 +67,7 @@ Skip `architecture` stage: after PM approval set `current_stage: engineering` an
 ## Resumability (read order)
 
 1. **`meta.yml`** — `current_stage` + `stage_gate` + `last_completed` (authoritative when present)
-2. **`handoff.md`** — session context (RC-058)
+2. **`handoff.md`** — session context (RC-058); **locked + forwarded open decisions** (PH-003) for downstream stages
 3. **`daily-progress/`** — catch-up (RC-130)
 4. **Artifact frontmatter** — fallback only if PH-001 fields missing
 
@@ -71,5 +79,6 @@ Skip `architecture` stage: after PM approval set `current_stage: engineering` an
 
 ## See also
 
+- Reopen protocol (PH-005): `templates/workspace/reopen-stage-protocol.md`
 - Hygiene review: `reports/platform-research-review/agent-chain-hygiene-2026-05-27.md`
 - Handoff: `templates/workspace/handoff.md`

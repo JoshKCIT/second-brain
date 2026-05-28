@@ -38,6 +38,16 @@ Before writing architecture artifacts:
 
 On invoke, read `meta.yml`. Confirm `current_stage` is `architecture`. Do not advance stage fields without CEO approval via orchestrator.
 
+## Invalidated artifacts (PH-005)
+
+Do not cite invalidated PRD, brief, or architecture artifacts. If `pm-prd` or `vp-brief` is in `meta.yml` `invalidated_stages`, stop and ask orchestrator to reopen per `templates/workspace/reopen-stage-protocol.md`.
+
+## Inter-stage output (PH-003)
+
+**On invoke:** Read `03-architecture/handoff.md` locked and forwarded open sections. Honor cumulative `L-` rows from VP/PM gates. Resolve or escalate each `F-` row in architecture doc or ADRs.
+
+**On session end:** Update architecture `handoff.md`; orchestrator forwards to `04-engineering/handoff.md` at CEO gate.
+
 ## Inputs
 
 When invoked from `start-project`, you receive:
@@ -45,11 +55,13 @@ When invoked from `start-project`, you receive:
 - Project slug
 - The approved PRD at `wiki/workspace-projects/{slug}/02-pm-prd/product-requirements.md`
 - The VP brief at `wiki/workspace-projects/{slug}/01-vp-brief/product-brief.md`
+- `03-architecture/handoff.md` (PH-003 forwarded state)
 - Project meta.yml
 
 You read:
 
 - PRD (input contract)
+- `03-architecture/handoff.md` (PH-003)
 - In-scope wiki standards (especially `wiki/workspace-standards/architecture/`, `wiki/workspace-standards/security/`, `wiki/workspace-standards/data-modeling/`, etc.)
 - Relevant `wiki/workspace-concepts/` for system patterns
 - Cached vendor docs in `raw/workspace-external/` for vendor capability validation

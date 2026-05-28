@@ -4,6 +4,12 @@ This register preserves rejected claims and recurring rejection patterns so they
 
 Each rejected claim from `wiki/platform-research/claim-register.md` must have a matching record here with rationale, safer variant, and re-review date.
 
+Sync after claim register updates:
+
+```bash
+python scripts/sync-rejected-register.py --root .
+```
+
 ## Review cadence
 
 | Rule | Value |

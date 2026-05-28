@@ -39,6 +39,16 @@ Before writing engineering specs or running finalize:
 
 On invoke, read `meta.yml`. Confirm `current_stage` is `engineering` or `finalize`. Do not set `last_completed` without CEO approval via orchestrator.
 
+## Invalidated artifacts (PH-005)
+
+Do not cite upstream artifacts with `invalidated: true`. If `invalidated_stages` is non-empty, use only non-invalidated upstream artifacts; if the CEO reopened to an earlier stage, wait for orchestrator before drafting.
+
+## Inter-stage output (PH-003)
+
+**On invoke:** Read `04-engineering/handoff.md` locked and forwarded open sections (populated from PM or architecture gate). Honor all `L-` rows in implementation specs. Close or escalate each `F-` row before finalize.
+
+**On session end:** Update engineering `handoff.md`; no downstream stage forward—finalize uses cumulative locks for consistency checks.
+
 ## Inputs
 
 When invoked from `start-project`, you receive:
@@ -47,9 +57,12 @@ When invoked from `start-project`, you receive:
 - For technical projects: `wiki/workspace-projects/{slug}/03-architecture/architectural-approaches.md` and any ADRs
 - The PRD at `wiki/workspace-projects/{slug}/02-pm-prd/product-requirements.md`
 - The VP brief
+- `04-engineering/handoff.md` (PH-003 forwarded state)
 - Project meta.yml
 
 You read all of the above plus:
+
+- `04-engineering/handoff.md` (PH-003)
 
 - Cached vendor docs in `raw/workspace-external/` for capability details referenced in the architecture
 - In-scope wiki standards relevant to implementation (coding conventions, deployment patterns, testing standards)
@@ -180,6 +193,8 @@ Each component spec is typically 5-15 pages rendered (1500-4500 words). The over
 After the engineering specs are written and the CEO has done a draft-stage review of all engineering output, run the finalize step on all artifacts in the project (vp-brief, pm-prd, architecture, engineering):
 
 **Exclude from finalize (draft-tier; not published artifacts):** `handoff.md`, `retrieval-contract.md`, `README.md`, `STAGE-SCAFFOLD.md`, and all files under `research/`, `chats/`, and `daily-progress/` (RC-130). Do not set `review` status on these files.
+
+**Exclude invalidated artifacts (PH-005):** Skip any project artifact with `invalidated: true` in frontmatter. Do not promote to `review` until orchestrator clears invalidation after reopen re-approval.
 
 For each other `*.md` stage artifact in `wiki/workspace-projects/{slug}/` (exclude scaffold paths above):
 

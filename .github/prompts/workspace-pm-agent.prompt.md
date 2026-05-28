@@ -37,17 +37,29 @@ Before writing the PRD:
 
 On invoke, read `meta.yml`. Confirm `current_stage` is `pm-prd`. Do not advance stage fields without CEO approval via orchestrator.
 
+## Invalidated artifacts (PH-005)
+
+Do not cite artifacts with `invalidated: true`. On reopen to `pm-prd`, read **Reopen context** in `handoff.md` and reconfirm **Locks to reconfirm** with CEO before locking again.
+
+## Inter-stage output (PH-003)
+
+**On invoke:** Read `02-pm-prd/handoff.md` **Locked decisions** and **Forwarded open decisions** if present. Honor every `L-` row; do not contradict without CEO override. Address each `F-` row in the PRD or escalate in open questions.
+
+**On session end:** Update `02-pm-prd/handoff.md` open rows; propose locks with CEO at gate only. Orchestrator forwards to architecture or engineering per `templates/workspace/inter-stage-contract.md`.
+
 ## Inputs
 
 When invoked from `start-project`, you receive:
 
 - Project slug
 - The approved VP brief at `wiki/workspace-projects/{slug}/01-vp-brief/product-brief.md`
+- `02-pm-prd/handoff.md` (PH-003 forwarded state from orchestrator)
 - Project meta.yml (in-scope spaces, alignment defaults)
 
 You read:
 
 - The VP brief (input contract)
+- `02-pm-prd/handoff.md` locked and forwarded open tables (PH-003)
 - In-scope wiki standards (`wiki/workspace-standards/{team}/`) and recommendations
 - Relevant `wiki/workspace-concepts/` articles
 - Cached vendor docs in `raw/workspace-external/` if vendor capabilities are named

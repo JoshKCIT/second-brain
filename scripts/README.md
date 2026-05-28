@@ -9,6 +9,7 @@
 | `lint-workspace.py` | Structural wiki lint → `reports/workspace-lint-{date}.md` |
 | `lint-platform-research.py` | Validate platform research artifacts |
 | `sync-transcript-register.py` | Rebuild transcript queue index (`wiki/platform-research/transcript-register.md`) |
+| `sync-rejected-register.py` | Mirror rejected claims into `wiki/platform-research/rejected-ideas.md` |
 
 ## Phase 1A quick start (AWS, Snowflake, Informatica)
 

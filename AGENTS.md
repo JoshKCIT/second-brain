@@ -115,9 +115,13 @@ Each workspace agent has a prompt file in `.github/prompts/workspace-{agent}-age
 
 **Session handoff (RC-058):** Optional `handoff.md` per stage directory holds draft-tier restart context (`starting_context`, `next_steps`, `open_decisions`, `last_session`). Agents read on resume; update at session end after CEO confirms. Template: `templates/workspace/handoff.md`. Excluded from finalize and published artifact set.
 
+**Inter-stage output contract (PH-003):** At each CEO gate, the orchestrator forwards **locked decisions** (CEO-confirmed, do not reopen) and **forwarded open decisions** (still unresolved upstream) into the next stage's `handoff.md`. Downstream agents read and honor locks before drafting; address forwarded open items in the stage artifact or escalate. Contract: `templates/workspace/inter-stage-contract.md`. ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-003-inter-stage-output-contract.md`.
+
 **Stage evidence scaffold (RC-130):** Optional per-stage folders `research/`, `chats/`, `daily-progress/` plus `handoff.md` for multi-day catch-up. Draft-tier only; excluded from publish set. Template: `templates/workspace/project-stage-scaffold/README.md`.
 
 **Project stage state (PH-001):** `meta.yml` fields `current_stage`, `stage_gate`, and `last_completed` are the authoritative resumability signal. Template: `templates/workspace/project-meta.yml.md`. Orchestrator updates at CEO gates; stage agents read on invoke and set `stage_gate: awaiting_ceo_review` when draft work completes.
+
+**Reopen stage protocol (PH-005):** When the CEO reopens an upstream stage, the orchestrator sets `invalidated_stages` and `reopen_reason` in `meta.yml`, marks downstream project artifacts `invalidated: true` (files retained for audit), and resumes at the target stage. Agents must not cite invalidated artifacts. Protocol: `templates/workspace/reopen-stage-protocol.md`. ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-005-reopen-stage-protocol.md`.
 
 CEO reviews and edits between stages. Do not invoke the next agent without explicit CEO approval.
 
@@ -621,7 +625,7 @@ Use `platform-research-review` for transcripts, meeting notes, interviews, or pr
 9. Update `wiki/platform-research/claim-register.md`
 10. Write `reports/platform-research-review/{slug}-impact-report.md`
 11. Create draft ADRs under `docs/platform-decision-records/DRAFT-*.md` only for adopted or experimental claims
-12. Mirror every `reject` decision in `wiki/platform-research/rejected-ideas.md`
+12. Mirror every `reject` decision in `wiki/platform-research/rejected-ideas.md` (run `python scripts/sync-rejected-register.py --root .` after bulk claim-register updates)
 13. Update `wiki/platform-research/open-hypotheses.md` for experimental claims
 14. For batch reviews, write `reports/platform-research-review/batch-synthesis-{date}.md` and update `wiki/platform-research/implementation-backlog.md` when adopt/experiment/defer claims need stack-lift ordering
 

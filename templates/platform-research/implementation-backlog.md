@@ -98,9 +98,9 @@ Platform maintenance items (not transcript claims). Full list: `reports/platform
 |---|---|---:|
 | PH-2026-05-27-001 | meta.yml stage state machine | 26 |
 | PH-2026-05-27-002 | start-project finalize alignment | 25 |
-| PH-2026-05-27-003 | inter-stage output contract | 21 |
+| PH-2026-05-27-003 | inter-stage output contract (accepted PIC-013) | 21 |
 | PH-2026-05-27-004 | advisory align-cite per stage | 19 |
-| PH-2026-05-27-005 | reopen stage protocol | 18 |
+| PH-2026-05-27-005 | reopen stage protocol (accepted PIC-014) | 18 |
 | PH-2026-05-27-006 | platform escalation routing (with RC-162) | 16 |
 
 Status values for PH items: `queued`, `partial`, `accepted`, `rolled_back`.
