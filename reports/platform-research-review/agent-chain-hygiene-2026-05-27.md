@@ -60,4 +60,4 @@ This review did not mutate canonical workspace standards, projects, PRD, roadmap
 ## See also
 
 - Implementation backlog: `wiki/platform-research/implementation-backlog.md`
-- RC-130 ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-130-project-stage-scaffold.md`
+- RC-130 ADR: `docs/platform-decision-records/RC-2026-05-27-130-project-stage-scaffold.md`

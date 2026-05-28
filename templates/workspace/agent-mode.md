@@ -52,6 +52,6 @@ Template: `templates/workspace/thinking-partner.md`. Pilot: H-022 A/B one PM sta
 
 ## See also
 
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-116-thinking-artifact-mode-separation.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-116-thinking-artifact-mode-separation.md`
 - Orientation (RC-163): `templates/workspace/orientation.md`
 - RC-117 thinking-partner: `templates/workspace/thinking-partner.md`

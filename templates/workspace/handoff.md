@@ -111,7 +111,7 @@ Optional pre-gate citation integrity run. Orchestrator skips duplicate offer if 
 - Session audit: `.github/skills/session-audit/SKILL.md` (RC-164)
 - Advisory cite: `templates/workspace/advisory-align-cite-per-stage.md` (PH-004)
 - Orientation: `templates/workspace/orientation.md` (RC-163)
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md`
-- PH-003 ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-003-inter-stage-output-contract.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-058-project-session-handoff.md`
+- PH-003 ADR: `docs/platform-decision-records/PH-2026-05-27-003-inter-stage-output-contract.md`
 - Instruction stack tier 3: RC-161
 - Stage scaffold (extends RC-058): `templates/workspace/project-stage-scaffold/README.md` (RC-130)

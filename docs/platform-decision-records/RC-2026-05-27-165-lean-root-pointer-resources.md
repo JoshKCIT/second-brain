@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-165 - Lean Root Pointer Resources
+# ADR: RC-2026-05-27-165 - Lean Root Pointer Resources
 
 ## Status
 
 Accepted (PIC-022, 2026-05-28)
+## Approval
+
+- Approved: 2026-05-28
+- Cycle: PIC-022
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source Claim
 

@@ -46,27 +46,27 @@ Stack analysis: `reports/platform-research-review/claim-stack-analysis-2026-05-2
 
 | Rank | Claim ID | Decision | priority_score | Status | Depends on | Draft ADR |
 |---:|---|---|---:|---|---|---|
-| 1 | RC-2026-05-27-014 | adopt | 38 | accepted | — | `docs/platform-decision-records/DRAFT-RC-2026-05-27-014-platform-research-artifacts.md` |
-| 2 | RC-2026-05-27-010 | adopt | 35 | accepted | RC-014 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-010-trust-loop-workflow-pattern.md` |
-| 3 | RC-2026-05-27-001 | adopt | 31 | accepted | — | `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md` |
+| 1 | RC-2026-05-27-014 | adopt | 38 | accepted | — | `docs/platform-decision-records/RC-2026-05-27-014-platform-research-artifacts.md` |
+| 2 | RC-2026-05-27-010 | adopt | 35 | accepted | RC-014 ✓ | `docs/platform-decision-records/RC-2026-05-27-010-trust-loop-workflow-pattern.md` |
+| 3 | RC-2026-05-27-001 | adopt | 31 | accepted | — | `docs/platform-decision-records/RC-2026-05-27-001-page-index-retrieval.md` |
 | 4 | RC-2026-05-27-002 | adopt | 29 | accepted | RC-001 ✓ | (bundle with RC-001) |
-| 5 | RC-2026-05-27-015 | experiment | 24 | accepted | RC-014 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-015-lightweight-intent-records.md` |
-| 6 | RC-2026-05-27-003 | experiment | 22 | accepted | RC-010 ✓, RC-014 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-003-controlled-gap-research.md` |
+| 5 | RC-2026-05-27-015 | experiment | 24 | accepted | RC-014 ✓ | `docs/platform-decision-records/RC-2026-05-27-015-lightweight-intent-records.md` |
+| 6 | RC-2026-05-27-003 | experiment | 22 | accepted | RC-010 ✓, RC-014 ✓ | `docs/platform-decision-records/RC-2026-05-27-003-controlled-gap-research.md` |
 | 7 | RC-2026-05-27-012 | experiment | 20 | blocked | RC-010 ✓, RC-014 ✓, failure data | `docs/platform-decision-records/DRAFT-RC-2026-05-27-012-advisory-harness-failure-review.md` |
 | 8 | RC-2026-05-27-122 + RC-157 | adopt | 28 | in_progress | RC-001 ✓, RC-002 ✓ | RC-122 + RC-157 ADRs (bundled policy cycle) |
-| 9 | RC-2026-05-27-018 | adopt | 27 | queued | RC-001 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-018-retrieval-contract-first.md` |
-| 10 | RC-2026-05-27-161 | adopt | 24 | queued | — | `docs/platform-decision-records/DRAFT-RC-2026-05-27-161-hierarchical-instruction-stacking.md` |
-| 11 | RC-2026-05-27-058 | experiment | 23 | queued | — | `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md` |
-| 12 | RC-2026-05-27-130 | experiment | 22 | queued | RC-058 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-130-project-stage-scaffold.md` |
-| 13 | RC-2026-05-27-163 | experiment | 21 | queued | RC-058 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-163-disposable-session-orientation.md` |
-| 14 | RC-2026-05-27-167 | experiment | 20 | queued | RC-058, RC-130 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-167-project-subfolder-rule-stacking.md` |
-| 15 | RC-2026-05-27-164 | experiment | 19 | queued | RC-163 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-164-session-audit-skill.md` |
-| 16 | RC-2026-05-27-162 | experiment | 18 | queued | RC-018, RC-161 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-162-routing-map-agents-shim.md` |
-| 17 | RC-2026-05-27-165 | experiment | 17 | queued | RC-018, RC-161 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-165-lean-root-pointer-resources.md` |
-| 18 | RC-2026-05-27-116 | experiment | 20 | queued | — | `docs/platform-decision-records/DRAFT-RC-2026-05-27-116-thinking-artifact-mode-separation.md` |
-| 19 | RC-2026-05-27-117 | experiment | 18 | queued | RC-116 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-117-thinking-partner-subagent.md` |
-| 20 | RC-2026-05-27-146 | experiment | 18 | queued | — | `docs/platform-decision-records/DRAFT-RC-2026-05-27-146-raw-inbox-staging.md` |
-| 21 | RC-2026-05-27-148 | experiment | 16 | queued | RC-146 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-148-topic-entity-compile.md` |
+| 9 | RC-2026-05-27-018 | adopt | 27 | queued | RC-001 ✓ | `docs/platform-decision-records/RC-2026-05-27-018-retrieval-contract-first.md` |
+| 10 | RC-2026-05-27-161 | adopt | 24 | queued | — | `docs/platform-decision-records/RC-2026-05-27-161-hierarchical-instruction-stacking.md` |
+| 11 | RC-2026-05-27-058 | experiment | 23 | queued | — | `docs/platform-decision-records/RC-2026-05-27-058-project-session-handoff.md` |
+| 12 | RC-2026-05-27-130 | experiment | 22 | queued | RC-058 | `docs/platform-decision-records/RC-2026-05-27-130-project-stage-scaffold.md` |
+| 13 | RC-2026-05-27-163 | experiment | 21 | queued | RC-058 | `docs/platform-decision-records/RC-2026-05-27-163-disposable-session-orientation.md` |
+| 14 | RC-2026-05-27-167 | experiment | 20 | queued | RC-058, RC-130 | `docs/platform-decision-records/RC-2026-05-27-167-project-subfolder-rule-stacking.md` |
+| 15 | RC-2026-05-27-164 | experiment | 19 | queued | RC-163 | `docs/platform-decision-records/RC-2026-05-27-164-session-audit-skill.md` |
+| 16 | RC-2026-05-27-162 | experiment | 18 | queued | RC-018, RC-161 | `docs/platform-decision-records/RC-2026-05-27-162-routing-map-agents-shim.md` |
+| 17 | RC-2026-05-27-165 | experiment | 17 | queued | RC-018, RC-161 | `docs/platform-decision-records/RC-2026-05-27-165-lean-root-pointer-resources.md` |
+| 18 | RC-2026-05-27-116 | experiment | 20 | queued | — | `docs/platform-decision-records/RC-2026-05-27-116-thinking-artifact-mode-separation.md` |
+| 19 | RC-2026-05-27-117 | experiment | 18 | queued | RC-116 | `docs/platform-decision-records/RC-2026-05-27-117-thinking-partner-subagent.md` |
+| 20 | RC-2026-05-27-146 | experiment | 18 | queued | — | `docs/platform-decision-records/RC-2026-05-27-146-raw-inbox-staging.md` |
+| 21 | RC-2026-05-27-148 | experiment | 16 | queued | RC-146 | `docs/platform-decision-records/RC-2026-05-27-148-topic-entity-compile.md` |
 | 22 | RC-2026-05-27-149 | experiment | 14 | queued | RC-146 | — |
 | 23 | RC-2026-05-27-050 | experiment | 15 | queued | RC-122 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-050-verbatim-cite-excerpts.md` |
 | 24 | RC-2026-05-27-055 | experiment | 15 | queued | RC-122 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-055-identity-packs-compile.md` |
@@ -140,4 +140,4 @@ next_action: ""
 
 - Claim register: `wiki/platform-research/claim-register.md`
 - Stack analysis: `reports/platform-research-review/claim-stack-analysis-2026-05-27.md`
-- Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`
+- Process ADR: `docs/platform-decision-records/RC-implementation-priority-loop.md`

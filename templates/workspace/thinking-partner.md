@@ -89,4 +89,4 @@ When exploration is sufficient, set stage `agent_mode: artifact` and invoke the 
 
 - Prompt: `.github/prompts/workspace-thinking-partner.prompt.md`
 - Agent mode: `templates/workspace/agent-mode.md` (RC-116)
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-117-thinking-partner-subagent.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-117-thinking-partner-subagent.md`

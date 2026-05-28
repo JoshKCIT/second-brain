@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-161 - Hierarchical Instruction Stacking
+# ADR: RC-2026-05-27-161 - Hierarchical Instruction Stacking
 
 ## Status
 
 Accepted (PIC-2026-05-27-009)
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-009
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source Claim
 

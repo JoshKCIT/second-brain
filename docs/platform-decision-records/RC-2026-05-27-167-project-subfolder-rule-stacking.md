@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-167 - Project Subfolder Rule Stacking
+# ADR: RC-2026-05-27-167 - Project Subfolder Rule Stacking
 
 ## Status
 
 Accepted (PIC-2026-05-27-018)
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-018
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source Claim
 
@@ -74,4 +80,4 @@ One pilot project with sub-scaffold for two weeks; align-closure confirms publis
 - `.github/prompts/workspace-{vp,pm,architect,engineer}-agent.prompt.md` — **done**
 - `.github/prompts/workspace-engineer-agent.prompt.md` (finalize exclusion) — **done**
 - `scripts/lint-workspace.py` (sub-scaffold integrity) — **done**
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-130-project-stage-scaffold.md` (cross-link) — **done**
+- `docs/platform-decision-records/RC-2026-05-27-130-project-stage-scaffold.md` (cross-link) — **done**

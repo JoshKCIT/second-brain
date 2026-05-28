@@ -56,9 +56,9 @@ RC-2026-05-27-146 through RC-2026-05-27-160 — full YAML in `wiki/platform-rese
 
 ### ADRs to draft
 
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-146-raw-inbox-staging.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-148-topic-entity-compile.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-157-citation-grounded-query.md`
+- `docs/platform-decision-records/RC-2026-05-27-146-raw-inbox-staging.md`
+- `docs/platform-decision-records/RC-2026-05-27-148-topic-entity-compile.md`
+- `docs/platform-decision-records/RC-2026-05-27-157-citation-grounded-query.md`
 
 ### Claims to reject
 

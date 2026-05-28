@@ -84,5 +84,5 @@ instruction_stack_tier: 3
 
 - RC-130 stage scaffold: `templates/workspace/project-stage-scaffold/README.md`
 - RC-161 instruction stack: `templates/workspace/instruction-stack-header.md`
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-167-project-subfolder-rule-stacking.md`
-- RC-130 ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-130-project-stage-scaffold.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-167-project-subfolder-rule-stacking.md`
+- RC-130 ADR: `docs/platform-decision-records/RC-2026-05-27-130-project-stage-scaffold.md`

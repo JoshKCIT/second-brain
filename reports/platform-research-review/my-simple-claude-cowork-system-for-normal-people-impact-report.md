@@ -64,12 +64,12 @@ Full YAML for RC-2026-05-27-161 through RC-2026-05-27-175 in `wiki/platform-rese
 
 ### ADRs to draft
 
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-161-hierarchical-instruction-stacking.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-162-routing-map-agents-shim.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-163-disposable-session-orientation.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-164-session-audit-skill.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-165-lean-root-pointer-resources.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-167-project-subfolder-rule-stacking.md`
+- `docs/platform-decision-records/RC-2026-05-27-161-hierarchical-instruction-stacking.md`
+- `docs/platform-decision-records/RC-2026-05-27-162-routing-map-agents-shim.md`
+- `docs/platform-decision-records/RC-2026-05-27-163-disposable-session-orientation.md`
+- `docs/platform-decision-records/RC-2026-05-27-164-session-audit-skill.md`
+- `docs/platform-decision-records/RC-2026-05-27-165-lean-root-pointer-resources.md`
+- `docs/platform-decision-records/RC-2026-05-27-167-project-subfolder-rule-stacking.md`
 
 ### Claims to reject
 

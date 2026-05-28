@@ -112,4 +112,4 @@ Append to `wiki/log.md`:
 
 - Checklist template: `templates/workspace/session-audit-checklist.md`
 - Prompt: `.github/prompts/workspace-session-audit.prompt.md`
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-164-session-audit-skill.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-164-session-audit-skill.md`

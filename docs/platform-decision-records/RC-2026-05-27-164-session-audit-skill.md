@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-164 - Session Audit Skill
+# ADR: RC-2026-05-27-164 - Session Audit Skill
 
 ## Status
 
 Accepted (PIC-2026-05-27-019)
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-019
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source Claim
 

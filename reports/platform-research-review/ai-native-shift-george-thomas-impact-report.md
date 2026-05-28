@@ -60,7 +60,7 @@ Full YAML: `wiki/platform-research/claim-register.md`
 ### ADRs to Draft
 
 - `docs/platform-decision-records/DRAFT-RC-2026-05-27-055-identity-packs-compile.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md`
+- `docs/platform-decision-records/RC-2026-05-27-058-project-session-handoff.md`
 
 ### Claims to Reject
 

@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-116 - Thinking vs Artifact Mode Separation
+# ADR: RC-2026-05-27-116 - Thinking vs Artifact Mode Separation
 
 ## Status
 
 Accepted (PIC-2026-05-27-017)
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-017
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source Claim
 

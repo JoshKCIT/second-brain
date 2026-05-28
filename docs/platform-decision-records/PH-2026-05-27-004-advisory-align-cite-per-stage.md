@@ -1,8 +1,14 @@
-# DRAFT ADR: PH-2026-05-27-004 - Advisory align-cite per Stage
+# ADR: PH-2026-05-27-004 - Advisory align-cite per Stage
 
 ## Status
 
 Accepted (PIC-2026-05-27-015)
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-015
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source
 
@@ -66,6 +72,6 @@ Early feedback reduces rework: a PM PRD citing a non-existent standard is cheape
 
 ## See also
 
-- RC-122 ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-122-read-before-write-retrieval.md`
-- PH-003 ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-003-inter-stage-output-contract.md`
+- RC-122 ADR: `docs/platform-decision-records/RC-2026-05-27-122-read-before-write-retrieval.md`
+- PH-003 ADR: `docs/platform-decision-records/PH-2026-05-27-003-inter-stage-output-contract.md`
 - align-cite prompt: `.github/prompts/workspace-align-cite.prompt.md`

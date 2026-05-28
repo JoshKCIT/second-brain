@@ -76,4 +76,4 @@ One Confluence raw batch: count new concepts/connections; run align-cite; measur
 
 - Compile prompt: `.github/prompts/workspace-compile.prompt.md`
 - Raw inbox: `templates/workspace/raw-inbox-staging.md` (RC-146)
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-148-topic-entity-compile.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-148-topic-entity-compile.md`

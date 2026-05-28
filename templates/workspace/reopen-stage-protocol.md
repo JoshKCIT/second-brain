@@ -129,4 +129,4 @@ Move `L-` rows that originated only from invalidated stages into **Forwarded ope
 
 - PH-001: `templates/workspace/project-meta.yml.md`
 - PH-003: `templates/workspace/inter-stage-contract.md`
-- ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-005-reopen-stage-protocol.md`
+- ADR: `docs/platform-decision-records/PH-2026-05-27-005-reopen-stage-protocol.md`

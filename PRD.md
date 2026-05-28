@@ -156,7 +156,7 @@ N/A. Second Brain is single-user local in v1. Each user runs their own instance 
 - Optional `--file-back`: persists the answer as a `wiki/workspace-qa/` article and updates `index.md` and `log.md`
 - Project-scoped queries: when invoked from inside a project context, retrieval is filtered to in-scope sources for that project
 
-Decision record: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`
+Decision record: `docs/platform-decision-records/RC-2026-05-27-001-page-index-retrieval.md`
 
 ### 4.8 Documentation generation via agent chain (Priority: High)
 

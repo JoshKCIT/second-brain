@@ -92,4 +92,4 @@ Stage agents read `thinking-notes/**` on resume but must **verify and source** a
 - Template: `templates/workspace/thinking-partner.md`
 - Agent mode: `templates/workspace/agent-mode.md` (RC-116)
 - Stage scaffold: `templates/workspace/project-stage-scaffold/README.md`
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-117-thinking-partner-subagent.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-117-thinking-partner-subagent.md`

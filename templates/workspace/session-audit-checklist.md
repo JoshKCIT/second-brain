@@ -36,4 +36,4 @@ Track per session: proposals count, accepted count, rejected count, unapproved w
 
 - Orientation template: `templates/workspace/orientation.md`
 - Handoff template: `templates/workspace/handoff.md`
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-164-session-audit-skill.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-164-session-audit-skill.md`

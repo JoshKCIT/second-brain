@@ -92,7 +92,7 @@ flowchart TD
 ## Recommended Next Actions
 
 1. Use `wiki/platform-research/implementation-backlog.md` as the single prioritized queue.
-2. Implement one backlog item at a time using the recursive loop in `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`.
+2. Implement one backlog item at a time using the recursive loop in `docs/platform-decision-records/RC-implementation-priority-loop.md`.
 3. Do not start graph experiments until RC-001/002 policy ADR is user-approved.
 4. Re-score the backlog after each accepted or rolled-back item.
 

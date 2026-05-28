@@ -15,7 +15,7 @@ python scripts/sync-rejected-register.py --root .
 | Rule | Value |
 |---|---|
 | Default re-review interval | Every 3 months |
-| Next scheduled re-review | 2026-08-25 |
+| Next scheduled re-review | 2026-08-26 |
 
 ## Summary index
 
@@ -23,6 +23,7 @@ python scripts/sync-rejected-register.py --root .
 |---|---|---|---|---|---|
 | RC-2026-05-27-009a | A graph builder that combines static code analysis, local transcripti... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/opencode-graphify-stop-wasting-tokens-claims.md |
 | RC-2026-05-27-013 | Recursive multi-agent systems that communicate in latent space should... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/robot-girlfriends-recursive-ai-agents-ai-news-claims.md |
+| RC-2026-05-27-021 | An agent-driven wikilink pass during compile improves cross-source di... | 2026-05-28 | 2026-08-28 | closed | wiki/platform-research/transcript-analyses/claude-code-obsidian-second-brain-learns-claims.md |
 | RC-2026-05-27-023 | Hot-cache orientation can substitute for align-cite verification and... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/claude-code-obsidian-second-brain-learns-claims.md |
 | RC-2026-05-27-025 | Notion with MCP connectors should replace filesystem Markdown as Seco... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/how-did-i-build-second-brain-with-ai-claims.md |
 | RC-2026-05-27-026 | Multi-LLM cross-critique orchestration should drive Second Brain comp... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/how-did-i-build-second-brain-with-ai-claims.md |
@@ -44,6 +45,8 @@ python scripts/sync-rejected-register.py --root .
 | RC-2026-05-27-108 | Second Brain should use an always-on WhatsApp/nano-claw personal agen... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/second-brain-singapore-keynote-claims.md |
 | RC-2026-05-27-109 | Second Brain should adopt an entity-edge graph memory with local embe... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/second-brain-singapore-keynote-claims.md |
 | RC-2026-05-27-110 | Second Brain should auto-generate Obsidian wikis from personally cura... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/second-brain-singapore-keynote-claims.md |
+| RC-2026-05-27-118 | Second Brain project stages should support end-of-day daily progress... | 2026-05-28 | 2026-08-28 | closed | wiki/platform-research/transcript-analyses/claude-code-can-be-your-second-brain-claims.md |
+| RC-2026-05-27-119 | Second Brain agents should support a catch-up-on-research workflow th... | 2026-05-28 | 2026-08-28 | closed | wiki/platform-research/transcript-analyses/claude-code-can-be-your-second-brain-claims.md |
 | RC-2026-05-27-125 | Second Brain v1 should require PARA method vault organization (Projec... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/claude-code-can-be-your-second-brain-claims.md |
 | RC-2026-05-27-126 | Second Brain should require or recommend home-server deployment (mini... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/claude-code-can-be-your-second-brain-claims.md |
 | RC-2026-05-27-127 | Second Brain should integrate Grok voice mode (or comparable voice UI... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/claude-code-can-be-your-second-brain-claims.md |
@@ -68,7 +71,7 @@ python scripts/sync-rejected-register.py --root .
 | RC-2026-05-27-172 | Second Brain should use Notion as external command center and auto-cr... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/my-simple-claude-cowork-system-for-normal-people-claims.md |
 | RC-2026-05-27-175 | Second Brain product mandate should include urgent adoption of a comp... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/my-simple-claude-cowork-system-for-normal-people-claims.md |
 
-_Last synced: 2026-05-27. 46 rejected claim(s)._
+_Last synced: 2026-05-28. 49 rejected claim(s)._
 
 ## Rejected claim records
 
@@ -118,6 +121,29 @@ reopen_conditions:
 owner: unassigned
 status: closed
 last_reviewed: 2026-05-27
+```
+
+```yaml
+record_id: RC-2026-05-27-021
+record_type: rejected_claim
+source_transcript: raw/platform-transcripts/Claude_Code_+_Obsidian_-_Build_a_Second_Brain_That_Actually_Learns.txt
+claim_analysis: wiki/platform-research/transcript-analyses/claude-code-obsidian-second-brain-learns-claims.md
+impact_report: reports/platform-research-review/claude-code-obsidian-second-brain-learns-impact-report.md
+atomic_claim: "An agent-driven wikilink pass during compile improves cross-source discovery before publish while body prose stays link-free at review/published."
+verbatim_excerpt: "for each note, find other notes that are systematically related and add Wiki links to them. Start at the most connected topics"
+decision: reject
+decision_date: 2026-05-28
+next_review_after: 2026-08-28
+review_cadence: quarterly
+total_score: 6
+decision_rationale: "Superseded by RC-148 (PIC-023): topic/entity compile with mandatory"
+rejection_reason: "Over-linking draft artifacts could leak wikilinks into review/published if finalize is skipped."
+safer_variant: "Use RC-148 compile phases and topic-entity-compile template; do not add standalone auto-wikilink PIC."
+reopen_conditions:
+  - "Compile one raw batch with auto-wikilink pass; verify closure lint passes after finalize."
+owner: unassigned
+status: closed
+last_reviewed: 2026-05-28
 ```
 
 ```yaml
@@ -601,6 +627,52 @@ reopen_conditions:
 owner: unassigned
 status: closed
 last_reviewed: 2026-05-27
+```
+
+```yaml
+record_id: RC-2026-05-27-118
+record_type: rejected_claim
+source_transcript: raw/platform-transcripts/Claude_Code_Can_Be_Your_Second_Brain.txt
+claim_analysis: wiki/platform-research/transcript-analyses/claude-code-can-be-your-second-brain-claims.md
+impact_report: reports/platform-research-review/claude-code-can-be-your-second-brain-impact-report.md
+atomic_claim: "Second Brain project stages should support end-of-day daily progress logs synthesized from that day's draft notes to preserve multi-session continuity."
+verbatim_excerpt: "at the end of each day, I have the AI write up the changes... the things I learned that day that are gonna help me push this talk along"
+decision: reject
+decision_date: 2026-05-28
+next_review_after: 2026-08-28
+review_cadence: quarterly
+total_score: 10
+decision_rationale: "Superseded by RC-130 (PIC-011): project-stage-scaffold includes daily-progress/ as draft-tier evidence; standalone daily-progress experiment duplicates accepted scaffold without added governance lift."
+rejection_reason: "Stale or hallucinated progress summaries if not grounded in file reads."
+safer_variant: "Use templates/workspace/project-stage-scaffold/README.md daily-progress/; pilot via H-2026-05-27-023 (RC-130 only)."
+reopen_conditions:
+  - "Pilot daily-progress/ subfolder for two sessions; measure resumption without re-brief."
+owner: unassigned
+status: closed
+last_reviewed: 2026-05-28
+```
+
+```yaml
+record_id: RC-2026-05-27-119
+record_type: rejected_claim
+source_transcript: raw/platform-transcripts/Claude_Code_Can_Be_Your_Second_Brain.txt
+claim_analysis: wiki/platform-research/transcript-analyses/claude-code-can-be-your-second-brain-claims.md
+impact_report: reports/platform-research-review/claude-code-can-be-your-second-brain-impact-report.md
+atomic_claim: "Second Brain agents should support a catch-up-on-research workflow that reads project files modified in the last N days by filesystem date before proposing next actions."
+verbatim_excerpt: "can you catch me up on the last three days of research... it's just gonna go read all the stuff"
+decision: reject
+decision_date: 2026-05-28
+next_review_after: 2026-08-28
+review_cadence: quarterly
+total_score: 10
+decision_rationale: "Superseded by RC-130 research/ + RC-058 handoff + RC-122 read-before-write: catch-up-on-research is covered by resume reads of handoff, research/, and scoped query—not a separate experiment."
+rejection_reason: "Misses relevant older context if date window too narrow."
+safer_variant: "Document catch-up path in draft-tier-map.md; use workspace-query or stage agent resume reads."
+reopen_conditions:
+  - "Pilot catch-up prompt on one project; reviewer confirms all cited files exist and match dates."
+owner: unassigned
+status: closed
+last_reviewed: 2026-05-28
 ```
 
 ```yaml
@@ -1143,3 +1215,4 @@ _No recurring patterns recorded yet._
 | Date | ID | Action | Notes |
 |---|---|---|---|
 | 2026-05-27 | _sync_ | synced | Rebuilt from claim-register.md (46 rejects) |
+| 2026-05-28 | _sync_ | synced | Rebuilt from claim-register.md (49 rejects) |

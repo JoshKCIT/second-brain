@@ -1,8 +1,14 @@
-# DRAFT ADR: PH-2026-05-27-007 - Stack Consolidation (Experiment Registry + Draft-Tier Map)
+# ADR: PH-2026-05-27-007 - Stack Consolidation (Experiment Registry + Draft-Tier Map)
 
 ## Status
 
-Draft
+Accepted (PIC-2026-05-27-024, 2026-05-28 )
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-024
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source
 
@@ -155,7 +161,7 @@ Include exclusion reminder: all rows except stage artifact excluded from finaliz
 ## See also
 
 - Stack audit: CEO review 2026-05-28 (conversation)
-- RC-165 ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-165-lean-root-pointer-resources.md`
+- RC-165 ADR: `docs/platform-decision-records/RC-2026-05-27-165-lean-root-pointer-resources.md`
 - Agent chain hygiene: `reports/platform-research-review/agent-chain-hygiene-2026-05-27.md`
 - Implementation backlog: `wiki/platform-research/implementation-backlog.md`
 - Open hypotheses: `wiki/platform-research/open-hypotheses.md`

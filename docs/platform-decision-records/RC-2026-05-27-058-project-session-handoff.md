@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-058 - Project Session Handoff Files
+# ADR: RC-2026-05-27-058 - Project Session Handoff Files
 
 ## Status
 
 Accepted (PIC-2026-05-27-010)
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-010
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source Claim
 

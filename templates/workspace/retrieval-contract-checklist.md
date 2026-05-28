@@ -62,6 +62,6 @@ storage: page-index via wiki/index.md; section-tree reads only
 
 ## See also
 
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-018-retrieval-contract-first.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-018-retrieval-contract-first.md`
 - Read-before-write: RC-122
 - Page-index policy: RC-001, RC-002

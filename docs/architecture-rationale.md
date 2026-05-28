@@ -201,7 +201,7 @@ This document records the design decisions behind Second Brain v1, the alternati
 
 **Future retriever gate:** Any vector, hybrid, graph, or rerank retriever added after v1 must pass a holdout evaluation on long structured pages, demonstrating improved citation precision and inspectability without weakening junior-engineer closure. Until then, keep `align-cite` as a publish blocker.
 
-Decision record: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`
+Decision record: `docs/platform-decision-records/RC-2026-05-27-001-page-index-retrieval.md`
 
 **Alternatives considered:**
 

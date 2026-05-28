@@ -80,7 +80,7 @@ At each CEO gate after approval, before invoking the next agent:
 
 - Handoff template: `templates/workspace/handoff.md`
 - PH-001 resumability: `templates/workspace/project-meta.yml.md`
-- ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-003-inter-stage-output-contract.md`
+- ADR: `docs/platform-decision-records/PH-2026-05-27-003-inter-stage-output-contract.md`
 - Reopen protocol: `templates/workspace/reopen-stage-protocol.md` (PH-005)
 - Advisory cite: `templates/workspace/advisory-align-cite-per-stage.md` (PH-004)
 - Hygiene review: `reports/platform-research-review/agent-chain-hygiene-2026-05-27.md`

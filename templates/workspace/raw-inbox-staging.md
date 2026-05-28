@@ -73,4 +73,4 @@ After successful compile, agents may add `compiled_at` and `wiki_articles` to `s
 - Compile prompt: `.github/prompts/workspace-compile.prompt.md`
 - Post-ingest manifest: `templates/workspace/post-ingest-manifest.md`
 - Raw layer README: `raw/README.md`
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-146-raw-inbox-staging.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-146-raw-inbox-staging.md`

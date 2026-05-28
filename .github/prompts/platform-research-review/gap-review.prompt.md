@@ -66,4 +66,4 @@ Summarize:
 - Rejected patterns avoided
 - Protected files not modified
 
-Experiment ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-003-controlled-gap-research.md`
+Experiment ADR: `docs/platform-decision-records/RC-2026-05-27-003-controlled-gap-research.md`

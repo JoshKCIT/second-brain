@@ -59,10 +59,10 @@ This interview contains **strong draft-stage workflow material** for a governed 
 
 ### ADRs to draft
 
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-116-thinking-artifact-mode-separation.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-117-thinking-partner-subagent.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-122-read-before-write-retrieval.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-130-project-stage-scaffold.md`
+- `docs/platform-decision-records/RC-2026-05-27-116-thinking-artifact-mode-separation.md`
+- `docs/platform-decision-records/RC-2026-05-27-117-thinking-partner-subagent.md`
+- `docs/platform-decision-records/RC-2026-05-27-122-read-before-write-retrieval.md`
+- `docs/platform-decision-records/RC-2026-05-27-130-project-stage-scaffold.md`
 
 ### Claims to reject
 

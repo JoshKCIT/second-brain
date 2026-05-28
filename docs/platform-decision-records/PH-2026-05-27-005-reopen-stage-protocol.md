@@ -1,8 +1,14 @@
-# DRAFT ADR: PH-2026-05-27-005 - Reopen Stage Protocol
+# ADR: PH-2026-05-27-005 - Reopen Stage Protocol
 
 ## Status
 
 Accepted (PIC-2026-05-27-014)
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-014
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source
 
@@ -63,4 +69,4 @@ Filesystem-first audit trail: `wiki/log.md` records `stage-reopen` events; front
 
 ## See also
 
-- PH-003 ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-003-inter-stage-output-contract.md`
+- PH-003 ADR: `docs/platform-decision-records/PH-2026-05-27-003-inter-stage-output-contract.md`

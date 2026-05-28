@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-157 - Citation-Grounded Query Responses
+# ADR: RC-2026-05-27-157 - Citation-Grounded Query Responses
 
 ## Status
 
 Accepted (PIC-2026-05-27-007, bundled with RC-122)
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-007
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source Claim
 

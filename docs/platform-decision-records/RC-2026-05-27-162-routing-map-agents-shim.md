@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-162 - Routing Map in AGENTS Shim
+# ADR: RC-2026-05-27-162 - Routing Map in AGENTS Shim
 
 ## Status
 
 Accepted (PIC-2026-05-27-020)
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-020
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source Claim
 

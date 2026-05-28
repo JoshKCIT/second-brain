@@ -1,8 +1,14 @@
-# DRAFT ADR: PH-2026-05-27-003 - Inter-Stage Output Contract
+# ADR: PH-2026-05-27-003 - Inter-Stage Output Contract
 
 ## Status
 
 Accepted (PIC-2026-05-27-013)
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-013
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source
 
@@ -62,5 +68,5 @@ Filesystem-first inspectability: the next agent reads one handoff file and sees 
 
 ## See also
 
-- RC-058: `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md`
+- RC-058: `docs/platform-decision-records/RC-2026-05-27-058-project-session-handoff.md`
 - PH-001: `templates/workspace/project-meta.yml.md`

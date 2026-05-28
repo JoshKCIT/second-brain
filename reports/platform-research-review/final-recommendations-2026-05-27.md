@@ -82,20 +82,20 @@ See the full historical register: `wiki/platform-research/rejected-ideas.md` (ne
 - Review the prioritized implementation queue: `wiki/platform-research/implementation-backlog.md`
 - Read the stack analysis: `reports/platform-research-review/claim-stack-analysis-2026-05-27.md`
 - Approve or revise draft ADRs before any canonical doc changes.
-- Run one implementation cycle at a time using `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`.
+- Run one implementation cycle at a time using `docs/platform-decision-records/RC-implementation-priority-loop.md`.
 - Keep external product, benchmark, legal, and paper claims marked unvalidated until primary-source checks are performed.
 
 ## Draft ADRs Created
 
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-003-controlled-gap-research.md`
+- `docs/platform-decision-records/RC-2026-05-27-001-page-index-retrieval.md`
+- `docs/platform-decision-records/RC-2026-05-27-003-controlled-gap-research.md`
 - `docs/platform-decision-records/DRAFT-RC-2026-05-27-007-disposable-graph-projection.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-010-trust-loop-workflow-pattern.md`
+- `docs/platform-decision-records/RC-2026-05-27-010-trust-loop-workflow-pattern.md`
 - `docs/platform-decision-records/DRAFT-RC-2026-05-27-012-advisory-harness-failure-review.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-014-platform-research-artifacts.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-015-lightweight-intent-records.md`
+- `docs/platform-decision-records/RC-2026-05-27-014-platform-research-artifacts.md`
+- `docs/platform-decision-records/RC-2026-05-27-015-lightweight-intent-records.md`
 - `docs/platform-decision-records/DRAFT-RC-2026-05-27-008-session-graph-orientation.md`
-- `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`
+- `docs/platform-decision-records/RC-implementation-priority-loop.md`
 
 ## Protected Files Intentionally Not Modified
 

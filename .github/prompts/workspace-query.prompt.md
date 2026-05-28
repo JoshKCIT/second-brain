@@ -24,7 +24,7 @@ You are answering a user question by reading the wiki layer (no embeddings, no v
 
 **Citation-grounded query (RC-157):** Every response includes a **Sources consulted** section listing wiki paths, `raw/` paths, and vendor cache paths actually read (paths must exist on disk). Place it before the answer body.
 
-Policy ADRs: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`, `DRAFT-RC-2026-05-27-122-read-before-write-retrieval.md`, `DRAFT-RC-2026-05-27-157-citation-grounded-query.md`
+Policy ADRs: `docs/platform-decision-records/RC-2026-05-27-001-page-index-retrieval.md`, `DRAFT-RC-2026-05-27-122-read-before-write-retrieval.md`, `DRAFT-RC-2026-05-27-157-citation-grounded-query.md`
 
 ## Inputs
 

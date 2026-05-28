@@ -53,7 +53,7 @@ This transcript contains **strong product-improving material** for Second Brain'
 
 ### ADRs to draft
 
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-018-retrieval-contract-first.md`
+- `docs/platform-decision-records/RC-2026-05-27-018-retrieval-contract-first.md`
 
 ### Claims to reject
 

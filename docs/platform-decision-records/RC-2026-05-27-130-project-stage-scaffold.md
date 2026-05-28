@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-130 - Project Stage Evidence Scaffold
+# ADR: RC-2026-05-27-130 - Project Stage Evidence Scaffold
 
 ## Status
 
 Accepted (PIC-2026-05-27-011)
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-011
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source Claim
 
@@ -81,5 +87,5 @@ Pilot on one active project for two weeks; measure successful "catch up last N d
 - `.github/prompts/workspace-engineer-agent.prompt.md` (finalize exclusions) — **done**
 - `.github/prompts/workspace-publish.prompt.md` (scaffold cleanup) — **done**
 - `AGENTS.md` — **done**
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md` (cross-link via templates) — **done**
+- `docs/platform-decision-records/RC-2026-05-27-058-project-session-handoff.md` (cross-link via templates) — **done**
 - RC-167 sub-scaffold: `templates/workspace/project-sub-scaffold/README.md` — **done**

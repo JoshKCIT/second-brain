@@ -107,7 +107,7 @@ After the user approves a draft ADR, deliver canonical changes one claim at a ti
 5. Present results to the user for accept or rollback
 6. Re-score the backlog and continue
 
-Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`
+Process ADR: `docs/platform-decision-records/RC-implementation-priority-loop.md`
 
 ## Controlled platform gap review (experiment RC-2026-05-27-003)
 

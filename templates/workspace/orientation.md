@@ -71,5 +71,5 @@ Hypotheses not yet grounded in scoped sources. Do not treat as locked decisions 
 
 - Handoff (RC-058): `templates/workspace/handoff.md`
 - Stage scaffold (RC-130): `templates/workspace/project-stage-scaffold/README.md`
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-163-disposable-session-orientation.md`
-- RC-058 ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-163-disposable-session-orientation.md`
+- RC-058 ADR: `docs/platform-decision-records/RC-2026-05-27-058-project-session-handoff.md`

@@ -51,7 +51,7 @@ Engineer finalize must **not** process files under `research/`, `chats/`, `daily
 
 ## See also
 
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-130-project-stage-scaffold.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-130-project-stage-scaffold.md`
 - Handoff: `templates/workspace/handoff.md`
 - Orientation: `templates/workspace/orientation.md` (RC-163)
 - RC-167 subfolder rule stacking: `templates/workspace/project-sub-scaffold/README.md`

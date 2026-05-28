@@ -72,6 +72,6 @@ Do **not** run advisory align-cite on:
 
 ## See also
 
-- ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-004-advisory-align-cite-per-stage.md`
+- ADR: `docs/platform-decision-records/PH-2026-05-27-004-advisory-align-cite-per-stage.md`
 - align-cite prompt: `.github/prompts/workspace-align-cite.prompt.md`
 - Inter-stage contract: `templates/workspace/inter-stage-contract.md` (PH-003)

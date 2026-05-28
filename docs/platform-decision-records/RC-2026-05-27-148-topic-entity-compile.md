@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-148 - Topic Entity Compile From Raw
+# ADR: RC-2026-05-27-148 - Topic Entity Compile From Raw
 
 ## Status
 
 Accepted (PIC-023, 2026-05-28)
+## Approval
+
+- Approved: 2026-05-28
+- Cycle: PIC-023
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source Claim
 

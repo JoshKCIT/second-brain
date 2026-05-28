@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-146 - Raw Inbox Staging Lane
+# ADR: RC-2026-05-27-146 - Raw Inbox Staging Lane
 
 ## Status
 
 Accepted (PIC-021, 2026-05-28)
+## Approval
+
+- Approved: 2026-05-28
+- Cycle: PIC-021
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source Claim
 

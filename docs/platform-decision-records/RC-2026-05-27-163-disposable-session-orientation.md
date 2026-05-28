@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-163 - Disposable Session Orientation
+# ADR: RC-2026-05-27-163 - Disposable Session Orientation
 
 ## Status
 
 Accepted (PIC-2026-05-27-016)
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-016
+- Notes: Promoted per PH-2026-05-27-008 (Option A filename sync).
+
 
 ## Source Claim
 
@@ -73,4 +79,4 @@ Pilot on one project stage for two weeks; verify zero wiki writes from orientati
 - `.github/prompts/workspace-{vp,pm,architect,engineer}-agent.prompt.md` (read/write hooks) — **done**
 - `.github/prompts/workspace-start-project.prompt.md` (scaffold + resumability) — **done**
 - `scripts/lint-workspace.py` (orientation integrity checks) — **done**
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md` (cross-link) — **done**
+- `docs/platform-decision-records/RC-2026-05-27-058-project-session-handoff.md` (cross-link) — **done**
