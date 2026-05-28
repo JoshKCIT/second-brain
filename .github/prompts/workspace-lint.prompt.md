@@ -50,6 +50,7 @@ You are running the full lint pass on the wiki. Catches drift, orphans, contradi
 18. **Agent mode (RC-116).** Project artifacts with `agent_mode: thinking` at `review`/`published`, or draft artifacts with publish-shaped section markers. Advisory warning. Run via `scripts/lint-workspace.py`.
 19. **Sub-scaffold integrity (RC-167).** Files under `subprojects/**` must have `publish_scope: exclude` and `not_canonical: true`; must not be at `review`/`published`. Published artifacts must not cite sub-scaffold paths in `sources`. Run via `scripts/lint-workspace.py`.
 20. **Routing map freshness (RC-162, advisory).** When `.github/prompts/` changes, verify `templates/workspace/routing-map.md` and `AGENTS.md` § Routing map list matching prompt stems. Flag stale or missing rows.
+21. **Thinking-notes integrity (RC-117).** Files under `thinking-notes/**` must have `type: thinking-notes`, `not_canonical: true`, and `status: draft`. Flag error if publish-tier artifacts cite thinking-notes in `sources`. Run via `scripts/lint-workspace.py`.
 
 ### LLM-driven (skipped with `--structural-only`)
 

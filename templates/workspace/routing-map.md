@@ -17,10 +17,11 @@ Canonical copy lives in `AGENTS.md` § Routing map. Update this template when pr
 | Onboard / configure scope | workspace | `second-brain` | `config/second-brain.yml`, `wiki/index.md` | `config/second-brain.yml` |
 | Start or resume project | workspace | `workspace-start-project` | `wiki/index.md`, `wiki/workspace-projects/{slug}/meta.yml`, stage `handoff.md` | `wiki/workspace-projects/{slug}/**` |
 | VP / PM / Architect / Engineer stage | workspace | `workspace-{vp,pm,architect,engineer}-agent` | `meta.yml`, stage artifact, `handoff.md`, `orientation.md` | Active stage artifact + draft-tier scaffolds |
+| Thinking-partner exploration | workspace | `workspace-thinking-partner` | Stage `handoff.md`, upstream artifacts, `orientation.md` | `thinking-notes/**` only |
 | Session end preference capture | workspace | `session-audit` skill / `workspace-session-audit` | Stage `handoff.md`, `orientation.md` | `handoff.md`, `orientation.md` only |
-| Ingest Confluence | workspace | `workspace-ingest-confluence` | `config/second-brain.yml`, scoped spaces | `raw/workspace-confluence/**` → compile → `wiki/**` |
-| Ingest vendor doc | workspace | `workspace-ingest-vendor-doc` | `raw/workspace-external/{vendor}/` TTL | `raw/workspace-external/**` |
-| Compile raw → wiki | workspace | `workspace-compile` | `wiki/index.md`, target `raw/**`, retrieval contract if multi-standard | `wiki/**`, `wiki/log.md` |
+| Ingest Confluence | workspace | `workspace-ingest-confluence` | `config/second-brain.yml`, scoped spaces | `raw/workspace-confluence/**`; compile after RC-146 approval |
+| Ingest vendor doc | workspace | `workspace-ingest-vendor-doc` | `raw/workspace-external/{vendor}/` TTL | `raw/workspace-external/**`, `raw/workspace-inbox/**` |
+| Compile raw → wiki | workspace | `workspace-compile` | `wiki/index.md`, target `raw/**`, retrieval contract if multi-standard | `wiki/**`, `wiki/log.md` — **explicit batch approval required (RC-146)** |
 | Query / Q&A | workspace | `workspace-query` | `wiki/index.md` then scoped articles | Optional `wiki/workspace-qa/**` with `--file-back` |
 | Align cite / closure / vendor truth | workspace | `workspace-align-*` | Target artifact + cited sources | Reports under `reports/` only |
 | Publish / archive | workspace | `workspace-publish`, `workspace-archive` | Active project artifact set | `wiki/workspace-projects/**`, `confluence-review/**` |

@@ -208,7 +208,7 @@ Each component spec is typically 5-15 pages rendered (1500-4500 words). The over
 
 After the engineering specs are written and the CEO has done a draft-stage review of all engineering output, run the finalize step on all artifacts in the project (vp-brief, pm-prd, architecture, engineering):
 
-**Exclude from finalize (draft-tier; not published artifacts):** `handoff.md`, `orientation.md` (RC-163), `retrieval-contract.md`, `README.md`, `STAGE-SCAFFOLD.md`, all files under `research/`, `chats/`, `daily-progress/`, and **`subprojects/`** (RC-167, including `resources/`). Do not set `review` status on these files.
+**Exclude from finalize (draft-tier; not published artifacts):** `handoff.md`, `orientation.md` (RC-163), `retrieval-contract.md`, `README.md`, `STAGE-SCAFFOLD.md`, all files under `research/`, `chats/`, `daily-progress/`, **`thinking-notes/`** (RC-117), and **`subprojects/`** (RC-167, including `resources/`). Do not set `review` status on these files.
 
 **RC-116 mode gate:** Before promoting any stage artifact to `review`, verify `agent_mode` is not `thinking`. If any artifact has `agent_mode: thinking`, stop finalize and ask CEO to set `artifact` on affected files.
 

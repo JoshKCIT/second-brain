@@ -58,9 +58,21 @@ domain: {from config: internal|vendor:X|industry:Y}
 4. **Write to raw.** `raw/workspace-confluence/{space-key}/pages/{page-id}--{slug}.md`.
 5. **On conversion failure:** write the raw payload (ADF JSON) and error to `quarantine/{date}/{page-id}/source.json` and `quarantine/{date}/{page-id}/error.md`. Do not block the rest of the run.
 
-## Compile (synchronous)
+## Compile (approval-gated, RC-146)
 
-After the raw page lands, invoke `workspace-compile.prompt.md` to integrate it into the wiki layer. Compile is part of ingest; do not return until both raw and wiki are updated.
+After raw pages land, **do not compile automatically**.
+
+1. Print raw paths written and count.
+2. Ask: **"Compile these {N} pages to wiki now? (y/n)"**
+3. If **yes**: invoke `workspace-compile.prompt.md` (which re-confirms the batch per RC-146).
+4. If **no**: stop after raw writes; note paths in manifest as **inbox / unprocessed**.
+
+**Flags:**
+
+- `--raw-only` — ingest to `raw/` only; skip compile prompt (inbox staging).
+- `--with-compile` — still require explicit user approval at the compile prompt; do not bypass RC-146.
+
+See `templates/workspace/raw-inbox-staging.md`.
 
 ## Post-ingest manifest
 

@@ -27,7 +27,7 @@ You are verifying that a project's authored set is jr-engineer-executable using 
 The **active authored set** for closure excludes all draft-tier scaffold paths:
 
 - `handoff.md`, `orientation.md`, `retrieval-contract.md`, `README.md`, `STAGE-SCAFFOLD.md`
-- `research/**`, `chats/**`, `daily-progress/**`, `resources/**` under stage or sub-scaffold
+- `research/**`, `chats/**`, `daily-progress/**`, `thinking-notes/**`, `resources/**` under stage or sub-scaffold
 - **`subprojects/**`** (entire RC-167 workstream tree)
 
 Run align-closure only on stage **project-artifact** files (`type: project-artifact` in frontmatter) at the stage root and in `03-architecture/adrs/` when applicable. Flag error if any file under excluded paths has `status: review` or `published`.

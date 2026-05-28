@@ -119,7 +119,7 @@ Always set `updated` when writing `meta.yml`. Append transition to `wiki/log.md`
 
 `README.md` is a brief project overview generated from the CEO's intent.
 
-When creating stage directories, optionally create empty `research/`, `chats/`, and `daily-progress/` subdirs per `templates/workspace/project-stage-scaffold/README.md` (RC-130). Optionally create empty `orientation.md` from `templates/workspace/orientation.md` (RC-163). For parallel workstreams, create `subprojects/{workstream}/` from `templates/workspace/project-sub-scaffold/` (RC-167) with CEO approval. Scaffold, orientation, and sub-scaffold paths are draft-tier; never part of publish set.
+When creating stage directories, optionally create empty `research/`, `thinking-notes/`, `chats/`, and `daily-progress/` subdirs per `templates/workspace/project-stage-scaffold/README.md` (RC-130, RC-117). Optionally create empty `orientation.md` from `templates/workspace/orientation.md` (RC-163). For parallel workstreams, create `subprojects/{workstream}/` from `templates/workspace/project-sub-scaffold/` (RC-167) with CEO approval. Scaffold, orientation, and sub-scaffold paths are draft-tier; never part of publish set.
 
 Append entry to `wiki/log.md`:
 

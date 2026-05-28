@@ -65,6 +65,8 @@ authority: standard
 
 4. Write to `raw/workspace-external/{vendor}/{topic}/{slug}.md` where `{slug}` is derived from the URL or topic.
 
+   For manual URL-less clips, use `raw/workspace-inbox/{YYYY-MM-DD}/{slug}.md` per `templates/workspace/raw-inbox-staging.md` with `inbox_status: unprocessed`.
+
 5. Append to `wiki/log.md`:
 
 ```
@@ -74,7 +76,7 @@ authority: standard
 - Cache valid until: {revalidate_after}
 ```
 
-6. Optionally compile into the wiki layer if the cached doc warrants a `wiki/workspace-concepts/` or `wiki/workspace-standards/{vendor}/` article. For simple capability lookups (e.g., "does S3 support SSE-KMS"), the raw cache is sufficient.
+6. **Compile (optional, RC-146):** Only when the cached doc warrants a `wiki/workspace-concepts/` or `wiki/workspace-standards/{vendor}/` article **and** the user explicitly approves compile. Invoke `workspace-compile.prompt.md` for the batch; never auto-compile. For simple capability lookups (e.g., "does S3 support SSE-KMS"), the raw cache alone is sufficient.
 
 ## Return value
 

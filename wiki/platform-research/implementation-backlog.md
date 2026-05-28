@@ -40,8 +40,8 @@ priority_score =
 | 2 — Scaffolding | Retrieval + agent rules | RC-018 ✓, RC-161 ✓ |
 | 3 — Session | Handoff ergonomics | RC-058 ✓, RC-130 ✓ |
 | 3b — Hygiene | Agent chain gaps | PH-001 ✓, PH-002 ✓, PH-003 ✓, PH-004 ✓, PH-005 ✓ |
-| 4 — Experiments | After 1–3 | RC-163 ✓, RC-116 ✓, RC-167 ✓, RC-164 ✓, RC-162 ✓ → RC-117, RC-165 |
-| 5 — Compile lane | Raw inbox | RC-146 → RC-148 → RC-149 |
+| 4 — Experiments | After 1–3 | RC-163 ✓, RC-116 ✓, RC-167 ✓, RC-164 ✓, RC-162 ✓, RC-117 ✓ → RC-165 |
+| 5 — Compile lane | Raw inbox | RC-146 ✓ → RC-148 → RC-149 |
 
 Template: `templates/platform-research/implementation-backlog.md`. Stack analysis: `reports/platform-research-review/claim-stack-analysis-2026-05-27.md`.
 
@@ -73,10 +73,10 @@ Template: `templates/platform-research/implementation-backlog.md`. Stack analysi
 | 16a | PH-2026-05-27-006 | hygiene | 16 | accepted | RC-162 ✓ | platform escalation row in routing map |
 | 17 | RC-2026-05-27-165 | experiment | 17 | queued | RC-018 ✓, RC-161 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-165-lean-root-pointer-resources.md` |
 | 18 | RC-2026-05-27-116 | experiment | 20 | accepted | — | `docs/platform-decision-records/DRAFT-RC-2026-05-27-116-thinking-artifact-mode-separation.md` |
-| 19 | RC-2026-05-27-117 | experiment | 18 | queued | RC-116 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-117-thinking-partner-subagent.md` |
-| 20 | RC-2026-05-27-146 | experiment | 18 | queued | — | `docs/platform-decision-records/DRAFT-RC-2026-05-27-146-raw-inbox-staging.md` |
-| 21 | RC-2026-05-27-148 | experiment | 16 | queued | RC-146 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-148-topic-entity-compile.md` |
-| 22 | RC-2026-05-27-149 | experiment | 14 | queued | RC-146 | — |
+| 19 | RC-2026-05-27-117 | experiment | 18 | implemented | RC-116 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-117-thinking-partner-subagent.md` |
+| 20 | RC-2026-05-27-146 | experiment | 18 | implemented | — | `docs/platform-decision-records/DRAFT-RC-2026-05-27-146-raw-inbox-staging.md` |
+| 21 | RC-2026-05-27-148 | experiment | 16 | queued | RC-146 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-148-topic-entity-compile.md` |
+| 22 | RC-2026-05-27-149 | experiment | 14 | queued | RC-146 ✓ | — |
 | 23 | RC-2026-05-27-050 | experiment | 15 | queued | RC-122 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-050-verbatim-cite-excerpts.md` |
 | 24 | RC-2026-05-27-055 | experiment | 15 | queued | RC-122 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-055-identity-packs-compile.md` |
 
@@ -86,13 +86,12 @@ Highest `priority_score` among `queued` items with satisfied dependencies:
 
 | Select rank | Claim ID | Score | Notes |
 |---:|---|---:|---|
-| 1 | RC-2026-05-27-117 | 18 | Thinking-partner; RC-116 ✓ |
-| 1 | RC-2026-05-27-146 | 18 | Raw inbox staging; opens compile lane |
-| 2 | RC-2026-05-27-165 | 17 | Lean root pointer resources |
+| 1 | RC-2026-05-27-165 | 17 | Lean root pointer resources |
+| 2 | RC-2026-05-27-148 | 16 | Topic/entity compile; RC-146 ✓ |
 | 3 | RC-2026-05-27-050 | 15 | Verbatim cite excerpts |
 | 3 | RC-2026-05-27-055 | 15 | Identity packs compile |
 
-**Blocked:** RC-012 (needs failure data). **Waiting on upstream:** RC-148/149 (RC-146).
+**Blocked:** RC-012 (needs failure data). **Awaiting accept:** RC-117, RC-146 (PIC-021 implemented).
 
 ## Verified baseline (no backlog work)
 
@@ -136,17 +135,25 @@ From `reports/platform-research-review/agent-chain-hygiene-2026-05-27.md`. Not t
 ## Current cycle
 
 ```yaml
-cycle_id: PIC-2026-05-27-020
-selected_claim: RC-2026-05-27-162
+cycle_id: PIC-2026-05-27-021
+selected_claim: RC-2026-05-27-117
 bundled_claims:
-  - PH-2026-05-27-006
-status: accepted
-accepted: 2026-05-28
+  - RC-2026-05-27-146
+status: implemented
 blocked_by: none
-next_action: "RC-162+PH-006 accepted. Top selectable: RC-117/146 (18 tie), then RC-165 (17)."
+next_action: "PIC-021 implemented. Accept RC-117+RC-146 or rollback. Next selectable: RC-165 (17), RC-148 (16)."
 ```
 
 ## Previous cycles (closed)
+
+```yaml
+cycle_id: PIC-2026-05-27-021
+selected_claim: RC-2026-05-27-117
+bundled_claims:
+  - RC-2026-05-27-146
+status: implemented
+outcome: "Thinking-partner prompt+template; stage agent hooks; thinking-notes lint. Raw inbox staging template; compile approval gate; ingest RC-146 flags; orphan_sources advisory."
+```
 
 ```yaml
 cycle_id: PIC-2026-05-27-020
@@ -331,6 +338,7 @@ Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-lo
 
 | Date | Claim ID | Action | Notes |
 |---|---|---|---|
+| 2026-05-28 | RC-2026-05-27-117, RC-146 | implemented | PIC-021; thinking-partner + raw inbox staging |
 | 2026-05-28 | RC-2026-05-27-162, PH-006 | accepted | PIC-020; routing map + platform escalation |
 | 2026-05-28 | RC-2026-05-27-164 | accepted | PIC-019; session audit skill |
 | 2026-05-28 | RC-2026-05-27-167 | accepted | PIC-018; project sub-scaffold rule stacking |

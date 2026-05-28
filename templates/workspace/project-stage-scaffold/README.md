@@ -9,6 +9,7 @@ wiki/workspace-projects/{slug}/0X-{stage}/
 ├── handoff.md              # RC-058 session restart
 ├── orientation.md          # RC-163 disposable session notes (optional)
 ├── research/               # clipped sources and reading notes
+├── thinking-notes/         # RC-117 thinking-partner exploration logs (optional)
 ├── chats/                  # imported external chat transcripts
 ├── daily-progress/         # dated session summaries (RC-118/119 adjacent)
 └── {stage-artifact}.md     # canonical stage output (VP brief, PRD, etc.)
@@ -19,6 +20,7 @@ wiki/workspace-projects/{slug}/0X-{stage}/
 | Path | Purpose | Authority | Promotion |
 |---|---|---|---|
 | `research/` | Notes while reading scoped wiki/raw sources | draft, tag `domain` in frontmatter | Compile into stage artifact `sources`; never publish raw |
+| `thinking-notes/` | Interview-style exploration from thinking-partner (RC-117) | draft, `not_canonical: true` | Verify in artifact with sources; excluded from publish |
 | `chats/` | External chat exports for evidence | informational | Cite in stage artifact if used; not canonical wiki |
 | `daily-progress/` | End-of-session summaries (`YYYY-MM-DD.md`) | draft | Catch-up reads; merge into `handoff.md` at session end |
 | `handoff.md` | Active restart context | draft-tier | Excluded from publish |
@@ -27,6 +29,7 @@ wiki/workspace-projects/{slug}/0X-{stage}/
 ## File templates
 
 - Research note: `templates/workspace/project-stage-scaffold/research-note.md`
+- Thinking notes: `templates/workspace/thinking-partner.md` (RC-117)
 - Daily progress: `templates/workspace/project-stage-scaffold/daily-progress.md`
 - Chat import: `templates/workspace/project-stage-scaffold/chat-import.md`
 
@@ -44,7 +47,7 @@ wiki/workspace-projects/{slug}/0X-{stage}/
 
 ## Finalize exclusions
 
-Engineer finalize must **not** process files under `research/`, `chats/`, `daily-progress/`, or `orientation.md` (RC-163).
+Engineer finalize must **not** process files under `research/`, `chats/`, `daily-progress/`, `thinking-notes/`, or `orientation.md` (RC-163).
 
 ## See also
 

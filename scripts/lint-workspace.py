@@ -131,6 +131,44 @@ def lint_sub_scaffold(root: Path, articles: list[Path]) -> list[str]:
     return issues
 
 
+def collect_thinking_notes_files(root: Path) -> list[Path]:
+    base = root / "wiki" / "workspace-projects"
+    if not base.is_dir():
+        return []
+    return [
+        p
+        for p in base.rglob("*")
+        if p.is_file() and "thinking-notes" in p.parts and p.suffix == ".md"
+    ]
+
+
+def lint_thinking_notes(root: Path, articles: list[Path]) -> list[str]:
+    issues: list[str] = []
+    for path in collect_thinking_notes_files(root):
+        rel = path.relative_to(root)
+        fm = parse_frontmatter(path)
+        if fm.get("type") != "thinking-notes":
+            issues.append(f"{rel}: expected type thinking-notes (RC-117)")
+        if not fm.get("not_canonical"):
+            issues.append(f"{rel}: missing not_canonical: true (RC-117)")
+        if fm.get("publish_scope") != "exclude":
+            issues.append(f"{rel}: missing publish_scope: exclude (RC-117 advisory)")
+        if fm.get("status") in ("review", "published"):
+            issues.append(f"{rel}: thinking-notes must stay draft-tier (RC-117)")
+
+    for article in articles:
+        rel_article = article.relative_to(root)
+        fm = parse_frontmatter(article)
+        if fm.get("status") not in ("review", "published"):
+            continue
+        for src in fm.get("sources", []) or []:
+            if isinstance(src, str) and "thinking-notes/" in src.replace("\\", "/"):
+                issues.append(
+                    f"{rel_article}: cites thinking-notes/ in sources at publish tier (RC-117)"
+                )
+    return issues
+
+
 def lint_orientation_and_agent_mode(root: Path, articles: list[Path]) -> dict[str, list[str]]:
     orientation_issues: list[str] = []
     agent_mode_issues: list[str] = []
@@ -195,6 +233,7 @@ def run_lint(root: Path, scope: Path | None) -> dict:
         "orientation_integrity": [],
         "agent_mode": [],
         "sub_scaffold_integrity": [],
+        "thinking_notes_integrity": [],
     }
 
     articles = collect_wiki_articles(root, scope)
@@ -258,6 +297,7 @@ def run_lint(root: Path, scope: Path | None) -> dict:
     for key, items in extra.items():
         findings[key] = items
     findings["sub_scaffold_integrity"] = lint_sub_scaffold(root, articles)
+    findings["thinking_notes_integrity"] = lint_thinking_notes(root, articles)
 
     return findings
 
@@ -266,7 +306,7 @@ def severity_map() -> dict[str, str]:
     return {
         "broken_links": "error",
         "frontmatter": "error",
-        "orphan_sources": "error",
+        "orphan_sources": "warning",  # RC-146: expected for raw inbox until approved compile
         "stale_vendor_docs": "warning",
         "orphan_pages": "warning",
         "missing_backlinks": "warning",
@@ -275,6 +315,7 @@ def severity_map() -> dict[str, str]:
         "orientation_integrity": "error",
         "agent_mode": "warning",
         "sub_scaffold_integrity": "error",
+        "thinking_notes_integrity": "error",
     }
 
 

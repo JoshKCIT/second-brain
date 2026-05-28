@@ -18,6 +18,20 @@ lane: workspace
 
 You are integrating newly ingested raw/ pages into the wiki layer. Each raw page becomes one or more wiki articles (concepts, standards, recommendations, informational, or connections), the index is updated, and the log records the action.
 
+## Compile approval gate (RC-146)
+
+**Stop before any wiki write** until the user explicitly approves the compile batch.
+
+1. List every raw path you intend to compile (from user input, `--all` orphan scan, or ingest handoff).
+2. Summarize count, paths (max 10 shown; "... and N more" if larger), and expected wiki targets from `wiki/index.md`.
+3. Ask: **"Compile these {N} raw pages to wiki? (y/n)"**
+4. If **no** or unclear: exit without wiki mutations; suggest `workspace-lint` orphan report for inbox review.
+5. If **yes**: proceed with retrieval contract and per-page workflow below.
+
+Never auto-compile on ingest completion, cron, or "small batch" heuristics. Log approved paths in the compile log entry.
+
+Inbox convention: `templates/workspace/raw-inbox-staging.md`. Orphan raw pages in lint are **expected** until approved compile.
+
 ## Retrieval contract (RC-018)
 
 Before reading raw pages for a batch, draft a lightweight **retrieval contract** using `templates/workspace/retrieval-contract-checklist.md`:

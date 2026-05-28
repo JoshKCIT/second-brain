@@ -57,7 +57,11 @@ Use `orientation.md` for exploration notes and preferences. Do not cite orientat
 
 ## Agent mode (RC-116)
 
-Read PRD `agent_mode` or `meta.yml` `agent_mode_default`. In `thinking` mode: questions and notes to `orientation.md`/`research/` only; no PRD section drafts except `[NEEDS INPUT]`. In `artifact` mode: normal PM output.
+Read PRD `agent_mode` or `meta.yml` `agent_mode_default`. In `thinking` mode: questions and notes to `orientation.md`/`research/`/`thinking-notes/` only; no PRD section drafts except `[NEEDS INPUT]`. In `artifact` mode: normal PM output.
+
+## Thinking-partner (RC-117)
+
+When CEO requests exploration before requirements, or `agent_mode: thinking`, offer `/workspace-thinking-partner` before drafting the PRD. Read `thinking-notes/**` on resume; verify and source any adopted idea in the PRD. Never cite thinking-notes in PRD body at `review`/`published`.
 
 ## Project sub-scaffold (RC-167)
 

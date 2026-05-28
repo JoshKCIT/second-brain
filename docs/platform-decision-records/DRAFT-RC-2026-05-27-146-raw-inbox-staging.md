@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft
+Accepted (PIC-021, 2026-05-28)
 
 ## Source Claim
 

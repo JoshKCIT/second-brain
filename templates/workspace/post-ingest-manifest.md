@@ -8,6 +8,8 @@ Operation: {ingest-confluence | ingest-vendor-doc | compile}
 Batch: {date-time}
 
 Ingested: {N} sources ({created} new, {updated} refreshed, {failed} quarantined)
+Raw inbox (unprocessed): {count} — paths: {list up to 5 or "none"} (RC-146)
+Compiled to wiki: {count} | skipped (inbox): {count}
 Wiki articles created: {list up to 5}
 Wiki articles updated: {list up to 5}
 Index updated: yes | no

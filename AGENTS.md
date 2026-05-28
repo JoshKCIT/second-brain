@@ -66,6 +66,7 @@ Task-type → prompt/skill → first read paths. **Orientation only** — does n
 | Onboard / configure | workspace | `second-brain` | `config/second-brain.yml`, `wiki/index.md` |
 | Start / resume project | workspace | `workspace-start-project` | `meta.yml`, stage `handoff.md`, `wiki/index.md` |
 | Stage agent work | workspace | `workspace-{vp,pm,architect,engineer}-agent` | Stage artifact, `handoff.md`, scoped wiki/raw |
+| Thinking-partner exploration | workspace | `workspace-thinking-partner` | Stage `handoff.md`, upstream artifacts |
 | Ingest / compile / query | workspace | `workspace-ingest-*`, `workspace-compile`, `workspace-query` | `wiki/index.md`, scoped sources per RC-018 |
 | Align / publish / lint | workspace | `workspace-align-*`, `workspace-publish`, `workspace-lint` | Target artifacts + cited paths |
 | Session audit | workspace | `workspace-session-audit` | Stage `handoff.md`, `orientation.md` |
@@ -100,6 +101,7 @@ Tier-2 shims and Tier-3 scaffolds must not restate full Tier-1 rule lists—refe
    - `raw/workspace-confluence/{space-key}/pages/{page-id}--{slug}.md` and `attachments/`
    - `raw/workspace-jira/{project-key}/tickets/` (v1.x)
    - `raw/workspace-external/{vendor}/{topic}/{slug}.md` for cached vendor docs
+   - `raw/workspace-inbox/{YYYY-MM-DD}/` for manual clips and unprocessed captures (RC-146)
    - `raw/platform-transcripts/{slug}/transcript.md` for product-intelligence transcripts
    - You read from here; you never modify it after the initial ingest write.
 
@@ -151,6 +153,10 @@ Each workspace agent has a prompt file in `.github/prompts/workspace-{agent}-age
 **Project sub-scaffold rule stacking (RC-167):** Optional `subprojects/{workstream}/` under a stage with Tier-3 `STAGE-SCAFFOLD.md`, local orientation, and resources. Inherits AGENTS + stage prompt; all sub-scaffold files use `publish_scope: exclude`. Excluded from finalize, align-closure publish set, and publish. Template: `templates/workspace/project-sub-scaffold/README.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-167-project-subfolder-rule-stacking.md`.
 
 **Session audit (RC-164):** Optional end-of-session skill (`.github/skills/session-audit/`) scans conversation and proposes `orientation.md` or `handoff.md` updates. Proposal-only; CEO approves each item before write. Never auto-writes wiki or canonical knowledge. Prompt: `.github/prompts/workspace-session-audit.prompt.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-164-session-audit-skill.md`.
+
+**Thinking-partner sub-agent (RC-117):** Optional interview-style exploration via `.github/prompts/workspace-thinking-partner.prompt.md`. Writes only to `thinking-notes/` (`type: thinking-notes`, `not_canonical: true`); excluded from finalize and publish. Pairs with RC-116 `agent_mode: thinking`. Template: `templates/workspace/thinking-partner.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-117-thinking-partner-subagent.md`.
+
+**Raw inbox staging (RC-146):** Captures land in scoped `raw/` paths (including `raw/workspace-inbox/`); compile into `wiki/` only after explicit user approval per batch. Orphan raw in lint is advisory until compile. Template: `templates/workspace/raw-inbox-staging.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-146-raw-inbox-staging.md`.
 
 **Task-type routing map (RC-162):** Shims and `AGENTS.md` include task → prompt → first-read-path table for workspace and platform lanes. PH-006 platform escalation row routes mid-project product ideas to platform research without protected-file mutation. Template: `templates/workspace/routing-map.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-162-routing-map-agents-shim.md`.
 
@@ -552,8 +558,8 @@ Use the user's existing API-based skill (REST API v2 with `body-format=atlas_doc
 1. Fetch the page (and attachments and comments)
 2. Convert ADF to Markdown
 3. Write `raw/workspace-confluence/{space-key}/pages/{page-id}--{slug}.md` with frontmatter (`source_url`, `space_key`, `page_id`, `title`, `ancestors`, `version`, `last_modified`, `labels`, `ingested_at`, `content_hash`, `domain`, `authority`)
-4. Compile (see operation 3 below) synchronously
-5. Update `wiki/index.md` and `wiki/log.md`
+4. **Compile only after explicit user approval** per batch (RC-146). Ingest may use `--raw-only` for inbox staging; otherwise ask before invoking compile.
+5. Update `wiki/index.md` and `wiki/log.md` when compile is approved
 6. On conversion failure: write payload + error to `quarantine/{date}/{page-id}/`; do NOT block the run
 
 After the run, print a manifest:
@@ -589,6 +595,8 @@ If yes:
 4. Append to `wiki/log.md`
 
 ### 3. Compile (raw → wiki)
+
+**Compile approval gate (RC-146):** Stop before any wiki write until the user explicitly approves the compile batch. Orphan raw pages are expected inbox state until approved compile.
 
 **Retrieval contract first (RC-2026-05-27-018):** Before compile or multi-standard project authoring, document the context bundle (purpose, in-scope sources, required wiki/raw paths, authority, freshness, exclusions). Template: `templates/workspace/retrieval-contract-checklist.md`. Storage/index choice follows the contract; default remains page-index (RC-001). Optional for single-source Q&A; required before `review` on multi-standard project artifacts.
 
@@ -749,7 +757,7 @@ Seven structural checks plus engineering additions:
 |---|---|---|
 | Broken links | Structural | Wikilinks pointing to non-existent articles |
 | Orphan pages | Structural | Articles with zero inbound links from other articles in the same set |
-| Orphan sources | Structural | Raw pages not yet compiled |
+| Orphan sources | Structural | Raw pages not yet compiled (RC-146: advisory for inbox staging) |
 | Stale articles | Structural | Source raw page changed since article was last compiled (content_hash differs) |
 | Missing backlinks | Structural | A links to B but B does not link back |
 | Sparse articles | Structural | Under 200 words |
@@ -765,6 +773,7 @@ Seven structural checks plus engineering additions:
 | Orientation integrity | Engineering | RC-163: orientation files missing `not_canonical`, promoted status, or cited as wiki sources |
 | Agent mode | Engineering | RC-116: `thinking` mode artifacts at review/published or with publish-shaped markers |
 | Sub-scaffold integrity | Engineering | RC-167: `subprojects/**` missing `publish_scope: exclude`, promoted status, or cited as publish sources |
+| Thinking-notes integrity | Engineering | RC-117: `thinking-notes/**` missing `not_canonical`, promoted status, or cited as publish sources |
 
 Output: `reports/workspace-lint-{date}.md` with severity per finding.
 

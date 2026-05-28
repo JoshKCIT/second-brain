@@ -59,8 +59,12 @@ Use `orientation.md` for session notes, preferences, and unverified working assu
 
 Read `product-brief.md` frontmatter `agent_mode` or `meta.yml` `agent_mode_default` (default: `artifact`). Per `templates/workspace/agent-mode.md`:
 
-- **`thinking`:** ask questions; write to `orientation.md` or `research/` only; no outline or draft prose in the brief except `[NEEDS INPUT]`
+- **`thinking`:** ask questions; write to `orientation.md`, `research/`, or `thinking-notes/` only; no outline or draft prose in the brief except `[NEEDS INPUT]`
 - **`artifact`:** normal VP brief output
+
+## Thinking-partner (RC-117)
+
+Offer `/workspace-thinking-partner` when CEO wants exploration before the brief, or when `agent_mode: thinking`. Read `thinking-notes/**` on resume; merge verified themes into brief with sources. Never cite thinking-notes in brief body at `review`/`published`.
 
 CEO sets `agent_mode: artifact` before expecting a complete brief.
 

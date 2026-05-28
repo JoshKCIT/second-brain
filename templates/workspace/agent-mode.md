@@ -16,7 +16,7 @@ Artifact frontmatter overrides `meta.yml` default for that file.
 ### `thinking`
 
 - Ask clarifying questions; facilitate exploration
-- Write notes to `orientation.md` (RC-163) or `research/` only
+- Write notes to `orientation.md` (RC-163), `research/`, or `thinking-notes/` (RC-117) only
 - **Forbidden:** outlines, section drafts, publish-shaped prose in stage artifact bodies
 - **Allowed in artifact:** `[NEEDS INPUT]` placeholders and frontmatter updates (`agent_mode`, `updated`)
 - Exception: user explicitly requests a file under `research/` or other designated draft subfolder
@@ -39,8 +39,19 @@ Engineer finalize **blocks** `review` promotion when any stage artifact still ha
 
 Track on one draft project: count unpublishable draft fragments in stage bodies with vs without thinking mode.
 
+## Thinking-partner sub-agent (RC-117)
+
+Optional interview-style exploration before artifact generation:
+
+- Invoke: `.github/prompts/workspace-thinking-partner.prompt.md`
+- Writes: `thinking-notes/{YYYY-MM-DD}-{topic}.md` only (`type: thinking-notes`, `not_canonical: true`)
+- Stage agents read thinking notes on resume but must verify and source facts before artifact body
+- Does not replace VP/PM/Architect agents; pairs with `agent_mode: thinking`
+
+Template: `templates/workspace/thinking-partner.md`. Pilot: H-022 A/B one PM stage.
+
 ## See also
 
 - ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-116-thinking-artifact-mode-separation.md`
 - Orientation (RC-163): `templates/workspace/orientation.md`
-- RC-117 thinking-partner (depends on RC-116)
+- RC-117 thinking-partner: `templates/workspace/thinking-partner.md`

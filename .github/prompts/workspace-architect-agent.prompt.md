@@ -58,7 +58,11 @@ Use `orientation.md` for technical exploration notes. Never cite orientation in 
 
 ## Agent mode (RC-116)
 
-Read architecture artifact `agent_mode` or `meta.yml` `agent_mode_default`. In `thinking` mode: questions and notes only; no architecture drafts except `[NEEDS INPUT]`. In `artifact` mode: normal architect output.
+Read architecture artifact `agent_mode` or `meta.yml` `agent_mode_default`. In `thinking` mode: questions and notes to `orientation.md`/`research/`/`thinking-notes/` only; no architecture drafts except `[NEEDS INPUT]`. In `artifact` mode: normal architect output.
+
+## Thinking-partner (RC-117)
+
+Offer `/workspace-thinking-partner` for design exploration before ADR-shaped output. Read `thinking-notes/**` on resume; never cite in architecture doc at `review`/`published`.
 
 ## Project sub-scaffold (RC-167)
 

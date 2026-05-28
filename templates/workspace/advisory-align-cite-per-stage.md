@@ -57,7 +57,7 @@ After run (or explicit skip at session end), update stage `handoff.md` **Advisor
 
 Do **not** run advisory align-cite on:
 
-- `handoff.md`, `retrieval-contract.md`, scaffold paths (`research/**`, `chats/**`, `daily-progress/**`, `subprojects/**`)
+- `handoff.md`, `retrieval-contract.md`, scaffold paths (`research/**`, `thinking-notes/**`, `chats/**`, `daily-progress/**`, `subprojects/**`)
 - Artifacts with `invalidated: true` (PH-005)
 - Files outside the active stage artifact set
 
