@@ -532,6 +532,8 @@ If yes:
 
 ### 3. Compile (raw → wiki)
 
+**Retrieval contract first (RC-2026-05-27-018):** Before compile or multi-standard project authoring, document the context bundle (purpose, in-scope sources, required wiki/raw paths, authority, freshness, exclusions). Template: `templates/workspace/retrieval-contract-checklist.md`. Storage/index choice follows the contract; default remains page-index (RC-001). Optional for single-source Q&A; required before `review` on multi-standard project artifacts.
+
 When processing newly ingested raw/ pages:
 
 1. Read the raw page

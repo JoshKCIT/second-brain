@@ -34,6 +34,7 @@ wiki/workspace-projects/{slug}/
 ├── 03-architecture/   (created only if technical)
 ├── 04-engineering/
 ├── meta.yml
+├── retrieval-contract.md   (optional; recommended for multi-standard projects — RC-018)
 └── README.md
 ```
 

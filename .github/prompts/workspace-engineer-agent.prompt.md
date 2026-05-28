@@ -174,7 +174,8 @@ For each `*.md` file in `wiki/workspace-projects/{slug}/`:
 
 After all files are finalized:
 
-1. Append summary to `wiki/log.md`:
+1. **Retrieval contract gate (RC-018):** For multi-standard projects (two or more in-scope standards or domains in `meta.yml`), verify `retrieval-contract.md` exists at project root or the contract was recorded in `wiki/log.md` at project start. If missing, flag before align-cite; do not set `review` until contract is documented or CEO waives.
+2. Append summary to `wiki/log.md`:
    ```
    ## [{ISO timestamp}] engineer-agent finalize complete | {slug}
    - Files finalized: {count}

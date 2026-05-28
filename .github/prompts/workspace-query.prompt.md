@@ -24,6 +24,8 @@ Policy ADRs: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-
 
 ## Workflow
 
+If `--project` is set, draft a brief retrieval contract per `templates/workspace/retrieval-contract-checklist.md` (purpose, scoped sources from `meta.yml`, expected wiki paths) before Step 2 when the question spans multiple standards or domains.
+
 ### Step 1: Read the index
 
 Read `wiki/index.md` and any embedded Base views. The index is the catalog of every wiki article.

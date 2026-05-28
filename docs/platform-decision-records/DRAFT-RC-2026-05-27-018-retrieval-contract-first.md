@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft
+Accepted (PIC-2026-05-27-008)
 
 ## Source Claim
 
@@ -69,6 +69,9 @@ governance +2, closure +1, grounding +1, inspectability +2, enterprise_fit +2 �
 
 ## Files Proposed for Future Change
 
-- `.github/prompts/workspace-compile.prompt.md` (contract step)
-- `templates/workspace/retrieval-contract-checklist.md` (new, if approved)
-- `AGENTS.md` (compile operation note — user-approved only)
+- `.github/prompts/workspace-compile.prompt.md` (contract step) — **done**
+- `templates/workspace/retrieval-contract-checklist.md` (new) — **done**
+- `AGENTS.md` (compile operation note) — **done**
+- `.github/prompts/workspace-query.prompt.md` (multi-source contract) — **done**
+- `.github/prompts/workspace-start-project.prompt.md` (retrieval-contract.md skeleton) — **done**
+- `.github/prompts/workspace-engineer-agent.prompt.md` (finalize gate) — **done**

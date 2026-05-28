@@ -7,6 +7,18 @@ mode: agent
 
 You are integrating newly ingested raw/ pages into the wiki layer. Each raw page becomes one or more wiki articles (concepts, standards, recommendations, informational, or connections), the index is updated, and the log records the action.
 
+## Retrieval contract (RC-018)
+
+Before reading raw pages for a batch, draft a lightweight **retrieval contract** using `templates/workspace/retrieval-contract-checklist.md`:
+
+1. State batch purpose and in-scope sources (from raw frontmatter and `config/second-brain.yml`).
+2. List wiki articles you expect to consult via `wiki/index.md` (page-index; RC-001).
+3. Tag authority and domain per knowledge type you will extract.
+4. Note vendor freshness requirements before citing `raw/workspace-external/`.
+5. Record the contract in the compile log entry (YAML block or bullet summary).
+
+Do not select vector/graph/hybrid retrieval—use page-index and section anchors unless an approved eval says otherwise. The contract is orientation, not canonical wiki content.
+
 ## Inputs
 
 - A list of raw/ page paths to compile, OR a `--all` flag to compile every raw page that does not yet have a corresponding wiki article (orphan ingestion check)
@@ -111,6 +123,7 @@ Index format follows AGENTS.md spec (overview + embedded Base views + catalog ta
 
 ```
 ## [{ISO timestamp}] compile | {raw page or batch}
+- Retrieval contract: {one-line purpose; link or inline YAML summary}
 - Source: {raw paths, max 5}
 - Articles created: {list, max 5}
 - Articles updated: {list, max 5}
