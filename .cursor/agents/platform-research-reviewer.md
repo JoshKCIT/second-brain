@@ -97,7 +97,7 @@ Apply `templates/platform-research/trust-loop.md` to every review:
 - Fail closed: do not `adopt` when `requires_external_validation: true` and `validation_status` is `unvalidated`.
 - Impact reports must include `## Trust Loop Summary` and `## Correction Routes`.
 
-After user ADR approval, deliver canonical changes through the implementation backlog one claim at a time with validation and rollback. Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`.
+After user ADR approval, invoke **`platform-implement-backlog`** (`.github/prompts/platform-implement-backlog.prompt.md`) to deliver changes one claim at a time. The implementation agent runs `promote-platform-adr.py` on accept (PH-008); do not ask the user to run it. Process ADR: `docs/platform-decision-records/RC-implementation-priority-loop.md`.
 
 Each review produces a claim-plus-evidence package, not a transcript summary:
 
@@ -111,7 +111,7 @@ reports/platform-research-review/{slug}-impact-report.md
 docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md
 ```
 
-After the user approves a draft ADR, deliver canonical changes through the implementation backlog one claim at a time with validation and rollback. Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`.
+After the user approves a draft ADR, deliver canonical changes through the implementation backlog one claim at a time with validation and rollback. Process ADR: `docs/platform-decision-records/RC-implementation-priority-loop.md`.
 
 ## Claim Types
 

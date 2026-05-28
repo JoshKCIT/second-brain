@@ -10,6 +10,7 @@
 | `lint-platform-research.py` | Validate platform research artifacts |
 | `sync-transcript-register.py` | Rebuild transcript queue index (`wiki/platform-research/transcript-register.md`) |
 | `sync-rejected-register.py` | Mirror rejected claims into `wiki/platform-research/rejected-ideas.md` |
+| `promote-platform-adr.py` | On PIC accept: strip `DRAFT-` from ADR filename and sync repo references (PH-008). **`platform-implement-backlog` agent** runs `--claim-id` / `--pic-cycle` on accept; CEO does not run manually. |
 
 ## Phase 1A quick start (AWS, Snowflake, Informatica)
 

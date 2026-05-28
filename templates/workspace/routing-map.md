@@ -15,7 +15,7 @@ Canonical copy lives in `AGENTS.md` § Routing map. Update this template when pr
 | Task type | Lane | Invoke | Read first | Write scope (approval-gated) |
 |---|---|---|---|---|
 | Onboard / configure scope | workspace | `second-brain` | `config/second-brain.yml`, `wiki/index.md` | `config/second-brain.yml` |
-| Start or resume project | workspace | `workspace-start-project` | `wiki/index.md`, `wiki/workspace-projects/{slug}/meta.yml`, stage `handoff.md` | `wiki/workspace-projects/{slug}/**` |
+| Start or resume project | workspace | `workspace-start-project` | `wiki/index.md`, `wiki/workspace-projects/{slug}/meta.yml`, stage `handoff.md`, **`templates/workspace/draft-tier-map.md`** | `wiki/workspace-projects/{slug}/**` |
 | VP / PM / Architect / Engineer stage | workspace | `workspace-{vp,pm,architect,engineer}-agent` | `meta.yml`, stage artifact, `handoff.md`, `orientation.md` | Active stage artifact + draft-tier scaffolds |
 | Thinking-partner exploration | workspace | `workspace-thinking-partner` | Stage `handoff.md`, upstream artifacts, `orientation.md` | `thinking-notes/**` only |
 | Session end preference capture | workspace | `session-audit` skill / `workspace-session-audit` | Stage `handoff.md`, `orientation.md` | `handoff.md`, `orientation.md` only |
@@ -27,10 +27,11 @@ Canonical copy lives in `AGENTS.md` § Routing map. Update this template when pr
 | Publish / archive | workspace | `workspace-publish`, `workspace-archive` | Active project artifact set | `wiki/workspace-projects/**`, `confluence-review/**` |
 | Workspace health | workspace | `workspace-lint` | `wiki/index.md`, `scripts/lint-workspace.py` | `reports/workspace-lint-*.md` |
 | Pointer resource depth | workspace | read on task match | `templates/workspace/pointer-resources/README.md` | Optional reads only (RC-165) |
+| Stack orientation (experiments + draft-tier) | workspace | read on task match | `templates/workspace/experiment-registry.md`, `templates/workspace/draft-tier-map.md` | Reference only (PH-007) |
 | **Platform escalation (PH-006)** | **platform** | **`platform-transcript-librarian`** or **`platform-research-review`** | **`wiki/platform-research/transcript-register.md`, claim register** | **`wiki/platform-research/**`, `reports/platform-research-review/**`, `docs/platform-decision-records/DRAFT-*` only — **never** workspace standards/projects/PRD/`AGENTS.md` without approval |
 | Import transcript | platform | `platform-transcript-librarian` | `wiki/platform-research/transcript-register.md` | `raw/platform-transcripts/**` after H1 approval |
 | Research review / claims | platform | `platform-research-review` | Transcript, `wiki/platform-research/claim-register.md` | Platform research artifacts only |
-| Platform implementation | platform | Implementation backlog loop | `wiki/platform-research/implementation-backlog.md` | Per approved ADR; one change at a time |
+| Platform implementation (PIC) | platform | **`platform-implement-backlog`** | `wiki/platform-research/implementation-backlog.md`, draft ADR | Per approved ADR; **agent runs** `promote-platform-adr.py` on accept (PH-008) |
 
 ## Platform escalation (PH-006)
 
@@ -45,6 +46,8 @@ Protected without explicit approval: `wiki/workspace-standards/**`, `wiki/worksp
 ## Cross-links
 
 - RC-018 retrieval contract: `templates/workspace/retrieval-contract-checklist.md`
+- PH-007 experiment registry: `templates/workspace/experiment-registry.md`
+- PH-007 draft-tier map: `templates/workspace/draft-tier-map.md`
 - RC-135 agent hub (future compile index): `docs/platform-decision-records/DRAFT-RC-2026-05-27-135-agent-hub-compile-artifacts.md`
 - Lane vocabulary: `AGENTS.md` § Lane vocabulary
 
@@ -54,5 +57,5 @@ When adding or renaming a prompt under `.github/prompts/`, update this table and
 
 ## See also
 
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-162-routing-map-agents-shim.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-162-routing-map-agents-shim.md`
 - Instruction stack: `templates/workspace/instruction-stack-header.md`

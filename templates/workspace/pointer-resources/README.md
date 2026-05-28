@@ -22,6 +22,8 @@ On-demand reference files for **Tier-2 IDE shims** and retrieval contracts. Keep
 | `article-formats-reference.md` | Authoring new wiki article types | Compile, project agents |
 | `operation-deep-dives.md` | Multi-step ingest/compile/publish runs | Ingest, compile, publish |
 | `topic-entity-compile.md` | Structured topic/connection synthesis from raw | Compile batches (RC-148) |
+| `experiment-registry.md` | Accepted RC/PH experiments; ADR + hypothesis lookup | Project agents, stack-lift (PH-007) |
+| `draft-tier-map.md` | Where to write handoff vs orientation vs artifact | Project create, stage agents (PH-007) |
 
 ## Shim targets
 
@@ -49,6 +51,6 @@ See `templates/workspace/retrieval-contract-checklist.md` § Pointer bundle fiel
 
 ## See also
 
-- ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-165-lean-root-pointer-resources.md`
+- ADR: `docs/platform-decision-records/RC-2026-05-27-165-lean-root-pointer-resources.md`
 - Instruction stack: `templates/workspace/instruction-stack-header.md` (RC-161)
 - Routing: `templates/workspace/routing-map.md` (RC-162)

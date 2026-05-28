@@ -1,6 +1,8 @@
 # Platform ADR Template
 
-Use for draft platform decision records under `docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md`.
+Use for **proposed** platform decision records under `docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md`. On PIC accept, **`platform-implement-backlog`** runs `python scripts/promote-platform-adr.py --root . --claim-id {claim_id} --pic-cycle {cycle}` → `{claim_id}-{short-title}.md` with H1 `# ADR:`.
+
+See `docs/platform-decision-records/README.md`.
 
 Experiment (RC-2026-05-27-015): include **Intent**, **Safety and non-goals**, and optional **Regulatory posture** on new platform ADRs. Keep each field brief and decision-focused.
 
@@ -60,6 +62,6 @@ Draft
 
 Canonical copy: `docs/platform-decision-records/DRAFT-template-research-claim.md`
 
-Experiment ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-015-lightweight-intent-records.md`
+Experiment ADR: `docs/platform-decision-records/RC-2026-05-27-015-lightweight-intent-records.md`
 
 Validation: use intent sections on the next three platform ADRs; remove if they add noise without improving review clarity.

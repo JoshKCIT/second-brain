@@ -29,7 +29,7 @@ Use this file to track unresolved ideas from transcript review that are not yet 
 | H-2026-05-27-020 | RC-2026-05-27-142 | Weekly command-center pulse as disposable report (not wiki truth). | Generate one pulse from log+lint; verify no wiki writes. | open | unassigned |
 | H-2026-05-27-021 | RC-2026-05-27-116 | Thinking vs artifact mode frontmatter reduces premature publish-shaped output in draft stages. | Pilot agent_mode on one draft project; count slop fragments. | active | unassigned |
 | H-2026-05-27-022 | RC-2026-05-27-117 | Thinking-partner sub-agent improves PM requirements before Engineer handoff. | A/B one PM stage with thinking-partner vs without. | active | unassigned |
-| H-2026-05-27-023 | RC-2026-05-27-118, RC-119, RC-130 | Project stage scaffold + daily progress enables catch-up resumption. | Template live; pilot one project two weeks. | active | unassigned |
+| H-2026-05-27-023 | RC-2026-05-27-130 | Project stage scaffold enables catch-up resumption (RC-118/119 rejected as superseded). | Template live; pilot one project two weeks. | active | unassigned |
 | H-2026-05-27-024 | RC-2026-05-27-122 | Explicit read-before-write in workspace prompts reduces uncited generation. | Log read lists before first write in three agent runs. | open | unassigned |
 | H-2026-05-27-014 | RC-2026-05-27-107 | Governed tool-assembly map in onboarding reduces consumer-agent misconfiguration. | Add assembly diagram to second-brain prompt; measure time-to-first compile. | open | unassigned |
 | H-2026-05-27-015 | RC-2026-05-27-112 | Offline lint+align report bundle supports edge deployment without messaging agents. | One air-gapped pilot; no wiki writes. | open | unassigned |

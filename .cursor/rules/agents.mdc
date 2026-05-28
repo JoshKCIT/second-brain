@@ -26,6 +26,7 @@ Task → prompt → first reads. Orientation only; full table in `AGENTS.md` § 
 | Ingest, compile, query wiki | `workspace-ingest-*`, `workspace-compile`, `workspace-query` |
 | Align or publish docs | `workspace-align-*`, `workspace-publish` |
 | Improve Second Brain / review transcripts | `platform-transcript-librarian`, `platform-research-review` |
+| Implement approved platform ADR (PIC) | **`platform-implement-backlog`** — agent runs `promote-platform-adr.py` on accept |
 | Product idea mid workspace project | **PH-006:** escalate to platform lane — do not edit protected workspace/PRD files |
 
 ---
@@ -60,7 +61,7 @@ Extended rule text and verb/operation detail: `templates/workspace/pointer-resou
 
 Prompt files in `.github/prompts/`:
 
-`workspace-start-project`, `second-brain` (onboarding), `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`, `workspace-session-audit`, `workspace-thinking-partner`, `platform-transcript-librarian`, `platform-research-review`, `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`, `workspace-publish`, `workspace-archive`, `workspace-unarchive`, `workspace-lint`
+`workspace-start-project`, `second-brain` (onboarding), `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`, `workspace-session-audit`, `workspace-thinking-partner`, `platform-transcript-librarian`, `platform-research-review`, **`platform-implement-backlog`**, `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`, `workspace-publish`, `workspace-archive`, `workspace-unarchive`, `workspace-lint`
 
 Verb detail: `templates/workspace/pointer-resources/verb-invocation-detail.md`
 
@@ -73,6 +74,7 @@ Verb detail: `templates/workspace/pointer-resources/verb-invocation-detail.md`
 - `defuddle/` — clean Markdown extraction from web pages
 - `platform-transcript-librarian` — transcript import, register sync, review queue (human checkpoints)
 - `platform-research-review/` — transcript-derived claim review and product-impact scoring
+- `platform-implement-backlog/` — PIC cycle delivery; runs ADR promotion on accept (PH-008)
 - `session-audit/` — workspace session-end audit; proposal-only writes to orientation/handoff (RC-164)
 
 ## Authoring quality bar

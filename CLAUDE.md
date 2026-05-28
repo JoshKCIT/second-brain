@@ -51,7 +51,7 @@ Prompt files in `.github/prompts/`:
 - `workspace-start-project` (orchestrates the workspace agent chain)
 - `second-brain` (onboarding)
 - `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`, `workspace-session-audit`, `workspace-thinking-partner`
-- `platform-transcript-librarian`, `platform-research-review`
+- `platform-transcript-librarian`, `platform-research-review`, **`platform-implement-backlog`**
 - `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`
 - `workspace-publish`, `workspace-archive`, `workspace-unarchive`, `workspace-lint`
 
@@ -66,6 +66,7 @@ Verb detail: `templates/workspace/pointer-resources/verb-invocation-detail.md`
 - `defuddle/` — clean Markdown extraction from web pages (use when ingesting vendor docs)
 - `platform-transcript-librarian` — transcript import, register sync, review queue with human checkpoints
 - `platform-research-review/` — transcript-to-claim review with grounding, skeptical scoring, and draft ADR routing
+- `platform-implement-backlog/` — one PIC cycle at a time; agent runs `promote-platform-adr.py` on accept (PH-008)
 - `session-audit/` — end-of-session orientation/handoff proposals with CEO approval (RC-164)
 
 ## Authoring quality bar

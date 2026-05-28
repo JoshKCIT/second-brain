@@ -46,7 +46,7 @@ Apply `templates/platform-research/trust-loop.md`:
 
 Preserve claims, rejections, experiments, and evidence as structured artifacts under `wiki/platform-research/**` and `reports/platform-research-review/**`. Do not summarize away failed ideas or validation gaps.
 
-After user ADR approval, deliver canonical changes through the implementation backlog one claim at a time.
+After user ADR approval, invoke **`platform-implement-backlog`** to deliver canonical changes one claim at a time. The implementation agent runs `promote-platform-adr.py` on accept (PH-008).
 
 ## Write Boundaries
 

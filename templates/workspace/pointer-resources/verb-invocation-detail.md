@@ -33,7 +33,7 @@ Expanded descriptions for `.github/prompts/` operations. Shims list verb **names
 |---|---|
 | `platform-transcript-librarian` | Import transcripts, sync register, review queue |
 | `platform-research-review` | Claim extraction, scoring, draft ADRs |
-| Implementation backlog loop | One approved ADR change at a time |
+| `platform-implement-backlog` | One approved ADR per PIC cycle; runs `promote-platform-adr.py` on accept (PH-008) |
 
 ## Skills (`.github/skills/`)
 
@@ -44,6 +44,7 @@ Expanded descriptions for `.github/prompts/` operations. Shims list verb **names
 | `defuddle` | Cleaning vendor web pages for ingest |
 | `platform-transcript-librarian` | Transcript import workflow |
 | `platform-research-review` | Transcript claim review |
+| `platform-implement-backlog` | PIC cycle implementation + ADR promotion on accept |
 | `session-audit` | Session-end preference capture |
 
 ## See also

@@ -986,12 +986,14 @@ impact_scores:
   enterprise_fit: 0
   human_review_leverage: 1
 total_score: 6
-decision: experiment
-decision_rationale: "Supports compile-time grounding; wikilinks allowed at draft only per AGENTS.md."
-next_action: "Pilot auto-wikilink step in workspace-compile prompt."
+decision: reject
+decision_rationale: "Superseded by RC-148 (PIC-023): topic/entity compile with mandatory ## Sources and raw-backed connections replaces a blind wikilink pass; auto-linking risks closure violations if finalize skipped."
+next_action: "Use RC-148 compile phases and topic-entity-compile template; do not add standalone auto-wikilink PIC."
+next_review_after: 2026-08-28
+rejection_register: wiki/platform-research/rejected-ideas.md
 owner: unassigned
-status: open
-last_reviewed: 2026-05-27
+status: closed
+last_reviewed: 2026-05-28
 ```
 
 ```yaml
@@ -4687,12 +4689,14 @@ impact_scores:
   enterprise_fit: 1
   human_review_leverage: 2
 total_score: 10
-decision: experiment
-decision_rationale: "RC-058 adjacent; filesystem-first and inspectable; pilot before prompt adoption."
-next_action: "Bundle with RC-130 scaffold ADR and H-2026-05-27-009."
+decision: reject
+decision_rationale: "Superseded by RC-130 (PIC-011): project-stage-scaffold includes daily-progress/ as draft-tier evidence; standalone daily-progress experiment duplicates accepted scaffold without added governance lift."
+next_action: "Use templates/workspace/project-stage-scaffold/README.md daily-progress/; pilot via H-2026-05-27-023 (RC-130 only)."
+next_review_after: 2026-08-28
+rejection_register: wiki/platform-research/rejected-ideas.md
 owner: unassigned
-status: open
-last_reviewed: 2026-05-27
+status: closed
+last_reviewed: 2026-05-28
 ```
 
 ```yaml
@@ -4729,12 +4733,14 @@ impact_scores:
   enterprise_fit: 1
   human_review_leverage: 1
 total_score: 10
-decision: experiment
-decision_rationale: "Read-heavy, inspectable, RC-001-aligned; low risk as optional workflow."
-next_action: "Include in RC-130 scaffold ADR validation plan."
+decision: reject
+decision_rationale: "Superseded by RC-130 research/ + RC-058 handoff + RC-122 read-before-write: catch-up-on-research is covered by resume reads of handoff, research/, and scoped query—not a separate experiment."
+next_action: "Document catch-up path in draft-tier-map.md; use workspace-query or stage agent resume reads."
+next_review_after: 2026-08-28
+rejection_register: wiki/platform-research/rejected-ideas.md
 owner: unassigned
-status: open
-last_reviewed: 2026-05-27
+status: closed
+last_reviewed: 2026-05-28
 ```
 
 ```yaml

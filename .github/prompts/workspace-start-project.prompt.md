@@ -121,6 +121,8 @@ Always set `updated` when writing `meta.yml`. Append transition to `wiki/log.md`
 
 When creating stage directories, optionally create empty `research/`, `thinking-notes/`, `chats/`, and `daily-progress/` subdirs per `templates/workspace/project-stage-scaffold/README.md` (RC-130, RC-117). Optionally create empty `orientation.md` from `templates/workspace/orientation.md` (RC-163). For parallel workstreams, create `subprojects/{workstream}/` from `templates/workspace/project-sub-scaffold/` (RC-167) with CEO approval. Scaffold, orientation, and sub-scaffold paths are draft-tier; never part of publish set.
 
+**PH-007 CEO checkpoint:** Share `templates/workspace/draft-tier-map.md` with the CEO at project create. Confirm they know: locks/forwards → `handoff.md`; session scratch → `orientation.md`; exploration → `thinking-notes/`; deliverable → stage artifact only. Accepted experiment details: `templates/workspace/experiment-registry.md`.
+
 Append entry to `wiki/log.md`:
 
 ```

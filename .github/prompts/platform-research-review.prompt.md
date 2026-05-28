@@ -104,7 +104,7 @@ reports/platform-research-review/{slug}-impact-report.md
 docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md
 ```
 
-Do not promote transcript claims into canonical docs. After the user approves a draft ADR, use the implementation backlog to deliver one approved change at a time with validation and rollback.
+Do not promote transcript claims into canonical docs. After the user approves a draft ADR, invoke **`platform-implement-backlog`** (`.github/prompts/platform-implement-backlog.prompt.md`) to deliver one approved change at a time; the implementation agent runs validation, rollback on reject, and **`promote-platform-adr.py` on accept** (PH-008).
 
 ## Controlled platform gap review (experiment RC-2026-05-27-003)
 

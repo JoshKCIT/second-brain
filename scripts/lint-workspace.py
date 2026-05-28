@@ -29,6 +29,7 @@ TIER2_SHIM_PATHS = (
     ".github/copilot-instructions.md",
 )
 SHIM_LINE_BUDGET = 100
+AGENTS_AGENT_CHAIN_LINE_BUDGET = 35  # PH-007: prose lines excluding diagram block
 
 
 def parse_frontmatter(path: Path) -> dict:
@@ -218,6 +219,38 @@ def lint_shim_line_budget(root: Path) -> list[str]:
     return issues
 
 
+def lint_agents_agent_chain_budget(root: Path) -> list[str]:
+    """PH-007: advisory if AGENTS § Agent chain prose grows beyond pointer-first budget."""
+    agents_path = root / "AGENTS.md"
+    if not agents_path.is_file():
+        return []
+    text = agents_path.read_text(encoding="utf-8", errors="replace")
+    marker = "### Agent chain (project workflow)"
+    start = text.find(marker)
+    if start < 0:
+        return ["AGENTS.md: missing ### Agent chain section"]
+    rest = text[start + len(marker) :]
+    end = rest.find("\n## ")
+    section = rest[:end] if end >= 0 else rest
+    # Exclude fenced diagram block from prose line count
+    prose = re.sub(r"```[\s\S]*?```", "", section)
+    prose_lines = [ln for ln in prose.splitlines() if ln.strip()]
+    if len(prose_lines) > AGENTS_AGENT_CHAIN_LINE_BUDGET:
+        return [
+            f"AGENTS.md § Agent chain: {len(prose_lines)} prose lines exceeds "
+            f"PH-007 budget {AGENTS_AGENT_CHAIN_LINE_BUDGET} — move experiment detail to "
+            "templates/workspace/experiment-registry.md (advisory)"
+        ]
+    # Drift: inline experiment ADR paths should not reappear in agent chain
+    drift = re.findall(r"DRAFT-RC-2026-05-27-(?:1(?:16|17|30|46|48|62|63|64|65|67))", section)
+    if drift:
+        return [
+            f"AGENTS.md § Agent chain: inline experiment ADR references {drift} — "
+            "use experiment-registry.md instead (advisory)"
+        ]
+    return []
+
+
 def lint_orientation_and_agent_mode(root: Path, articles: list[Path]) -> dict[str, list[str]]:
     orientation_issues: list[str] = []
     agent_mode_issues: list[str] = []
@@ -351,6 +384,7 @@ def run_lint(root: Path, scope: Path | None) -> dict:
     findings["sub_scaffold_integrity"] = lint_sub_scaffold(root, articles)
     findings["thinking_notes_integrity"] = lint_thinking_notes(root, articles)
     findings["shim_line_budget"] = lint_shim_line_budget(root)
+    findings["agents_agent_chain_budget"] = lint_agents_agent_chain_budget(root)
     te_errors, te_advisories = lint_topic_entity_compile(root, articles)
     findings["topic_entity_compile"] = te_errors
     findings["topic_entity_compile_advisory"] = te_advisories
@@ -373,6 +407,7 @@ def severity_map() -> dict[str, str]:
         "sub_scaffold_integrity": "error",
         "thinking_notes_integrity": "error",
         "shim_line_budget": "warning",
+        "agents_agent_chain_budget": "warning",
         "topic_entity_compile": "error",
         "topic_entity_compile_advisory": "warning",
     }

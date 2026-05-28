@@ -71,7 +71,8 @@ Task-type → prompt/skill → first read paths. **Orientation only** — does n
 | Align / publish / lint | workspace | `workspace-align-*`, `workspace-publish`, `workspace-lint` | Target artifacts + cited paths |
 | Session audit | workspace | `workspace-session-audit` | Stage `handoff.md`, `orientation.md` |
 | **Platform escalation (PH-006)** | **platform** | **`platform-transcript-librarian` / `platform-research-review`** | **`wiki/platform-research/**` — no protected workspace/PRD edits without approval** |
-| Transcript / research / stack-lift | platform | `platform-*`, implementation backlog | Register, claim register, approved ADR |
+| Platform implementation (PIC) | platform | **`platform-implement-backlog`** | `wiki/platform-research/implementation-backlog.md`, approved ADR |
+| Transcript / research / stack-lift | platform | `platform-*`, implementation backlog | Register, claim register, draft ADR |
 
 When workspace work surfaces Second Brain product ideas, **escalate to platform lane** (PH-006); do not promote transcript claims into workspace standards or projects without review.
 
@@ -93,7 +94,7 @@ Tier-2 shims and Tier-3 scaffolds must not restate full Tier-1 rule lists—refe
 
 ## Pointer resources (RC-165)
 
-Tier-2 IDE shims (`.cursor/rules/agents.mdc`, `CLAUDE.md`, `.github/copilot-instructions.md`) keep **governance invariants and routing** in default load. Extended rule explanations, verb descriptions, article-format orientation, and operation deep-dives live in `templates/workspace/pointer-resources/` and load on explicit read or task match. Mandatory default-load list: `templates/workspace/pointer-resources/mandatory-default-load.md`. Retrieval contracts may tag `mandatory_read` vs `optional_read` pointer paths (RC-018). ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-165-lean-root-pointer-resources.md`.
+Tier-2 IDE shims (`.cursor/rules/agents.mdc`, `CLAUDE.md`, `.github/copilot-instructions.md`) keep **governance invariants and routing** in default load. Extended rule explanations, verb descriptions, article-format orientation, and operation deep-dives live in `templates/workspace/pointer-resources/` and load on explicit read or task match. Mandatory default-load list: `templates/workspace/pointer-resources/mandatory-default-load.md`. Retrieval contracts may tag `mandatory_read` vs `optional_read` pointer paths (RC-018). ADR: `docs/platform-decision-records/RC-2026-05-27-165-lean-root-pointer-resources.md`.
 
 ---
 
@@ -140,33 +141,15 @@ Each workspace agent has a prompt file in `.github/prompts/workspace-{agent}-age
 
 **Session handoff (RC-058):** Optional `handoff.md` per stage directory holds draft-tier restart context (`starting_context`, `next_steps`, `open_decisions`, `last_session`). Agents read on resume; update at session end after CEO confirms. Template: `templates/workspace/handoff.md`. Excluded from finalize and published artifact set.
 
-**Inter-stage output contract (PH-003):** At each CEO gate, the orchestrator forwards **locked decisions** (CEO-confirmed, do not reopen) and **forwarded open decisions** (still unresolved upstream) into the next stage's `handoff.md`. Downstream agents read and honor locks before drafting; address forwarded open items in the stage artifact or escalate. Contract: `templates/workspace/inter-stage-contract.md`. ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-003-inter-stage-output-contract.md`.
-
-**Stage evidence scaffold (RC-130):** Optional per-stage folders `research/`, `chats/`, `daily-progress/` plus `handoff.md` for multi-day catch-up. Draft-tier only; excluded from publish set. Template: `templates/workspace/project-stage-scaffold/README.md`.
+**Inter-stage output contract (PH-003):** At each CEO gate, the orchestrator forwards **locked decisions** (CEO-confirmed, do not reopen) and **forwarded open decisions** (still unresolved upstream) into the next stage's `handoff.md`. Downstream agents read and honor locks before drafting; address forwarded open items in the stage artifact or escalate. Contract: `templates/workspace/inter-stage-contract.md`. ADR: `docs/platform-decision-records/PH-2026-05-27-003-inter-stage-output-contract.md`.
 
 **Project stage state (PH-001):** `meta.yml` fields `current_stage`, `stage_gate`, and `last_completed` are the authoritative resumability signal. Template: `templates/workspace/project-meta.yml.md`. Orchestrator updates at CEO gates; stage agents read on invoke and set `stage_gate: awaiting_ceo_review` when draft work completes.
 
-**Reopen stage protocol (PH-005):** When the CEO reopens an upstream stage, the orchestrator sets `invalidated_stages` and `reopen_reason` in `meta.yml`, marks downstream project artifacts `invalidated: true` (files retained for audit), and resumes at the target stage. Agents must not cite invalidated artifacts. Protocol: `templates/workspace/reopen-stage-protocol.md`. ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-005-reopen-stage-protocol.md`.
+**Reopen stage protocol (PH-005):** When the CEO reopens an upstream stage, the orchestrator sets `invalidated_stages` and `reopen_reason` in `meta.yml`, marks downstream project artifacts `invalidated: true` (files retained for audit), and resumes at the target stage. Agents must not cite invalidated artifacts. Protocol: `templates/workspace/reopen-stage-protocol.md`. ADR: `docs/platform-decision-records/PH-2026-05-27-005-reopen-stage-protocol.md`.
 
-**Advisory align-cite per stage (PH-004):** Optional non-blocking citation check on the current stage artifact before each CEO gate. Stage agents or orchestrator invoke `/workspace-align-cite` with `--advisory`; violations are reported but do not block gate progression. Blocking align-cite still runs at pre-publish (Step 12). Protocol: `templates/workspace/advisory-align-cite-per-stage.md`. ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-004-advisory-align-cite-per-stage.md`.
+**Advisory align-cite per stage (PH-004):** Optional non-blocking citation check on the current stage artifact before each CEO gate. Stage agents or orchestrator invoke `/workspace-align-cite` with `--advisory`; violations are reported but do not block gate progression. Blocking align-cite still runs at pre-publish (Step 12). Protocol: `templates/workspace/advisory-align-cite-per-stage.md`. ADR: `docs/platform-decision-records/PH-2026-05-27-004-advisory-align-cite-per-stage.md`.
 
-**Disposable session orientation (RC-163):** Optional `orientation.md` per stage holds non-canonical session notes and preferences (`not_canonical: true`). Distinct from `handoff.md`; excluded from finalize and publish. Promotion to wiki requires compile + user approval + align-cite. Template: `templates/workspace/orientation.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-163-disposable-session-orientation.md`.
-
-**Thinking vs artifact mode (RC-116):** Optional `agent_mode: thinking | artifact` on draft stage artifacts (default `artifact`). Thinking mode forbids publish-shaped output in artifact bodies; notes go to `orientation.md` or `research/`. Finalize blocks `review` while any artifact remains in thinking mode. Template: `templates/workspace/agent-mode.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-116-thinking-artifact-mode-separation.md`.
-
-**Project sub-scaffold rule stacking (RC-167):** Optional `subprojects/{workstream}/` under a stage with Tier-3 `STAGE-SCAFFOLD.md`, local orientation, and resources. Inherits AGENTS + stage prompt; all sub-scaffold files use `publish_scope: exclude`. Excluded from finalize, align-closure publish set, and publish. Template: `templates/workspace/project-sub-scaffold/README.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-167-project-subfolder-rule-stacking.md`.
-
-**Session audit (RC-164):** Optional end-of-session skill (`.github/skills/session-audit/`) scans conversation and proposes `orientation.md` or `handoff.md` updates. Proposal-only; CEO approves each item before write. Never auto-writes wiki or canonical knowledge. Prompt: `.github/prompts/workspace-session-audit.prompt.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-164-session-audit-skill.md`.
-
-**Thinking-partner sub-agent (RC-117):** Optional interview-style exploration via `.github/prompts/workspace-thinking-partner.prompt.md`. Writes only to `thinking-notes/` (`type: thinking-notes`, `not_canonical: true`); excluded from finalize and publish. Pairs with RC-116 `agent_mode: thinking`. Template: `templates/workspace/thinking-partner.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-117-thinking-partner-subagent.md`.
-
-**Raw inbox staging (RC-146):** Captures land in scoped `raw/` paths (including `raw/workspace-inbox/`); compile into `wiki/` only after explicit user approval per batch. Orphan raw in lint is advisory until compile. Template: `templates/workspace/raw-inbox-staging.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-146-raw-inbox-staging.md`.
-
-**Topic / entity compile (RC-148):** Compile batches extract topics → `workspace-concepts/` (or standards per authority), entities as concepts with aliases, and connections → `workspace-connections/` only with raw-backed `## Evidence`. Mandatory `## Sources` section anchors; advisory align-cite after batch. Template: `templates/workspace/topic-entity-compile.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-148-topic-entity-compile.md`.
-
-**Task-type routing map (RC-162):** Shims and `AGENTS.md` include task → prompt → first-read-path table for workspace and platform lanes. PH-006 platform escalation row routes mid-project product ideas to platform research without protected-file mutation. Template: `templates/workspace/routing-map.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-162-routing-map-agents-shim.md`.
-
-**Lean root pointer resources (RC-165):** Tier-2 shims stay compact (~100 lines); extended reference material in `templates/workspace/pointer-resources/`. Governance rules never move to optional-only pointers. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-165-lean-root-pointer-resources.md`.
+**Accepted experiments (PH-007):** Optional features accepted through PIC-023 — templates, ADRs, hypotheses, pilot status — live in `templates/workspace/experiment-registry.md`. **Draft-tier write targets** (handoff, orientation, thinking-notes, research, etc.): `templates/workspace/draft-tier-map.md`. Load on task match; behavior unchanged.
 
 CEO reviews and edits between stages. Do not invoke the next agent without explicit CEO approval.
 
@@ -379,7 +362,8 @@ Each transcript review produces a **claim-plus-evidence package**, not a summary
 | Transcript analysis | `wiki/platform-research/transcript-analyses/{slug}-claims.md` | Per-source claim extraction and grounding notes |
 | Impact report | `reports/platform-research-review/{slug}-impact-report.md` | Executive judgment and recommended next actions |
 | Batch synthesis | `reports/platform-research-review/batch-synthesis-{date}.md` | Cross-transcript clustering when reviewing batches |
-| Draft ADR | `docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md` | Proposed canonical change; requires explicit user approval |
+| Draft ADR | `docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md` | Proposed change; research review writes here only |
+| Accepted ADR | `docs/platform-decision-records/{claim_id}-{short-title}.md` | Promoted on PIC accept (PH-008); `DRAFT-` prefix removed |
 
 Required claim record fields: `claim_id`, `source_transcript`, `claim_type`, `atomic_claim`, `current_design_status`, `impact_scores`, `total_score`, `decision`, `decision_rationale`, `next_action`, `validation_status`, `correction_route`. Rejected claims must also appear in `rejected-ideas.md` with `next_review_after`.
 
@@ -646,7 +630,7 @@ For long structured sources (Confluence pages, multi-section artifacts), prefer 
 5. Synthesize an answer with section-anchored citations
 6. If `--file-back`: create a `wiki/workspace-qa/` article and update index and log
 
-Decision records: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`, `DRAFT-RC-2026-05-27-122-read-before-write-retrieval.md`, `DRAFT-RC-2026-05-27-157-citation-grounded-query.md`
+Decision records: `docs/platform-decision-records/RC-2026-05-27-001-page-index-retrieval.md`, `RC-2026-05-27-122-read-before-write-retrieval.md`, `RC-2026-05-27-157-citation-grounded-query.md`
 
 ### 5. Transcript librarian (import and queue)
 
@@ -682,7 +666,7 @@ Research review is deliberately separated from compile. Transcripts may influenc
 
 #### Platform implementation priority loop
 
-After the user approves a draft ADR, deliver approved platform changes one claim at a time:
+After the user approves a draft ADR, invoke **`platform-implement-backlog`** (`.github/prompts/platform-implement-backlog.prompt.md`) to deliver approved platform changes one claim at a time:
 
 1. Load `wiki/platform-research/implementation-backlog.md`
 2. Select the highest `priority_score` item with status `queued` and satisfied dependencies
@@ -691,13 +675,13 @@ After the user approves a draft ADR, deliver approved platform changes one claim
    - `python -m unittest discover -s tests`
    - `python scripts/lint-platform-research.py --root .`
 5. Present diff, test results, and rollback steps to the user
-6. On **accept**: mark the backlog item `accepted`, append decision history, re-score the queue
+6. On **accept**: mark the backlog item `accepted`; update ADR `## Status` and `## Approval`; run `python scripts/promote-platform-adr.py --root . --claim-id {id} --pic-cycle {cycle}` via **`platform-implement-backlog`** (PH-008 — agent executes, not CEO); append decision history; re-score the queue
 7. On **reject**: rollback, mark `rolled_back`, capture reason, re-score the queue
 8. Repeat with the next queued item
 
 `priority_score` uses stack lift, platform lift, validation clarity, implementability, evidence strength, canonical risk, and experiment uncertainty (see `config/platform-research-review.example.yml`). Transcript `total_score` decides whether to adopt/experiment/defer/reject; `priority_score` decides implementation order among approved items.
 
-Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`
+Process ADR: `docs/platform-decision-records/RC-implementation-priority-loop.md`
 
 ### 7. Align (cite | conformance | coverage)
 
@@ -784,6 +768,7 @@ Seven structural checks plus engineering additions:
 | Sub-scaffold integrity | Engineering | RC-167: `subprojects/**` missing `publish_scope: exclude`, promoted status, or cited as publish sources |
 | Thinking-notes integrity | Engineering | RC-117: `thinking-notes/**` missing `not_canonical`, promoted status, or cited as publish sources |
 | Shim line budget | Engineering | RC-165: Tier-2 shims exceed ~100 lines (advisory); extended content belongs in pointer-resources |
+| Agent chain budget | Engineering | PH-007: AGENTS § Agent chain prose exceeds ~35 lines or re-inlines experiment ADRs (advisory) |
 | Topic/entity compile integrity | Engineering | RC-148: connections missing raw `sources`, `connects` < 2, or missing Evidence/Sources sections |
 
 Output: `reports/workspace-lint-{date}.md` with severity per finding.
@@ -848,6 +833,7 @@ second-brain/
 │   │   ├── workspace-query.prompt.md
 │   │   ├── workspace-session-audit.prompt.md
 │   │   ├── platform-transcript-librarian.prompt.md
+│   │   ├── platform-implement-backlog.prompt.md
 │   │   ├── platform-research-review.prompt.md
 │   │   ├── platform-research-review/
 │   │   ├── workspace-align-cite.prompt.md
@@ -868,6 +854,8 @@ second-brain/
 │       ├── obsidian-markdown/SKILL.md
 │       ├── obsidian-bases/SKILL.md
 │       ├── defuddle/SKILL.md
+│       ├── platform-transcript-librarian/SKILL.md
+│       ├── platform-implement-backlog/SKILL.md
 │       └── platform-research-review/SKILL.md
 │
 ├── CLAUDE.md                              # Claude Code shim
