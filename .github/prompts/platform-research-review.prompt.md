@@ -64,6 +64,18 @@ Treat transcripts as product-intelligence evidence, not canonical knowledge. A t
 16. For batch reviews, write `reports/platform-research-review/batch-synthesis-{date}.md` and update `wiki/platform-research/implementation-backlog.md` with stack-lift priority scores for adopt/experiment/defer claims.
 17. Run `python scripts/lint-platform-research.py --root .` before finishing.
 
+## Trust loop
+
+Apply the trust-loop pattern to every review output. Template: `templates/platform-research/trust-loop.md`.
+
+1. **Capture** — preserve raw transcript; do not mutate `raw/**`.
+2. **Schema** — write typed claim records with required trust fields.
+3. **Audit** — log decisions in claim register and impact report.
+4. **Confidence** — set `validation_status` on every claim.
+5. **Guardrail** — fail closed: do not `adopt` when `requires_external_validation: true` and `validation_status` is `unvalidated`.
+6. **Surface** — impact report includes `## Trust Loop Summary` and `## Correction Routes`.
+7. **Correct** — set `correction_route` on every claim so the user can approve, reject, or reopen without reading the full transcript.
+
 ## Artifact package
 
 Each review produces a claim-plus-evidence package:

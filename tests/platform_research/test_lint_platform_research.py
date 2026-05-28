@@ -38,7 +38,8 @@ implied_assumption: "Citations increase trust and review speed."
 current_design_status: already_supported
 evidence_supplied_by_speaker: example
 requires_external_validation: false
-validation_status: validated
+validation_status: validated_against_design
+correction_route: "Keep existing citation requirements."
 affected_components:
   - align-cite
 related_second_brain_principles:
@@ -92,6 +93,16 @@ None.
 ## Recommended Next Actions
 
 None.
+
+## Trust Loop Summary
+
+No fail-closed violations in this fixture review.
+
+## Correction Routes
+
+| Claim ID | Decision | Correction route |
+|---|---|---|
+| RC-2026-05-27-001 | adopt | Approve draft ADR via implementation backlog. |
 
 ## Protected Files Not Modified
 
@@ -238,6 +249,46 @@ class ResearchLintTests(unittest.TestCase):
             any("missing from wiki/platform-research/rejected-ideas.md" in error for error in result.errors),
             result.errors,
         )
+
+    def test_fail_closed_blocks_adopt_with_unvalidated_external_claim(self) -> None:
+        bad_claim = textwrap.dedent(
+            """\
+            ```yaml
+            claim_id: RC-2026-05-27-099
+            source_transcript: raw/platform-transcripts/example/transcript.md
+            claim_type: product_requirement
+            atomic_claim: "Vendor X supports feature Y."
+            current_design_status: unsupported
+            requires_external_validation: true
+            validation_status: unvalidated
+            correction_route: "Validate against vendor docs."
+            impact_scores:
+              governance: 1
+              closure: 0
+              grounding: 1
+              vendor_truth: 1
+              inspectability: 0
+              maintainability: 0
+              differentiation: 0
+              enterprise_fit: 0
+              human_review_leverage: 0
+            total_score: 3
+            decision: adopt
+            decision_rationale: "Should not pass fail-closed."
+            next_action: "Validate first."
+            ```
+            """
+        )
+
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.write(root, "wiki/platform-research/claim-register.md", "# Register\n\n" + bad_claim)
+
+            result = lint_platform_research.lint(root, strict=False)
+            self.assertTrue(
+                any("fail-closed violation" in error for error in result.errors),
+                result.errors,
+            )
 
     def test_implementation_backlog_shape(self) -> None:
         result = lint_platform_research.lint(REPO_ROOT, strict=False)

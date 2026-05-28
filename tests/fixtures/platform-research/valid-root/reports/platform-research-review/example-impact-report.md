@@ -26,6 +26,16 @@ None.
 
 None.
 
+## Trust Loop Summary
+
+No fail-closed violations in this fixture review.
+
+## Correction Routes
+
+| Claim ID | Decision | Correction route |
+|---|---|---|
+| RC-2026-05-27-001 | adopt | Approve draft ADR via implementation backlog. |
+
 ## Protected Files Not Modified
 
 Confirmed.

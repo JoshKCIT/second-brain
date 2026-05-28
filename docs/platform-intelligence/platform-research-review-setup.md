@@ -74,6 +74,14 @@ Run validation after each review:
 python scripts/lint-platform-research.py --root .
 ```
 
+## Trust loop
+
+Platform research reviews apply the trust-loop pattern (`templates/platform-research/trust-loop.md`):
+
+- Every claim record includes `validation_status` and `correction_route`.
+- Fail closed: no `adopt` when external validation is required but still `unvalidated`.
+- Impact reports include trust summary and correction routes.
+
 ## Implementation priority loop
 
 After the user approves a draft ADR, deliver canonical changes one claim at a time:

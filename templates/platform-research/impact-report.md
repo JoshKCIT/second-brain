@@ -59,6 +59,16 @@ Link to or include the claim records added to `wiki/platform-research/claim-regi
 
 -
 
+## Trust Loop Summary
+
+State validation gaps, fail-closed guardrails applied, and any claims blocked from `adopt` due to unvalidated external evidence.
+
+## Correction Routes
+
+| Claim ID | Decision | How the user approves, rejects, or reopens |
+|---|---|---|
+|  |  |  |
+
 ## Protected Files Not Modified
 
 Confirm that no canonical standards, PRD, product brief, roadmap, architecture rationale, AGENTS.md, or raw files were modified.

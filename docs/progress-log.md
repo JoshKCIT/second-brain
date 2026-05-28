@@ -45,6 +45,21 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-27] session | PIC-2026-05-27-002 implemented
+
+- Changed:
+  - Trust-loop pattern documented in AGENTS.md, prompt, agent, skill, setup doc, and templates.
+  - Claim records now require `validation_status` and `correction_route`; lint enforces fail-closed on unvalidated external adopts.
+  - All batch impact reports patched with trust summary and correction route sections.
+
+- Open:
+  - User accept/reject of PIC-2026-05-27-002.
+
+- Next:
+  - On accept: mark RC-010 accepted, unlock RC-003 dependency, queue RC-001 or RC-015 next.
+
+---
+
 ## [2026-05-27] session | platform research review import
 
 - Changed:

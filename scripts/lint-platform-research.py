@@ -21,12 +21,29 @@ REQUIRED_CLAIM_FIELDS = [
     "claim_type",
     "atomic_claim",
     "current_design_status",
+    "validation_status",
+    "correction_route",
     "impact_scores",
     "total_score",
     "decision",
     "decision_rationale",
     "next_action",
 ]
+
+VALID_VALIDATION_STATUSES = {
+    "unvalidated",
+    "supported_by_current_design",
+    "validated_against_design",
+    "validated",
+}
+
+DEFAULT_CORRECTION_ROUTES = {
+    "adopt": "Approve draft ADR via implementation backlog; reject via backlog rollback.",
+    "experiment": "Approve experiment ADR; track in open-hypotheses.md; reject via backlog rollback.",
+    "defer": "Re-enter queue when blocker clears; update claim register decision.",
+    "reject": "Re-review per rejected-ideas.md next_review_after; submit safer variant as new claim.",
+    "monitor": "Re-review when external validation is available; do not promote without validation.",
+}
 
 SCORING_AXES = [
     "governance",
@@ -68,6 +85,11 @@ REQUIRED_REPORT_SECTIONS = [
     "## Highest-Risk Claims",
     "## Recommended Next Actions",
     "## Protected Files Not Modified",
+]
+
+TRUST_LOOP_REPORT_SECTIONS = [
+    "## Trust Loop Summary",
+    "## Correction Routes",
 ]
 
 REQUIRED_BACKLOG_SECTIONS = [
@@ -146,6 +168,22 @@ def lint_claim_block(block: str, idx: int) -> LintResult:
     total_score = get_scalar(block, "total_score")
     if total_score is not None and not re.fullmatch(r"-?\d+", total_score):
         result.errors.append(f"Claim block {idx} has non-integer total_score: {total_score}")
+
+    validation_status = get_scalar(block, "validation_status")
+    if validation_status is not None and validation_status not in VALID_VALIDATION_STATUSES:
+        result.errors.append(
+            f"Claim block {idx} has invalid validation_status: {validation_status}"
+        )
+
+    requires_external = get_scalar(block, "requires_external_validation")
+    if (
+        decision == "adopt"
+        and requires_external == "true"
+        and validation_status == "unvalidated"
+    ):
+        result.errors.append(
+            f"Claim block {idx} fail-closed violation: adopt with unvalidated external validation"
+        )
 
     return result
 
@@ -280,7 +318,10 @@ def lint_reports(root: Path, strict: bool) -> LintResult:
 
     for path in reports:
         text = path.read_text(encoding="utf-8")
-        for section in REQUIRED_REPORT_SECTIONS:
+        sections = list(REQUIRED_REPORT_SECTIONS)
+        if path.name.endswith("-impact-report.md"):
+            sections.extend(TRUST_LOOP_REPORT_SECTIONS)
+        for section in sections:
             if section not in text:
                 result.warnings.append(f"{path.relative_to(root)} missing section: {section}")
 

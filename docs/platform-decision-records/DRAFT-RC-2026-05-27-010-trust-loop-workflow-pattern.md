@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-010 - Trust Loop Workflow Pattern
+# ADR: RC-2026-05-27-010 - Trust Loop Workflow Pattern
 
 ## Status
 
-Draft
+Accepted
+
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-002
+- Notes: User approved via continue; implementation pass applied.
 
 ## Source Claim
 

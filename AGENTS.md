@@ -307,7 +307,19 @@ Each transcript review produces a **claim-plus-evidence package**, not a summary
 | Batch synthesis | `reports/platform-research-review/batch-synthesis-{date}.md` | Cross-transcript clustering when reviewing batches |
 | Draft ADR | `docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md` | Proposed canonical change; requires explicit user approval |
 
-Required claim record fields: `claim_id`, `source_transcript`, `claim_type`, `atomic_claim`, `current_design_status`, `impact_scores`, `total_score`, `decision`, `decision_rationale`, `next_action`. Rejected claims must also appear in `rejected-ideas.md` with `next_review_after`.
+Required claim record fields: `claim_id`, `source_transcript`, `claim_type`, `atomic_claim`, `current_design_status`, `impact_scores`, `total_score`, `decision`, `decision_rationale`, `next_action`, `validation_status`, `correction_route`. Rejected claims must also appear in `rejected-ideas.md` with `next_review_after`.
+
+### Trust loop pattern
+
+Platform and workspace workflows that affect downstream decisions should follow the trust loop: capture → schema → audit → confidence → guardrail → surface → correct. Template: `templates/platform-research/trust-loop.md`.
+
+| Trust field | Purpose |
+|---|---|
+| `validation_status` | Records how confidently the claim is grounded |
+| `requires_external_validation` | Flags vendor/market claims needing primary-source checks |
+| `correction_route` | Tells the user how to approve, reject, or reopen the claim |
+
+Fail closed: do not `adopt` a claim when `requires_external_validation: true` and `validation_status` is `unvalidated`. Impact reports must include `## Trust Loop Summary` and `## Correction Routes`.
 
 Run `python scripts/lint-platform-research.py --root .` after creating or updating platform research artifacts.
 

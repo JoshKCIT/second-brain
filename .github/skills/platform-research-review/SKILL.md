@@ -33,6 +33,14 @@ Research transcripts may influence Second Brain, but they may not directly becom
 14. Update `wiki/platform-research/implementation-backlog.md` when batch reviews produce adopt/experiment/defer claims needing stack-lift ordering.
 15. Run `python scripts/lint-platform-research.py --root .`.
 
+## Trust loop
+
+Apply `templates/platform-research/trust-loop.md`:
+
+- Record `validation_status` and `correction_route` on every claim.
+- Fail closed on unvalidated external claims (`adopt` blocked).
+- Impact reports include trust summary and correction routes.
+
 ## Artifact package
 
 Preserve claims, rejections, experiments, and evidence as structured artifacts under `wiki/platform-research/**` and `reports/platform-research-review/**`. Do not summarize away failed ideas or validation gaps.

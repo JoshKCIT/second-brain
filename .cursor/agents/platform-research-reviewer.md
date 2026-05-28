@@ -85,7 +85,15 @@ For each transcript:
 16. For batch reviews, update `wiki/platform-research/implementation-backlog.md` with stack-lift priority scores.
 17. Run `python scripts/lint-platform-research.py --root .` before finishing.
 
-## Artifact package
+## Trust loop
+
+Apply `templates/platform-research/trust-loop.md` to every review:
+
+- Set `validation_status` and `correction_route` on every claim record.
+- Fail closed: do not `adopt` when `requires_external_validation: true` and `validation_status` is `unvalidated`.
+- Impact reports must include `## Trust Loop Summary` and `## Correction Routes`.
+
+After user ADR approval, deliver canonical changes through the implementation backlog one claim at a time with validation and rollback. Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`.
 
 Each review produces a claim-plus-evidence package, not a transcript summary:
 

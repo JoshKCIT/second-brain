@@ -12,6 +12,7 @@ conflicting_project_docs: []
 evidence_supplied_by_speaker: none
 requires_external_validation: false
 validation_status: unvalidated
+correction_route: ""
 affected_components:
   - ""
 related_second_brain_principles:
