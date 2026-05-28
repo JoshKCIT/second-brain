@@ -71,7 +71,8 @@ Use lowercase slugs in paths and `domain: vendor:{slug}`.
 | `gcp` | `vendor:gcp` | https://cloud.google.com/docs | 90 days |
 | `snowflake` | `vendor:snowflake` | https://docs.snowflake.com/ | 30–60 days (frequent releases) |
 | `informatica` | `vendor:informatica` | https://docs.informatica.com/ | 90 days |
-| `ibm` | `vendor:ibm` | https://www.ibm.com/docs/en | 90 days |
+| `ibm-db2-zos` | `vendor:ibm-db2-zos` | https://www.ibm.com/docs/en/db2-for-zos | 90 days — **ibm.com/docs** pages often fail defuddle; use product page (`informational`) or **manual ingest** (`config/vendor-seed-manual/`) |
+| `ibm` | `vendor:ibm` | https://www.ibm.com/docs/en | 90 days (general IBM products) |
 | `terraform` | `vendor:terraform` | https://developer.hashicorp.com/terraform/docs | 60 days |
 | `github` | `vendor:github` | https://docs.github.com/en | 90 days |
 | `docker` | `vendor:docker` | https://docs.docker.com/ | 90 days |
@@ -100,6 +101,23 @@ In `config/second-brain.yml` (from `config/second-brain.example.yml`):
 - `vendor_sources` — enabled slugs, allowlisted domains, optional seed URLs for common topics
 
 Allowlisting: if your environment restricts egress, add vendor doc domains (e.g. `docs.aws.amazon.com`, `learn.microsoft.com`) to your network or tool policy.
+
+---
+
+## Default stack seed (AWS + Db2 z/OS + Snowflake + Informatica)
+
+Tracked seeds: `config/vendor-seed-stack.yml` (8 starter topics). Fetch with:
+
+```bash
+python scripts/seed-vendor-docs.py --yes
+```
+
+| Vendor | Starter topics |
+|--------|----------------|
+| `aws` | S3 server-side encryption, Glue security |
+| `ibm-db2-zos` | Db2 for z/OS overview, data encryption |
+| `snowflake` | Security encryption, data loading overview |
+| `informatica` | Cloud data integration intro, secure agent |
 
 ---
 

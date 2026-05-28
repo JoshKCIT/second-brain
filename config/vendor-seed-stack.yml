@@ -1,0 +1,51 @@
+# Default vendor doc seeds for AWS + IBM Db2 for z/OS + Snowflake + Informatica stack.
+# Used by: python scripts/seed-vendor-docs.py
+# User approval: running the seed script implies approval to fetch these public URLs.
+
+seed_topics:
+  # AWS — data lake / object storage grounding
+  - vendor: aws
+    topic: s3-server-side-encryption
+    url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingServerSideEncryption.html
+    slug: using-server-side-encryption
+
+  - vendor: aws
+    topic: glue-security
+    url: https://docs.aws.amazon.com/glue/latest/dg/security.html
+    slug: security
+
+  # IBM Db2 for z/OS (ibm.com/docs is JS-heavy for defuddle; product page + manual template)
+  - vendor: ibm-db2-zos
+    topic: product-overview
+    url: https://www.ibm.com/products/db2-for-zos
+    slug: product-overview
+    authority: informational
+
+  - vendor: ibm-db2-zos
+    topic: data-encryption
+    ingest_mode: manual
+    canonical_doc_url: https://www.ibm.com/docs/en/db2-for-zos/13?topic=security-data-encryption
+    manual_template: config/vendor-seed-manual/ibm-db2-zos-data-encryption.md
+    slug: data-encryption
+
+  # Snowflake — platform security and loading patterns
+  - vendor: snowflake
+    topic: security-encryption
+    url: https://docs.snowflake.com/en/user-guide/security-encryption
+    slug: security-encryption
+
+  - vendor: snowflake
+    topic: loading-data-overview
+    url: https://docs.snowflake.com/en/user-guide/data-load-overview
+    slug: data-load-overview
+
+  # Informatica — cloud data integration (integration-cloud path; legacy data-integration/cloud URLs 404)
+  - vendor: informatica
+    topic: cloud-data-integration-getting-started
+    url: https://docs.informatica.com/integration-cloud/data-integration/current-version/getting-started/getting-started-with-informatica-cloud-data-integration.html
+    slug: getting-started
+
+  - vendor: informatica
+    topic: cloud-data-integration-hub
+    url: https://docs.informatica.com/integration-cloud/data-integration/current-version.html
+    slug: current-version

@@ -59,16 +59,17 @@ vendor_revalidation:
   default_ttl_days: 90
 
   # Per-vendor overrides (days until revalidate_after)
-  per_vendor: {}
-    # aws: 60
+  per_vendor:
+    aws: 60
+    snowflake: 30
+    informatica: 90
+    ibm-db2-zos: 90
     # azure: 90
     # gcp: 90
-    # snowflake: 30
     # terraform: 60
     # postgres: 90
     # github: 90
     # docker: 90
-    # informatica: 90
     # ibm: 90
     # atlassian: 90   # product docs only; Confluence spaces are workspace-confluence/
 
@@ -80,34 +81,19 @@ vendor_revalidation:
 # Tier A (v1): on-demand URL fetch via defuddle.
 # Tier B (v1.x): optional vendor MCPs in the IDE — see docs/vendor-catalog.md.
 vendor_sources:
+  # Default stack: AWS + IBM Db2 for z/OS + Snowflake + Informatica
   enabled:
     - aws
-    - azure
-    - gcp
+    - ibm-db2-zos
     - snowflake
     - informatica
-    - ibm
-    - terraform
-    - github
-    - docker
-    - postgres
   # Egress allowlist hints for tool-guardian / corporate proxy (hostnames only)
   allowlisted_domains:
     - docs.aws.amazon.com
-    - learn.microsoft.com
-    - cloud.google.com
     - docs.snowflake.com
     - docs.informatica.com
     - ibm.com
-    - developer.hashicorp.com
-    - docs.github.com
-    - docs.docker.com
-    - postgresql.org
-  # Optional seed URLs to prefetch during setup (user-approved only)
-  # seed_topics:
-  #   - vendor: aws
-  #     topic: s3-encryption
-  #     url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html
+  # Full seed list: config/vendor-seed-stack.yml (run scripts/seed-vendor-docs.py)
 
 # ============================================================
 # Confluence sync cadence

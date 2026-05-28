@@ -52,11 +52,12 @@ Implementation queue: **idle** (all queued PIC cycles through RC-003 accepted or
 
 **Deliverables:**
 
-- [ ] `scripts/verify-setup.py` — creates runtime dirs, initializes `wiki/index.md` and `wiki/log.md`; **Atlassian check optional** (skip when `atlassian.enabled: false`)
-- [ ] Setup health checks: `python -m unittest discover -s tests` and `python scripts/lint-platform-research.py --root .`
-- [ ] `defuddle` available (`npm install -g defuddle`)
-- [ ] User enables vendors in `config/second-brain.yml` from `vendor_sources.enabled`
-- [ ] Seed 3–10 vendor doc caches (user-approved URLs per `docs/vendor-catalog.md`)
+- [x] `scripts/verify-setup.py` — creates runtime dirs, initializes `wiki/index.md` and `wiki/log.md`; **Atlassian check optional**
+- [x] Setup health checks: `python -m unittest discover -s tests` and `python scripts/lint-platform-research.py --root .`
+- [x] `scripts/seed-vendor-docs.py` + `config/vendor-seed-stack.yml` (AWS, IBM Db2 z/OS, Snowflake, Informatica)
+- [ ] `defuddle` on PATH in user's default shell (Windows: `defuddle.cmd` via npm global)
+- [x] User enables vendors in `config/second-brain.yml` from `vendor_sources.enabled`
+- [x] Seed 8 vendor doc caches (4 vendors); IBM encryption manual template needs paste from ibm.com/docs
 - [ ] Exercise `/workspace-revalidate-vendor-docs` on at least one stale or test entry
 - [ ] Optional: compile high-value vendor caches into `wiki/workspace-concepts/`
 - [ ] Hook compatibility verification (or documented deferral)

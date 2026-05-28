@@ -13,6 +13,20 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-27] session | Phase 1A stack seed AWS Db2 Snowflake Informatica
+
+- Changed:
+  - Added `scripts/verify-setup.py`, `scripts/seed-vendor-docs.py`, `scripts/_vendor_fetch.py`, `config/vendor-seed-stack.yml`.
+  - Seeded vendor caches: AWS (2), Snowflake (2), Informatica (2), IBM Db2 z/OS (product overview + manual encryption template).
+  - Initialized `wiki/index.md` and `wiki/log.md`; copied `config/second-brain.yml` for local stack.
+- Open:
+  - IBM `ibm.com/docs` technical pages: paste into `raw/workspace-external/ibm-db2-zos/data-encryption/data-encryption.md` per manual template.
+  - Phase 1A exit: run full `verify-setup.py` with defuddle on PATH in your shell profile if needed.
+- Next:
+  - Start a workspace project using vendor caches; add more `/workspace-ingest-vendor-doc` URLs per buildout.
+
+---
+
 ## [2026-05-27] session | Phase 1A vendor bootstrap (Confluence deferred)
 
 - Changed:
