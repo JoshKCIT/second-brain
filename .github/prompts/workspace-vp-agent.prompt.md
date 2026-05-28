@@ -31,9 +31,9 @@ Retrieval is not citation support; `align-cite` still required before publish.
 
 ## Session handoff (RC-058)
 
-**On resume:** Read `wiki/workspace-projects/{slug}/01-vp-brief/handoff.md` if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
+**On resume:** Read `wiki/workspace-projects/{slug}/01-vp-brief/handoff.md` if present; then `orientation.md` (RC-163) if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
 
-**On session end:** Create or update `01-vp-brief/handoff.md` using `templates/workspace/handoff.md`. Optionally append daily progress. Update `meta.yml`: `stage_gate: awaiting_ceo_review`, `updated` timestamp (PH-001). Ask the CEO to confirm accuracy before closing the session. Handoff and scaffold files are draft-tier; never promote to wiki or publish set.
+**On session end:** Create or update `01-vp-brief/handoff.md` using `templates/workspace/handoff.md`. Optionally create or update `orientation.md` per `templates/workspace/orientation.md` (RC-163). Optionally append daily progress. Update `meta.yml`: `stage_gate: awaiting_ceo_review`, `updated` timestamp (PH-001). Offer optional **session audit** (RC-164) per `.github/skills/session-audit/SKILL.md` before CEO confirms handoff. Ask the CEO to confirm accuracy before closing the session. Handoff, orientation, and scaffold files are draft-tier; never promote to wiki or publish set.
 
 ## Project stage state (PH-001)
 
@@ -46,6 +46,27 @@ Do not read or cite project artifacts with `invalidated: true` in frontmatter. I
 ## Inter-stage output (PH-003)
 
 First stage: no upstream forward. Populate `01-vp-brief/handoff.md` **Open decisions (this stage)** and artifact `## Open questions for PM Agent` so the orchestrator can lock or forward at the VP→PM gate. On session end, leave **Locked decisions** empty until CEO approves the brief.
+
+## Advisory align-cite (PH-004)
+
+Before telling the CEO the brief is ready for review, offer optional advisory cite on `product-brief.md` when it has five or more cited claims (recommend; do not require). Run `/workspace-align-cite {path} --advisory` if CEO accepts; update `handoff.md` **Advisory cite check** per `templates/workspace/advisory-align-cite-per-stage.md`. Advisory failures do not block CEO gate.
+
+## Disposable orientation (RC-163)
+
+Use `orientation.md` for session notes, preferences, and unverified working assumptions. Never treat orientation content as canonical or cite it in published prose. Verified facts belong in the stage artifact with sources.
+
+## Agent mode (RC-116)
+
+Read `product-brief.md` frontmatter `agent_mode` or `meta.yml` `agent_mode_default` (default: `artifact`). Per `templates/workspace/agent-mode.md`:
+
+- **`thinking`:** ask questions; write to `orientation.md` or `research/` only; no outline or draft prose in the brief except `[NEEDS INPUT]`
+- **`artifact`:** normal VP brief output
+
+CEO sets `agent_mode: artifact` before expecting a complete brief.
+
+## Project sub-scaffold (RC-167)
+
+When the CEO names parallel workstreams, optional `01-vp-brief/subprojects/{workstream}/` may hold Tier-3 `STAGE-SCAFFOLD.md` and local orientation. Read sub-scaffold when working that thread; merge verified decisions into the brief or stage handoff. Never cite `subprojects/**` in brief body at `review`/`published`.
 
 ## Inputs
 

@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft
+Accepted (PIC-2026-05-27-016)
 
 ## Source Claim
 
@@ -56,7 +56,7 @@ Total: 9 (experiment)
 
 ### Negative / Risks
 
-- Stale orientation if not updated at session end (mitigate RC-164 audit skill).
+- Stale orientation if not updated at session end (mitigate RC-164 audit skill — **done**).
 
 ### Safeguards
 
@@ -68,6 +68,9 @@ Pilot on one project stage for two weeks; verify zero wiki writes from orientati
 
 ## Files Proposed for Future Change
 
-- `templates/workspace/orientation.md` (new)
-- `.github/prompts/finalize.prompt.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md` (cross-link)
+- `templates/workspace/orientation.md` (new) — **done**
+- `.github/prompts/workspace-engineer-agent.prompt.md` (finalize exclusions) — **done**
+- `.github/prompts/workspace-{vp,pm,architect,engineer}-agent.prompt.md` (read/write hooks) — **done**
+- `.github/prompts/workspace-start-project.prompt.md` (scaffold + resumability) — **done**
+- `scripts/lint-workspace.py` (orientation integrity checks) — **done**
+- `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md` (cross-link) — **done**

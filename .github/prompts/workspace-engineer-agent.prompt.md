@@ -31,9 +31,9 @@ Before writing engineering specs or running finalize:
 
 ## Session handoff (RC-058)
 
-**On resume:** Read `wiki/workspace-projects/{slug}/04-engineering/handoff.md` if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
+**On resume:** Read `wiki/workspace-projects/{slug}/04-engineering/handoff.md` if present; then `orientation.md` (RC-163) if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
 
-**On session end:** Create or update `04-engineering/handoff.md`. Optionally append daily progress. Update `meta.yml`: `stage_gate: awaiting_ceo_review` when engineering drafts complete; when running finalize set `current_stage: finalize` then `align` per PH-001 transition table (PH-001). Ask the CEO to confirm accuracy before closing the session.
+**On session end:** Create or update `04-engineering/handoff.md`. Optionally create or update `orientation.md` (RC-163). Optionally append daily progress. Update `meta.yml`: `stage_gate: awaiting_ceo_review` when engineering drafts complete; when running finalize set `current_stage: finalize` then `align` per PH-001 transition table (PH-001). Offer optional **session audit** (RC-164) before CEO confirms handoff. Ask the CEO to confirm accuracy before closing the session.
 
 ## Project stage state (PH-001)
 
@@ -48,6 +48,22 @@ Do not cite upstream artifacts with `invalidated: true`. If `invalidated_stages`
 **On invoke:** Read `04-engineering/handoff.md` locked and forwarded open sections (populated from PM or architecture gate). Honor all `L-` rows in implementation specs. Close or escalate each `F-` row before finalize.
 
 **On session end:** Update engineering `handoff.md`; no downstream stage forward—finalize uses cumulative locks for consistency checks.
+
+## Advisory align-cite (PH-004)
+
+Before CEO review (pre-finalize), offer optional advisory cite on each `04-engineering/*.md` project artifact at `draft`. Run with `--advisory`; update handoff **Advisory cite check**. Non-blocking. Blocking align-cite still runs at Step 12 after finalize.
+
+## Disposable orientation (RC-163)
+
+Use `orientation.md` for implementation exploration notes. Exclude from finalize and publish set.
+
+## Agent mode (RC-116)
+
+Read each spec's `agent_mode` or `meta.yml` `agent_mode_default`. In `thinking` mode: questions and notes only; no spec drafts except `[NEEDS INPUT]`. In `artifact` mode: normal engineering output.
+
+## Project sub-scaffold (RC-167)
+
+Optional `04-engineering/subprojects/{workstream}/` for component-level threads. Read sub-scaffold when active; merge into engineering specs. Exclude entire `subprojects/**` from finalize and publish set.
 
 ## Inputs
 
@@ -192,7 +208,9 @@ Each component spec is typically 5-15 pages rendered (1500-4500 words). The over
 
 After the engineering specs are written and the CEO has done a draft-stage review of all engineering output, run the finalize step on all artifacts in the project (vp-brief, pm-prd, architecture, engineering):
 
-**Exclude from finalize (draft-tier; not published artifacts):** `handoff.md`, `retrieval-contract.md`, `README.md`, `STAGE-SCAFFOLD.md`, and all files under `research/`, `chats/`, and `daily-progress/` (RC-130). Do not set `review` status on these files.
+**Exclude from finalize (draft-tier; not published artifacts):** `handoff.md`, `orientation.md` (RC-163), `retrieval-contract.md`, `README.md`, `STAGE-SCAFFOLD.md`, all files under `research/`, `chats/`, `daily-progress/`, and **`subprojects/`** (RC-167, including `resources/`). Do not set `review` status on these files.
+
+**RC-116 mode gate:** Before promoting any stage artifact to `review`, verify `agent_mode` is not `thinking`. If any artifact has `agent_mode: thinking`, stop finalize and ask CEO to set `artifact` on affected files.
 
 **Exclude invalidated artifacts (PH-005):** Skip any project artifact with `invalidated: true` in frontmatter. Do not promote to `review` until orchestrator clears invalidation after reopen re-approval.
 
@@ -213,7 +231,7 @@ For each other `*.md` stage artifact in `wiki/workspace-projects/{slug}/` (exclu
 After all files are finalized:
 
 1. **Retrieval contract gate (RC-018):** For multi-standard projects (two or more in-scope standards or domains in `meta.yml`), verify `retrieval-contract.md` exists at project root or the contract was recorded in `wiki/log.md` at project start. If missing, flag before align-cite; do not set `review` until contract is documented or CEO waives.
-2. **Session handoff (RC-058):** Update `04-engineering/handoff.md` with post-finalize next steps (e.g., run align-cite, align-closure, publish). Ask CEO to confirm handoff accuracy.
+2. **Session handoff (RC-058):** Update `04-engineering/handoff.md` with post-finalize next steps (e.g., run align-cite, align-closure, publish). Optional **session audit** (RC-164) before handoff update if CEO wants preference capture. Ask CEO to confirm handoff accuracy.
 3. Append summary to `wiki/log.md`:
    ```
    ## [{ISO timestamp}] engineer-agent finalize complete | {slug}

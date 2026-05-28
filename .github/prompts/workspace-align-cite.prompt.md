@@ -22,6 +22,7 @@ You are verifying citation integrity in a project artifact. Every claim that has
 
 - Path to one artifact, OR a project slug (in which case run on every artifact in `wiki/workspace-projects/{slug}/`)
 - Optional `--strict` flag: also flag claims that lack citations (advisory; not all claims require citation)
+- Optional `--advisory` flag (PH-004): same verification layers; **non-blocking** at stage gates. Use before CEO review per `templates/workspace/advisory-align-cite-per-stage.md`
 
 ## Three-layer verification
 
@@ -68,7 +69,10 @@ Switch posture: assume the artifact contains errors. Check against hallucination
 
 ## Output
 
-Write a structured report to `reports/workspace-align-cite-{artifact-slug}-{date}.md`:
+Write a structured report to:
+
+- **Default (blocking):** `reports/workspace-align-cite-{artifact-slug}-{date}.md`
+- **`--advisory` (PH-004):** `reports/workspace-advisory-align-cite-{stage}-{slug}-{date}.md` where `{stage}` is `vp-brief`, `pm-prd`, `architecture`, or `engineering` from artifact frontmatter
 
 ```markdown
 # align-cite report: {artifact}
@@ -108,9 +112,19 @@ Claims extracted: {N}
 - **PASS:** zero DISPUTED or FABRICATION RISK ratings; UNVERIFIED count is acceptable (advisory only)
 - **FAIL:** any DISPUTED or FABRICATION RISK rating
 
-When invoked from `start-project` (pre-publish gate), a FAIL blocks publish unless the user explicitly overrides; overrides are logged.
+When invoked from `start-project` **Step 12** (pre-publish gate), a FAIL blocks publish unless the user explicitly overrides; overrides are logged.
+
+When invoked with **`--advisory` (PH-004)** before a CEO stage gate:
+
+- Use the same PASS/FAIL ratings in the report header
+- Label summary as `Status: pass (advisory)` or `Status: fail (advisory)`
+- **Never block** gate progression, PH-003 forward, or PH-005 reopen
+- Update stage `handoff.md` **Advisory cite check** per `templates/workspace/advisory-align-cite-per-stage.md`
+- Recommend fixing DISPUTED / FABRICATION RISK items before CEO approval; CEO may proceed anyway
 
 ## Append to log
+
+**Blocking run:**
 
 ```
 ## [{ISO timestamp}] align-cite | {artifact}
@@ -119,6 +133,17 @@ When invoked from `start-project` (pre-publish gate), a FAIL blocks publish unle
 - Violations: {N}
 - Status: pass | fail
 - Report: {report path}
+```
+
+**Advisory run (PH-004):**
+
+```
+## [{ISO timestamp}] advisory-align-cite | {slug} | {stage}
+- Artifact: {path}
+- Claims: {N}
+- Violations: {N}
+- Status: pass (advisory) | fail (advisory) | skipped
+- Report: {report path or —}
 ```
 
 ## Limitations (be honest with the user)

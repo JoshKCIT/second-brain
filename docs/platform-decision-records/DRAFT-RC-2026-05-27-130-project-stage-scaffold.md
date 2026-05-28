@@ -82,3 +82,4 @@ Pilot on one active project for two weeks; measure successful "catch up last N d
 - `.github/prompts/workspace-publish.prompt.md` (scaffold cleanup) — **done**
 - `AGENTS.md` — **done**
 - `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md` (cross-link via templates) — **done**
+- RC-167 sub-scaffold: `templates/workspace/project-sub-scaffold/README.md` — **done**

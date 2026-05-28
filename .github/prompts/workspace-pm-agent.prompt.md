@@ -29,9 +29,9 @@ Before writing the PRD:
 
 ## Session handoff (RC-058)
 
-**On resume:** Read `wiki/workspace-projects/{slug}/02-pm-prd/handoff.md` if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
+**On resume:** Read `wiki/workspace-projects/{slug}/02-pm-prd/handoff.md` if present; then `orientation.md` (RC-163) if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
 
-**On session end:** Create or update `02-pm-prd/handoff.md`. Optionally append daily progress. Update `meta.yml`: `stage_gate: awaiting_ceo_review` (PH-001). Ask the CEO to confirm accuracy before closing the session.
+**On session end:** Create or update `02-pm-prd/handoff.md`. Optionally create or update `orientation.md` (RC-163). Optionally append daily progress. Update `meta.yml`: `stage_gate: awaiting_ceo_review` (PH-001). Offer optional **session audit** (RC-164) per `.github/skills/session-audit/SKILL.md` before CEO confirms handoff. Ask the CEO to confirm accuracy before closing the session.
 
 ## Project stage state (PH-001)
 
@@ -46,6 +46,22 @@ Do not cite artifacts with `invalidated: true`. On reopen to `pm-prd`, read **Re
 **On invoke:** Read `02-pm-prd/handoff.md` **Locked decisions** and **Forwarded open decisions** if present. Honor every `L-` row; do not contradict without CEO override. Address each `F-` row in the PRD or escalate in open questions.
 
 **On session end:** Update `02-pm-prd/handoff.md` open rows; propose locks with CEO at gate only. Orchestrator forwards to architecture or engineering per `templates/workspace/inter-stage-contract.md`.
+
+## Advisory align-cite (PH-004)
+
+Before CEO review, offer optional advisory cite on `product-requirements.md` when it has five or more cited claims or vendor-domain assertions. Run with `--advisory`; update handoff **Advisory cite check**. Non-blocking.
+
+## Disposable orientation (RC-163)
+
+Use `orientation.md` for exploration notes and preferences. Do not cite orientation in PRD body at `review`/`published`.
+
+## Agent mode (RC-116)
+
+Read PRD `agent_mode` or `meta.yml` `agent_mode_default`. In `thinking` mode: questions and notes to `orientation.md`/`research/` only; no PRD section drafts except `[NEEDS INPUT]`. In `artifact` mode: normal PM output.
+
+## Project sub-scaffold (RC-167)
+
+Optional `02-pm-prd/subprojects/{workstream}/` for parallel requirement threads. Read Tier-3 `STAGE-SCAFFOLD.md` when active; merge outcomes into PRD or handoff. Exclude `subprojects/**` from publish set.
 
 ## Inputs
 

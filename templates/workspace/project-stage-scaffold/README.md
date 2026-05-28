@@ -7,6 +7,7 @@ Optional layout under each active stage directory. Extends RC-058 `handoff.md` w
 ```text
 wiki/workspace-projects/{slug}/0X-{stage}/
 ├── handoff.md              # RC-058 session restart
+├── orientation.md          # RC-163 disposable session notes (optional)
 ├── research/               # clipped sources and reading notes
 ├── chats/                  # imported external chat transcripts
 ├── daily-progress/         # dated session summaries (RC-118/119 adjacent)
@@ -21,6 +22,7 @@ wiki/workspace-projects/{slug}/0X-{stage}/
 | `chats/` | External chat exports for evidence | informational | Cite in stage artifact if used; not canonical wiki |
 | `daily-progress/` | End-of-session summaries (`YYYY-MM-DD.md`) | draft | Catch-up reads; merge into `handoff.md` at session end |
 | `handoff.md` | Active restart context | draft-tier | Excluded from publish |
+| `orientation.md` | Disposable session notes and preferences (RC-163) | draft-tier, `not_canonical: true` | Excluded from publish; never wiki-promoted without compile |
 
 ## File templates
 
@@ -30,9 +32,9 @@ wiki/workspace-projects/{slug}/0X-{stage}/
 
 ## Agent usage
 
-**On resume:** Read `handoff.md` (including PH-003 locked and forwarded open decisions when present), then scan `daily-progress/` (newest first, last 3 files) for catch-up.
+**On resume:** Read `handoff.md` (including PH-003 locked and forwarded open decisions when present), then `orientation.md` (RC-163) if present, then scan `daily-progress/` (newest first, last 3 files) for catch-up.
 
-**During work:** Write reading notes to `research/`; append session summary to `daily-progress/YYYY-MM-DD.md`.
+**During work:** Write reading notes to `research/`; session preferences to `orientation.md`; append session summary to `daily-progress/YYYY-MM-DD.md`.
 
 **On session end:** Update `handoff.md`; ask CEO to confirm. Do not promote scaffold files to `review` or publish set.
 
@@ -42,10 +44,11 @@ wiki/workspace-projects/{slug}/0X-{stage}/
 
 ## Finalize exclusions
 
-Engineer finalize must **not** process files under `research/`, `chats/`, or `daily-progress/`.
+Engineer finalize must **not** process files under `research/`, `chats/`, `daily-progress/`, or `orientation.md` (RC-163).
 
 ## See also
 
 - ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-130-project-stage-scaffold.md`
 - Handoff: `templates/workspace/handoff.md`
-- RC-167 subfolder rule stacking (after RC-130)
+- Orientation: `templates/workspace/orientation.md` (RC-163)
+- RC-167 subfolder rule stacking: `templates/workspace/project-sub-scaffold/README.md`

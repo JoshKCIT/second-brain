@@ -35,3 +35,13 @@ stage: vp-brief | pm-prd | architecture | engineering
 ```
 
 Scaffolds may add voice, scope, or handoff notes. They must not duplicate Tier-1 governance bullets or weaken approval gates.
+
+## Tier 3 sub-scaffolds (RC-167)
+
+Optional workstream threads: `wiki/workspace-projects/{slug}/0X-{stage}/subprojects/{workstream}/`
+
+- `STAGE-SCAFFOLD.md` — workstream instruction shim (`instruction_stack_tier: 3`)
+- Local `orientation.md` and `resources/` — draft-tier only
+- All sub-scaffold files require `publish_scope: exclude` and `not_canonical: true`
+
+Template: `templates/workspace/project-sub-scaffold/README.md`

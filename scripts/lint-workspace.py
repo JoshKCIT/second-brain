@@ -92,6 +92,96 @@ def parse_iso(value: str) -> datetime | None:
         return None
 
 
+def collect_project_orientation_files(root: Path) -> list[Path]:
+    base = root / "wiki" / "workspace-projects"
+    if not base.is_dir():
+        return []
+    return [p for p in base.rglob("orientation.md") if p.is_file()]
+
+
+def collect_sub_scaffold_files(root: Path) -> list[Path]:
+    base = root / "wiki" / "workspace-projects"
+    if not base.is_dir():
+        return []
+    return [p for p in base.rglob("*") if p.is_file() and "subprojects" in p.parts and p.suffix == ".md"]
+
+
+def lint_sub_scaffold(root: Path, articles: list[Path]) -> list[str]:
+    issues: list[str] = []
+    for path in collect_sub_scaffold_files(root):
+        rel = path.relative_to(root)
+        fm = parse_frontmatter(path)
+        if fm.get("publish_scope") != "exclude":
+            issues.append(f"{rel}: missing publish_scope: exclude (RC-167)")
+        if not fm.get("not_canonical"):
+            issues.append(f"{rel}: missing not_canonical: true (RC-167)")
+        if fm.get("status") in ("review", "published"):
+            issues.append(f"{rel}: sub-scaffold must stay draft-tier (RC-167)")
+
+    for article in articles:
+        rel_article = article.relative_to(root)
+        fm = parse_frontmatter(article)
+        if fm.get("status") not in ("review", "published"):
+            continue
+        for src in fm.get("sources", []) or []:
+            if isinstance(src, str) and "subprojects/" in src.replace("\\", "/"):
+                issues.append(
+                    f"{rel_article}: cites subprojects/ in sources at publish tier (RC-167)"
+                )
+    return issues
+
+
+def lint_orientation_and_agent_mode(root: Path, articles: list[Path]) -> dict[str, list[str]]:
+    orientation_issues: list[str] = []
+    agent_mode_issues: list[str] = []
+    publish_markers = ("## See Also", "## Success criteria", "## Acceptance criteria")
+
+    for path in collect_project_orientation_files(root):
+        rel = path.relative_to(root)
+        fm = parse_frontmatter(path)
+        if fm.get("type") != "session-orientation":
+            orientation_issues.append(f"{rel}: expected type session-orientation")
+        if not fm.get("not_canonical"):
+            orientation_issues.append(f"{rel}: missing not_canonical: true (RC-163)")
+        if fm.get("status") in ("review", "published"):
+            orientation_issues.append(f"{rel}: orientation must stay draft-tier (RC-163)")
+
+    for article in articles:
+        rel_article = article.relative_to(root)
+        fm = parse_frontmatter(article)
+        rel_str = str(rel_article).replace("\\", "/")
+
+        for src in fm.get("sources", []) or []:
+            if isinstance(src, str) and "orientation.md" in src:
+                orientation_issues.append(
+                    f"{rel_article}: cites orientation.md in sources — not canonical (RC-163)"
+                )
+
+        if "workspace-projects" not in rel_str or fm.get("type") != "project-artifact":
+            continue
+
+        mode = fm.get("agent_mode")
+        status = fm.get("status", "")
+        if mode == "thinking":
+            if status in ("review", "published"):
+                agent_mode_issues.append(
+                    f"{rel_article}: agent_mode thinking with status {status} (RC-116)"
+                )
+            text = article.read_text(encoding="utf-8", errors="replace")
+            body = text.split("---", 2)[2] if text.startswith("---") and text.count("---") >= 2 else text
+            for marker in publish_markers:
+                if marker in body and status == "draft":
+                    agent_mode_issues.append(
+                        f"{rel_article}: thinking mode with publish marker `{marker}` (RC-116 advisory)"
+                    )
+                    break
+
+    return {
+        "orientation_integrity": orientation_issues,
+        "agent_mode": agent_mode_issues,
+    }
+
+
 def run_lint(root: Path, scope: Path | None) -> dict:
     findings: dict[str, list[str]] = {
         "broken_links": [],
@@ -102,6 +192,9 @@ def run_lint(root: Path, scope: Path | None) -> dict:
         "sparse_articles": [],
         "frontmatter": [],
         "stale_vendor_docs": [],
+        "orientation_integrity": [],
+        "agent_mode": [],
+        "sub_scaffold_integrity": [],
     }
 
     articles = collect_wiki_articles(root, scope)
@@ -161,6 +254,11 @@ def run_lint(root: Path, scope: Path | None) -> dict:
         if revalidate and now > revalidate:
             findings["stale_vendor_docs"].append(f"{raw_rel}: past revalidate_after ({meta.get('revalidate_after')})")
 
+    extra = lint_orientation_and_agent_mode(root, articles)
+    for key, items in extra.items():
+        findings[key] = items
+    findings["sub_scaffold_integrity"] = lint_sub_scaffold(root, articles)
+
     return findings
 
 
@@ -174,6 +272,9 @@ def severity_map() -> dict[str, str]:
         "missing_backlinks": "warning",
         "sparse_articles": "suggestion",
         "stale_articles": "warning",
+        "orientation_integrity": "error",
+        "agent_mode": "warning",
+        "sub_scaffold_integrity": "error",
     }
 
 

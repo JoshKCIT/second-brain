@@ -123,6 +123,16 @@ Each workspace agent has a prompt file in `.github/prompts/workspace-{agent}-age
 
 **Reopen stage protocol (PH-005):** When the CEO reopens an upstream stage, the orchestrator sets `invalidated_stages` and `reopen_reason` in `meta.yml`, marks downstream project artifacts `invalidated: true` (files retained for audit), and resumes at the target stage. Agents must not cite invalidated artifacts. Protocol: `templates/workspace/reopen-stage-protocol.md`. ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-005-reopen-stage-protocol.md`.
 
+**Advisory align-cite per stage (PH-004):** Optional non-blocking citation check on the current stage artifact before each CEO gate. Stage agents or orchestrator invoke `/workspace-align-cite` with `--advisory`; violations are reported but do not block gate progression. Blocking align-cite still runs at pre-publish (Step 12). Protocol: `templates/workspace/advisory-align-cite-per-stage.md`. ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-004-advisory-align-cite-per-stage.md`.
+
+**Disposable session orientation (RC-163):** Optional `orientation.md` per stage holds non-canonical session notes and preferences (`not_canonical: true`). Distinct from `handoff.md`; excluded from finalize and publish. Promotion to wiki requires compile + user approval + align-cite. Template: `templates/workspace/orientation.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-163-disposable-session-orientation.md`.
+
+**Thinking vs artifact mode (RC-116):** Optional `agent_mode: thinking | artifact` on draft stage artifacts (default `artifact`). Thinking mode forbids publish-shaped output in artifact bodies; notes go to `orientation.md` or `research/`. Finalize blocks `review` while any artifact remains in thinking mode. Template: `templates/workspace/agent-mode.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-116-thinking-artifact-mode-separation.md`.
+
+**Project sub-scaffold rule stacking (RC-167):** Optional `subprojects/{workstream}/` under a stage with Tier-3 `STAGE-SCAFFOLD.md`, local orientation, and resources. Inherits AGENTS + stage prompt; all sub-scaffold files use `publish_scope: exclude`. Excluded from finalize, align-closure publish set, and publish. Template: `templates/workspace/project-sub-scaffold/README.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-167-project-subfolder-rule-stacking.md`.
+
+**Session audit (RC-164):** Optional end-of-session skill (`.github/skills/session-audit/`) scans conversation and proposes `orientation.md` or `handoff.md` updates. Proposal-only; CEO approves each item before write. Never auto-writes wiki or canonical knowledge. Prompt: `.github/prompts/workspace-session-audit.prompt.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-164-session-audit-skill.md`.
+
 CEO reviews and edits between stages. Do not invoke the next agent without explicit CEO approval.
 
 ---
@@ -361,6 +371,7 @@ type: project-artifact
 project: "{slug}"
 stage: "vp-brief" | "pm-prd" | "architecture" | "engineering"
 status: draft | review | published | archived
+agent_mode: thinking | artifact   # RC-116; draft only; default artifact when absent
 authored_by_agent: vp | pm | architect | engineer
 sources:
   - "wiki/workspace-standards/architecture/microservice-sizing.md"
@@ -730,6 +741,9 @@ Seven structural checks plus engineering additions:
 | Status-aware closure | Engineering | Body wikilinks at review/published; cross-project violations |
 | Research review integrity | Engineering | Invalid claim records, report shape gaps, protected-file contamination |
 | Instruction stack shim duplication | Engineering | Tier-1 governance rules copied verbatim into shims instead of referencing AGENTS.md (RC-161) |
+| Orientation integrity | Engineering | RC-163: orientation files missing `not_canonical`, promoted status, or cited as wiki sources |
+| Agent mode | Engineering | RC-116: `thinking` mode artifacts at review/published or with publish-shaped markers |
+| Sub-scaffold integrity | Engineering | RC-167: `subprojects/**` missing `publish_scope: exclude`, promoted status, or cited as publish sources |
 
 Output: `reports/workspace-lint-{date}.md` with severity per finding.
 
@@ -791,6 +805,7 @@ second-brain/
 │   │   ├── revalidate-vendor-docs.prompt.md
 │   │   ├── workspace-compile.prompt.md
 │   │   ├── workspace-query.prompt.md
+│   │   ├── workspace-session-audit.prompt.md
 │   │   ├── platform-transcript-librarian.prompt.md
 │   │   ├── platform-research-review.prompt.md
 │   │   ├── platform-research-review/

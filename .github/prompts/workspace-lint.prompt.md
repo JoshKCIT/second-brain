@@ -46,10 +46,13 @@ You are running the full lint pass on the wiki. Catches drift, orphans, contradi
 14. **Manually edited content.** Articles with `manually_edited: true` in frontmatter; flag for LLM review (the LLM owns the wiki layer).
 15. **Platform research-review integrity.** If research artifacts exist, validate `wiki/platform-research/claim-register.md` claim-record fields, decision values, impact score ranges, required report sections, and transcript-derived claim leakage into protected canonical files. The helper script is `python scripts/lint-platform-research.py --root .`; use `--strict` when release validation requires platform-research-review artifacts to exist.
 16. **Instruction stack shim duplication (RC-161).** Scan `.cursor/rules/*.mdc`, `CLAUDE.md`, `.github/copilot-instructions.md`, and `.github/prompts/*.prompt.md` for repeated Tier-1 governance bullets (e.g., full align-cite/closure rule lists copied verbatim). Flag advisory when a shim restates more than two root invariants instead of referencing `AGENTS.md`. Tier-3 project scaffolds excluded.
+17. **Orientation integrity (RC-163).** `orientation.md` files must have `type: session-orientation`, `not_canonical: true`, and `status: draft`. Flag error if wiki articles cite orientation in `sources`. Run via `scripts/lint-workspace.py`.
+18. **Agent mode (RC-116).** Project artifacts with `agent_mode: thinking` at `review`/`published`, or draft artifacts with publish-shaped section markers. Advisory warning. Run via `scripts/lint-workspace.py`.
+19. **Sub-scaffold integrity (RC-167).** Files under `subprojects/**` must have `publish_scope: exclude` and `not_canonical: true`; must not be at `review`/`published`. Published artifacts must not cite sub-scaffold paths in `sources`. Run via `scripts/lint-workspace.py`.
 
 ### LLM-driven (skipped with `--structural-only`)
 
-17. **Contradictions.** Two articles making conflicting claims on the same topic. LLM-judged; flag for resolution.
+20. **Contradictions.** Two articles making conflicting claims on the same topic. LLM-judged; flag for resolution.
 
 ## Output
 

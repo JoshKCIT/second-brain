@@ -30,9 +30,9 @@ Before writing architecture artifacts:
 
 ## Session handoff (RC-058)
 
-**On resume:** Read `wiki/workspace-projects/{slug}/03-architecture/handoff.md` if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
+**On resume:** Read `wiki/workspace-projects/{slug}/03-architecture/handoff.md` if present; then `orientation.md` (RC-163) if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
 
-**On session end:** Create or update `03-architecture/handoff.md`. Optionally append daily progress. Update `meta.yml`: `stage_gate: awaiting_ceo_review` (PH-001). Ask the CEO to confirm accuracy before closing the session.
+**On session end:** Create or update `03-architecture/handoff.md`. Optionally create or update `orientation.md` (RC-163). Optionally append daily progress. Update `meta.yml`: `stage_gate: awaiting_ceo_review` (PH-001). Offer optional **session audit** (RC-164) per `.github/skills/session-audit/SKILL.md` before CEO confirms handoff. Ask the CEO to confirm accuracy before closing the session.
 
 ## Project stage state (PH-001)
 
@@ -47,6 +47,22 @@ Do not cite invalidated PRD, brief, or architecture artifacts. If `pm-prd` or `v
 **On invoke:** Read `03-architecture/handoff.md` locked and forwarded open sections. Honor cumulative `L-` rows from VP/PM gates. Resolve or escalate each `F-` row in architecture doc or ADRs.
 
 **On session end:** Update architecture `handoff.md`; orchestrator forwards to `04-engineering/handoff.md` at CEO gate.
+
+## Advisory align-cite (PH-004)
+
+Before CEO review, offer optional advisory cite on `architectural-approaches.md` (and ADRs if heavily cited). Run with `--advisory`; update handoff **Advisory cite check**. Non-blocking.
+
+## Disposable orientation (RC-163)
+
+Use `orientation.md` for technical exploration notes. Never cite orientation in architecture doc at `review`/`published`.
+
+## Agent mode (RC-116)
+
+Read architecture artifact `agent_mode` or `meta.yml` `agent_mode_default`. In `thinking` mode: questions and notes only; no architecture drafts except `[NEEDS INPUT]`. In `artifact` mode: normal architect output.
+
+## Project sub-scaffold (RC-167)
+
+Optional `03-architecture/subprojects/{workstream}/` for parallel design threads (e.g., security, data model). Read sub-scaffold when active; merge into architecture doc or ADRs. Exclude from publish set.
 
 ## Inputs
 

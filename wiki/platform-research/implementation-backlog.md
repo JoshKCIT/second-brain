@@ -6,6 +6,8 @@ Priority uses **stack lift**, not raw transcript impact alone. A claim with a lo
 
 **Stack-aware rescoring (2026-05-27):** Policy-tier claims bundle in one cycle (RC-122+157). Foundation claims RC-018 and RC-058 precede dependent experiments. Verified-no-change and doc-reinforcement claims removed from active queue.
 
+**Resync (2026-05-28):** PH-003/PH-005 main-queue status aligned with PIC-013/014; dependency checkmarks updated after RC-163/RC-116 acceptance; next-selectable slice re-ranked.
+
 ## Active policy
 
 | Rule | Value |
@@ -37,8 +39,8 @@ priority_score =
 | 1 — Policy | Query discipline | RC-122 + RC-157 ✓ |
 | 2 — Scaffolding | Retrieval + agent rules | RC-018 ✓, RC-161 ✓ |
 | 3 — Session | Handoff ergonomics | RC-058 ✓, RC-130 ✓ |
-| 3b — Hygiene | Agent chain gaps | PH-001 ✓, **PH-003** (next) |
-| 4 — Experiments | After 1–3 | RC-163→164, RC-116→117, RC-162, RC-165, RC-167 |
+| 3b — Hygiene | Agent chain gaps | PH-001 ✓, PH-002 ✓, PH-003 ✓, PH-004 ✓, PH-005 ✓ |
+| 4 — Experiments | After 1–3 | RC-163 ✓, RC-116 ✓, RC-167 ✓, RC-164 ✓ → RC-117, RC-162, RC-165 |
 | 5 — Compile lane | Raw inbox | RC-146 → RC-148 → RC-149 |
 
 Template: `templates/platform-research/implementation-backlog.md`. Stack analysis: `reports/platform-research-review/claim-stack-analysis-2026-05-27.md`.
@@ -61,22 +63,37 @@ Template: `templates/platform-research/implementation-backlog.md`. Stack analysi
 | 12 | RC-2026-05-27-130 | experiment | 22 | accepted | RC-058 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-130-project-stage-scaffold.md` |
 | 12a | PH-2026-05-27-001 | hygiene | 26 | accepted | RC-058 ✓, RC-130 ✓ | `templates/workspace/project-meta.yml.md` |
 | 12b | PH-2026-05-27-002 | hygiene | 25 | accepted | RC-161 ✓, PIC-011 | finalize delegation in start-project |
-| 12c | PH-2026-05-27-003 | hygiene | 21 | queued | RC-058 ✓, RC-130 ✓ | inter-stage output contract in handoff |
-| 13 | RC-2026-05-27-163 | experiment | 21 | queued | RC-058 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-163-disposable-session-orientation.md` |
-| 14 | RC-2026-05-27-167 | experiment | 20 | queued | RC-058 ✓, RC-130 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-167-project-subfolder-rule-stacking.md` |
-| 14a | PH-2026-05-27-004 | hygiene | 19 | queued | RC-122 ✓ | advisory align-cite per stage |
-| 14b | PH-2026-05-27-005 | hygiene | 18 | queued | PH-001 ✓ | reopen stage protocol |
-| 15 | RC-2026-05-27-164 | experiment | 19 | queued | RC-163 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-164-session-audit-skill.md` |
+| 12c | PH-2026-05-27-003 | hygiene | 21 | accepted | RC-058 ✓, RC-130 ✓ | `docs/platform-decision-records/DRAFT-PH-2026-05-27-003-inter-stage-output-contract.md` |
+| 13 | RC-2026-05-27-163 | experiment | 21 | accepted | RC-058 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-163-disposable-session-orientation.md` |
+| 14 | RC-2026-05-27-167 | experiment | 20 | accepted | RC-058 ✓, RC-130 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-167-project-subfolder-rule-stacking.md` |
+| 14a | PH-2026-05-27-004 | hygiene | 19 | accepted | RC-122 ✓ | `docs/platform-decision-records/DRAFT-PH-2026-05-27-004-advisory-align-cite-per-stage.md` |
+| 14b | PH-2026-05-27-005 | hygiene | 18 | accepted | PH-001 ✓ | `docs/platform-decision-records/DRAFT-PH-2026-05-27-005-reopen-stage-protocol.md` |
+| 15 | RC-2026-05-27-164 | experiment | 19 | accepted | RC-163 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-164-session-audit-skill.md` |
 | 16 | RC-2026-05-27-162 | experiment | 18 | queued | RC-018 ✓, RC-161 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-162-routing-map-agents-shim.md` |
 | 16a | PH-2026-05-27-006 | hygiene | 16 | queued | RC-162 | platform escalation row in routing map |
 | 17 | RC-2026-05-27-165 | experiment | 17 | queued | RC-018 ✓, RC-161 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-165-lean-root-pointer-resources.md` |
-| 18 | RC-2026-05-27-116 | experiment | 20 | queued | — | `docs/platform-decision-records/DRAFT-RC-2026-05-27-116-thinking-artifact-mode-separation.md` |
-| 19 | RC-2026-05-27-117 | experiment | 18 | queued | RC-116 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-117-thinking-partner-subagent.md` |
+| 18 | RC-2026-05-27-116 | experiment | 20 | accepted | — | `docs/platform-decision-records/DRAFT-RC-2026-05-27-116-thinking-artifact-mode-separation.md` |
+| 19 | RC-2026-05-27-117 | experiment | 18 | queued | RC-116 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-117-thinking-partner-subagent.md` |
 | 20 | RC-2026-05-27-146 | experiment | 18 | queued | — | `docs/platform-decision-records/DRAFT-RC-2026-05-27-146-raw-inbox-staging.md` |
 | 21 | RC-2026-05-27-148 | experiment | 16 | queued | RC-146 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-148-topic-entity-compile.md` |
 | 22 | RC-2026-05-27-149 | experiment | 14 | queued | RC-146 | — |
-| 23 | RC-2026-05-27-050 | experiment | 15 | queued | RC-122 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-050-verbatim-cite-excerpts.md` |
-| 24 | RC-2026-05-27-055 | experiment | 15 | queued | RC-122 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-055-identity-packs-compile.md` |
+| 23 | RC-2026-05-27-050 | experiment | 15 | queued | RC-122 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-050-verbatim-cite-excerpts.md` |
+| 24 | RC-2026-05-27-055 | experiment | 15 | queued | RC-122 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-055-identity-packs-compile.md` |
+
+## Next selectable (rescore 2026-05-28)
+
+Highest `priority_score` among `queued` items with satisfied dependencies:
+
+| Select rank | Claim ID | Score | Notes |
+|---:|---|---:|---|
+| 1 | RC-2026-05-27-162 | 18 | Routing map shim; bundle PH-006 after |
+| 1 | RC-2026-05-27-117 | 18 | Thinking-partner; RC-116 ✓ |
+| 1 | RC-2026-05-27-146 | 18 | Raw inbox staging; opens compile lane |
+| 2 | RC-2026-05-27-165 | 17 | Lean root pointer resources |
+| 3 | RC-2026-05-27-050 | 15 | Verbatim cite excerpts |
+| 3 | RC-2026-05-27-055 | 15 | Identity packs compile |
+
+**Blocked:** RC-012 (needs failure data). **Waiting on upstream:** PH-006 (RC-162), RC-148/149 (RC-146).
 
 ## Verified baseline (no backlog work)
 
@@ -102,10 +119,10 @@ From `reports/platform-research-review/agent-chain-hygiene-2026-05-27.md`. Not t
 | ID | Title | Status | Notes |
 |---|---|---|---|
 | PH-2026-05-27-001 | meta.yml stage state machine | accepted | PIC-012; template + prompt transitions |
-| PH-2026-05-27-002 | start-project finalize alignment | accepted | PIC-011 delegated finalize to engineer prompt |
-| PH-2026-05-27-003 | inter-stage output contract | accepted | PIC-013; handoff locked/forwarded sections; inter-stage contract template |
-| PH-2026-05-27-004 | advisory align-cite per stage | queued | optional before CEO gates |
-| PH-2026-05-27-005 | reopen stage protocol | accepted | PIC-014; invalidated_stages + artifact flags; orchestrator reopen checklist |
+| PH-2026-05-27-002 | start-project finalize alignment | accepted | PIC-011 |
+| PH-2026-05-27-003 | inter-stage output contract | accepted | PIC-013 |
+| PH-2026-05-27-004 | advisory align-cite per stage | accepted | PIC-015 |
+| PH-2026-05-27-005 | reopen stage protocol | accepted | PIC-014 |
 | PH-2026-05-27-006 | platform escalation routing | queued | bundle with RC-162 |
 
 ## Deferred (not in active queue)
@@ -120,14 +137,55 @@ From `reports/platform-research-review/agent-chain-hygiene-2026-05-27.md`. Not t
 ## Current cycle
 
 ```yaml
-cycle_id: —
-selected_claim: —
-status: idle
+cycle_id: PIC-2026-05-27-019
+selected_claim: RC-2026-05-27-164
+status: accepted
+accepted: 2026-05-28
 blocked_by: none
-next_action: "PH-005 accepted (PIC-014). Next: PH-004 (advisory align-cite per stage, priority 19) or PH-006 (platform escalation routing, priority 16) or RC-116 (thinking mode, priority 20)."
+next_action: "RC-164 accepted (PIC-019). Top selectable: RC-162/117/146 (18 tie)."
 ```
 
 ## Previous cycles (closed)
+
+```yaml
+cycle_id: PIC-2026-05-27-019
+selected_claim: RC-2026-05-27-164
+status: accepted
+accepted: 2026-05-28
+outcome: "session-audit skill; workspace-session-audit prompt; stage agent + finalize hooks; proposal-only writes."
+```
+
+```yaml
+cycle_id: PIC-2026-05-27-018
+selected_claim: RC-2026-05-27-167
+status: accepted
+accepted: 2026-05-28
+outcome: "subprojects/{workstream}/ Tier-3 stack; publish_scope exclude; align-closure + finalize + lint."
+```
+
+```yaml
+cycle_id: PIC-2026-05-27-017
+selected_claim: RC-2026-05-27-116
+status: accepted
+accepted: 2026-05-27
+outcome: "agent_mode thinking|artifact; meta.yml default; stage agent guards; finalize mode gate; lint check 18."
+```
+
+```yaml
+cycle_id: PIC-2026-05-27-016
+selected_claim: RC-2026-05-27-163
+status: accepted
+accepted: 2026-05-27
+outcome: "orientation.md template; RC-163 read/write hooks; finalize exclusion; lint orientation integrity."
+```
+
+```yaml
+cycle_id: PIC-2026-05-27-015
+selected_claim: PH-2026-05-27-004
+status: accepted
+accepted: 2026-05-27
+outcome: "Advisory align-cite --advisory mode; pre-gate offer in start-project; stage agent hooks; handoff advisory cite section."
+```
 
 ```yaml
 cycle_id: PIC-2026-05-27-014
@@ -262,6 +320,13 @@ Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-lo
 
 | Date | Claim ID | Action | Notes |
 |---|---|---|---|
+| 2026-05-28 | RC-2026-05-27-164 | accepted | PIC-019; session audit skill |
+| 2026-05-28 | RC-2026-05-27-167 | accepted | PIC-018; project sub-scaffold rule stacking |
+| 2026-05-28 | — | backlog_resynced | PH-003/PH-005 queue drift fixed; RC-163/116 dep checkmarks; next-selectable table added |
+| 2026-05-27 | RC-2026-05-27-116 | accepted | PIC-017; thinking vs artifact mode |
+| 2026-05-27 | RC-2026-05-27-163 | accepted | PIC-016; disposable session orientation |
+| 2026-05-27 | PH-2026-05-27-004 | accepted | PIC-015 closed; advisory align-cite per stage |
+| 2026-05-27 | PH-2026-05-27-004 | implemented | PIC-015; advisory align-cite per stage |
 | 2026-05-27 | PH-2026-05-27-001 | accepted | PIC-012 closed; meta.yml stage state machine |
 | 2026-05-27 | PH-2026-05-27-001 | implemented | PIC-012; project-meta.yml template + prompt transitions |
 | 2026-05-27 | PH-2026-05-27-002 | accepted | Finalize alignment closed with PIC-011 |

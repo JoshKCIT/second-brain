@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft
+Accepted (PIC-2026-05-27-018)
 
 ## Source Claim
 
@@ -68,6 +68,10 @@ One pilot project with sub-scaffold for two weeks; align-closure confirms publis
 
 ## Files Proposed for Future Change
 
-- `templates/workspace/project-sub-scaffold/` (new)
-- `.github/prompts/workspace-start-project.prompt.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-130-project-stage-scaffold.md` (cross-link)
+- `templates/workspace/project-sub-scaffold/` (new) — **done**
+- `.github/prompts/workspace-start-project.prompt.md` — **done**
+- `.github/prompts/workspace-align-closure.prompt.md` (publish set exclusion) — **done**
+- `.github/prompts/workspace-{vp,pm,architect,engineer}-agent.prompt.md` — **done**
+- `.github/prompts/workspace-engineer-agent.prompt.md` (finalize exclusion) — **done**
+- `scripts/lint-workspace.py` (sub-scaffold integrity) — **done**
+- `docs/platform-decision-records/DRAFT-RC-2026-05-27-130-project-stage-scaffold.md` (cross-link) — **done**

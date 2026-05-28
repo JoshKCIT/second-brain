@@ -1,4 +1,4 @@
-# Session handoff template (RC-058, PH-003, PH-005)
+# Session handoff template (RC-058, PH-003, PH-004, PH-005)
 
 Optional per-stage file: `wiki/workspace-projects/{slug}/0X-{stage}/handoff.md`
 
@@ -66,6 +66,18 @@ Unresolved upstream items. Address in this stage's artifact, move to **Open deci
 
 Local to this stage session. Orchestrator may promote rows to locked or forward at the next CEO gate.
 
+## Advisory cite check (PH-004)
+
+Optional pre-gate citation integrity run. Orchestrator skips duplicate offer if current.
+
+| Field | Value |
+|---|---|
+| Last run | {ISO timestamp \| skipped \| not run} |
+| Artifact | {path or —} |
+| Result | pass (advisory) \| fail (advisory) \| skipped \| not run |
+| Report | {reports/workspace-advisory-align-cite-* path or —} |
+| Violations | {count or —} |
+
 ## Next steps
 
 - [ ] {concrete next action}
@@ -96,6 +108,9 @@ Local to this stage session. Orchestrator may promote rows to locked or forward 
 
 - Inter-stage contract: `templates/workspace/inter-stage-contract.md` (PH-003)
 - Reopen protocol: `templates/workspace/reopen-stage-protocol.md` (PH-005)
+- Session audit: `.github/skills/session-audit/SKILL.md` (RC-164)
+- Advisory cite: `templates/workspace/advisory-align-cite-per-stage.md` (PH-004)
+- Orientation: `templates/workspace/orientation.md` (RC-163)
 - ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md`
 - PH-003 ADR: `docs/platform-decision-records/DRAFT-PH-2026-05-27-003-inter-stage-output-contract.md`
 - Instruction stack tier 3: RC-161

@@ -42,7 +42,7 @@ Prompt files in `.github/prompts/`:
 
 - `workspace-start-project` (orchestrates the workspace agent chain)
 - `second-brain` (onboarding)
-- `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`
+- `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`, `workspace-session-audit`
 - `platform-transcript-librarian`
 - `platform-research-review`
 - `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`
@@ -57,6 +57,7 @@ Prompt files in `.github/prompts/`:
 - `defuddle/` — clean Markdown extraction from web pages (use when ingesting vendor docs)
 - `platform-transcript-librarian` — transcript import, register sync, review queue with human checkpoints
 - `platform-research-review/` — transcript-to-claim review with grounding, skeptical scoring, and draft ADR routing
+- `session-audit/` — end-of-session orientation/handoff proposals with CEO approval (RC-164)
 
 ## Authoring quality bar
 

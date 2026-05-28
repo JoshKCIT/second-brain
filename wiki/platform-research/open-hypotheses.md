@@ -27,7 +27,7 @@ Use this file to track unresolved ideas from transcript review that are not yet 
 | H-2026-05-27-008 | RC-2026-05-27-055 | Materials vs notes capture taxonomy improves align-cite at publish. | Pilot frontmatter tags on one ingest path. | open | unassigned |
 | H-2026-05-27-009 | RC-2026-05-27-063 | Monthly wiki health check (report-only phase 1) catches closure drift. | Run one manual health check; compare with workspace-lint. | open | unassigned |
 | H-2026-05-27-020 | RC-2026-05-27-142 | Weekly command-center pulse as disposable report (not wiki truth). | Generate one pulse from log+lint; verify no wiki writes. | open | unassigned |
-| H-2026-05-27-021 | RC-2026-05-27-116 | Thinking vs artifact mode frontmatter reduces premature publish-shaped output in draft stages. | Pilot agent_mode on one draft project; count slop fragments. | open | unassigned |
+| H-2026-05-27-021 | RC-2026-05-27-116 | Thinking vs artifact mode frontmatter reduces premature publish-shaped output in draft stages. | Pilot agent_mode on one draft project; count slop fragments. | active | unassigned |
 | H-2026-05-27-022 | RC-2026-05-27-117 | Thinking-partner sub-agent improves PM requirements before Engineer handoff. | A/B one PM stage with thinking-partner vs without. | open | unassigned |
 | H-2026-05-27-023 | RC-2026-05-27-118, RC-119, RC-130 | Project stage scaffold + daily progress enables catch-up resumption. | Template live; pilot one project two weeks. | active | unassigned |
 | H-2026-05-27-024 | RC-2026-05-27-122 | Explicit read-before-write in workspace prompts reduces uncited generation. | Log read lists before first write in three agent runs. | open | unassigned |
@@ -42,10 +42,10 @@ Use this file to track unresolved ideas from transcript review that are not yet 
 | H-2026-05-27-019 | RC-2026-05-27-141 | Controlled tag vocabulary in config improves scoped query without vectors. | 10-question holdout vs untagged baseline. | open | unassigned |
 | H-2026-05-27-020 | RC-2026-05-27-142 | Weekly disposable pulse report from log+lint improves CEO orientation without wiki writes. | Generate one report; verify zero wiki mutation. | open | unassigned |
 | H-2026-05-27-025 | RC-2026-05-27-162 | Task-type routing map in AGENTS shim reduces mis-routed compile reads. | 5-task holdout vs baseline; merge RC-018 orientation map. | open | unassigned |
-| H-2026-05-27-026 | RC-2026-05-27-163 | Disposable orientation.md per stage improves resumption without wiki promotion. | Pilot two weeks; lint blocks wiki writes without compile. | open | unassigned |
-| H-2026-05-27-027 | RC-2026-05-27-164 | Session audit skill captures preferences with explicit approval only. | Three sessions; zero unapproved writes. | open | unassigned |
+| H-2026-05-27-026 | RC-2026-05-27-163 | Disposable orientation.md per stage improves resumption without wiki promotion. | Pilot two weeks; lint blocks wiki writes without compile. | active | unassigned |
+| H-2026-05-27-027 | RC-2026-05-27-164 | Session audit skill captures preferences with explicit approval only. | Three sessions; zero unapproved writes. | active | unassigned |
 | H-2026-05-27-028 | RC-2026-05-27-165 | Lean root shims with pointer resources reduce default context load. | Line audit; mandatory rules remain in default load. | open | unassigned |
-| H-2026-05-27-029 | RC-2026-05-27-167 | Three-level rule stack with project sub-scaffolds supports RC-058/130. | One pilot; align-closure excludes scaffolds from publish set. | open | unassigned |
+| H-2026-05-27-029 | RC-2026-05-27-167 | Three-level rule stack with project sub-scaffolds supports RC-058/130. | One pilot; align-closure excludes scaffolds from publish set. | active | unassigned |
 | H-2026-05-27-025 | RC-2026-05-27-146 | Explicit raw inbox staging with approval-gated compile preserves Karpathy clipper UX without nightly automation. | One ingest batch pilot; compile only after explicit user approval. | open | unassigned |
 | H-2026-05-27-026 | RC-2026-05-27-148 | Topic/entity compile from immutable raw with mandatory Sources improves navigation without graph substrate. | One Confluence compile pilot; align-cite on all new links. | open | unassigned |
 | H-2026-05-27-027 | RC-2026-05-27-149 | Duplicate source URL check before compile reduces raw noise without skipping versioned re-ingest. | Pilot dedup rule; measure false positives on version-changed sources. | open | unassigned |

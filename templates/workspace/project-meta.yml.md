@@ -24,6 +24,9 @@ last_completed: null           # null | vp-brief | pm-prd | architecture | engin
 invalidated_stages: []         # downstream artifact stages not CEO-authoritative (e.g. architecture, engineering)
 reopen_reason: ""              # CEO reason for last reopen; clear after target stage re-approved
 
+# RC-116 agent mode (optional)
+agent_mode_default: artifact   # thinking | artifact — default for new stage artifacts when frontmatter omits agent_mode
+
 in_scope_spaces:
   - {space-key}
 in_scope_jira_projects: []
@@ -43,6 +46,7 @@ alignment_defaults:
 | `last_completed` | stage id or `null` | Last CEO-approved stage |
 | `invalidated_stages` | list of stage ids | Downstream artifacts marked stale after PH-005 reopen |
 | `reopen_reason` | string | Last reopen rationale; empty when none active |
+| `agent_mode_default` | `thinking` \| `artifact` | RC-116 default for stage artifacts when `agent_mode` omitted in frontmatter |
 
 ## Transition rules
 
@@ -68,8 +72,9 @@ Skip `architecture` stage: after PM approval set `current_stage: engineering` an
 
 1. **`meta.yml`** — `current_stage` + `stage_gate` + `last_completed` (authoritative when present)
 2. **`handoff.md`** — session context (RC-058); **locked + forwarded open decisions** (PH-003) for downstream stages
-3. **`daily-progress/`** — catch-up (RC-130)
-4. **Artifact frontmatter** — fallback only if PH-001 fields missing
+3. **`orientation.md`** — disposable session notes (RC-163) when present
+4. **`daily-progress/`** — catch-up (RC-130)
+5. **Artifact frontmatter** — fallback only if PH-001 fields missing
 
 ## Agent obligations
 

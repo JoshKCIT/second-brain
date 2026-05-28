@@ -46,6 +46,7 @@ The user triggers operations by invoking prompt files in `.github/prompts/`:
 - `/workspace-ingest-vendor-doc` → on-demand vendor doc fetch via the `defuddle` skill
 - `/workspace-compile` → compile new raw/ pages into wiki/ articles
 - `/workspace-query` → index-guided query against the wiki
+- `/workspace-session-audit` → end-of-session orientation/handoff proposals (RC-164; CEO approval per item)
 - `/platform-transcript-librarian` → import transcripts, sync the register, process the review queue (human checkpoints before `raw/**` writes)
 - `/platform-research-review` → turn transcripts or meeting notes into grounded claim records, impact reports, and draft ADRs without directly mutating canonical docs
 - `/workspace-align-cite`, `/workspace-align-conformance`, `/workspace-align-coverage`, `/workspace-align-vendor-truth`, `/workspace-align-closure` → verification checks
@@ -61,6 +62,7 @@ Located in `.github/skills/`:
 - `obsidian-bases/` — create `.base` files for live navigation views in `wiki/workspace-views/`.
 - `defuddle/` — extract clean Markdown from web pages. Use when ingesting vendor docs.
 - `platform-research-review/` — extract, ground, score, and adjudicate transcript-derived claims without treating them as canonical knowledge.
+- `session-audit/` — propose orientation/handoff updates at session end with explicit CEO approval (RC-164).
 
 ## Authoring quality bar
 

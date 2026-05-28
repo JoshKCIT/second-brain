@@ -33,6 +33,7 @@ Greet the CEO and ask for:
 - **Business outcome** (the WHY; what changes if this succeeds)
 - **Technical or non-technical?** (determines whether Architect Agent runs)
 - **Top 2-3 concerns or constraints** known up front
+- **Parallel workstreams?** (optional — if yes, stage agents may use `subprojects/{name}/` per RC-167)
 
 If the user is unsure whether technical applies, default to yes.
 
@@ -45,6 +46,7 @@ wiki/workspace-projects/{slug}/
 │   ├── research/           (optional — RC-130)
 │   ├── chats/              (optional — RC-130)
 │   └── daily-progress/     (optional — RC-130)
+│   └── subprojects/        (optional — RC-167 workstream threads)
 ├── 02-pm-prd/
 │   ├── handoff.md
 │   ├── research/
@@ -115,7 +117,7 @@ Always set `updated` when writing `meta.yml`. Append transition to `wiki/log.md`
 
 `README.md` is a brief project overview generated from the CEO's intent.
 
-When creating stage directories, optionally create empty `research/`, `chats/`, and `daily-progress/` subdirs per `templates/workspace/project-stage-scaffold/README.md` (RC-130). Scaffold is draft-tier; never part of publish set.
+When creating stage directories, optionally create empty `research/`, `chats/`, and `daily-progress/` subdirs per `templates/workspace/project-stage-scaffold/README.md` (RC-130). Optionally create empty `orientation.md` from `templates/workspace/orientation.md` (RC-163). For parallel workstreams, create `subprojects/{workstream}/` from `templates/workspace/project-sub-scaffold/` (RC-167) with CEO approval. Scaffold, orientation, and sub-scaffold paths are draft-tier; never part of publish set.
 
 Append entry to `wiki/log.md`:
 
@@ -136,6 +138,18 @@ Invoke `.github/prompts/workspace-vp-agent.prompt.md` with the captured intent. 
 - In-scope spaces
 
 The VP agent produces `wiki/workspace-projects/{slug}/01-vp-brief/product-brief.md` at status `draft`.
+
+## PH-004 advisory cite (optional pre-gate)
+
+Before each CEO gate (Steps 4, 6, 9, 10b), if the stage agent did not already run advisory cite in session:
+
+1. Check stage `handoff.md` **Advisory cite check** — skip offer if last run matches current artifact path.
+2. Offer CEO: **Run advisory align-cite** on the stage artifact(s) per `templates/workspace/advisory-align-cite-per-stage.md`, or **Skip**.
+3. If run: invoke `.github/prompts/workspace-align-cite.prompt.md` with `--advisory`. Present violation summary; **do not block** the gate.
+4. If skip: log `advisory-cite-skipped` in `wiki/log.md`.
+5. Proceed to shared CEO gate options regardless of advisory result.
+
+Stage agents may run PH-004 at session end instead; orchestrator skips duplicate offer when handoff is current.
 
 ## CEO review (gate) — shared options
 
@@ -270,10 +284,11 @@ If invoked again on a project that already has artifacts (detected by `wiki/work
    - `stage_gate: blocked` → report state; ask CEO how to proceed.
    - `stage_gate: approved` at stage boundary → advance per transition table above.
 2. Read `handoff.md` in the active stage directory (RC-058, PH-003 locked/forwarded sections when downstream).
-3. Read `daily-progress/` in the active stage (newest 3 files, RC-130).
-4. **Fallback only** if PH-001 fields missing: infer from artifact frontmatter and `wiki/log.md`.
-5. If `invalidated_stages` is non-empty, warn CEO downstream artifacts are stale until re-approved (PH-005).
-6. At session end, update `handoff.md` and `meta.yml`; ask CEO to confirm.
+3. Read `orientation.md` in the active stage directory if present (RC-163).
+4. Read `daily-progress/` in the active stage (newest 3 files, RC-130).
+5. **Fallback only** if PH-001 fields missing: infer from artifact frontmatter and `wiki/log.md`.
+6. If `invalidated_stages` is non-empty, warn CEO downstream artifacts are stale until re-approved (PH-005).
+7. At session end, update `handoff.md`, `orientation.md` if used, and `meta.yml`; offer optional session audit (RC-164); ask CEO to confirm.
 
 ## On error
 

@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft
+Accepted (PIC-2026-05-27-019)
 
 ## Source Claim
 
@@ -68,5 +68,10 @@ Three pilot sessions; count proposals vs accepted writes; verify zero unapproved
 
 ## Files Proposed for Future Change
 
-- `.github/skills/session-audit/SKILL.md` (new)
-- `.github/prompts/finalize.prompt.md`
+- `.github/skills/session-audit/SKILL.md` (new) — **done**
+- `.github/prompts/workspace-session-audit.prompt.md` — **done**
+- `templates/workspace/session-audit-checklist.md` — **done**
+- `.github/prompts/workspace-{vp,pm,architect,engineer}-agent.prompt.md` (session-end offer) — **done**
+- `.github/prompts/workspace-start-project.prompt.md` (resumability hook) — **done**
+- `.github/prompts/workspace-engineer-agent.prompt.md` (finalize optional audit) — **done**
+- IDE shims (`CLAUDE.md`, `.cursor/rules/agents.mdc`, `.github/copilot-instructions.md`) — **done**

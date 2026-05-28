@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft
+Accepted (PIC-2026-05-27-017)
 
 ## Source Claim
 
@@ -68,7 +68,10 @@ One pilot project uses `agent_mode: thinking` for one week; measure reduction in
 
 ## Files Proposed for Future Change
 
-- `AGENTS.md` project artifact frontmatter (after user approval)
-- `.github/prompts/workspace-vp-agent.prompt.md`
-- `.github/prompts/workspace-pm-agent.prompt.md`
-- `scripts/lint-platform-research.py` or workspace lint extension
+- `AGENTS.md` project artifact frontmatter — **done**
+- `templates/workspace/agent-mode.md` — **done**
+- `templates/workspace/project-meta.yml.md` (`agent_mode_default`) — **done**
+- `.github/prompts/workspace-{vp,pm,architect,engineer}-agent.prompt.md` — **done**
+- `.github/prompts/workspace-engineer-agent.prompt.md` (finalize mode gate) — **done**
+- `scripts/lint-workspace.py` (agent_mode warnings) — **done**
+- `.github/prompts/workspace-lint.prompt.md` (check 18) — **done**
