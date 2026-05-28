@@ -18,6 +18,21 @@ Use this checklist at the start of `/workspace-compile` batches and when authori
 | Permissions / scope | yes | Project slug, `--project` scope, excluded archives |
 | Out of scope | yes | Explicit exclusions to prevent full-vault reads |
 | Storage/index choice | after contract | Default: page-index + section anchors; no new vector/graph without eval |
+| Mandatory read (pointers) | yes | `AGENTS.md` + task-required paths; see `templates/workspace/pointer-resources/mandatory-default-load.md` |
+| Optional read (pointers) | if task match | e.g. `verb-invocation-detail.md`, `operation-deep-dives.md` (RC-165) |
+
+## Pointer bundle fields (RC-165)
+
+```yaml
+mandatory_read:
+  - AGENTS.md
+  - wiki/index.md
+optional_read:
+  - templates/workspace/pointer-resources/verb-invocation-detail.md
+  - templates/workspace/pointer-resources/operation-deep-dives.md
+```
+
+Optional pointers do not substitute for `mandatory_read` or `align-cite`.
 
 ## Fail-closed gates
 

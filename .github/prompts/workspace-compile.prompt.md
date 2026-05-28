@@ -44,6 +44,19 @@ Before reading raw pages for a batch, draft a lightweight **retrieval contract**
 
 Do not select vector/graph/hybrid retrieval—use page-index and section anchors unless an approved eval says otherwise. The contract is orientation, not canonical wiki content.
 
+## Topic / entity compile (RC-148)
+
+After batch approval, follow `templates/workspace/topic-entity-compile.md` for structured cross-link synthesis:
+
+| Phase | Output |
+|---|---|
+| 1 — Topics | Create/update `wiki/workspace-concepts/` (or standards/recommendations per authority) |
+| 2 — Entities | Named things as concepts with `aliases`; merge duplicates |
+| 3 — Connections | `wiki/workspace-connections/` only when raw explicitly supports 2+ topic relationship |
+| 4 — Verify | Index update; offer advisory align-cite on new/changed concept and connection articles |
+
+**Safeguards:** No connection without raw excerpt in `## Evidence`. No wikilink to a concept that is not in `sources` or `connects` with section anchor. Reject invented cross-links—log skipped candidates in compile log.
+
 ## Inputs
 
 - A list of raw/ page paths to compile, OR a `--all` flag to compile every raw page that does not yet have a corresponding wiki article (orphan ingestion check)
@@ -62,10 +75,11 @@ For each raw page:
      - `authority: standard` → `wiki/workspace-standards/{team}/{slug}.md`
      - `authority: recommendation` → `wiki/workspace-recommendations/{team}/{slug}.md`
      - `authority: informational` → `wiki/workspace-informational/{slug}.md` or `wiki/workspace-concepts/{slug}.md`
-5. **Detect connections.** If the page reveals a non-obvious link between 2+ existing concepts, create a `wiki/workspace-connections/{slug}.md` article.
+5. **Detect connections (RC-148).** If the page reveals a non-obvious link between 2+ topics/entities **with explicit raw support**, create or update `wiki/workspace-connections/{slug}.md`. Skip connections lacking a quotable excerpt—log as `connections_skipped: [{reason}]`.
 6. **Use the obsidian-markdown skill** (`.github/skills/obsidian-markdown/`) for output format compliance.
-7. **Update wiki/index.md** with new or modified entries.
+7. **Update wiki/index.md** with new or modified entries (concepts and connections tables).
 8. **Append to wiki/log.md.**
+9. **Post-batch (RC-148):** Summarize topics created/updated and connections created/updated. Offer advisory align-cite on new concept and connection paths.
 
 ## Article structure (concept / standard / recommendation / informational)
 
@@ -103,20 +117,22 @@ updated: {ISO date}
 
 ## Sources
 
-- [{source page title}]({source_url}) — section reference
+- [[raw/workspace-confluence/{space-key}/pages/{page-id}--{slug}]] (Section {n}.{heading}) — {one-line excerpt or paraphrase tied to this article}
 ```
 
-## Connection article
+Every concept must include `## Sources` with at least one raw path anchor. Wikilinks in `## See Also` must not assert relationships unsupported by compiled sources.
+
+## Connection article (RC-148)
 
 ```markdown
 ---
 title: "Connection: X and Y"
 type: connection
 connects:
-  - "concepts/concept-x"
-  - "concepts/concept-y"
+  - "workspace-concepts/concept-x"
+  - "workspace-concepts/concept-y"
 sources:
-  - {raw paths}
+  - "raw/workspace-confluence/{space-key}/pages/{page-id}--{slug}.md"
 status: published
 created: {ISO date}
 updated: {ISO date}
@@ -125,18 +141,28 @@ updated: {ISO date}
 # Connection: X and Y
 
 ## The Connection
-[What links them]
+
+[What links them — one paragraph]
 
 ## Key Insight
+
 [The non-obvious relationship]
 
 ## Evidence
-[Examples]
+
+[Quote or paraphrase from raw with section anchor — **required**; connection invalid without this]
+
+## Sources
+
+- [[raw/workspace-confluence/{space-key}/pages/{page-id}--{slug}#section]] — excerpt supporting the link
 
 ## See Also
-- [[concepts/concept-x]]
-- [[concepts/concept-y]]
+
+- [[workspace-concepts/concept-x]]
+- [[workspace-concepts/concept-y]]
 ```
+
+Both `connects` endpoints must exist in wiki or be created in the same batch. Do not publish connection articles without Evidence tied to raw.
 
 ## Update wiki/index.md
 
@@ -150,8 +176,12 @@ Index format follows AGENTS.md spec (overview + embedded Base views + catalog ta
 ## [{ISO timestamp}] compile | {raw page or batch}
 - Retrieval contract: {one-line purpose; link or inline YAML summary}
 - Source: {raw paths, max 5}
+- Topics created: {count} | Topics updated: {count}
+- Connections created: {count} | Connections updated: {count}
+- Connections skipped (no raw support): {count or list}
 - Articles created: {list, max 5}
 - Articles updated: {list, max 5}
+- Advisory align-cite offered: yes | no
 - Index updated: yes
 ```
 

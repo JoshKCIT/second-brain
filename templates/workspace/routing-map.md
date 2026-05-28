@@ -26,6 +26,7 @@ Canonical copy lives in `AGENTS.md` § Routing map. Update this template when pr
 | Align cite / closure / vendor truth | workspace | `workspace-align-*` | Target artifact + cited sources | Reports under `reports/` only |
 | Publish / archive | workspace | `workspace-publish`, `workspace-archive` | Active project artifact set | `wiki/workspace-projects/**`, `confluence-review/**` |
 | Workspace health | workspace | `workspace-lint` | `wiki/index.md`, `scripts/lint-workspace.py` | `reports/workspace-lint-*.md` |
+| Pointer resource depth | workspace | read on task match | `templates/workspace/pointer-resources/README.md` | Optional reads only (RC-165) |
 | **Platform escalation (PH-006)** | **platform** | **`platform-transcript-librarian`** or **`platform-research-review`** | **`wiki/platform-research/transcript-register.md`, claim register** | **`wiki/platform-research/**`, `reports/platform-research-review/**`, `docs/platform-decision-records/DRAFT-*` only — **never** workspace standards/projects/PRD/`AGENTS.md` without approval |
 | Import transcript | platform | `platform-transcript-librarian` | `wiki/platform-research/transcript-register.md` | `raw/platform-transcripts/**` after H1 approval |
 | Research review / claims | platform | `platform-research-review` | Transcript, `wiki/platform-research/claim-register.md` | Platform research artifacts only |

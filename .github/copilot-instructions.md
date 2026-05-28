@@ -1,18 +1,14 @@
 # GitHub Copilot Instructions for Second Brain
 
-You are operating in a Second Brain repository: a personal LLM-maintained knowledge base and documentation production system that runs in VS Code with GitHub Copilot. Read `AGENTS.md` at the repository root for the canonical operating spec. This file is the Copilot-specific shim and is operationally sufficient on its own.
+You are operating in a Second Brain repository: a personal LLM-maintained knowledge base and documentation production system. Read `AGENTS.md` at the repository root for the canonical operating spec. This file is the Copilot-specific shim (Tier 2) and is operationally sufficient on its own.
 
 ## What this repo is
 
-Three layers:
+Three layers: `raw/` (immutable source), `wiki/` (LLM-curated), `AGENTS.md` (schema).
 
-1. `raw/` — immutable source mirror (Confluence pages, vendor docs)
-2. `wiki/` — LLM-curated knowledge layer organized by article type and authority
-3. `AGENTS.md` — canonical schema you read
+Workspace agent chain: CEO → VP → PM → Architect (if technical) → Engineer → finalize. CEO reviews between stages.
 
-Workspace agent chain (invoked when the user starts a project): CEO declares intent → VP Agent → PM Agent → Architect Agent (if technical) → Engineer Agent → finalize step. CEO reviews and edits between stages.
-
-Operations are lane-labeled: `workspace-*` for everyday project/documentation work, and `platform-*` for improving Second Brain itself. Classify the user's task before touching files.
+Operations are lane-labeled: `workspace-*` for everyday work, `platform-*` for improving Second Brain itself. Classify the task before touching files.
 
 ## Routing map (RC-162)
 
@@ -20,58 +16,48 @@ See `AGENTS.md` § Routing map and `templates/workspace/routing-map.md`. **PH-00
 
 ## Instruction stack (RC-161)
 
-This file is **Tier 2** (IDE shim). It inherits `AGENTS.md` (Tier 1) and adds Copilot-specific invocation only. Do not restate full root governance—see `AGENTS.md` § Instruction stacking.
+This file is **Tier 2**. It inherits `AGENTS.md` (Tier 1) and adds Copilot invocation only. Do not restate full root governance—see `AGENTS.md` § Instruction stacking.
+
+## Pointer resources (RC-165)
+
+Extended rule text, verb descriptions, and operation walkthroughs live under `templates/workspace/pointer-resources/`. Read on task match; governance invariants below stay in default load.
 
 ## Critical rules
 
-1. **Filesystem-first.** Every artifact is plain Markdown or JSON.
-2. **Citation-grounded.** No claim without a source link.
-3. **Read-before-write (RC-122).** Read scoped index/catalog and relevant sources before proposing artifact edits; record consulted paths in frontmatter `sources`.
-4. **Authority + domain tagged sources.** Each source carries `authority` (`standard`/`recommendation`/`informational`) and `domain` (`internal`/`vendor:aws`/`industry:nist`/etc.). Vendor capability claims cite vendor sources; internal architecture claims cite internal sources. The source authoritative for the claim's domain wins.
-5. **Approval-gated mutations.** Ingest, sync, archive, remove, publish all require explicit user approval after diff or preview.
-6. **Scoped retrieval per project.** Default in-scope sources from `config/second-brain.yml`; projects layer additional scope.
-7. **Multi-step orchestration with persistent state.** Iterative, resumable; agents hand off through the filesystem at `wiki/workspace-projects/{slug}/0X-{stage}/`.
-8. **The LLM owns the wiki layer.** Humans read; you write. Direct human edits set `manually_edited: true` in frontmatter for lint visibility.
-9. **Vendor truth: fetched, cached, time-validated.** Vendor docs cached on first use, revalidated per TTL (90 days default; 365 hard max).
-10. **Project deliverable closure.** A published project's authored set must be jr-engineer-executable using only that set.
-11. **Body-prose-clean at review and published.** Wikilinks in body prose are allowed at `draft` (agent collaboration). At `review` and `published`, body contains no internal `[[wikilinks]]`; navigation lives in `## See Also` or frontmatter.
-12. **Three-state lifecycle.** Projects move through `in-progress` (sub-states `draft`, `review`) → `published` (curated, referenceable) → `archived` (excluded from default search and reference). In-progress projects cannot reference other in-progress or archived projects. Resolution: finish the dependency, archive it, or restate.
-13. **Vendor citation:** parenthetical attribution + See Also link (e.g., "S3 supports SSE-KMS (per AWS docs)" with the URL in See Also). **Internal standards:** inline the relevant rules in body prose + provide Confluence URL in See Also (the reader may not have access to the linked page).
-14. **Safety:** fail closed; explicit tool allowlists; require human approval for high-impact tools (publish to Confluence, archive); append-only audit in `wiki/log.md`; never write secrets to vault, index, or logs.
-15. **No telemetry.** No phone-home, no analytics.
+1. Filesystem-first; Markdown and JSON only
+2. Citation-grounded; every claim has a source link
+3. Read-before-write (RC-122); record consulted paths in frontmatter `sources`
+4. Authority + domain tagged sources; domain-authoritative source wins conflicts
+5. Approval-gated mutations; ingest/sync/archive/publish require explicit user approval
+6. Scoped retrieval per project from `config/second-brain.yml`
+7. Multi-step orchestration; hand off through `wiki/workspace-projects/{slug}/0X-{stage}/`
+8. The LLM owns `wiki/`; direct human edits set `manually_edited: true`
+9. Vendor truth fetched, cached, validated (90-day default TTL; 365 hard max)
+10. Project closure: jr-engineer-executable from published artifact set alone
+11. Body-prose-clean at review and published; wikilinks allowed at draft only
+12. Three-state lifecycle: in-progress → published → archived; no cross in-progress dependencies
+13. Vendor citation: parenthetical + See Also link; internal standards: inline rules + Confluence URL
+14. Safety: fail closed, explicit allowlists, append-only audit, no secrets in artifacts
+15. No telemetry
+
+Expanded explanations: `templates/workspace/pointer-resources/critical-rules-expanded.md`
 
 ## How to invoke verbs
 
-The user triggers operations by invoking prompt files in `.github/prompts/`:
+Prompt files in `.github/prompts/`:
 
-- `/workspace-start-project` → orchestrates the agent chain for a new project
-- `/second-brain` → onboarding; configures in-scope sources, authority and domain mappings
-- `/workspace-ingest-confluence` → Confluence ingestion using the user's API-based skill
-- `/workspace-ingest-vendor-doc` → on-demand vendor doc fetch via the `defuddle` skill
-- `/workspace-compile` → compile new raw/ pages into wiki/ articles
-- `/workspace-query` → index-guided query against the wiki
-- `/workspace-session-audit` → end-of-session orientation/handoff proposals (RC-164; CEO approval per item)
-- `/platform-transcript-librarian` → import transcripts, sync the register, process the review queue (human checkpoints before `raw/**` writes)
-- `/platform-research-review` → turn transcripts or meeting notes into grounded claim records, impact reports, and draft ADRs without directly mutating canonical docs
-- `/workspace-align-cite`, `/workspace-align-conformance`, `/workspace-align-coverage`, `/workspace-align-vendor-truth`, `/workspace-align-closure` → verification checks
-- `/workspace-publish` → branch dispatcher (review folder or Confluence)
-- `/workspace-archive`, `/workspace-unarchive` → lifecycle transitions
-- `/workspace-lint` → health check
+`workspace-start-project`, `second-brain`, `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`, `workspace-session-audit`, `workspace-thinking-partner`, `platform-transcript-librarian`, `platform-research-review`, `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`, `workspace-publish`, `workspace-archive`, `workspace-unarchive`, `workspace-lint`
+
+Verb descriptions: `templates/workspace/pointer-resources/verb-invocation-detail.md`
 
 ## Skills available
 
-Located in `.github/skills/`:
-
-- `obsidian-markdown/` — produce valid Obsidian Flavored Markdown (wikilinks, callouts, frontmatter, embeds). Use when authoring any workspace wiki article or project artifact.
-- `obsidian-bases/` — create `.base` files for live navigation views in `wiki/workspace-views/`.
-- `defuddle/` — extract clean Markdown from web pages. Use when ingesting vendor docs.
-- `platform-research-review/` — extract, ground, score, and adjudicate transcript-derived claims without treating them as canonical knowledge.
-- `session-audit/` — propose orientation/handoff updates at session end with explicit CEO approval (RC-164).
+`.github/skills/`: `obsidian-markdown/`, `obsidian-bases/`, `defuddle/`, `platform-transcript-librarian`, `platform-research-review/`, `session-audit/`
 
 ## Authoring quality bar
 
-Match the quality target in `docs/style/exemplar-published-doc.md`. Self-contained, term definitions before use, decision rules and tables, concrete worked examples, platform notes, quick reference where useful. Body prose at review/published is clean of wikilinks.
+Match `docs/style/exemplar-published-doc.md`. Article format pointer: `templates/workspace/pointer-resources/article-formats-reference.md`
 
 ## Where to read more
 
-`AGENTS.md` at repo root for: complete article formats, frontmatter schemas, operation details, lint check inventory, authority/domain rules, project lifecycle, agent chain contracts.
+`AGENTS.md` at repo root. Operation deep-dives: `templates/workspace/pointer-resources/operation-deep-dives.md`

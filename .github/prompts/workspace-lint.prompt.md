@@ -51,6 +51,8 @@ You are running the full lint pass on the wiki. Catches drift, orphans, contradi
 19. **Sub-scaffold integrity (RC-167).** Files under `subprojects/**` must have `publish_scope: exclude` and `not_canonical: true`; must not be at `review`/`published`. Published artifacts must not cite sub-scaffold paths in `sources`. Run via `scripts/lint-workspace.py`.
 20. **Routing map freshness (RC-162, advisory).** When `.github/prompts/` changes, verify `templates/workspace/routing-map.md` and `AGENTS.md` § Routing map list matching prompt stems. Flag stale or missing rows.
 21. **Thinking-notes integrity (RC-117).** Files under `thinking-notes/**` must have `type: thinking-notes`, `not_canonical: true`, and `status: draft`. Flag error if publish-tier artifacts cite thinking-notes in `sources`. Run via `scripts/lint-workspace.py`.
+22. **Shim line budget (RC-165, advisory).** Tier-2 shims (`.cursor/rules/agents.mdc`, `CLAUDE.md`, `.github/copilot-instructions.md`) should stay at or under ~100 lines; extended content belongs in `templates/workspace/pointer-resources/`. Run via `scripts/lint-workspace.py`.
+23. **Topic/entity compile integrity (RC-148).** Connection articles must have ≥2 `connects` entries and a `raw/` path in `sources`; concepts should include `## Sources`. Missing Evidence/Sources sections are advisory. Run via `scripts/lint-workspace.py`.
 
 ### LLM-driven (skipped with `--structural-only`)
 

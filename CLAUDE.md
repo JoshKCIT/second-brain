@@ -22,6 +22,10 @@ Classify task → invoke prompt → read first paths. Full table: `AGENTS.md` §
 
 This file is **Tier 2** (IDE shim). It inherits `AGENTS.md` (Tier 1) and adds Claude Code invocation only. Do not restate full root governance—see `AGENTS.md` § Instruction stacking.
 
+## Pointer resources (RC-165)
+
+Extended rule text and verb/operation detail: `templates/workspace/pointer-resources/`. Governance invariants below remain in default load.
+
 ## Critical rules
 
 1. Filesystem-first. Markdown and JSON only.
@@ -46,11 +50,12 @@ Prompt files in `.github/prompts/`:
 
 - `workspace-start-project` (orchestrates the workspace agent chain)
 - `second-brain` (onboarding)
-- `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`, `workspace-session-audit`
-- `platform-transcript-librarian`
-- `platform-research-review`
+- `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`, `workspace-session-audit`, `workspace-thinking-partner`
+- `platform-transcript-librarian`, `platform-research-review`
 - `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`
 - `workspace-publish`, `workspace-archive`, `workspace-unarchive`, `workspace-lint`
+
+Verb detail: `templates/workspace/pointer-resources/verb-invocation-detail.md`
 
 ## Skills available
 

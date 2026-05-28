@@ -40,6 +40,10 @@ Scaffolds may add voice, scope, or handoff notes. They must not duplicate Tier-1
 
 Before loading project depth, classify task type using `templates/workspace/routing-map.md` or `AGENTS.md` § Routing map. Routing is orientation-only; RC-122 read-before-write still applies.
 
+## Pointer resources (RC-165)
+
+Tier-2 shims stay lean; load extended detail from `templates/workspace/pointer-resources/` when the task needs verb descriptions, expanded rules, or operation walkthroughs. Tag `mandatory_read` / `optional_read` in retrieval contracts.
+
 ## Tier 3 sub-scaffolds (RC-167)
 
 Optional workstream threads: `wiki/workspace-projects/{slug}/0X-{stage}/subprojects/{workstream}/`

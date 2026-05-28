@@ -46,7 +46,7 @@ After successful compile, agents may add `compiled_at` and `wiki_articles` to `s
 1. **Capture** — drop clip or run ingest with `--raw-only` when compile is not wanted yet
 2. **Review inbox** — list unprocessed raw paths (`workspace-lint` orphan_sources advisory)
 3. **Approve compile** — CEO confirms batch: "Compile these N paths to wiki?"
-4. **Run `/workspace-compile`** — retrieval contract (RC-018), then wiki writes
+4. **Run `/workspace-compile`** — retrieval contract (RC-018) + topic/entity phases (RC-148), then wiki writes
 5. **Verify** — new wiki articles list raw path in `sources`; check manifest
 
 ## Prompt integration

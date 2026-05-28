@@ -23,6 +23,12 @@ FM_RE = re.compile(r"^---\s*\n(.*?)\n---", re.DOTALL)
 WIKILINK_RE = re.compile(r"\[\[([^\]|#]+)(?:#[^\]|]+)?(?:\|[^\]]+)?\]\]")
 REQUIRED_FM = ["title", "type", "status", "sources", "created", "updated"]
 AUTHORITY_TYPES = {"standard", "recommendation", "informational", "concept", "connection", "qa", "project-artifact"}
+TIER2_SHIM_PATHS = (
+    ".cursor/rules/agents.mdc",
+    "CLAUDE.md",
+    ".github/copilot-instructions.md",
+)
+SHIM_LINE_BUDGET = 100
 
 
 def parse_frontmatter(path: Path) -> dict:
@@ -169,6 +175,49 @@ def lint_thinking_notes(root: Path, articles: list[Path]) -> list[str]:
     return issues
 
 
+def lint_topic_entity_compile(root: Path, articles: list[Path]) -> tuple[list[str], list[str]]:
+    errors: list[str] = []
+    advisories: list[str] = []
+    for article in articles:
+        rel = article.relative_to(root)
+        rel_str = str(rel).replace("\\", "/")
+        fm = parse_frontmatter(article)
+        text = article.read_text(encoding="utf-8", errors="replace")
+        body = text.split("---", 2)[2] if text.startswith("---") and text.count("---") >= 2 else text
+
+        if fm.get("type") == "connection":
+            connects = fm.get("connects") or []
+            if len(connects) < 2:
+                errors.append(f"{rel}: connection needs at least 2 connects entries (RC-148)")
+            raw_sources = [
+                s for s in (fm.get("sources") or []) if isinstance(s, str) and s.startswith("raw/")
+            ]
+            if not raw_sources:
+                errors.append(f"{rel}: connection missing raw/ path in sources (RC-148)")
+            if "## Evidence" not in body and "## Sources" not in body:
+                advisories.append(f"{rel}: connection missing ## Evidence or ## Sources (RC-148)")
+
+        if "workspace-concepts" in rel_str and fm.get("type") == "concept":
+            if "## Sources" not in body:
+                advisories.append(f"{rel}: concept missing ## Sources section (RC-148)")
+
+    return errors, advisories
+
+
+def lint_shim_line_budget(root: Path) -> list[str]:
+    issues: list[str] = []
+    for rel in TIER2_SHIM_PATHS:
+        path = root / rel
+        if not path.is_file():
+            continue
+        line_count = len(path.read_text(encoding="utf-8", errors="replace").splitlines())
+        if line_count > SHIM_LINE_BUDGET:
+            issues.append(
+                f"{rel}: {line_count} lines exceeds RC-165 budget {SHIM_LINE_BUDGET} (advisory)"
+            )
+    return issues
+
+
 def lint_orientation_and_agent_mode(root: Path, articles: list[Path]) -> dict[str, list[str]]:
     orientation_issues: list[str] = []
     agent_mode_issues: list[str] = []
@@ -234,6 +283,9 @@ def run_lint(root: Path, scope: Path | None) -> dict:
         "agent_mode": [],
         "sub_scaffold_integrity": [],
         "thinking_notes_integrity": [],
+        "shim_line_budget": [],
+        "topic_entity_compile": [],
+        "topic_entity_compile_advisory": [],
     }
 
     articles = collect_wiki_articles(root, scope)
@@ -298,6 +350,10 @@ def run_lint(root: Path, scope: Path | None) -> dict:
         findings[key] = items
     findings["sub_scaffold_integrity"] = lint_sub_scaffold(root, articles)
     findings["thinking_notes_integrity"] = lint_thinking_notes(root, articles)
+    findings["shim_line_budget"] = lint_shim_line_budget(root)
+    te_errors, te_advisories = lint_topic_entity_compile(root, articles)
+    findings["topic_entity_compile"] = te_errors
+    findings["topic_entity_compile_advisory"] = te_advisories
 
     return findings
 
@@ -316,6 +372,9 @@ def severity_map() -> dict[str, str]:
         "agent_mode": "warning",
         "sub_scaffold_integrity": "error",
         "thinking_notes_integrity": "error",
+        "shim_line_budget": "warning",
+        "topic_entity_compile": "error",
+        "topic_entity_compile_advisory": "warning",
     }
 
 

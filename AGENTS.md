@@ -89,7 +89,11 @@ Agents load rules in three tiers. Lower tiers add scope; they never override Tie
 
 **Non-overridable (Tier 1):** approval-gated ingest/sync/archive/publish; `align-cite` and `align-closure` before publish; citation-grounded claims; platform research cannot mutate canonical workspace standards/projects/PRD/roadmap/`AGENTS.md` without explicit user approval; scoped retrieval per `config/second-brain.yml`; no secrets in artifacts.
 
-Tier-2 shims and Tier-3 scaffolds must not restate full Tier-1 rule lists—reference `AGENTS.md` and add delta only. Template: `templates/workspace/instruction-stack-header.md`. Routing map: `templates/workspace/routing-map.md` (RC-162). Advisory duplicate-root check: `workspace-lint` check 16.
+Tier-2 shims and Tier-3 scaffolds must not restate full Tier-1 rule lists—reference `AGENTS.md` and add delta only. Template: `templates/workspace/instruction-stack-header.md`. Routing map: `templates/workspace/routing-map.md` (RC-162). Pointer resources: `templates/workspace/pointer-resources/` (RC-165). Advisory duplicate-root check: `workspace-lint` check 16.
+
+## Pointer resources (RC-165)
+
+Tier-2 IDE shims (`.cursor/rules/agents.mdc`, `CLAUDE.md`, `.github/copilot-instructions.md`) keep **governance invariants and routing** in default load. Extended rule explanations, verb descriptions, article-format orientation, and operation deep-dives live in `templates/workspace/pointer-resources/` and load on explicit read or task match. Mandatory default-load list: `templates/workspace/pointer-resources/mandatory-default-load.md`. Retrieval contracts may tag `mandatory_read` vs `optional_read` pointer paths (RC-018). ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-165-lean-root-pointer-resources.md`.
 
 ---
 
@@ -158,7 +162,11 @@ Each workspace agent has a prompt file in `.github/prompts/workspace-{agent}-age
 
 **Raw inbox staging (RC-146):** Captures land in scoped `raw/` paths (including `raw/workspace-inbox/`); compile into `wiki/` only after explicit user approval per batch. Orphan raw in lint is advisory until compile. Template: `templates/workspace/raw-inbox-staging.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-146-raw-inbox-staging.md`.
 
+**Topic / entity compile (RC-148):** Compile batches extract topics → `workspace-concepts/` (or standards per authority), entities as concepts with aliases, and connections → `workspace-connections/` only with raw-backed `## Evidence`. Mandatory `## Sources` section anchors; advisory align-cite after batch. Template: `templates/workspace/topic-entity-compile.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-148-topic-entity-compile.md`.
+
 **Task-type routing map (RC-162):** Shims and `AGENTS.md` include task → prompt → first-read-path table for workspace and platform lanes. PH-006 platform escalation row routes mid-project product ideas to platform research without protected-file mutation. Template: `templates/workspace/routing-map.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-162-routing-map-agents-shim.md`.
+
+**Lean root pointer resources (RC-165):** Tier-2 shims stay compact (~100 lines); extended reference material in `templates/workspace/pointer-resources/`. Governance rules never move to optional-only pointers. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-165-lean-root-pointer-resources.md`.
 
 CEO reviews and edits between stages. Do not invoke the next agent without explicit CEO approval.
 
@@ -609,15 +617,16 @@ When processing newly ingested raw/ pages:
    - If a concept article covers this topic: UPDATE it; add the raw page as a source
    - If new: CREATE a new `wiki/workspace-concepts/` article
    - If the page is a standard (per the source-domain mapping in `config/second-brain.yml`): CREATE or UPDATE in `wiki/workspace-standards/{team}/`
-5. If the page reveals a non-obvious connection between 2+ existing concepts: CREATE a `wiki/workspace-connections/` article
+5. If the page reveals a non-obvious connection between 2+ topics with **explicit raw support**: CREATE or UPDATE a `wiki/workspace-connections/` article with `## Evidence` anchored to raw (RC-148). Skip unsupported links.
 6. Use the `obsidian-markdown` skill for output formatting (frontmatter, wikilinks, callouts)
 7. UPDATE `wiki/index.md` with new or modified entries
-8. APPEND to `wiki/log.md`
+8. APPEND to `wiki/log.md`; log topic/connection counts; offer advisory align-cite on new concept and connection articles
 
 Guidelines:
 - A single raw page may touch 3-15 wiki articles
 - Prefer updating existing articles over creating near-duplicates
-- Every article must have valid frontmatter and a Sources section
+- Every article must have valid frontmatter and a `## Sources` section with raw path anchors (RC-148)
+- Topic/entity workflow: `templates/workspace/topic-entity-compile.md`
 - Encyclopedia style: factual, concise, self-contained
 
 ### 4. Query (index-guided)
@@ -774,6 +783,8 @@ Seven structural checks plus engineering additions:
 | Agent mode | Engineering | RC-116: `thinking` mode artifacts at review/published or with publish-shaped markers |
 | Sub-scaffold integrity | Engineering | RC-167: `subprojects/**` missing `publish_scope: exclude`, promoted status, or cited as publish sources |
 | Thinking-notes integrity | Engineering | RC-117: `thinking-notes/**` missing `not_canonical`, promoted status, or cited as publish sources |
+| Shim line budget | Engineering | RC-165: Tier-2 shims exceed ~100 lines (advisory); extended content belongs in pointer-resources |
+| Topic/entity compile integrity | Engineering | RC-148: connections missing raw `sources`, `connects` < 2, or missing Evidence/Sources sections |
 
 Output: `reports/workspace-lint-{date}.md` with severity per finding.
 
