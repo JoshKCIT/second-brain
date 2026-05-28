@@ -25,6 +25,10 @@ The GitKB portion contains useful long-term architecture ideas but mostly suppor
 - Graph projection is only compatible if it remains disposable and regenerated from Markdown.
 - Legal claims require separate validation before becoming requirements.
 
+## Re-review (closure–compile lens, 2026-05-27)
+
+RC-006 **adopt** framed as persistent Markdown handoffs for **multi-page publish sets**. RC-007 **experiment** = regenerable projections for **authoring navigation**, not canonical graph. RC-005 remains **defer** (team scale). RC-015 supports audit trail for **verification links** vs inlined execution rules.
+
 ## Recommended Next Actions
 
 - Defer distributed sync to v2.

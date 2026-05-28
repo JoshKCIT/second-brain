@@ -20,6 +20,14 @@ Optional metadata:
 raw/platform-transcripts/{slug}/metadata.yml
 ```
 
+Update the transcript queue index:
+
+```bash
+python scripts/sync-transcript-register.py --root .
+```
+
+The register lives at `wiki/platform-research/transcript-register.md`. Status `queued` means ready for review; `reviewed` means claims analysis and impact report both exist.
+
 Then invoke the platform-research-review prompt:
 
 ```text
@@ -32,11 +40,17 @@ Extract atomic claims, score each claim, update the claim register, and write th
 Do not modify raw files, standards, recommendations, PRD, product brief, roadmap, architecture rationale, or AGENTS.md.
 ```
 
-In Cursor, you can also invoke the `platform-research-reviewer` subagent directly for the same workflow.
+In Cursor, you can also invoke:
+
+- **`platform-transcript-librarian`** — import, register sync, queue status, and batch orchestration (stops for human checkpoints before writing `raw/**`)
+- **`platform-research-reviewer`** — claim extraction, scoring, and research artifacts for one transcript
+
+Prompt: `/platform-transcript-librarian` (see `.github/prompts/platform-transcript-librarian.prompt.md`)
 
 ## Expected Outputs
 
 ```text
+wiki/platform-research/transcript-register.md
 wiki/platform-research/transcript-analyses/{slug}-claims.md
 reports/platform-research-review/{slug}-impact-report.md
 wiki/platform-research/claim-register.md

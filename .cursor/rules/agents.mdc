@@ -37,7 +37,7 @@ Operations are lane-labeled: `workspace-*` for everyday project/documentation wo
 
 Prompt files in `.github/prompts/`:
 
-`workspace-start-project`, `second-brain` (onboarding), `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`, `platform-research-review`, `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`, `workspace-publish`, `workspace-archive`, `workspace-unarchive`, `workspace-lint`
+`workspace-start-project`, `second-brain` (onboarding), `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`, `platform-transcript-librarian`, `platform-research-review`, `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`, `workspace-publish`, `workspace-archive`, `workspace-unarchive`, `workspace-lint`
 
 ## Skills available
 
@@ -46,6 +46,7 @@ Prompt files in `.github/prompts/`:
 - `obsidian-markdown/` — Obsidian Flavored Markdown
 - `obsidian-bases/` — `.base` live views
 - `defuddle/` — clean Markdown extraction from web pages
+- `platform-transcript-librarian` — transcript import, register sync, review queue (human checkpoints)
 - `platform-research-review/` — transcript-derived claim review and product-impact scoring
 
 ## Authoring quality bar

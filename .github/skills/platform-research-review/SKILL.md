@@ -18,7 +18,7 @@ Research transcripts may influence Second Brain, but they may not directly becom
 ## Workflow
 
 1. Identify the transcript under `raw/platform-transcripts/**` or the user-specified source note.
-2. Inspect relevant project docs: `AGENTS.md`, `product-brief.md`, `PRD.md`, `docs/architecture-rationale.md`, `docs/roadmap.md`, `wiki/platform-research/claim-register.md`, and `wiki/platform-research/implementation-backlog.md` if present.
+2. Inspect relevant project docs: `AGENTS.md`, `product-brief.md`, `PRD.md`, `docs/architecture-rationale.md`, `docs/roadmap.md`, `wiki/platform-research/transcript-register.md`, `wiki/platform-research/claim-register.md`, and `wiki/platform-research/implementation-backlog.md` if present.
 3. Segment the transcript into discussion blocks.
 4. Extract atomic claims.
 5. Classify claims.
@@ -31,7 +31,8 @@ Research transcripts may influence Second Brain, but they may not directly becom
 12. Mirror rejected claims in `wiki/platform-research/rejected-ideas.md`.
 13. Update `wiki/platform-research/open-hypotheses.md` for experiments.
 14. Update `wiki/platform-research/implementation-backlog.md` when batch reviews produce adopt/experiment/defer claims needing stack-lift ordering.
-15. Run `python scripts/lint-platform-research.py --root .`.
+15. Run `python scripts/sync-transcript-register.py --root .`.
+16. Run `python scripts/lint-platform-research.py --root .`.
 
 ## Trust loop
 

@@ -21,6 +21,10 @@ The transcript has one useful experiment: use failure traces to improve the harn
 - Automatic prompt/rule mutation would violate protected-file boundaries.
 - Advisory failure review fits the platform research lane.
 
+## Re-review (closure–compile lens, 2026-05-27)
+
+RC-012 **experiment** unchanged: advisory failure reports support **align-*** / publish guardrails without auto-mutating rules.
+
 ## Recommended Next Actions
 
 - Add a harness-failure review hypothesis.

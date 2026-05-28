@@ -41,6 +41,7 @@ The user triggers operations by invoking prompt files in `.github/prompts/`:
 - `/workspace-ingest-vendor-doc` → on-demand vendor doc fetch via the `defuddle` skill
 - `/workspace-compile` → compile new raw/ pages into wiki/ articles
 - `/workspace-query` → index-guided query against the wiki
+- `/platform-transcript-librarian` → import transcripts, sync the register, process the review queue (human checkpoints before `raw/**` writes)
 - `/platform-research-review` → turn transcripts or meeting notes into grounded claim records, impact reports, and draft ADRs without directly mutating canonical docs
 - `/workspace-align-cite`, `/workspace-align-conformance`, `/workspace-align-coverage`, `/workspace-align-vendor-truth`, `/workspace-align-closure` → verification checks
 - `/workspace-publish` → branch dispatcher (review folder or Confluence)

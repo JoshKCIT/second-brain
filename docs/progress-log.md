@@ -13,6 +13,20 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-28] session | Phase 2 closed
+
+- Changed:
+  - Phase 2 plan, 4 Obsidian Base views, compile-workspace-external.py, lint-workspace.py.
+  - Compiled 12 vendor concepts + snowflake-aws-s3 connection; index embeds Bases.
+  - Lint 0 errors (reports/workspace-lint-2026-05-28.md); phase-2-exit-report.md.
+  - Roadmap: Phase 2 complete, Phase 3 active.
+- Open:
+  - Phase 3: first /workspace-start-project run.
+- Next:
+  - Declare project intent for AWS + Snowflake + Informatica doc buildout.
+
+---
+
 ## [2026-05-28] session | Phase 1A closed
 
 - Changed:

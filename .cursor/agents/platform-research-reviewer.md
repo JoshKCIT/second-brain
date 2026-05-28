@@ -56,6 +56,7 @@ When invoked, look for:
   - `PRD.md`
   - `docs/architecture-rationale.md`
   - `docs/roadmap.md`
+  - `wiki/platform-research/transcript-register.md`, if present
   - `wiki/platform-research/claim-register.md`, if present
   - `wiki/platform-research/implementation-backlog.md`, if present
   - source catalogue outputs, if present
@@ -83,7 +84,10 @@ For each transcript:
 14. Mirror every `reject` decision in `wiki/platform-research/rejected-ideas.md`.
 15. Update `wiki/platform-research/open-hypotheses.md` for experimental claims.
 16. For batch reviews, update `wiki/platform-research/implementation-backlog.md` with stack-lift priority scores.
-17. Run `python scripts/lint-platform-research.py --root .` before finishing.
+17. Run `python scripts/sync-transcript-register.py --root .` to update the transcript queue index.
+18. Run `python scripts/lint-platform-research.py --root .` before finishing.
+
+If the user asked only for import or queue status, stop and recommend `platform-transcript-librarian` instead of running a full review.
 
 ## Trust loop
 

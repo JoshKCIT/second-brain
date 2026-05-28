@@ -27,6 +27,7 @@ product-brief.md
 PRD.md
 docs/architecture-rationale.md
 docs/roadmap.md
+wiki/platform-research/transcript-register.md
 wiki/platform-research/claim-register.md
 wiki/platform-research/rejected-ideas.md
 wiki/platform-research/open-hypotheses.md
@@ -62,7 +63,8 @@ Treat transcripts as product-intelligence evidence, not canonical knowledge. A t
 14. For every `reject` decision, add or update a full record in `wiki/platform-research/rejected-ideas.md` with rationale, safer variant, and `next_review_after`.
 15. For recurring unsafe patterns, add `RP-*` records in `wiki/platform-research/rejected-ideas.md`.
 16. For batch reviews, write `reports/platform-research-review/batch-synthesis-{date}.md` and update `wiki/platform-research/implementation-backlog.md` with stack-lift priority scores for adopt/experiment/defer claims.
-17. Run `python scripts/lint-platform-research.py --root .` before finishing.
+17. Run `python scripts/sync-transcript-register.py --root .` to update the transcript queue index.
+18. Run `python scripts/lint-platform-research.py --root .` before finishing.
 
 ## Trust loop
 
@@ -81,6 +83,7 @@ Apply the trust-loop pattern to every review output. Template: `templates/platfo
 Each review produces a claim-plus-evidence package:
 
 ```text
+wiki/platform-research/transcript-register.md
 wiki/platform-research/claim-register.md
 wiki/platform-research/rejected-ideas.md
 wiki/platform-research/open-hypotheses.md

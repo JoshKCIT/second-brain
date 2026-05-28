@@ -22,6 +22,10 @@ This transcript strongly reinforces Second Brain's existing v1 retrieval directi
 - `docs/architecture-rationale.md` already defers embeddings until the wiki passes roughly 500 articles.
 - `PRD.md` treats `workspace-align-cite` as production quality, which directly answers the "similarity is not relevance" risk.
 
+## Re-review (closure–compile lens, 2026-05-27)
+
+RC-001/002 **unchanged adopt**: structure-aware compile + citation≠similarity directly enable **self-contained published** artifacts. No scope conflict.
+
 ## Recommended Next Actions
 
 - Draft an ADR codifying page-index retrieval as the v1 default and defining what evidence would justify hybrid retrieval later.

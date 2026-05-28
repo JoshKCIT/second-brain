@@ -21,7 +21,12 @@ The useful idea is a session-orientation artifact, not an immediate graph databa
 - `docs/architecture-rationale.md` rejects premature embeddings and extra infrastructure; a graph report must therefore be disposable and optional.
 - Workspace prompts should not depend on platform research outputs by default.
 
+## Re-review (closure–compile lens, 2026-05-27)
+
+RC-008 **confirmed experiment**: session orientation supports **compile-time** pull for **publish closure**; must stay disposable and subordinate to `align-cite` and inlined rules at publish. Aligns with re-scored RC-009 safer variant.
+
 ## Recommended Next Actions
 
 - Add an open hypothesis for a graph-orientation experiment.
 - Do not install a graph tool or hook by default.
+- Pair with RC-009 experiment under `docs/platform-intelligence/closure-compile-review-brief.md`.

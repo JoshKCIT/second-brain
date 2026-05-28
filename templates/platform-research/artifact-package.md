@@ -6,6 +6,7 @@ Each transcript review produces a claim-plus-evidence package. Preserve negative
 
 | Artifact | Path |
 |---|---|
+| Transcript register | `wiki/platform-research/transcript-register.md` |
 | Claim register | `wiki/platform-research/claim-register.md` |
 | Rejection register | `wiki/platform-research/rejected-ideas.md` |
 | Open hypotheses | `wiki/platform-research/open-hypotheses.md` |
@@ -24,10 +25,21 @@ Each transcript review produces a claim-plus-evidence package. Preserve negative
 | Platform ADR template | `templates/platform-research/platform-adr.md` |
 | Gap review report | `reports/platform-research-review/gap-review-{date}.md` |
 
+## Transcript queue
+
+After importing or reviewing transcripts, sync the register:
+
+```bash
+python scripts/sync-transcript-register.py --root .
+```
+
+Statuses: `queued` (ready for review), `partial`, `reviewed`, `skipped`.
+
 ## Validation
 
 ```bash
 python scripts/lint-platform-research.py --root .
+python scripts/sync-transcript-register.py --root . --check
 ```
 
 ## Delivery loop

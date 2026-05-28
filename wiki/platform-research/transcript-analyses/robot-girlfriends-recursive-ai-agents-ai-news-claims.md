@@ -22,6 +22,10 @@ Most of this transcript is noise for Second Brain. The recursive latent-agent cl
 - The platform research lane already separates evidence from canonical docs; agent-native artifact structure strengthens that separation.
 - Product/news claims about video models, robots, and creative tools are not actionable for Second Brain and should remain out of the register unless tied to governance.
 
+## Re-review (closure–compile lens, 2026-05-27)
+
+RC-013 **reject** unchanged (opaque loops vs inspectability). RC-014 **adopt** supports **evidence-preserving** platform research—feeds compile/publish governance, not chat autonomy.
+
 ## Recommended Next Actions
 
 - Record recursive latent-agent workflows as rejected as stated.

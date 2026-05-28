@@ -1,0 +1,9 @@
+filters:
+  and:
+    - file.path == "wiki/log.md"
+
+views:
+  - type: list
+    name: Build log
+    order:
+      - file.mtime

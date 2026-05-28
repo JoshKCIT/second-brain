@@ -2,7 +2,7 @@
 
 ## Executive Judgment
 
-This transcript contains one high-noise idea that is misaligned with v1: building a mixed code/docs graph for agent orientation. It is useful as a rejection because it clarifies the boundary between Second Brain and generic codebase assistants.
+**Re-reviewed 2026-05-27** under `docs/platform-intelligence/closure-compile-review-brief.md`. The transcript supports **compile-time assembly** for **publish closure**, not v1 expansion into IDE codebase chat. Adopt the boundary rejection for full code-graph indexing (**009a**); experiment with a **safer orientation map** (**009**) alongside RC-008.
 
 ## Source
 
@@ -10,13 +10,14 @@ This transcript contains one high-noise idea that is misaligned with v1: buildin
 - Date: unknown
 - Participants: unknown speaker
 - Processing limitations: tutorial and sponsored content; product claims are unvalidated.
+- Review lens: closure–compile (2026-05-27 re-review)
 
 ## Claim Summary
 
 | Decision | Count |
 |---|---:|
 | Adopt | 0 |
-| Experiment | 0 |
+| Experiment | 1 |
 | Defer | 0 |
 | Reject | 1 |
 | Monitor | 0 |
@@ -25,49 +26,52 @@ This transcript contains one high-noise idea that is misaligned with v1: buildin
 
 | Claim ID | Decision | Rationale |
 |---|---|---|
-| RC-2026-05-27-009 | reject | Valuable mainly as a boundary-setting rejection for v1. |
+| RC-2026-05-27-009 | experiment | Safer variant: disposable cross-source orientation for drafting publishable sets; strengthens compile without replacing align-cite. |
 
 ## Highest-Risk Claims
 
 | Claim ID | Decision | Risk |
 |---|---|---|
-| RC-2026-05-27-009 | reject | Would push Second Brain into generic codebase assistant territory and add graph infrastructure before core governance works. |
+| RC-2026-05-27-009a | reject | Full mixed code/docs graph indexing duplicates generic IDE assistants and weakens v1 focus. |
 
 ## Claim Register Entries
 
-- `RC-2026-05-27-009`
+- `RC-2026-05-27-009` (experiment, safer variant)
+- `RC-2026-05-27-009a` (reject as stated)
 
 ## Recommended Next Actions
 
 ### Immediate Changes
 
-- None.
+- None to canonical docs without ADR.
 
 ### Experiments
 
-- None for v1.
+- Pair RC-009 safer variant with RC-008 session orientation experiment.
+- Success metric: fewer orientation reads, no regression on align-cite pass rate or publish closure.
 
 ### ADRs to Draft
 
-- None.
+- Optional: extend RC-008 ADR to include cross-source orientation scope (wiki + project + vendor cache).
 
 ### Claims to Reject
 
-- Reject mixed code/docs graph indexing for v1.
+- RC-2026-05-27-009a as stated (repo-wide code graph for v1).
 
 ### Claims Requiring External Validation
 
-- Validate Graphify capabilities only if code-as-source becomes a v2 candidate.
+- Graphify/OpenCode product capabilities if experiment proceeds.
 
 ## Trust Loop Summary
 
-Fail-closed guardrails applied during review: vendor and benchmark claims marked `unvalidated`; no transcript claim promoted to canonical knowledge without draft ADR routing. See claim register `validation_status` and `correction_route` fields.
+Fail-closed guardrails applied: vendor and benchmark claims `unvalidated`; orientation map must remain advisory and regenerated from Markdown sources.
 
 ## Correction Routes
 
 | Claim ID | Decision | Correction route |
 |---|---|---|
-| See claim register | — | Approve via implementation backlog ADR review; reject via backlog rollback; reopen rejected claims per `rejected-ideas.md`. |
+| RC-2026-05-27-009 | experiment | Approve via implementation backlog / open-hypotheses; reject via backlog rollback. |
+| RC-2026-05-27-009a | reject | Reopen only with explicit code-as-source v2 ADR. |
 
 ## Protected Files Not Modified
 

@@ -38,6 +38,7 @@ Prompt files in `.github/prompts/`:
 - `workspace-start-project` (orchestrates the workspace agent chain)
 - `second-brain` (onboarding)
 - `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`
+- `platform-transcript-librarian`
 - `platform-research-review`
 - `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`
 - `workspace-publish`, `workspace-archive`, `workspace-unarchive`, `workspace-lint`
@@ -49,6 +50,7 @@ Prompt files in `.github/prompts/`:
 - `obsidian-markdown/` — Obsidian Flavored Markdown (use when authoring wiki content)
 - `obsidian-bases/` — `.base` files for live navigation views
 - `defuddle/` — clean Markdown extraction from web pages (use when ingesting vendor docs)
+- `platform-transcript-librarian` — transcript import, register sync, review queue with human checkpoints
 - `platform-research-review/` — transcript-to-claim review with grounding, skeptical scoring, and draft ADR routing
 
 ## Authoring quality bar

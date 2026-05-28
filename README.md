@@ -34,7 +34,7 @@ Three layers: `raw/` is the immutable source mirror (Confluence pages, vendor do
 Second Brain uses explicit path prefixes so occasional contributors can tell what a file is for:
 
 - `workspace-*` means everyday use of Second Brain for company/project work. Examples: `raw/workspace-confluence/`, `wiki/workspace-standards/`, `.github/prompts/workspace-query.prompt.md`.
-- `platform-*` means work on Second Brain itself. Examples: `raw/platform-transcripts/`, `wiki/platform-research/`, `.cursor/agents/platform-research-reviewer.md`.
+- `platform-*` means work on Second Brain itself. Examples: `raw/platform-transcripts/`, `wiki/platform-research/`, `.cursor/agents/platform-transcript-librarian.md`, `.cursor/agents/platform-research-reviewer.md`.
 
 If the task is "use Second Brain to ingest, query, generate, align, publish, or archive work docs," use the workspace lane. If the task is "make Second Brain better," use the platform lane.
 
@@ -114,7 +114,7 @@ scripts/                  verify-setup.py and minimal helpers (most operations a
 
 ## Optional Platform Research Review
 
-Use `/platform-research-review` when transcripts, interviews, meeting notes, or product ideas discuss how to improve Second Brain. The workflow extracts atomic claims, grounds them against `AGENTS.md`, `product-brief.md`, `PRD.md`, and related docs, then writes claim records and impact reports under `wiki/platform-research/` and `reports/platform-research-review/`.
+Use `/platform-transcript-librarian` to import transcripts, sync the queue register, and process reviews (stops for your input before writing `raw/**`). Use `/platform-research-review` when transcripts, interviews, meeting notes, or product ideas discuss how to improve Second Brain. The workflow extracts atomic claims, grounds them against `AGENTS.md`, `product-brief.md`, `PRD.md`, and related docs, then writes claim records and impact reports under `wiki/platform-research/` and `reports/platform-research-review/`.
 
 Research review is intentionally not a compile path: transcripts can influence draft ADRs and experiments, but they do not directly become canonical standards, roadmap items, or product requirements.
 
@@ -157,4 +157,4 @@ If you are on Atlassian Cloud Enterprise tier:
 
 ## Status
 
-v1 in build: **Phase 1A complete** (May 2026) — AWS, Snowflake, Informatica vendor caches. **Phase 2 active.** Confluence deferred (Phase 1B). See `docs/phase-1a-exit-report.md` and `docs/roadmap.md`.
+v1 in build: **Phases 1A–2 complete** — vendor wiki (14 concepts, 4 Base views, lint-clean). **Phase 3 active.** Confluence deferred (Phase 1B). See `docs/phase-2-exit-report.md` and `docs/roadmap.md`.

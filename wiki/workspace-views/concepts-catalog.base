@@ -1,0 +1,32 @@
+filters:
+  and:
+    - file.inFolder("wiki/workspace-concepts")
+
+formulas:
+  word_count: 'length(file.content)'
+
+properties:
+  note.title:
+    displayName: Title
+  note.type:
+    displayName: Type
+  note.authority:
+    displayName: Authority
+  note.domain:
+    displayName: Domain
+  note.updated:
+    displayName: Updated
+  formula.word_count:
+    displayName: Words
+
+views:
+  - type: table
+    name: All concepts
+    order:
+      - note.domain
+      - note.title
+      - note.authority
+      - note.updated
+    sort:
+      - property: note.domain
+        direction: ASC

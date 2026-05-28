@@ -298,6 +298,7 @@ Each transcript review produces a **claim-plus-evidence package**, not a summary
 
 | Artifact | Path | Purpose |
 |---|---|---|
+| Transcript register | `wiki/platform-research/transcript-register.md` | Queue index: imported vs reviewed (`sync-transcript-register.py`) |
 | Claim register | `wiki/platform-research/claim-register.md` | Atomic YAML claim records with scores and decisions |
 | Rejection register | `wiki/platform-research/rejected-ideas.md` | Full history for rejected claims and recurring unsafe patterns |
 | Open hypotheses | `wiki/platform-research/open-hypotheses.md` | Active experiments and validation targets |
@@ -563,7 +564,18 @@ For long structured sources (Confluence pages, multi-section artifacts), prefer 
 
 Decision record: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`
 
-### 5. Research review
+### 5. Transcript librarian (import and queue)
+
+Use `platform-transcript-librarian` to import product-intelligence transcripts, sync `wiki/platform-research/transcript-register.md`, and process the review queue.
+
+1. Run `python scripts/sync-transcript-register.py --root .` and read the register.
+2. For imports: propose slug and path; **stop for user approval** before writing `raw/platform-transcripts/**`.
+3. For each `queued` row: delegate to `platform-research-review` / `platform-research-reviewer`.
+4. After each review: sync register, run lint, **stop** if the user asked for step-by-step confirmation.
+
+Prompt: `.github/prompts/platform-transcript-librarian.prompt.md`. Checkpoints: `templates/platform-research/librarian-checkpoint.md`.
+
+### 6. Research review
 
 Use `platform-research-review` for transcripts, meeting notes, interviews, or product-improvement discussions about Second Brain.
 
@@ -603,7 +615,7 @@ After the user approves a draft ADR, deliver approved platform changes one claim
 
 Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`
 
-### 6. Align (cite | conformance | coverage)
+### 7. Align (cite | conformance | coverage)
 
 Three depths. Run `align-cite` automatically before publish; others on demand.
 
@@ -621,14 +633,14 @@ Three depths. Run `align-cite` automatically before publish; others on demand.
 - Check the artifact addresses each relevant requirement
 - Output: advisory report listing addressed and missing requirements
 
-### 7. Align (vendor-truth)
+### 8. Align (vendor-truth)
 
 - Identify vendor-domain claims in the artifact (claims about AWS, Snowflake, etc.)
 - Verify each claim's citation is in the matching vendor domain (`raw/workspace-external/{vendor}/`)
 - Flag claims that cite internal sources instead of vendor sources
 - For flagged claims, suggest the vendor doc to fetch
 
-### 8. Align (closure)
+### 9. Align (closure)
 
 Status-aware. Read the artifact's `status` frontmatter and apply rules:
 
@@ -638,7 +650,7 @@ Status-aware. Read the artifact's `status` frontmatter and apply rules:
 
 Output: structured report. Run automatically before publish.
 
-### 9. Publish
+### 10. Publish
 
 Branch on user choice:
 
@@ -653,7 +665,7 @@ Branch on user choice:
 2. Convert Markdown to Confluence storage format (or ADF)
 3. Use the user's existing API code (or MCP server alternative) to create new pages in the target Confluence space
 
-### 10. Archive
+### 11. Archive
 
 1. Move project directory: `wiki/workspace-projects/{slug}/` → `wiki/workspace-archives/projects/{slug}/`
 2. Set `archived: true` and `archived_at: timestamp` in frontmatter on every file
@@ -662,7 +674,7 @@ Branch on user choice:
 
 `unarchive` reverses: moves back to `wiki/workspace-projects/{slug}/`, removes archived frontmatter, updates index.
 
-### 11. Lint
+### 12. Lint
 
 Seven structural checks plus engineering additions:
 
@@ -743,6 +755,7 @@ second-brain/
 │   │   ├── revalidate-vendor-docs.prompt.md
 │   │   ├── workspace-compile.prompt.md
 │   │   ├── workspace-query.prompt.md
+│   │   ├── platform-transcript-librarian.prompt.md
 │   │   ├── platform-research-review.prompt.md
 │   │   ├── platform-research-review/
 │   │   ├── workspace-align-cite.prompt.md

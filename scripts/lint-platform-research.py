@@ -230,7 +230,7 @@ def extract_rejection_register_ids(text: str) -> set[str]:
     ids: set[str] = set()
     for block in split_yaml_blocks(text):
         record_id = get_scalar(block, "record_id")
-        if record_id and re.fullmatch(r"(RC|RP)-\d{4}-\d{2}-\d{2}-\d+", record_id):
+        if record_id and re.fullmatch(r"(RC|RP)-\d{4}-\d{2}-\d{2}-\d+[a-z]?", record_id):
             ids.add(record_id)
     return ids
 

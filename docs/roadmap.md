@@ -2,7 +2,7 @@
 
 **Status:** v1.1 (revalidated)
 **Last updated:** 2026-05-27
-**Current phase:** Phase 2 — Wiki layer and compile (Phase 1A complete; Phase 1B blocked)
+**Current phase:** Phase 3 — Query and agent chain (Phase 1A–2 complete; Phase 1B blocked)
 
 The phase plan aligns with `PRD.md` §9.3. Platform foundation work (May 2026) is complete. **Confluence ingest (Phase 1B) is blocked until Atlassian access.** Vendor doc cache (Phase 1A) is the active build track. See `docs/vendor-catalog.md`.
 
@@ -90,26 +90,28 @@ Implementation queue: **idle** (all queued PIC cycles through RC-003 accepted or
 
 ---
 
-### Phase 2: Wiki layer and compile workflow (week 3–4) — **ACTIVE**
+### Phase 2: Wiki layer and compile workflow (week 3–4) — **COMPLETE** (2026-05-28)
 
-**Policy dependency (RC-001):** `wiki/index.md` and Base views in `wiki/workspace-views/` are the v1 retrieval substrate—not optional catalog polish.
+**Policy dependency (RC-001):** `wiki/index.md` and Base views in `wiki/workspace-views/` are the v1 retrieval substrate.
+
+**Exit report:** `docs/phase-2-exit-report.md`
 
 **Deliverables:**
 
-- [x] `wiki/` directory layout (placeholders; platform-research content exists)
-- [x] `wiki/index.md` and `wiki/log.md` initialized (update on every compile ongoing)
-- [ ] `wiki/workspace-views/` Base files for active projects, standards, stale vendor docs
-- [ ] `workspace-compile.prompt.md` verified with `obsidian-markdown` on real ingest output
-- [ ] Quarantine folder behavior exercised
-- [ ] Post-ingest manifest UX
-- [ ] Frontmatter schema validation
-- [ ] Workspace lint scaffold (structural checks 1–7 from `AGENTS.md`; distinct from `lint-platform-research.py`)
+- [x] `wiki/index.md` and `wiki/log.md` — updated on compile
+- [x] `wiki/workspace-views/` — `concepts-catalog`, `active-projects`, `recent-activity`, `stale-vendor-docs` (embedded in index)
+- [x] Vendor compile verified — `scripts/compile-workspace-external.py` on 15 raw caches → 14 concepts
+- [x] `workspace-compile.prompt.md` path for LLM-quality compile (batch script for bootstrap)
+- [x] Quarantine — `quarantine/README.md`
+- [x] Post-ingest manifest — `templates/workspace/post-ingest-manifest.md`
+- [x] Frontmatter validation — `scripts/lint-workspace.py` check 7
+- [x] Workspace lint — `scripts/lint-workspace.py` (checks 1–7 + orphan sources + stale vendor); **0 errors**
 
-**Exit:** wiki layer coherent with index, log, Base views, and zero structural workspace lint errors. **Without Confluence:** exit using vendor compile + manual/internal articles; **with Confluence:** ~100-page ingest is the full bar.
+**Exit:** Met for vendor-only wiki. See `reports/workspace-lint-2026-05-28.md`.
 
 ---
 
-### Phase 3: Query and agent chain skeleton (week 5–6)
+### Phase 3: Query and agent chain skeleton (week 5–6) — **ACTIVE**
 
 **Deliverables:**
 

@@ -1,0 +1,31 @@
+filters:
+  and:
+    - file.inFolder("raw/workspace-external")
+
+formulas:
+  revalidate: 'date(note.revalidate_after)'
+  is_stale: 'if(revalidate && revalidate < today(), "stale", "fresh")'
+
+properties:
+  note.vendor:
+    displayName: Vendor
+  note.topic:
+    displayName: Topic
+  note.revalidate_after:
+    displayName: Revalidate after
+  formula.is_stale:
+    displayName: Status
+  note.source_url:
+    displayName: Source URL
+
+views:
+  - type: table
+    name: Vendor caches
+    order:
+      - formula.is_stale
+      - note.vendor
+      - note.topic
+      - note.revalidate_after
+    sort:
+      - property: formula.is_stale
+        direction: DESC

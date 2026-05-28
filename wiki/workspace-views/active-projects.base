@@ -1,0 +1,27 @@
+filters:
+  and:
+    - file.inFolder("wiki/workspace-projects")
+
+properties:
+  note.title:
+    displayName: Title
+  note.project:
+    displayName: Project
+  note.stage:
+    displayName: Stage
+  note.status:
+    displayName: Status
+  note.updated:
+    displayName: Updated
+
+views:
+  - type: table
+    name: Active projects
+    filters:
+      not:
+        - 'note.status == "archived"'
+    order:
+      - note.project
+      - note.stage
+      - note.status
+      - note.updated

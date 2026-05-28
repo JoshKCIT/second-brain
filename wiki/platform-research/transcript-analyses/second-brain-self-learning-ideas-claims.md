@@ -22,6 +22,10 @@ This transcript contains one useful experiment candidate and one already-support
 - The filesystem-first substrate is already central to Second Brain.
 - A self-learning loop must be fail-closed and approval-gated to avoid source contamination.
 
+## Re-review (closure–compile lens, 2026-05-27)
+
+RC-003 **experiment** unchanged: gap research feeds **compile quality** for publish sets via platform review—not auto-canonical edits.
+
 ## Recommended Next Actions
 
 - Add a platform research hypothesis for a monthly gap-review cadence.

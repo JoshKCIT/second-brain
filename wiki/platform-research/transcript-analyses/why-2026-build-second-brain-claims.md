@@ -22,6 +22,10 @@ This transcript is useful because it names the trust mechanisms that make AI sys
 - The "receipt" and "fix button" ideas map cleanly to research review reports and claim register corrections.
 - Proactive nudges risk becoming generic productivity tooling unless grounded in workspace logs and user-approved local workflows.
 
+## Re-review (closure–compile lens, 2026-05-27)
+
+RC-010 **adopt**: trust loop maps to capture→audit→correct for **publish-quality** outputs. RC-011 **defer** for digests until v1 compile/publish loop is stable—does not block closure thesis.
+
 ## Recommended Next Actions
 
 - Draft a platform trust-loop ADR.
