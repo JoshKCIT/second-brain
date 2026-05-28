@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-014 - Platform Research Artifacts
+# ADR: RC-2026-05-27-014 - Platform Research Artifacts
 
 ## Status
 
-Draft
+Accepted
+
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-001
+- Notes: User approved ADR and implementation pass.
 
 ## Source Claim
 

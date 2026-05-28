@@ -57,6 +57,7 @@ When invoked, look for:
   - `docs/architecture-rationale.md`
   - `docs/roadmap.md`
   - `wiki/platform-research/claim-register.md`, if present
+  - `wiki/platform-research/implementation-backlog.md`, if present
   - source catalogue outputs, if present
   - lint rules, if present
 
@@ -79,6 +80,26 @@ For each transcript:
 11. Update or create the claim register.
 12. Write a research impact report.
 13. Create draft ADRs only for claims that are adopted or moved to experiment.
+14. Mirror every `reject` decision in `wiki/platform-research/rejected-ideas.md`.
+15. Update `wiki/platform-research/open-hypotheses.md` for experimental claims.
+16. For batch reviews, update `wiki/platform-research/implementation-backlog.md` with stack-lift priority scores.
+17. Run `python scripts/lint-platform-research.py --root .` before finishing.
+
+## Artifact package
+
+Each review produces a claim-plus-evidence package, not a transcript summary:
+
+```text
+wiki/platform-research/claim-register.md
+wiki/platform-research/rejected-ideas.md
+wiki/platform-research/open-hypotheses.md
+wiki/platform-research/implementation-backlog.md
+wiki/platform-research/transcript-analyses/{slug}-claims.md
+reports/platform-research-review/{slug}-impact-report.md
+docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md
+```
+
+After the user approves a draft ADR, deliver canonical changes through the implementation backlog one claim at a time with validation and rollback. Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`.
 
 ## Claim Types
 
@@ -214,7 +235,11 @@ Update or create:
 
 ```text
 wiki/platform-research/claim-register.md
+wiki/platform-research/rejected-ideas.md
+wiki/platform-research/open-hypotheses.md
 ```
+
+If a claim is rejected, add a full historical record to `wiki/platform-research/rejected-ideas.md` with decision rationale, safer variant, reopen conditions, and `next_review_after`.
 
 If a claim is adopted or moved to experiment, optionally create:
 

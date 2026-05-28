@@ -13,6 +13,38 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-27] session | RC-014 implementation cycle 1
+
+- Changed:
+  - User approved ADRs RC-2026-05-27-014 and the implementation priority loop.
+  - Promoted both ADRs to Accepted status.
+  - Documented the platform research artifact package and implementation priority loop in `AGENTS.md`.
+  - Updated platform-research-review prompt, Cursor agent, skill, setup doc, lint script, and artifact template.
+  - Advanced PIC-2026-05-27-001 to `user_review` in `wiki/platform-research/implementation-backlog.md`.
+
+- Open:
+  - User accept/reject of PIC-2026-05-27-001 implementation before RC-010 unlocks.
+
+- Next:
+  - On accept: mark RC-014 accepted, re-score backlog, begin RC-010 cycle.
+  - On reject: rollback listed files and re-score backlog.
+
+---
+
+## [2026-05-27] session | PIC-2026-05-27-001 accepted
+
+- Changed:
+  - User accepted RC-2026-05-27-014 implementation (platform research artifact package + priority loop).
+  - Closed PIC-2026-05-27-001; opened PIC-2026-05-27-002 for RC-010 trust-loop pattern.
+
+- Open:
+  - User ADR review for RC-2026-05-27-010 before cycle 2 implementation.
+
+- Next:
+  - Present DRAFT-RC-2026-05-27-010 for approval; implement on approval.
+
+---
+
 ## [2026-05-27] session | platform research review import
 
 - Changed:

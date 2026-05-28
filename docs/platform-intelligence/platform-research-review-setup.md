@@ -40,13 +40,52 @@ In Cursor, you can also invoke the `platform-research-reviewer` subagent directl
 wiki/platform-research/transcript-analyses/{slug}-claims.md
 reports/platform-research-review/{slug}-impact-report.md
 wiki/platform-research/claim-register.md
+wiki/platform-research/rejected-ideas.md
+wiki/platform-research/open-hypotheses.md
+```
+
+For batch reviews, also produce:
+
+```text
+reports/platform-research-review/batch-synthesis-{date}.md
+reports/platform-research-review/final-recommendations-{date}.md
+wiki/platform-research/implementation-backlog.md
 ```
 
 Optional outputs:
 
 ```text
 docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md
+reports/platform-research-review/claim-stack-analysis-{date}.md
 ```
+
+## Artifact package
+
+Platform research is structured claim-plus-evidence, not transcript summary. Each review should preserve:
+
+- atomic claims with scores and decisions
+- rejected ideas with rationale and re-review dates
+- open experiments and validation targets
+- stack-lift implementation ordering for approved claims
+
+Run validation after each review:
+
+```bash
+python scripts/lint-platform-research.py --root .
+```
+
+## Implementation priority loop
+
+After the user approves a draft ADR, deliver canonical changes one claim at a time:
+
+1. Load `wiki/platform-research/implementation-backlog.md`
+2. Select the top `queued` item with satisfied dependencies
+3. Implement the smallest reversible change
+4. Run `python -m unittest discover -s tests` and `python scripts/lint-platform-research.py --root .`
+5. Present results to the user for accept or rollback
+6. Re-score the backlog and continue
+
+Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`
 
 ## Acceptance Criteria
 

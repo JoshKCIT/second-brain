@@ -28,6 +28,9 @@ PRD.md
 docs/architecture-rationale.md
 docs/roadmap.md
 wiki/platform-research/claim-register.md
+wiki/platform-research/rejected-ideas.md
+wiki/platform-research/open-hypotheses.md
+wiki/platform-research/implementation-backlog.md
 config/platform-research-review.example.yml
 ```
 
@@ -56,6 +59,26 @@ Treat transcripts as product-intelligence evidence, not canonical knowledge. A t
 11. Write `wiki/platform-research/transcript-analyses/{slug}-claims.md`.
 12. Write `reports/platform-research-review/{slug}-impact-report.md`.
 13. Draft ADRs only for adopted or experimental claims.
+14. For every `reject` decision, add or update a full record in `wiki/platform-research/rejected-ideas.md` with rationale, safer variant, and `next_review_after`.
+15. For recurring unsafe patterns, add `RP-*` records in `wiki/platform-research/rejected-ideas.md`.
+16. For batch reviews, write `reports/platform-research-review/batch-synthesis-{date}.md` and update `wiki/platform-research/implementation-backlog.md` with stack-lift priority scores for adopt/experiment/defer claims.
+17. Run `python scripts/lint-platform-research.py --root .` before finishing.
+
+## Artifact package
+
+Each review produces a claim-plus-evidence package:
+
+```text
+wiki/platform-research/claim-register.md
+wiki/platform-research/rejected-ideas.md
+wiki/platform-research/open-hypotheses.md
+wiki/platform-research/implementation-backlog.md
+wiki/platform-research/transcript-analyses/{slug}-claims.md
+reports/platform-research-review/{slug}-impact-report.md
+docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md
+```
+
+Do not promote transcript claims into canonical docs. After the user approves a draft ADR, use the implementation backlog to deliver one approved change at a time with validation and rollback.
 
 ## Protected Files
 
@@ -93,7 +116,11 @@ Update or create:
 
 ```text
 wiki/platform-research/claim-register.md
+wiki/platform-research/rejected-ideas.md
+wiki/platform-research/open-hypotheses.md
 ```
+
+If a claim is rejected, add a full historical record to `wiki/platform-research/rejected-ideas.md` (not just a one-line summary).
 
 If a claim is adopted or moved to experiment, optionally create:
 

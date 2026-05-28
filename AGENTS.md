@@ -288,7 +288,28 @@ next_action: ""
 ```
 ````
 
-Platform research-review agents may write `wiki/platform-research/**`, `reports/platform-research-review/**`, and `docs/platform-decision-records/DRAFT-*.md`. They must not directly update `wiki/workspace-standards/**`, `wiki/workspace-recommendations/**`, `PRD.md`, `product-brief.md`, `docs/roadmap.md`, `docs/architecture-rationale.md`, `AGENTS.md`, or any `raw/**` source mirror based on transcript claims.
+Platform research-review agents may write `wiki/platform-research/**`, `reports/platform-research-review/**`, and `docs/platform-decision-records/DRAFT-*.md`. They must not directly update `wiki/workspace-standards/**`, `wiki/workspace-recommendations/**`, `PRD.md`, `product-brief.md`, `docs/roadmap.md`, `docs/architecture-rationale.md`, `AGENTS.md`, or any `raw/**` source mirror based on transcript claims alone.
+
+Approved platform ADRs may change protected files in a separate user-approved implementation pass.
+
+### Platform research artifact package
+
+Each transcript review produces a **claim-plus-evidence package**, not a summary. Preserve negative knowledge, validation gaps, and decision rationale alongside adopted ideas.
+
+| Artifact | Path | Purpose |
+|---|---|---|
+| Claim register | `wiki/platform-research/claim-register.md` | Atomic YAML claim records with scores and decisions |
+| Rejection register | `wiki/platform-research/rejected-ideas.md` | Full history for rejected claims and recurring unsafe patterns |
+| Open hypotheses | `wiki/platform-research/open-hypotheses.md` | Active experiments and validation targets |
+| Implementation backlog | `wiki/platform-research/implementation-backlog.md` | Stack-lift queue for one-change-at-a-time delivery |
+| Transcript analysis | `wiki/platform-research/transcript-analyses/{slug}-claims.md` | Per-source claim extraction and grounding notes |
+| Impact report | `reports/platform-research-review/{slug}-impact-report.md` | Executive judgment and recommended next actions |
+| Batch synthesis | `reports/platform-research-review/batch-synthesis-{date}.md` | Cross-transcript clustering when reviewing batches |
+| Draft ADR | `docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md` | Proposed canonical change; requires explicit user approval |
+
+Required claim record fields: `claim_id`, `source_transcript`, `claim_type`, `atomic_claim`, `current_design_status`, `impact_scores`, `total_score`, `decision`, `decision_rationale`, `next_action`. Rejected claims must also appear in `rejected-ideas.md` with `next_review_after`.
+
+Run `python scripts/lint-platform-research.py --root .` after creating or updating platform research artifacts.
 
 ### Project stage artifact (`wiki/workspace-projects/{slug}/0X-{stage}/{name}.md`)
 
@@ -539,8 +560,30 @@ Use `platform-research-review` for transcripts, meeting notes, interviews, or pr
 9. Update `wiki/platform-research/claim-register.md`
 10. Write `reports/platform-research-review/{slug}-impact-report.md`
 11. Create draft ADRs under `docs/platform-decision-records/DRAFT-*.md` only for adopted or experimental claims
+12. Mirror every `reject` decision in `wiki/platform-research/rejected-ideas.md`
+13. Update `wiki/platform-research/open-hypotheses.md` for experimental claims
+14. For batch reviews, write `reports/platform-research-review/batch-synthesis-{date}.md` and update `wiki/platform-research/implementation-backlog.md` when adopt/experiment/defer claims need stack-lift ordering
 
 Research review is deliberately separated from compile. Transcripts may influence Second Brain through review artifacts and draft ADRs, but they do not become canonical knowledge by default.
+
+#### Platform implementation priority loop
+
+After the user approves a draft ADR, deliver approved platform changes one claim at a time:
+
+1. Load `wiki/platform-research/implementation-backlog.md`
+2. Select the highest `priority_score` item with status `queued` and satisfied dependencies
+3. Implement the smallest reversible change set described in the approved ADR
+4. Run validation:
+   - `python -m unittest discover -s tests`
+   - `python scripts/lint-platform-research.py --root .`
+5. Present diff, test results, and rollback steps to the user
+6. On **accept**: mark the backlog item `accepted`, append decision history, re-score the queue
+7. On **reject**: rollback, mark `rolled_back`, capture reason, re-score the queue
+8. Repeat with the next queued item
+
+`priority_score` uses stack lift, platform lift, validation clarity, implementability, evidence strength, canonical risk, and experiment uncertainty (see `config/platform-research-review.example.yml`). Transcript `total_score` decides whether to adopt/experiment/defer/reject; `priority_score` decides implementation order among approved items.
+
+Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`
 
 ### 6. Align (cite | conformance | coverage)
 

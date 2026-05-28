@@ -61,10 +61,12 @@ Adopt the ideas that reinforce Second Brain's existing governance model: structu
 
 ## Ideas To Reject
 
-- Adding mixed code/docs/media graph indexing to v1.
-- Replacing text-based review loops with opaque latent-space recursive agents.
-- Allowing self-learning automation to directly update `AGENTS.md`, PRD, roadmap, architecture rationale, workspace standards, workspace recommendations, or raw mirrors.
-- Treating social transcript benchmark or vendor claims as verified without primary-source validation.
+See the full historical register: `wiki/platform-research/rejected-ideas.md` (next re-review: **2026-08-27**).
+
+- **RC-2026-05-27-009** — Adding mixed code/docs/media graph indexing to v1.
+- **RC-2026-05-27-013** — Replacing text-based review loops with opaque latent-space recursive agents.
+- **RP-2026-05-27-001** — Allowing self-learning automation to directly update `AGENTS.md`, PRD, roadmap, architecture rationale, workspace standards, workspace recommendations, or raw mirrors.
+- **RP-2026-05-27-002** — Treating social transcript benchmark or vendor claims as verified without primary-source validation.
 
 ## Claims Needing External Validation
 
@@ -77,8 +79,10 @@ Adopt the ideas that reinforce Second Brain's existing governance model: structu
 
 ## Recommended Next Actions
 
-- User-review the draft ADRs and approve, reject, or revise them before any canonical docs change.
-- Run the graph-orientation and gap-review experiments only after the user approves their ADRs.
+- Review the prioritized implementation queue: `wiki/platform-research/implementation-backlog.md`
+- Read the stack analysis: `reports/platform-research-review/claim-stack-analysis-2026-05-27.md`
+- Approve or revise draft ADRs before any canonical doc changes.
+- Run one implementation cycle at a time using `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`.
 - Keep external product, benchmark, legal, and paper claims marked unvalidated until primary-source checks are performed.
 
 ## Draft ADRs Created
@@ -91,6 +95,7 @@ Adopt the ideas that reinforce Second Brain's existing governance model: structu
 - `docs/platform-decision-records/DRAFT-RC-2026-05-27-014-platform-research-artifacts.md`
 - `docs/platform-decision-records/DRAFT-RC-2026-05-27-015-lightweight-intent-records.md`
 - `docs/platform-decision-records/DRAFT-RC-2026-05-27-008-session-graph-orientation.md`
+- `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`
 
 ## Protected Files Intentionally Not Modified
 

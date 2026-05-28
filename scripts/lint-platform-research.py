@@ -70,6 +70,14 @@ REQUIRED_REPORT_SECTIONS = [
     "## Protected Files Not Modified",
 ]
 
+REQUIRED_BACKLOG_SECTIONS = [
+    "## Active policy",
+    "## Priority formula",
+    "## Queue",
+    "## Current cycle",
+    "## Decision history",
+]
+
 
 @dataclass
 class LintResult:
@@ -162,6 +170,56 @@ def lint_claim_register(root: Path, strict: bool) -> LintResult:
     for idx, block in enumerate(claim_blocks, start=1):
         result.extend(lint_claim_block(block, idx))
 
+    result.extend(lint_rejected_claim_register(root, claim_blocks))
+
+    return result
+
+
+def extract_rejected_claim_ids(claim_blocks: list[str]) -> set[str]:
+    rejected: set[str] = set()
+    for block in claim_blocks:
+        if is_template_claim(block):
+            continue
+        if get_scalar(block, "decision") != "reject":
+            continue
+        claim_id = get_scalar(block, "claim_id")
+        if claim_id:
+            rejected.add(claim_id)
+    return rejected
+
+
+def extract_rejection_register_ids(text: str) -> set[str]:
+    ids: set[str] = set()
+    for block in split_yaml_blocks(text):
+        record_id = get_scalar(block, "record_id")
+        if record_id and re.fullmatch(r"(RC|RP)-\d{4}-\d{2}-\d{2}-\d+", record_id):
+            ids.add(record_id)
+    return ids
+
+
+def lint_rejected_claim_register(root: Path, claim_blocks: list[str]) -> LintResult:
+    result = LintResult(errors=[], warnings=[])
+    rejected_register = root / "wiki/platform-research/rejected-ideas.md"
+    rejected_claim_ids = extract_rejected_claim_ids(claim_blocks)
+
+    if not rejected_claim_ids:
+        return result
+
+    if not rejected_register.exists():
+        result.errors.append(
+            "Missing wiki/platform-research/rejected-ideas.md for rejected claim history"
+        )
+        return result
+
+    register_text = rejected_register.read_text(encoding="utf-8")
+    register_ids = extract_rejection_register_ids(register_text)
+
+    for claim_id in sorted(rejected_claim_ids):
+        if claim_id not in register_ids:
+            result.errors.append(
+                f"Rejected claim {claim_id} missing from wiki/platform-research/rejected-ideas.md"
+            )
+
     return result
 
 
@@ -186,6 +244,23 @@ def lint_protected_files(root: Path) -> LintResult:
                     f"Protected file may contain transcript-derived claim content: {rel} "
                     f"matched /{pattern.pattern}/"
                 )
+
+    return result
+
+
+def lint_implementation_backlog(root: Path) -> LintResult:
+    result = LintResult(errors=[], warnings=[])
+    backlog = root / "wiki/platform-research/implementation-backlog.md"
+
+    if not backlog.exists():
+        return result
+
+    text = backlog.read_text(encoding="utf-8")
+    for section in REQUIRED_BACKLOG_SECTIONS:
+        if section not in text:
+            result.errors.append(
+                f"wiki/platform-research/implementation-backlog.md missing section: {section}"
+            )
 
     return result
 
@@ -215,6 +290,7 @@ def lint_reports(root: Path, strict: bool) -> LintResult:
 def lint(root: Path, strict: bool) -> LintResult:
     result = LintResult(errors=[], warnings=[])
     result.extend(lint_claim_register(root, strict=strict))
+    result.extend(lint_implementation_backlog(root))
     result.extend(lint_protected_files(root))
     result.extend(lint_reports(root, strict=strict))
     return result

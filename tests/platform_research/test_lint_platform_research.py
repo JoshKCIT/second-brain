@@ -232,6 +232,30 @@ class ResearchLintTests(unittest.TestCase):
             self.assertNotIn("wiki/platform-research", text, path.as_posix())
             self.assertNotIn("reports/platform-research-review", text, path.as_posix())
 
+    def test_rejected_claims_are_mirrored_in_rejection_register(self) -> None:
+        result = lint_platform_research.lint(REPO_ROOT, strict=False)
+        self.assertFalse(
+            any("missing from wiki/platform-research/rejected-ideas.md" in error for error in result.errors),
+            result.errors,
+        )
+
+    def test_implementation_backlog_shape(self) -> None:
+        result = lint_platform_research.lint(REPO_ROOT, strict=False)
+        self.assertFalse(
+            any("implementation-backlog.md missing section" in error for error in result.errors),
+            result.errors,
+        )
+
+    def test_implementation_backlog_missing_sections_are_errors(self) -> None:
+        with TemporaryDirectory() as tmp:
+            root = Path(tmp)
+            self.write(root, "wiki/platform-research/implementation-backlog.md", "# Backlog\n")
+
+            result = lint_platform_research.lint(root, strict=False)
+            self.assertTrue(
+                any("implementation-backlog.md missing section: ## Active policy" in error for error in result.errors)
+            )
+
 
 if __name__ == "__main__":
     unittest.main()

@@ -18,7 +18,7 @@ Research transcripts may influence Second Brain, but they may not directly becom
 ## Workflow
 
 1. Identify the transcript under `raw/platform-transcripts/**` or the user-specified source note.
-2. Inspect relevant project docs: `AGENTS.md`, `product-brief.md`, `PRD.md`, `docs/architecture-rationale.md`, `docs/roadmap.md`, and `wiki/platform-research/claim-register.md` if present.
+2. Inspect relevant project docs: `AGENTS.md`, `product-brief.md`, `PRD.md`, `docs/architecture-rationale.md`, `docs/roadmap.md`, `wiki/platform-research/claim-register.md`, and `wiki/platform-research/implementation-backlog.md` if present.
 3. Segment the transcript into discussion blocks.
 4. Extract atomic claims.
 5. Classify claims.
@@ -28,6 +28,16 @@ Research transcripts may influence Second Brain, but they may not directly becom
 9. Update `wiki/platform-research/claim-register.md`.
 10. Write `reports/platform-research-review/{slug}-impact-report.md`.
 11. Create draft ADRs for adopted or experimental claims only.
+12. Mirror rejected claims in `wiki/platform-research/rejected-ideas.md`.
+13. Update `wiki/platform-research/open-hypotheses.md` for experiments.
+14. Update `wiki/platform-research/implementation-backlog.md` when batch reviews produce adopt/experiment/defer claims needing stack-lift ordering.
+15. Run `python scripts/lint-platform-research.py --root .`.
+
+## Artifact package
+
+Preserve claims, rejections, experiments, and evidence as structured artifacts under `wiki/platform-research/**` and `reports/platform-research-review/**`. Do not summarize away failed ideas or validation gaps.
+
+After user ADR approval, deliver canonical changes through the implementation backlog one claim at a time.
 
 ## Write Boundaries
 
