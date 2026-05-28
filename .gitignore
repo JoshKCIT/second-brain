@@ -79,6 +79,9 @@ reference-documents/*
 .DS_Store
 Thumbs.db
 
+# Local claim-extraction scratch (platform research sessions)
+scripts/_claims_*.yaml
+
 # Python
 __pycache__/
 *.pyc
