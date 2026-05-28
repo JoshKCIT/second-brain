@@ -116,6 +116,34 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-27] session | PIC-2026-05-27-004 accepted
+
+- Changed:
+  - User accepted RC-2026-05-27-015 lightweight intent records experiment.
+  - Closed PIC-2026-05-27-004; opened PIC-2026-05-27-005 for RC-003 controlled gap research.
+
+- Open:
+  - User ADR review for RC-2026-05-27-003 before cycle 5 implementation.
+
+- Next:
+  - Present DRAFT-RC-2026-05-27-003 for approval.
+
+---
+
+## [2026-05-27] session | PIC-2026-05-27-005 implemented
+
+- Changed:
+  - Controlled platform gap-review workflow: prompt, template, setup doc, config, agent updates.
+  - RC-003 experiment ADR promoted to Accepted with intent sections; H-001 marked active.
+
+- Open:
+  - User accept/reject of PIC-2026-05-27-005.
+
+- Next:
+  - On accept: mark RC-003 accepted; queue RC-007 for cycle 6.
+
+---
+
 ## [2026-05-27] session | platform research review import
 
 - Changed:

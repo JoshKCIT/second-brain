@@ -80,3 +80,21 @@ platform_research:
     validation_commands:
       - python -m unittest discover -s tests
       - python scripts/lint-platform-research.py --root .
+
+  gap_review:
+    enabled: true
+    cadence: monthly
+    user_triggered_only: true
+    prompt: .github/prompts/platform-research-review/gap-review.prompt.md
+    report_template: templates/platform-research/gap-review-report.md
+    report_path: reports/platform-research-review/gap-review-{date}.md
+    allowed_write_paths:
+      - wiki/platform-research/**
+      - reports/platform-research-review/**
+      - docs/platform-decision-records/DRAFT-*.md
+    must_read:
+      - wiki/platform-research/rejected-ideas.md
+      - wiki/platform-research/open-hypotheses.md
+      - wiki/platform-research/implementation-backlog.md
+    experiment_adr: docs/platform-decision-records/DRAFT-RC-2026-05-27-003-controlled-gap-research.md
+    hypothesis_id: H-2026-05-27-001

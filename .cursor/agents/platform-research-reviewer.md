@@ -224,6 +224,16 @@ If a transcript contains a claim about Cursor, Atlassian, Rovo, Glean, Microsoft
 - If current validation is not available, mark the claim as `unvalidated`.
 - Do not adopt roadmap decisions based only on unvalidated vendor claims.
 
+## Controlled platform gap review (experiment RC-2026-05-27-003)
+
+When the user requests proactive platform gap discovery (not a transcript review), follow `.github/prompts/platform-research-review/gap-review.prompt.md`:
+
+- Read canonical platform docs, claim register, rejected ideas, open hypotheses, and implementation backlog.
+- Identify platform knowledge gaps and **candidate sources** only.
+- Write `reports/platform-research-review/gap-review-{date}.md`.
+- Do not ingest sources or mutate protected files.
+- Check `rejected-ideas.md` for recurring unsafe patterns before proposing candidates.
+
 ## Output Files
 
 For a transcript at:

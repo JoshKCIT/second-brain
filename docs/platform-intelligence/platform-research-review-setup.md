@@ -95,6 +95,24 @@ After the user approves a draft ADR, deliver canonical changes one claim at a ti
 
 Process ADR: `docs/platform-decision-records/DRAFT-RC-implementation-priority-loop.md`
 
+## Controlled platform gap review (experiment RC-2026-05-27-003)
+
+Proactive platform discovery without canonical mutation. Invoke:
+
+```text
+/platform-gap-review Run a controlled platform gap review for Second Brain.
+
+Read product-brief.md, PRD.md, docs/architecture-rationale.md, docs/roadmap.md, wiki/platform-research/claim-register.md, wiki/platform-research/rejected-ideas.md, wiki/platform-research/open-hypotheses.md, and wiki/platform-research/implementation-backlog.md.
+
+Identify platform knowledge gaps and candidate sources to review later. Write reports/platform-research-review/gap-review-{date}.md. Do not modify protected files or ingest sources.
+```
+
+Prompt: `.github/prompts/platform-research-review/gap-review.prompt.md`
+
+Template: `templates/platform-research/gap-review-report.md`
+
+**Cadence:** monthly, manual, user-triggered. Success = at least one user-accepted candidate source or hypothesis with zero protected-file mutation.
+
 ## Acceptance Criteria
 
 A successful review:

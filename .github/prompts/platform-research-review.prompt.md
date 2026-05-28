@@ -92,6 +92,17 @@ docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md
 
 Do not promote transcript claims into canonical docs. After the user approves a draft ADR, use the implementation backlog to deliver one approved change at a time with validation and rollback.
 
+## Controlled platform gap review (experiment RC-2026-05-27-003)
+
+Separate from transcript review. Use `.github/prompts/platform-research-review/gap-review.prompt.md` or invoke `/platform-gap-review` when the user wants a proactive platform gap scan.
+
+- **Cadence:** monthly, manual, user-triggered
+- **Outputs:** `reports/platform-research-review/gap-review-{date}.md`; optional updates to `open-hypotheses.md`
+- **Must not:** ingest sources, mutate protected files, or update workspace wiki
+- **Must:** check `rejected-ideas.md` before proposing rediscovered unsafe patterns
+
+Template: `templates/platform-research/gap-review-report.md`
+
 ## Protected Files
 
 Do not directly modify:
