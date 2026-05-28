@@ -157,4 +157,4 @@ If you are on Atlassian Cloud Enterprise tier:
 
 ## Status
 
-v1 in design. Estimated build calendar: 10-14 weeks. See `docs/roadmap.md` for phase plan and `product-brief.md` §10 for open questions.
+v1 in build: platform foundation complete (May 2026); **Phase 1A (vendor documentation) active** — Confluence deferred until Atlassian access. Vendor catalog: `docs/vendor-catalog.md`. See `docs/roadmap.md` for phase checklist.

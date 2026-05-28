@@ -13,6 +13,35 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-27] session | Phase 1A vendor bootstrap (Confluence deferred)
+
+- Changed:
+  - User has no Confluence access yet; split roadmap Phase 1 → **1A vendor docs** (active) and **1B Atlassian** (blocked).
+  - Added `docs/vendor-catalog.md` (Tier A defuddle URLs, Tier B MCPs, Tier C user content; vendor slugs for AWS, Azure, GCP, Snowflake, Informatica, IBM, Terraform, GitHub, Docker, Postgres).
+  - Added `workspace-revalidate-vendor-docs.prompt.md`; extended `config/second-brain.example.yml` with `vendor_sources`.
+  - Updated `HANDOFF.md`, `docs/roadmap.md`, `PRD.md` §9.3 reference paths.
+- Open:
+  - Phase 1A: `verify-setup.py`, seed vendor caches, defuddle on user machine.
+  - Phase 1B: Atlassian when credentials and space access exist.
+- Next:
+  - Implement `verify-setup.py` (Atlassian optional); user picks 3–5 vendor doc URLs to seed.
+
+---
+
+## [2026-05-27] session | roadmap revalidation and Phase 1 ready
+
+- Changed:
+  - Revalidated `docs/roadmap.md` (v1.1): platform foundation marked complete; Phases 1–7 updated with RC-001/002/010 constraints, checklist items, and current phase = Phase 1.
+  - Updated `HANDOFF.md` for May 2026 state, Phase 1 start checklist, and platform vs workspace lane split.
+  - Synced `PRD.md` §9.3 and `README.md` build status with roadmap.
+- Open:
+  - Phase 1 execution: `verify-setup.py`, MCP spike, first ingest (requires user `.env` and test space).
+  - H-001, H-005 platform experiments remain optional parallel work.
+- Next:
+  - Confirm Phase 1 start checklist with user, then implement `verify-setup.py` and Atlassian MCP spike.
+
+---
+
 ## [2026-05-27] session | RC-014 implementation cycle 1
 
 - Changed:

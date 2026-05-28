@@ -7,10 +7,11 @@
 # documents the schema and lets you edit by hand.
 
 # ============================================================
-# Atlassian tenant
+# Atlassian tenant (Phase 1B — optional until you have Confluence access)
 # ============================================================
-# Authoritative copy is in .env; mirrored here for the agent's convenience.
+# Authoritative credentials live in .env. Set enabled: false for vendor-only bootstrap.
 atlassian:
+  enabled: false
   site_url: https://yourcompany.atlassian.net
   email: your.email@yourcompany.com
 
@@ -52,16 +53,61 @@ default_in_scope_spaces:
 # ============================================================
 # Vendor doc revalidation (TTL)
 # ============================================================
+# Vendor caches live at raw/workspace-external/{vendor}/{topic}/{slug}.md
+# Fetched on demand via /workspace-ingest-vendor-doc (defuddle). See docs/vendor-catalog.md.
 vendor_revalidation:
   default_ttl_days: 90
 
-  # Per-vendor overrides
+  # Per-vendor overrides (days until revalidate_after)
   per_vendor: {}
     # aws: 60
+    # azure: 90
+    # gcp: 90
     # snowflake: 30
-    # atlassian: 90
+    # terraform: 60
+    # postgres: 90
+    # github: 90
+    # docker: 90
+    # informatica: 90
+    # ibm: 90
+    # atlassian: 90   # product docs only; Confluence spaces are workspace-confluence/
 
   hard_max_age_days: 365
+
+# ============================================================
+# Vendor sources (public documentation — no Confluence required)
+# ============================================================
+# Tier A (v1): on-demand URL fetch via defuddle.
+# Tier B (v1.x): optional vendor MCPs in the IDE — see docs/vendor-catalog.md.
+vendor_sources:
+  enabled:
+    - aws
+    - azure
+    - gcp
+    - snowflake
+    - informatica
+    - ibm
+    - terraform
+    - github
+    - docker
+    - postgres
+  # Egress allowlist hints for tool-guardian / corporate proxy (hostnames only)
+  allowlisted_domains:
+    - docs.aws.amazon.com
+    - learn.microsoft.com
+    - cloud.google.com
+    - docs.snowflake.com
+    - docs.informatica.com
+    - ibm.com
+    - developer.hashicorp.com
+    - docs.github.com
+    - docs.docker.com
+    - postgresql.org
+  # Optional seed URLs to prefetch during setup (user-approved only)
+  # seed_topics:
+  #   - vendor: aws
+  #     topic: s3-encryption
+  #     url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingEncryption.html
 
 # ============================================================
 # Confluence sync cadence

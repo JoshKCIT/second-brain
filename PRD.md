@@ -359,54 +359,50 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 
 ### 9.3 Suggested phases
 
-- **Phase 1 (week 1-2): Foundations + ingestion spike**
-  - Repo skeleton, `.env` handling, `.gitignore`, `.github/` structure
-  - Per-agent shims (Copilot, Claude Code, Cursor, Windsurf)
-  - `verify-setup.py`
-  - Atlassian Remote MCP Server spike (validates whether MCP path is viable as an alternative)
-  - Port the user's existing Confluence ingestion skill into the repo with frontmatter and layout adapted
+**Last revalidated:** 2026-05-27. Detailed checklist: `docs/roadmap.md`, vendor catalog: `docs/vendor-catalog.md`. **Current phase: Phase 1A (vendor docs).** Phase 1B (Confluence) blocked until Atlassian access.
+
+- **Platform foundation (May 2026, complete):** platform-research-review kit, accepted ADRs (RC-014, RC-010, RC-001, RC-002, RC-015, RC-003, implementation-priority-loop), page-index retrieval policy, platform lint + tests. Does not satisfy v1 workspace exits.
+
+- **Phase 1A (week 1-2): Vendor documentation bootstrap — ACTIVE**
+  - `verify-setup.py` without mandatory Atlassian; `vendor_sources` in config
+  - defuddle + `/workspace-ingest-vendor-doc`; seed caches for enabled vendors
+  - `/workspace-revalidate-vendor-docs`; hook verification or deferral
+  - See `docs/vendor-catalog.md` (AWS, Azure, GCP, Snowflake, Informatica, IBM, Terraform, GitHub, Docker, Postgres, …)
+
+- **Phase 1B: Atlassian / Confluence ingest — BLOCKED**
+  - MCP spike; API ingest port; first Confluence space — when user has access
 
 - **Phase 2 (week 3-4): Wiki layer + compile workflow**
-  - `wiki/` directory layout
-  - `workspace-compile.prompt.md` and the obsidian-markdown skill integration
-  - `index.md` and `log.md` formats
-  - Quarantine, post-ingest manifest
-  - Frontmatter schema for raw/ and wiki/ articles
-  - Lint scaffold (structural checks)
+  - `wiki/index.md` and Base views as v1 retrieval substrate (RC-001)
+  - `workspace-compile.prompt.md` and obsidian-markdown on real ingest
+  - Quarantine, post-ingest manifest, frontmatter validation
+  - Workspace lint scaffold (structural checks 1–7; separate from platform research lint)
 
 - **Phase 3 (week 5-6): Query + agent chain skeleton**
-  - `workspace-query.prompt.md` (index-guided)
-  - Agent prompt files: `vp-agent`, `pm-agent`, `architect-agent`, `engineer-agent`, `start-project`, `finalize`
-  - Project lifecycle: status, in-progress vs published vs archived
-  - Cross-project dependency rules in lint
+  - `workspace-query.prompt.md` (index-guided; RC-001/002 in prompt — done)
+  - Agent prompts: `workspace-vp-agent`, `workspace-pm-agent`, `workspace-architect-agent`, `workspace-engineer-agent`, `workspace-start-project`
+  - Finalize as engineer-agent sub-step (not a separate prompt file)
+  - Project lifecycle and cross-project dependency lint on a real project
 
 - **Phase 4 (week 7-8): Alignment + vendor truth**
-  - `align-cite` (production)
-  - `align-vendor-truth` (production)
-  - `align-closure` (production)
-  - `align-conformance` and `align-coverage` (best-effort)
-  - Vendor doc fetch with defuddle and TTL handling
-  - `revalidate-vendor-docs` prompt
+  - `workspace-align-cite`, `align-vendor-truth`, `align-closure` (production)
+  - `align-conformance`, `align-coverage` (best-effort)
+  - Trust-loop-shaped align reports where applicable (RC-010)
+  - Vendor doc fetch with defuddle, TTL, `workspace-revalidate-vendor-docs` prompt
 
 - **Phase 5 (week 9-10): Publish + archive + obsidian-bases integration**
-  - `workspace-publish.prompt.md` with review and Confluence branches
-  - `workspace-prepare-for-confluence.prompt.md` (Markdown to HTML)
-  - `workspace-publish-to-confluence.prompt.md` (API publish; MCP alternative)
-  - `archive` and `unarchive` prompts
-  - obsidian-bases skill integration; `wiki/workspace-views/` Base files
+  - Publish prompts (in place; refine storage-format conversion)
+  - Archive and unarchive
+  - obsidian-bases; `wiki/workspace-views/` Base files (RC-007/008 graph projection deferred)
 
 - **Phase 6 (week 11-12): Persona templates + writing exemplar + polish**
-  - CEO persona template fully populated
-  - Engineer, Architect, PM, Director, VP stubs (READMEs)
-  - `docs/style/exemplar-published-doc.md` written
-  - Adoption checklist, setup-kit, README final
-  - End-to-end pilot project run
+  - CEO persona template populated (done)
+  - Other persona stubs (v1.x)
+  - Exemplar cleanup, adoption docs, real pilot
 
 - **Phase 7 (week 13-14): Buffer**
-  - ADF macro coverage long tail
-  - Lint quality tuning
-  - Documentation polish
-  - Pilot feedback
+  - ADF macro long tail, workspace lint tuning, pilot feedback
+  - Prompt namespace cleanup; optional platform gap-review after pilot
 
 ---
 

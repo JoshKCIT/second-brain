@@ -82,4 +82,4 @@ The triggering agent should present the user with options: cite without verifica
 
 ## Revalidate command
 
-The `/revalidate-vendor-docs` prompt enumerates all cached vendor docs whose `revalidate_after` is in the past and offers batch refresh. That prompt is built on top of this one (calls `ingest-vendor-doc` for each stale entry).
+The `/workspace-revalidate-vendor-docs` prompt enumerates all cached vendor docs whose `revalidate_after` is in the past and offers batch refresh. That prompt is built on top of this one (calls `/workspace-ingest-vendor-doc` for each stale entry).

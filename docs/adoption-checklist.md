@@ -1,9 +1,11 @@
 # Adoption Checklist
 
 **Status:** v1.0
-**Last updated:** 2026-04-28
+**Last updated:** 2026-05-27
 
 A quick checklist for first-time setup. Detailed walkthrough is in `setup-kit.md`. Target: complete in under 30 minutes.
+
+**Note:** Full adoption checklist items below apply after Phase 1 ships `verify-setup.py` and ingest. Current build phase: see `docs/roadmap.md` (Phase 1 active).
 
 ## Prerequisites checklist
 
@@ -55,7 +57,7 @@ A quick checklist for first-time setup. Detailed walkthrough is in `setup-kit.md
 - [ ] Weekly: `/workspace-ingest-confluence --sync` to refresh in-scope spaces
 - [ ] Monthly: `/workspace-lint` for wiki health check
 - [ ] Per query: if vendor truth is involved, run `/workspace-align-vendor-truth` and accept or refresh stale caches
-- [ ] After 90 days: vendor docs revalidate via `/revalidate-vendor-docs`
+- [ ] After 90 days: vendor docs revalidate via `/workspace-revalidate-vendor-docs`
 - [ ] Per project: archive when complete; do not let archived projects bleed into active work
 
 ## Red flags

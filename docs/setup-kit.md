@@ -1,9 +1,11 @@
 # Setup Kit
 
 **Status:** v1.0
-**Last updated:** 2026-04-28
+**Last updated:** 2026-05-27
 
 Step-by-step adoption guide for a new user setting up Second Brain on their machine. Target: a new user can complete setup in under 30 minutes assuming Atlassian credentials are available.
+
+**Build status:** Platform foundation complete; v1 workspace build is in **Phase 1A** (vendor doc cache via defuddle; Confluence deferred). See `docs/roadmap.md` and `docs/vendor-catalog.md`.
 
 ## Prerequisites
 
@@ -14,7 +16,7 @@ Step-by-step adoption guide for a new user setting up Second Brain on their mach
 - Python 3.12+ for `verify-setup.py` and any helper scripts
 - `defuddle` CLI: `npm install -g defuddle` (for vendor doc fetching)
 - Git
-- An Atlassian Cloud account with API token or OAuth credentials and read access to the Confluence spaces you intend to ingest
+- An Atlassian Cloud account with API token or OAuth credentials and read access to the Confluence spaces you intend to ingest (**optional until Phase 1B**; vendor-only setup needs `defuddle` and public doc URLs only)
 
 ## Step-by-step
 
