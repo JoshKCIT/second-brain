@@ -13,6 +13,19 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-28] session | doc cleanup after parallel commits
+
+- Changed:
+  - `docs/roadmap.md` intro aligned to Phase 3 active (removed stale Phase 1A active-track line).
+  - `HANDOFF.md` reconciled with Phases 1A–2 complete; Phase 3 first action; script inventory updated.
+  - `quarantine/README.md` tracked via `.gitignore` exception (`quarantine/*` contents still ignored).
+- Open:
+  - No unpushed code from prior sessions; `main` matched `origin/main` before this commit.
+- Next:
+  - Commit and push doc cleanup; Phase 3 or platform lane per user choice.
+
+---
+
 ## [2026-05-28] session | Phase 2 closed
 
 - Changed:

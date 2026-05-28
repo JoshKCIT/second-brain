@@ -42,61 +42,41 @@ The repo contains planning and scaffolding for workspace operations:
 - **Hooks:** `secrets-scanner`, `tool-guardian`, `session-logger`, `governance-audit` — ported, **not verified** for Copilot (Phase 1)
 - **Config:** `config/second-brain.example.yml`, `config/platform-research-review.example.yml`
 - **Personas:** `templates/personas/ceo/` **populated**; other personas are v1.x stubs
-- **Scripts:** `scripts/lint-platform-research.py` (no `verify-setup.py` yet)
-- **Wiki:** layout placeholders + `wiki/platform-research/` content; **no** `wiki/index.md` or `wiki/log.md` yet
+- **Scripts:** `verify-setup.py`, `seed-vendor-docs.py`, `revalidate-vendor-docs.py`, `compile-workspace-external.py`, `lint-workspace.py`, `lint-platform-research.py`, `sync-transcript-register.py`
+- **Wiki (local, gitignored):** `wiki/index.md`, `wiki/log.md`, 14 vendor concepts, 4 Base views (tracked under `wiki/workspace-views/`), platform transcript analyses (tracked)
 
 ### What is NOT yet done (v1 blockers)
 
-- `scripts/verify-setup.py` — Phase 1A deliverable (Atlassian optional)
-- Vendor doc seed caches under `raw/workspace-external/` — Phase 1A exit
-- Atlassian / Confluence — **Phase 1B, blocked** until user has space access
-- Hook verification or documented deferral — Phase 1A
-- `wiki/index.md`, `wiki/log.md`, workspace compile on vendor raw pages — Phase 2
-- Workspace structural lint (checks 1–7) — Phase 2
-- End-to-end project through agent chain — Phase 3
+- End-to-end project through agent chain — **Phase 3** (active)
+- Atlassian / Confluence ingest — **Phase 1B, blocked** until user has space access
+- Hook verification in Copilot — deferred; documented in progress log
 - Exemplar final polish — Phase 6
+
+### Phase 1A–2 — complete (2026-05-28)
+
+- Vendor stack: AWS (6 topics), Snowflake (7), Informatica (2); IBM Db2 removed
+- Exit reports: `docs/phase-1a-exit-report.md`, `docs/phase-2-exit-report.md`
+- Regenerate locally: `python scripts/verify-setup.py`, `python scripts/lint-workspace.py`, `python scripts/revalidate-vendor-docs.py --dry-run`
 
 ---
 
-## Phase 1A — vendor bootstrap (ready to start)
+## Phase 3 — first workspace project (active)
 
-Per `docs/roadmap.md` Phase 1A and `docs/vendor-catalog.md`:
+Per `docs/roadmap.md` Phase 3:
 
-### 0. Confirm start checklist with the user
+### 0. Confirm prerequisites
 
-- `defuddle` installed (`npm install -g defuddle`)
-- `config/second-brain.yml` with `vendor_sources.enabled` (AWS, Azure, GCP, Snowflake, etc.)
-- 3–5 specific vendor doc URLs to cache for the user's current doc buildout
-- **No Confluence required**
+- `config/second-brain.yml` copied from example; `vendor_sources` enabled
+- Local wiki initialized (`verify-setup.py` or existing `wiki/index.md`)
+- User declares project intent (e.g. AWS + Snowflake + Informatica hybrid data platform doc buildout)
 
-### 1. Write `scripts/verify-setup.py` (highest priority)
+### 1. Run `/workspace-start-project`
 
-Specification:
+CEO → VP → PM → Architect (if technical) → Engineer → finalize. CEO approval between stages.
 
-- Creates required runtime directories per `AGENTS.md` layout
-- Initializes `wiki/index.md` and `wiki/log.md` if missing (structure in `AGENTS.md`)
-- Validates `config/second-brain.yml` exists (or guides copy from example)
-- If `atlassian.enabled` is true in config, validate `.env` and test Atlassian connectivity; otherwise skip with clear message
-- Prints a success summary with what was created and verified
-- Document that setup health also expects: `python -m unittest discover -s tests` and `python scripts/lint-platform-research.py --root .`
+### 2. Append `docs/progress-log.md`
 
-Reference: `docs/setup-kit.md`.
-
-### 2. Seed vendor documentation caches
-
-For each user-approved URL, run `/workspace-ingest-vendor-doc` (vendor slug, topic, URL). Targets listed in `docs/vendor-catalog.md`.
-
-### 3. Verify hook compatibility
-
-Per `.github/hooks/README.md`. If hooks do not fire in Copilot's prompt-driven model, document the gap in `docs/progress-log.md` and propose prompt-invoked alternatives.
-
-### 4. Exercise revalidation
-
-Run `/workspace-revalidate-vendor-docs` (dry-run first). Document behavior in `docs/progress-log.md`.
-
-### 5. Append `docs/progress-log.md`
-
-Log Phase 1A exit: verify-setup pass, vendor cache count, vendors enabled.
+Log Phase 3 milestones and any align/publish dry runs.
 
 ---
 
@@ -192,4 +172,6 @@ Defer until user has Atlassian credentials and a test space.
 
 ## First action
 
-Confirm Phase 1A checklist (`defuddle`, vendor list, seed URLs). Implement `verify-setup.py` and seed vendor caches. Do not block on Confluence. When the user gains Atlassian access, open Phase 1B per `docs/roadmap.md`.
+**Workspace lane:** Confirm Phase 3 project intent with the user; run `/workspace-start-project`. Do not block on Confluence.
+
+**Platform lane:** Read `wiki/platform-research/implementation-backlog.md` and `open-hypotheses.md` (local or from last session). Run `/platform-research-review` or implementation from **user-approved** ADRs only; do not promote transcript claims into canonical docs without approval.

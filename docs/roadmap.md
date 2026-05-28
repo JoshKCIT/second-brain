@@ -4,7 +4,7 @@
 **Last updated:** 2026-05-27
 **Current phase:** Phase 3 — Query and agent chain (Phase 1A–2 complete; Phase 1B blocked)
 
-The phase plan aligns with `PRD.md` §9.3. Platform foundation work (May 2026) is complete. **Confluence ingest (Phase 1B) is blocked until Atlassian access.** Vendor doc cache (Phase 1A) is the active build track. See `docs/vendor-catalog.md`.
+The phase plan aligns with `PRD.md` §9.3. Platform foundation work (May 2026) is complete. **Phases 1A–2 (vendor cache + wiki compile) are complete.** **Phase 3** (`/workspace-start-project`) is the active workspace track. **Confluence ingest (Phase 1B) is blocked until Atlassian access.** See `docs/vendor-catalog.md`, `docs/phase-1a-exit-report.md`, and `docs/phase-2-exit-report.md`.
 
 ---
 

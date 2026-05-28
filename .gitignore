@@ -54,7 +54,8 @@ wiki/log.md
 
 # Runtime output
 confluence-review/
-quarantine/
+quarantine/*
+!quarantine/README.md
 reports/*
 !reports/platform-research-review/
 !reports/platform-research-review/.gitkeep
