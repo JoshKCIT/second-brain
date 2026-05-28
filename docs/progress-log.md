@@ -60,6 +60,20 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-27] session | PIC-2026-05-27-002 accepted
+
+- Changed:
+  - User accepted RC-2026-05-27-010 trust-loop implementation.
+  - Closed PIC-2026-05-27-002; opened PIC-2026-05-27-003 for RC-001 page-index retrieval (+ RC-002 bundle).
+
+- Open:
+  - User ADR review for RC-2026-05-27-001 before cycle 3 implementation.
+
+- Next:
+  - Present DRAFT-RC-2026-05-27-001 for approval.
+
+---
+
 ## [2026-05-27] session | platform research review import
 
 - Changed:
