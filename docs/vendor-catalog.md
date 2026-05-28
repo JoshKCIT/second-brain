@@ -114,10 +114,10 @@ python scripts/seed-vendor-docs.py --yes
 
 | Vendor | Starter topics |
 |--------|----------------|
-| `aws` | S3 server-side encryption, Glue security |
-| `ibm-db2-zos` | Db2 for z/OS overview, data encryption |
-| `snowflake` | Security encryption, data loading overview |
-| `informatica` | Cloud data integration intro, secure agent |
+| `aws` | S3 SSE/SSE-KMS, bucket policies, Glue security, IAM, VPC endpoints |
+| `ibm-db2-zos` | Db2 for z/OS overview, data encryption (manual) |
+| `snowflake` | Encryption, S3 load, storage integration, stages, Snowpipe, RBAC |
+| `informatica` | Cloud DI getting started, product hub |
 
 ---
 

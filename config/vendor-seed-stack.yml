@@ -14,6 +14,26 @@ seed_topics:
     url: https://docs.aws.amazon.com/glue/latest/dg/security.html
     slug: security
 
+  - vendor: aws
+    topic: s3-bucket-policies
+    url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html
+    slug: bucket-policies
+
+  - vendor: aws
+    topic: s3-sse-kms
+    url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html
+    slug: using-kms-encryption
+
+  - vendor: aws
+    topic: iam-introduction
+    url: https://docs.aws.amazon.com/IAM/latest/UserGuide/introduction.html
+    slug: introduction
+
+  - vendor: aws
+    topic: vpc-endpoints
+    url: https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html
+    slug: vpc-endpoints
+
   # IBM Db2 for z/OS (ibm.com/docs is JS-heavy for defuddle; product page + manual template)
   - vendor: ibm-db2-zos
     topic: product-overview
@@ -38,6 +58,31 @@ seed_topics:
     topic: loading-data-overview
     url: https://docs.snowflake.com/en/user-guide/data-load-overview
     slug: data-load-overview
+
+  - vendor: snowflake
+    topic: loading-data-s3
+    url: https://docs.snowflake.com/en/user-guide/data-load-s3
+    slug: data-load-s3
+
+  - vendor: snowflake
+    topic: storage-integration
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-storage-integration
+    slug: create-storage-integration
+
+  - vendor: snowflake
+    topic: external-stages
+    url: https://docs.snowflake.com/en/user-guide/data-load-s3-create-stage
+    slug: data-load-s3-create-stage
+
+  - vendor: snowflake
+    topic: snowpipe-auto-s3
+    url: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-auto-s3
+    slug: data-load-snowpipe-auto-s3
+
+  - vendor: snowflake
+    topic: access-control-overview
+    url: https://docs.snowflake.com/en/user-guide/security-access-control-overview
+    slug: security-access-control-overview
 
   # Informatica — cloud data integration (integration-cloud path; legacy data-integration/cloud URLs 404)
   - vendor: informatica
