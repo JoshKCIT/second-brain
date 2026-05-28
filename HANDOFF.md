@@ -36,9 +36,9 @@ The repo contains planning and scaffolding for workspace operations:
 - **Top-level:** `README.md`, `AGENTS.md`, `CLAUDE.md`, `PRD.md`, `product-brief.md`, `.windsurfrules`, `.env.example`, `.gitignore`, `HANDOFF.md`
 - **Per-agent shims:** `.github/copilot-instructions.md`, `.cursor/rules/agents.mdc`, `CLAUDE.md`, `.windsurfrules`
 - **Workspace prompts:** `workspace-*` verbs in `.github/prompts/` (ingest, compile, query, align, publish, archive, lint, agent chain, onboarding)
-- **Platform prompts:** `platform-research-review/` tree + `platform-research-review.prompt.md`
+- **Platform prompts:** `platform-research-review/` tree, `platform-research-review.prompt.md`, `platform-transcript-librarian.prompt.md`
 - **Skills:** `obsidian-markdown`, `obsidian-bases`, `defuddle`, `platform-research-review`
-- **Agents:** `workspace-adr-generator.agent.md`; Cursor `platform-research-reviewer`
+- **Agents:** `workspace-adr-generator.agent.md`; Cursor `platform-research-reviewer`, `platform-transcript-librarian`
 - **Hooks:** `secrets-scanner`, `tool-guardian`, `session-logger`, `governance-audit` — ported, **not verified** for Copilot (Phase 1)
 - **Config:** `config/second-brain.example.yml`, `config/platform-research-review.example.yml`
 - **Personas:** `templates/personas/ceo/` **populated**; other personas are v1.x stubs
@@ -163,7 +163,8 @@ Defer until user has Atlassian credentials and a test space.
 | Phase plan | `docs/roadmap.md` |
 | Platform backlog | `wiki/platform-research/implementation-backlog.md` |
 | Workspace prompts | `.github/prompts/workspace-*.prompt.md` |
-| Platform prompts | `.github/prompts/platform-research-review*` |
+| Platform prompts | `.github/prompts/platform-research-review*`, `.github/prompts/platform-transcript-librarian.prompt.md` |
+| Transcript register (tracked) | `wiki/platform-research/transcript-register.md` |
 | Platform lint | `scripts/lint-platform-research.py` |
 | Config templates | `config/second-brain.example.yml`, `config/platform-research-review.example.yml` |
 | Runtime output (gitignored) | `raw/`, `wiki/`, `confluence-review/`, `quarantine/`, `reports/` |
@@ -174,4 +175,4 @@ Defer until user has Atlassian credentials and a test space.
 
 **Workspace lane:** Confirm Phase 3 project intent with the user; run `/workspace-start-project`. Do not block on Confluence.
 
-**Platform lane:** Read `wiki/platform-research/implementation-backlog.md` and `open-hypotheses.md` (local or from last session). Run `/platform-research-review` or implementation from **user-approved** ADRs only; do not promote transcript claims into canonical docs without approval.
+**Platform lane:** Read `wiki/platform-research/transcript-register.md`, `implementation-backlog.md`, and `open-hypotheses.md` (local). Use `/platform-transcript-librarian` for import/queue; `/platform-research-review` for claim review; implementation from **user-approved** ADRs only.
