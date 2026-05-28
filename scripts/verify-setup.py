@@ -288,11 +288,9 @@ def main() -> int:
         print("  python scripts/seed-vendor-docs.py")
         return 1
 
-    print("SUCCESS: workspace ready for Phase 1A.")
-    print("Next steps:")
-    print("  1. npm install -g defuddle   (if not installed)")
-    print("  2. python scripts/seed-vendor-docs.py")
-    print("  3. Open wiki/ in Obsidian; invoke /workspace-ingest-vendor-doc for more URLs")
+    print("SUCCESS: Second Brain workspace verified.")
+    print("Phase 1A complete. See docs/phase-1a-exit-report.md")
+    print("Next: Phase 2 (compile, Base views) or /workspace-start-project (Phase 3)")
     return 0
 
 

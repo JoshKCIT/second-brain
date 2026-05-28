@@ -13,6 +13,32 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-28] session | Phase 1A closed
+
+- Changed:
+  - Ran revalidation dry-run (`scripts/revalidate-vendor-docs.py`), align-vendor-truth dry-run report, compiled 2 workspace concepts.
+  - Wrote `docs/phase-1a-exit-report.md`; marked Phase 1A complete in `docs/roadmap.md`; current phase → Phase 2.
+  - Hooks deferred with documentation (Copilot session events not verified).
+- Open:
+  - Phase 1B blocked on Confluence access.
+- Next:
+  - Phase 2: Base views, more compile, workspace lint — or Phase 3: `/workspace-start-project`.
+
+---
+
+## [2026-05-28] session | skip IBM Db2 z/OS from vendor stack
+
+- Changed:
+  - Removed `ibm-db2-zos` from `vendor-seed-stack.yml`, `second-brain.example.yml`, and local `second-brain.yml`.
+  - Deleted cached IBM files and manual ingest template; cleaned `wiki/index.md`.
+  - Default stack is now AWS + Snowflake + Informatica.
+- Open:
+  - Phase 1A: revalidate dry-run; start first workspace project.
+- Next:
+  - `/workspace-start-project` for AWS–Snowflake–Informatica doc buildout.
+
+---
+
 ## [2026-05-27] session | Phase 1A stack seed AWS Db2 Snowflake Informatica
 
 - Changed:

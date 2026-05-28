@@ -10,7 +10,7 @@ This document tells the next agent session (VS Code with GitHub Copilot in agent
 2. `AGENTS.md` — canonical operating spec (longer; comprehensive)
 3. `product-brief.md` — problem statement, scope, constraints, decisions log
 4. `PRD.md` — what v1 builds (functional requirements, user stories, milestones)
-5. `docs/roadmap.md` — phase plan; **current phase: Phase 1A (vendor docs)**; Phase 1B (Confluence) blocked
+5. `docs/roadmap.md` — phase plan; **Phase 1A complete**; **current phase: Phase 2**; Phase 1B (Confluence) blocked
 6. `docs/vendor-catalog.md` — vendor slugs, doc roots, Tier A/B/C integration
 7. `docs/architecture-rationale.md` — why the architectural choices were made
 8. `docs/progress-log.md` — session history; append your sessions here
@@ -29,7 +29,7 @@ Platform-lane work from transcript review is shipped. It does **not** replace v1
 - Page-index retrieval and citation≠similarity policy in `AGENTS.md`, `PRD.md`, `workspace-query.prompt.md`
 - Implementation backlog queue: **idle** (RC-007/008 deferred; RC-012 blocked on failure data)
 
-### v1 workspace build — Phase 1A active (vendor docs; no Confluence required)
+### v1 workspace build — Phase 1A complete; Phase 2 active
 
 The repo contains planning and scaffolding for workspace operations:
 

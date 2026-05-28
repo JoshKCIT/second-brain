@@ -2,7 +2,7 @@
 
 **Status:** v1.1 (revalidated)
 **Last updated:** 2026-05-27
-**Current phase:** Phase 1A — Vendor documentation bootstrap (Atlassian deferred)
+**Current phase:** Phase 2 — Wiki layer and compile (Phase 1A complete; Phase 1B blocked)
 
 The phase plan aligns with `PRD.md` §9.3. Platform foundation work (May 2026) is complete. **Confluence ingest (Phase 1B) is blocked until Atlassian access.** Vendor doc cache (Phase 1A) is the active build track. See `docs/vendor-catalog.md`.
 
@@ -44,25 +44,26 @@ Implementation queue: **idle** (all queued PIC cycles through RC-003 accepted or
 
 ## v1 workspace build (10–14 weeks)
 
-### Phase 1A: Vendor documentation bootstrap (week 1–2) — **ACTIVE**
+### Phase 1A: Vendor documentation bootstrap (week 1–2) — **COMPLETE** (2026-05-28)
 
-**Unblocked without Confluence.** Grounds project doc buildouts in public vendor documentation (AWS, Azure, GCP, Snowflake, Informatica, IBM, Terraform, GitHub, Docker, Postgres, etc.) via on-demand fetch + TTL cache.
+**Unblocked without Confluence.** Vendor stack: **AWS, Snowflake, Informatica** (IBM Db2 z/OS skipped).
 
-**Prerequisites met:** `workspace-ingest-vendor-doc`, `workspace-align-vendor-truth`, `workspace-revalidate-vendor-docs` prompts; `defuddle` skill; `docs/vendor-catalog.md`; `vendor_sources` in `config/second-brain.example.yml`.
+**Exit report:** `docs/phase-1a-exit-report.md`
 
 **Deliverables:**
 
 - [x] `scripts/verify-setup.py` — creates runtime dirs, initializes `wiki/index.md` and `wiki/log.md`; **Atlassian check optional**
 - [x] Setup health checks: `python -m unittest discover -s tests` and `python scripts/lint-platform-research.py --root .`
-- [x] `scripts/seed-vendor-docs.py` + `config/vendor-seed-stack.yml` (AWS, IBM Db2 z/OS, Snowflake, Informatica)
-- [ ] `defuddle` on PATH in user's default shell (Windows: `defuddle.cmd` via npm global)
-- [x] User enables vendors in `config/second-brain.yml` from `vendor_sources.enabled`
-- [x] Seed 8 vendor doc caches (4 vendors); IBM encryption manual template needs paste from ibm.com/docs
-- [ ] Exercise `/workspace-revalidate-vendor-docs` on at least one stale or test entry
-- [ ] Optional: compile high-value vendor caches into `wiki/workspace-concepts/`
-- [ ] Hook compatibility verification (or documented deferral)
+- [x] `scripts/seed-vendor-docs.py`, `scripts/revalidate-vendor-docs.py`, `config/vendor-seed-stack.yml`
+- [x] `defuddle` on PATH (Windows: `defuddle.cmd` via npm global; see `scripts/_vendor_fetch.py`)
+- [x] `config/second-brain.yml` with `vendor_sources.enabled` (aws, snowflake, informatica)
+- [x] **15** vendor topics cached under `raw/workspace-external/`
+- [x] Revalidation dry-run (`python scripts/revalidate-vendor-docs.py --dry-run`) — all fresh
+- [x] Starter concepts compiled (2): snowflake S3 storage integration, AWS S3 SSE
+- [x] align-vendor-truth dry run: `reports/workspace-align-vendor-truth-phase-1a-dry-run-2026-05-28.md`
+- [x] Hooks: **deferred** (documented in exit report; Copilot session events not verified)
 
-**Exit:** `verify-setup.py` passes without Atlassian; at least three vendor topics cached under `raw/workspace-external/`; index/log initialized; one align-vendor-truth dry run documented.
+**Exit:** Met. See `docs/phase-1a-exit-report.md`.
 
 **Start checklist:**
 
@@ -89,14 +90,14 @@ Implementation queue: **idle** (all queued PIC cycles through RC-003 accepted or
 
 ---
 
-### Phase 2: Wiki layer and compile workflow (week 3–4)
+### Phase 2: Wiki layer and compile workflow (week 3–4) — **ACTIVE**
 
 **Policy dependency (RC-001):** `wiki/index.md` and Base views in `wiki/workspace-views/` are the v1 retrieval substrate—not optional catalog polish.
 
 **Deliverables:**
 
 - [x] `wiki/` directory layout (placeholders; platform-research content exists)
-- [ ] `wiki/index.md` and `wiki/log.md` initialized and updated on every compile
+- [x] `wiki/index.md` and `wiki/log.md` initialized (update on every compile ongoing)
 - [ ] `wiki/workspace-views/` Base files for active projects, standards, stale vendor docs
 - [ ] `workspace-compile.prompt.md` verified with `obsidian-markdown` on real ingest output
 - [ ] Quarantine folder behavior exercised

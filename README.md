@@ -157,4 +157,4 @@ If you are on Atlassian Cloud Enterprise tier:
 
 ## Status
 
-v1 in build: platform foundation complete (May 2026); **Phase 1A (vendor documentation) active** — Confluence deferred until Atlassian access. Vendor catalog: `docs/vendor-catalog.md`. See `docs/roadmap.md` for phase checklist.
+v1 in build: **Phase 1A complete** (May 2026) — AWS, Snowflake, Informatica vendor caches. **Phase 2 active.** Confluence deferred (Phase 1B). See `docs/phase-1a-exit-report.md` and `docs/roadmap.md`.

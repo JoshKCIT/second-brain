@@ -1,4 +1,4 @@
-# Default vendor doc seeds for AWS + IBM Db2 for z/OS + Snowflake + Informatica stack.
+# Default vendor doc seeds for AWS + Snowflake + Informatica stack.
 # Used by: python scripts/seed-vendor-docs.py
 # User approval: running the seed script implies approval to fetch these public URLs.
 
@@ -33,20 +33,6 @@ seed_topics:
     topic: vpc-endpoints
     url: https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html
     slug: vpc-endpoints
-
-  # IBM Db2 for z/OS (ibm.com/docs is JS-heavy for defuddle; product page + manual template)
-  - vendor: ibm-db2-zos
-    topic: product-overview
-    url: https://www.ibm.com/products/db2-for-zos
-    slug: product-overview
-    authority: informational
-
-  - vendor: ibm-db2-zos
-    topic: data-encryption
-    ingest_mode: manual
-    canonical_doc_url: https://www.ibm.com/docs/en/db2-for-zos/13?topic=security-data-encryption
-    manual_template: config/vendor-seed-manual/ibm-db2-zos-data-encryption.md
-    slug: data-encryption
 
   # Snowflake — platform security and loading patterns
   - vendor: snowflake

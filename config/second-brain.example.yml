@@ -63,7 +63,6 @@ vendor_revalidation:
     aws: 60
     snowflake: 30
     informatica: 90
-    ibm-db2-zos: 90
     # azure: 90
     # gcp: 90
     # terraform: 60
@@ -81,10 +80,9 @@ vendor_revalidation:
 # Tier A (v1): on-demand URL fetch via defuddle.
 # Tier B (v1.x): optional vendor MCPs in the IDE — see docs/vendor-catalog.md.
 vendor_sources:
-  # Default stack: AWS + IBM Db2 for z/OS + Snowflake + Informatica
+  # Default stack: AWS + Snowflake + Informatica
   enabled:
     - aws
-    - ibm-db2-zos
     - snowflake
     - informatica
   # Egress allowlist hints for tool-guardian / corporate proxy (hostnames only)

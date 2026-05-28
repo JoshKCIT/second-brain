@@ -104,7 +104,7 @@ Allowlisting: if your environment restricts egress, add vendor doc domains (e.g.
 
 ---
 
-## Default stack seed (AWS + Db2 z/OS + Snowflake + Informatica)
+## Default stack seed (AWS + Snowflake + Informatica)
 
 Tracked seeds: `config/vendor-seed-stack.yml` (8 starter topics). Fetch with:
 
@@ -115,7 +115,6 @@ python scripts/seed-vendor-docs.py --yes
 | Vendor | Starter topics |
 |--------|----------------|
 | `aws` | S3 SSE/SSE-KMS, bucket policies, Glue security, IAM, VPC endpoints |
-| `ibm-db2-zos` | Db2 for z/OS overview, data encryption (manual) |
 | `snowflake` | Encryption, S3 load, storage integration, stages, Snowpipe, RBAC |
 | `informatica` | Cloud DI getting started, product hub |
 
