@@ -14,6 +14,10 @@ Workspace agent chain for new projects: CEO → VP Agent → PM Agent → Archit
 
 Operations are lane-labeled: `workspace-*` for everyday project/documentation work, and `platform-*` for improving Second Brain itself.
 
+## Instruction stack (RC-161)
+
+This file is **Tier 2** (IDE shim). It inherits `AGENTS.md` (Tier 1) and adds Claude Code invocation only. Do not restate full root governance—see `AGENTS.md` § Instruction stacking.
+
 ## Critical rules
 
 1. Filesystem-first. Markdown and JSON only.

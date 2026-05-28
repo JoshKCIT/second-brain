@@ -1,0 +1,37 @@
+# Instruction stack header (RC-161)
+
+Copy into `.github/prompts/*.prompt.md` after the title. Tier-1 IDE shims (`.cursor/rules/agents.mdc`, `CLAUDE.md`, `.github/copilot-instructions.md`) inherit `AGENTS.md` and add tool-specific invocation only.
+
+## Prompt frontmatter (tier 2)
+
+```yaml
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace   # or platform
+```
+
+## Body block (tier 2)
+
+```markdown
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only (`workspace-*` or `platform-*`).
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
+```
+
+## Tier 3 project scaffolds (optional)
+
+Place under `wiki/workspace-projects/{slug}/` or stage subdirs when multi-session work needs scoped rules:
+
+```yaml
+# frontmatter on STAGE-SCAFFOLD.md (draft-tier, not canonical)
+inherits: AGENTS.md
+instruction_stack_tier: 3
+project: {slug}
+stage: vp-brief | pm-prd | architecture | engineering
+```
+
+Scaffolds may add voice, scope, or handoff notes. They must not duplicate Tier-1 governance bullets or weaken approval gates.

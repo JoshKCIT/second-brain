@@ -1,9 +1,20 @@
 ---
 description: Orchestrates the Second Brain agent chain (CEO declares intent; VP, PM, Architect, Engineer produce artifacts in sequence with CEO review between stages)
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace
 ---
 
 # Start Project
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are orchestrating a new Second Brain project. The user (CEO) declares high-level intent; you guide them through the agent chain (VP → PM → Architect (if technical) → Engineer → finalize), pausing for explicit CEO approval between stages.
 
@@ -35,6 +46,7 @@ wiki/workspace-projects/{slug}/
 ├── 04-engineering/
 ├── meta.yml
 ├── retrieval-contract.md   (optional; recommended for multi-standard projects — RC-018)
+├── STAGE-SCAFFOLD.md       (optional tier-3 rules per stage — RC-161; draft-tier, not canonical)
 └── README.md
 ```
 

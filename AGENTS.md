@@ -57,6 +57,22 @@ Workspace-lane operations must not read platform research outputs by default. Us
 
 ---
 
+## Instruction stacking (RC-2026-05-27-161)
+
+Agents load rules in three tiers. Lower tiers add scope; they never override Tier 1.
+
+| Tier | Source | Role |
+|---|---|---|
+| 1 | `AGENTS.md` | Root invariants: approval gates, citation/closure, lane boundaries, fail closed |
+| 2 | Lane/stage prompts (`.github/prompts/workspace-*.prompt.md`, `platform-*.prompt.md`) and IDE shims (`.cursor/rules/agents.mdc`, `CLAUDE.md`, `.github/copilot-instructions.md`) | Task-type scope; must declare `inherits: AGENTS.md` in frontmatter |
+| 3 | Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds under `wiki/workspace-projects/{slug}/`) | Project/stage scope only; draft-tier unless compiled to wiki |
+
+**Non-overridable (Tier 1):** approval-gated ingest/sync/archive/publish; `align-cite` and `align-closure` before publish; citation-grounded claims; platform research cannot mutate canonical workspace standards/projects/PRD/roadmap/`AGENTS.md` without explicit user approval; scoped retrieval per `config/second-brain.yml`; no secrets in artifacts.
+
+Tier-2 shims and Tier-3 scaffolds must not restate full Tier-1 rule lists—reference `AGENTS.md` and add delta only. Template: `templates/workspace/instruction-stack-header.md`. Advisory duplicate-root check: `workspace-lint` check 16.
+
+---
+
 ## Architecture: three layers + agent chain
 
 ### Three layers
@@ -703,6 +719,7 @@ Seven structural checks plus engineering additions:
 | Stale vendor docs | Engineering | Past TTL or hard max |
 | Status-aware closure | Engineering | Body wikilinks at review/published; cross-project violations |
 | Research review integrity | Engineering | Invalid claim records, report shape gaps, protected-file contamination |
+| Instruction stack shim duplication | Engineering | Tier-1 governance rules copied verbatim into shims instead of referencing AGENTS.md (RC-161) |
 
 Output: `reports/workspace-lint-{date}.md` with severity per finding.
 

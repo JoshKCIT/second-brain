@@ -79,6 +79,16 @@ Second Brain uses two explicit path prefixes:
 
 Use workspace commands for normal work. Use platform commands only when reviewing ideas, transcripts, or research about improving Second Brain.
 
+### Instruction stack (RC-161)
+
+Agents load rules in three tiers (full spec in `AGENTS.md`):
+
+1. **Root** — `AGENTS.md` invariants (approval gates, align-cite/closure, fail closed)
+2. **Lane/stage** — `.github/prompts/{workspace|platform}-*.prompt.md` and IDE shims (Copilot/Cursor/Claude files in this repo)
+3. **Project** — optional `meta.yml`, `retrieval-contract.md`, and stage scaffolds under `wiki/workspace-projects/{slug}/`
+
+Nested files add scope only; they cannot override Tier-1 governance. Template: `templates/workspace/instruction-stack-header.md`.
+
 ### 6. Run onboarding
 
 In Copilot chat, invoke the onboarding prompt:

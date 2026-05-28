@@ -1,9 +1,20 @@
 ---
 description: Run all health checks on the wiki. Seven structural checks plus engineering additions. Output a structured report with severity per finding.
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace
 ---
 
 # /workspace-lint
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are running the full lint pass on the wiki. Catches drift, orphans, contradictions, deprecated references, and rule violations.
 
@@ -34,10 +45,11 @@ You are running the full lint pass on the wiki. Catches drift, orphans, contradi
 13. **Status-aware closure violations.** Artifacts at `review` or `published` with body wikilinks; cross-project dependency violations. Flag (use `align-closure` for full check).
 14. **Manually edited content.** Articles with `manually_edited: true` in frontmatter; flag for LLM review (the LLM owns the wiki layer).
 15. **Platform research-review integrity.** If research artifacts exist, validate `wiki/platform-research/claim-register.md` claim-record fields, decision values, impact score ranges, required report sections, and transcript-derived claim leakage into protected canonical files. The helper script is `python scripts/lint-platform-research.py --root .`; use `--strict` when release validation requires platform-research-review artifacts to exist.
+16. **Instruction stack shim duplication (RC-161).** Scan `.cursor/rules/*.mdc`, `CLAUDE.md`, `.github/copilot-instructions.md`, and `.github/prompts/*.prompt.md` for repeated Tier-1 governance bullets (e.g., full align-cite/closure rule lists copied verbatim). Flag advisory when a shim restates more than two root invariants instead of referencing `AGENTS.md`. Tier-3 project scaffolds excluded.
 
 ### LLM-driven (skipped with `--structural-only`)
 
-16. **Contradictions.** Two articles making conflicting claims on the same topic. LLM-judged; flag for resolution.
+17. **Contradictions.** Two articles making conflicting claims on the same topic. LLM-judged; flag for resolution.
 
 ## Output
 

@@ -14,6 +14,10 @@ Workspace agent chain (invoked when the user starts a project): CEO declares int
 
 Operations are lane-labeled: `workspace-*` for everyday project/documentation work, and `platform-*` for improving Second Brain itself. Classify the user's task before touching files.
 
+## Instruction stack (RC-161)
+
+This file is **Tier 2** (IDE shim). It inherits `AGENTS.md` (Tier 1) and adds Copilot-specific invocation only. Do not restate full root governance—see `AGENTS.md` § Instruction stacking.
+
 ## Critical rules
 
 1. **Filesystem-first.** Every artifact is plain Markdown or JSON.

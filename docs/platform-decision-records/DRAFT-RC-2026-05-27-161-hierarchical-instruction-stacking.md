@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft
+Implemented (PIC-2026-05-27-009, pending user review)
 
 ## Source Claim
 
@@ -70,6 +70,9 @@ Verify one multi-stage project session loads root + single stage shim; nested sh
 
 ## Files Proposed for Future Change
 
-- `AGENTS.md` (stacking section — user-approved only)
-- `.github/prompts/*.prompt.md` (inheritance header)
-- `docs/setup-kit.md` (onboarding note)
+- `AGENTS.md` (stacking section) — **done**
+- `.github/prompts/*.prompt.md` (inheritance header) — **done** (24 prompts)
+- `templates/workspace/instruction-stack-header.md` (new) — **done**
+- `.cursor/rules/agents.mdc`, `CLAUDE.md`, `.github/copilot-instructions.md` (Tier-2 shim notes) — **done**
+- `docs/setup-kit.md` (onboarding note) — **done**
+- `.github/prompts/workspace-lint.prompt.md` (shim duplication check 16) — **done**
