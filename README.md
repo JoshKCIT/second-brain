@@ -1,160 +1,297 @@
 # Second Brain
 
-A personal, LLM-maintained knowledge base and documentation production system that runs inside VS Code with GitHub Copilot. Ingests organizational documentation from Confluence (and on-demand vendor docs from public sources) into a local Markdown wiki, and orchestrates a chain of specialized agents to produce new project documentation that is grounded in canonical sources and executable by a junior engineer.
+**Second Brain is a folder on your computer that an AI assistant helps you organize.** You pull in company docs (from Confluence) and public vendor docs (from AWS, Snowflake, etc.), the AI turns them into a searchable wiki, and then helps you write new project documents that cite the right sources.
 
-## What problem this solves
+You do not need to be a developer to use it. You do need to install a few free tools and follow the steps below.
 
-You join a project at a large company. The relevant standards live across multiple teams' Confluence spaces (Architecture, Security, Audit, Snowflake, Data Modeling, etc.). New documentation must align with what those teams have published.
+---
 
-As of April 2026, generic AI tools cover much of the surrounding workflow. Atlassian Intelligence (Rovo) ships Search, Chat, Agents, Studio, Canvas, MCP server, and Rovo Dev in VS Code. Glean has multi-step agents with branches and memory. Microsoft Copilot for M365 has GA multi-step app actions and admin-designated authoritative SharePoint sites. Notion AI supports page templates via API/MCP. Sourcegraph Cody covers IDE-integrated codebase chat.
+## What you will actually do
 
-Second Brain does not compete with those on generic capabilities. It targets the **governance-and-closure** band that none of them productize:
+1. **Download** this repo to your laptop.
+2. **Open it** in VS Code (or Cursor) with an AI assistant turned on.
+3. **Optionally connect** your Atlassian account so the AI can pull Confluence pages.
+4. **Ask the AI** to ingest docs, answer questions, or start a new project (product brief → requirements → specs).
+5. **Read the results** in Obsidian (a free note-taking app) or in VS Code.
 
-- Source authority + domain tagging with claim-level conflict resolution (vendor-vs-internal arbitration)
-- Vendor truth validation with TTL-cached vendor docs and revalidation
-- Junior-engineer-executable closure rule (published artifact set must be self-sufficient)
-- Multi-page stage-gated technical-doc generation with Confluence-storage-format output
-- Mandatory section-level citation discipline across multi-page artifacts
-- Inspectable retrieval enforced before generation as policy
-- Project artifact lifecycle (in-progress / published / archived) with cross-project dependency rules
+The AI does the heavy lifting. Your job is to review what it produces and say yes or no before anything important gets saved or published.
 
-Second Brain produces new documentation by:
+---
 
-1. Pulling canonical content from in-scope sources (you configure the spaces and authority levels)
-2. Tagging every source by authority (standard, recommendation, informational) and domain (internal, vendor:aws, etc.) so vendor capability claims are validated against vendor docs, not stale internal claims
-3. Running a chain of specialized agents (VP, PM, Architect, Engineer) to produce a project artifact set
-4. Enforcing a closure rule: published artifacts must be executable by a jr engineer using only the artifact set
+## What you need before you start
 
-## Architecture in three sentences
+Install these first. All are free except GitHub Copilot (your company may already provide it).
 
-Three layers: `raw/` is the immutable source mirror (Confluence pages, vendor docs, and product-intelligence transcripts); `wiki/` is the LLM-curated knowledge layer organized by article type and authority; `AGENTS.md` is the operating spec the LLM reads. Operations: ingest (Confluence pages, vendor docs on demand), compile (raw → wiki), query (index-guided), platform-research-review (transcripts to grounded claim records), align (5 verification levels), publish (review-folder HTML or Confluence pages), archive. The pattern combines Karpathy's wiki model with Cole's compiler refinements, adapted for engineering documentation.
+| Tool | Why you need it | Get it |
+|------|-----------------|--------|
+| **Git** | Download the repo | [git-scm.com](https://git-scm.com/) |
+| **Python 3.12+** | Runs the setup checker | [python.org](https://www.python.org/downloads/) — on Windows, check “Add Python to PATH” |
+| **Node.js** | Installs `defuddle` (fetches vendor web pages) | [nodejs.org](https://nodejs.org/) |
+| **VS Code** or **Cursor** | Where you chat with the AI | [code.visualstudio.com](https://code.visualstudio.com/) or [cursor.com](https://cursor.com/) |
+| **AI assistant** | Copilot, Claude Code, or Cursor Agent | Copilot extension in VS Code, or built into Cursor |
+| **Obsidian** | Nice way to browse the wiki (optional but recommended) | [obsidian.md](https://obsidian.md/) |
+| **Atlassian account** | Only if you want Confluence ingest | Your work login + API token |
 
-## Two Lanes
+**Time:** About 20–30 minutes for first setup if nothing goes wrong.
 
-Second Brain uses explicit path prefixes so occasional contributors can tell what a file is for:
+---
 
-- `workspace-*` means everyday use of Second Brain for company/project work. Examples: `raw/workspace-confluence/`, `wiki/workspace-standards/`, `.github/prompts/workspace-query.prompt.md`.
-- `platform-*` means work on Second Brain itself. Examples: `raw/platform-transcripts/`, `wiki/platform-research/`, `.cursor/agents/platform-transcript-librarian.md`, `.cursor/agents/platform-research-reviewer.md`.
+## Setup (follow in order)
 
-If the task is "use Second Brain to ingest, query, generate, align, publish, or archive work docs," use the workspace lane. If the task is "make Second Brain better," use the platform lane.
+### Step 1 — Download the repo
 
-## Quick start
+Open a terminal (PowerShell on Windows, Terminal on Mac).
 
 ```bash
-# 1. Clone
-git clone <repo-url>
+git clone https://github.com/JoshKCIT/second-brain.git
 cd second-brain
+```
 
-# 2. Configure
+You should now have a folder called `second-brain` with files like `README.md` and `AGENTS.md`.
+
+### Step 2 — Install the page-fetch helper
+
+```bash
+npm install -g defuddle
+pip install pyyaml
+```
+
+If `pip` fails on Windows, try `python -m pip install pyyaml`.
+
+### Step 3 — Create your config files
+
+**Environment file** (passwords and site URL — never commit this):
+
+```bash
+# Mac / Linux
 cp .env.example .env
-# Edit .env with your Atlassian Cloud credentials (email + API token, or OAuth)
 
-# 3. Verify
+# Windows
+copy .env.example .env
+```
+
+Open `.env` in a text editor. Fill in at least:
+
+- `ATLASSIAN_SITE_URL` — e.g. `https://yourcompany.atlassian.net` (no slash at the end)
+- `ATLASSIAN_EMAIL` — your work email
+- `ATLASSIAN_API_TOKEN` — create one at [Atlassian API tokens](https://id.atlassian.com/manage-profile/security/api-tokens)
+
+**Skip Atlassian for now?** You can leave the token blank and still try the **vendor-doc demo** in Step 6. Confluence ingest needs credentials later.
+
+**Scope file** (which spaces and vendors matter to you):
+
+```bash
+# Mac / Linux
+cp config/second-brain.example.yml config/second-brain.yml
+
+# Windows
+copy config\second-brain.example.yml config\second-brain.yml
+```
+
+You can edit `config/second-brain.yml` later during onboarding with the AI.
+
+### Step 4 — Run the setup checker
+
+```bash
 python scripts/verify-setup.py
+```
 
-# 4. Open in VS Code
+This creates empty folders (`wiki/`, `raw/`, etc.) and checks that Python, config, and optional Atlassian login work.
+
+**If something fails:** read the error message. Common fixes:
+
+- “python not found” → reinstall Python and enable “Add to PATH”
+- Atlassian auth failed → double-check URL, email, and token; some companies require OAuth instead of API tokens
+- `defuddle` not found → run `npm install -g defuddle` again
+
+### Step 5 — Open the project in your editor
+
+```bash
 code .
-
-# 5. Open the same folder in Obsidian (the bundled .obsidian/ config opens to wiki/index.md)
-
-# 6. In Copilot chat, run the onboarding prompt
-# Type or invoke: /second-brain
-# (or open .github/prompts/second-brain.prompt.md and run as prompt file)
 ```
 
-The onboarding conversation walks you through default in-scope Confluence spaces with authority and domain mappings, naming conventions, and your first project setup.
+Or in Cursor: **File → Open Folder** → select the `second-brain` folder.
 
-## Supported agents
+Turn on your AI assistant (Copilot Agent mode, or Cursor Agent).
 
-The repo ships with operating instructions readable by any AI coding agent. Per-agent shim files live in their conventional locations and reference `AGENTS.md` for full content.
+### Step 6 — Open the wiki in Obsidian (recommended)
 
-| Agent | Shim location | Tested |
-|---|---|---|
-| GitHub Copilot (VS Code) | `.github/copilot-instructions.md` | Yes (primary v1 surface) |
-| Claude Code | `CLAUDE.md` | Reads AGENTS.md natively |
-| Cursor | `.cursor/rules/agents.mdc` | Speculative; please open an issue if behavior diverges |
-| Windsurf | `.windsurfrules` | Speculative; please open an issue if behavior diverges |
-| OpenAI Codex CLI | `AGENTS.md` (read directly) | Reads AGENTS.md natively |
+1. Open Obsidian.
+2. **Open folder as vault** → choose the same `second-brain` folder.
+3. It should open to `wiki/index.md` (may be empty until you ingest content).
 
-Verify your agent's prompt-file invocation behavior; conventions in this space shift quarterly.
+### Step 7 — Run onboarding with the AI
 
-## Optional convenience plugins
-
-Not required. Add only when your own friction triggers them.
-
-| Plugin | When useful |
-|---|---|
-| obsidian-visualizer (VS Code extension) | If you constantly switch to Obsidian just to see graph view |
-| Open in VS Code (Obsidian plugin) | If you frequently start in Obsidian and want a one-click jump to VS Code |
-| Obsidian MD for VSCode (willasm extension) | If quick-capture from VS Code into a daily log emerges as a recurring need |
-
-Avoid: Foam and Dendron (alternatives to Obsidian, not complements; conflict with this repo's conventions).
-
-## Repo layout (high level)
+In the AI chat, type or pick:
 
 ```
-README.md                 You are here
-AGENTS.md                 Canonical operating spec for any agent
-.github/                  Copilot shim, lane-labeled prompts, agent skills
-CLAUDE.md, .cursor/, .windsurfrules   Per-agent shims
-docs/                     Brief, PRD, architecture rationale, roadmap, setup kit, writing-style exemplar
-config/                   second-brain.example.yml; user's local config gitignored
-templates/personas/       CEO populated in v1; Engineer/Architect/PM/Director/VP stubs for v1.x
-raw/workspace-*           Everyday source mirror (gitignored content)
-raw/platform-*            Second Brain platform research sources (gitignored content)
-wiki/workspace-*          Everyday curated knowledge layer (gitignored content)
-wiki/platform-*           Second Brain platform research outputs (gitignored content)
-confluence-review/        Local HTML preview output (gitignored)
-quarantine/               Failed conversion artifacts (gitignored)
-reports/                  Lint and platform-research-review reports (gitignored)
-reference-documents/      Manual drops of external standards or specs
-.obsidian/                Bundled vault config defaults
-scripts/                  verify-setup.py and minimal helpers (most operations are LLM-driven)
+/second-brain
 ```
 
-## Optional Platform Research Review
+If slash commands do not work, open `.github/prompts/second-brain.prompt.md` and run it as a prompt file.
 
-Use `/platform-transcript-librarian` to import transcripts, sync the queue register, and process reviews (stops for your input before writing `raw/**`). Use `/platform-research-review` when transcripts, interviews, meeting notes, or product ideas discuss how to improve Second Brain. The workflow extracts atomic claims, grounds them against `AGENTS.md`, `product-brief.md`, `PRD.md`, and related docs, then writes claim records and impact reports under `wiki/platform-research/` and `reports/platform-research-review/`.
+The AI will walk you through:
 
-Research review is intentionally not a compile path: transcripts can influence draft ADRs and experiments, but they do not directly become canonical standards, roadmap items, or product requirements.
+- Confirming your Atlassian site (if you use Confluence)
+- Choosing which Confluence spaces to pull from
+- Saving settings to `config/second-brain.yml`
+- Optionally starting your first project
+
+**You stay in control.** The AI asks before saving or ingesting anything important.
+
+---
+
+## Try it without Confluence (vendor demo)
+
+If you do not have Confluence access yet, you can still populate the wiki with public vendor documentation:
+
+```bash
+python scripts/seed-vendor-docs.py --yes
+python scripts/compile-workspace-external.py
+python scripts/lint-workspace.py
+```
+
+Then open `wiki/index.md` in Obsidian. You should see concept articles about AWS, Snowflake, etc.
+
+Ask the AI:
+
+```
+/workspace-query What does our cached Snowflake documentation say about data types?
+```
+
+---
+
+## Everyday commands (plain English)
+
+Type these in your AI chat. They match files in `.github/prompts/`.
+
+| You want to… | Type this | What happens |
+|--------------|-----------|--------------|
+| Get oriented / change settings | `/second-brain` | Onboarding and config help |
+| Pull Confluence pages | `/workspace-ingest-confluence` | Copies pages into `raw/`, updates wiki |
+| Ask a question about the wiki | `/workspace-query` | AI reads the index and answers with sources |
+| Start a new project doc set | `/workspace-start-project` | Runs VP → PM → Architect → Engineer chain |
+| Check doc quality before publish | `/workspace-align-cite` | Verifies citations match sources |
+| Preview docs as HTML | `/workspace-publish` | Creates files in `confluence-review/` |
+| Health check on the wiki | `/workspace-lint` | Report in `reports/` |
+
+**New project flow (simple version):**
+
+1. `/workspace-start-project` — describe your project in plain language.
+2. Review each stage (brief → requirements → architecture → engineering). Edit if needed; tell the AI when to continue.
+3. Before publishing, run align checks the AI suggests.
+4. `/workspace-publish` when you are happy with the output.
+
+Detailed checklists: `docs/adoption-checklist.md` and `docs/setup-kit.md`.
+
+---
+
+## Where things live (simple map)
+
+Think of three layers:
+
+```
+raw/     = Source copies (Confluence pages, vendor PDFs/web pages). Treat as read-only evidence.
+wiki/    = Organized knowledge the AI maintains. This is what you read and search.
+AGENTS.md = Rulebook the AI reads so it behaves consistently.
+```
+
+**Everyday work** uses paths starting with `workspace-` (e.g. `wiki/workspace-standards/`, `wiki/workspace-projects/`).
+
+**Improving Second Brain itself** uses `platform-` paths (transcripts, research). Ignore these unless you are working on the product.
+
+Other folders you might see:
+
+| Folder | Purpose |
+|--------|---------|
+| `config/` | Your settings (`second-brain.yml` — local, not in git) |
+| `docs/` | Product docs, setup guides, architecture notes |
+| `templates/` | Starting templates for projects and research |
+| `reports/` | Lint and review reports the AI generates |
+| `confluence-review/` | HTML previews before you publish to Confluence |
+| `.github/prompts/` | All the `/command` prompts the AI uses |
+
+Content in `raw/`, `wiki/`, and `reports/` is usually **not committed to git** — it lives on your machine.
+
+---
+
+## Which AI tool should I use?
+
+This repo works with several AI coding assistants. Pick one:
+
+| Tool | How it loads instructions |
+|------|---------------------------|
+| **GitHub Copilot** (VS Code) | `.github/copilot-instructions.md` + prompt files |
+| **Cursor** | `.cursor/rules/agents.mdc` + prompt files |
+| **Claude Code** | `CLAUDE.md` + `AGENTS.md` |
+| **Windsurf** | `.windsurfrules` + `AGENTS.md` |
+
+You do **not** need a separate OpenAI or Anthropic API key for normal use — your editor’s AI subscription is enough.
+
+---
+
+## Troubleshooting
+
+| Problem | What to try |
+|---------|-------------|
+| AI ignores `/commands` | Open the matching file in `.github/prompts/` manually and run it as a prompt |
+| Empty wiki after ingest | Check `wiki/log.md` for errors; look in `quarantine/` for failed pages |
+| “Stale vendor doc” warning | AI will offer to refetch; say yes, or run `/workspace-ingest-vendor-doc` |
+| AI wants to edit something you did not ask for | Say no — important changes need your approval by design |
+| Company blocks API tokens | Use OAuth fields in `.env` instead; ask IT about IP allowlists |
+
+More detail: `docs/setup-kit.md` § Common failures.
+
+---
+
+## Why Second Brain? (short version)
+
+Large companies scatter standards across many Confluence spaces. Generic AI chat can summarize pages, but it does not enforce **which source wins** when internal docs disagree with AWS, or whether your published spec is complete enough for a junior engineer to execute without guessing.
+
+Second Brain is built for that **governance and closure** layer: tagged sources, citation checks, vendor doc freshness, and staged project artifacts. It is not trying to replace Confluence search or Microsoft Copilot for everyday Q&A.
+
+Deep dive: `product-brief.md` and `PRD.md`.
+
+---
+
+## Optional: platform research lane
+
+Only if you are improving Second Brain itself (reviewing transcripts, scoring product ideas):
+
+- `/platform-transcript-librarian` — import and queue transcripts
+- `/platform-research-review` — extract and score claims
+- `/platform-implement-backlog` — implement approved changes one at a time
+
+Setup: `docs/platform-intelligence/platform-research-review-setup.md`.
+
+---
 
 ## Documentation map
 
-| Document | Purpose |
-|---|---|
-| `product-brief.md` | Why this exists, who it serves, scope, constraints |
-| `PRD.md` | What v1 builds, functional requirements, user stories, milestones |
-| `AGENTS.md` | How any agent operates the system |
-| `docs/architecture-rationale.md` | Design decisions and tradeoffs |
-| `docs/roadmap.md` | Phase sequencing for v1 |
-| `docs/setup-kit.md` | Step-by-step adoption guide |
-| `docs/adoption-checklist.md` | Quick first-run checklist |
-| `docs/platform-intelligence/platform-research-review-setup.md` | Optional transcript-to-claim review workflow |
-| `docs/style/exemplar-published-doc.md` | Writing-quality target for authored artifacts |
+| Document | When to read it |
+|----------|-----------------|
+| `docs/setup-kit.md` | Full setup walkthrough |
+| `docs/adoption-checklist.md` | Printable first-run checklist |
+| `AGENTS.md` | Complete rulebook (for power users and agents) |
+| `docs/roadmap.md` | What is built vs planned |
+| `scripts/README.md` | Helper scripts reference |
 
-## Enterprise considerations
+---
 
-If you are on Atlassian Cloud Enterprise tier:
+## Enterprise notes
 
-- Personal API tokens may be disabled by your tenant policy. The `.env` accepts both API-token and OAuth credentials; configure whichever your tenant allows.
-- IP allowlisting may block your local machine. Confirm with your Atlassian admin before first ingest.
-- Atlassian Guard / SSO policies may require OAuth rather than personal tokens.
-- Audit logs will capture every API call. Recommended: heads-up to IT before first ingest of large spaces.
+- Some tenants disable personal API tokens — use OAuth in `.env`.
+- Large ingests may show up in Atlassian audit logs; tell IT before bulk pulls.
+- v1 is **single-user local**: each person clones their own copy; there is no shared cloud wiki yet.
 
-## Constraints (current)
-
-- Single-user local. v1 does not support shared wikis. Each user clones and runs their own instance.
-- Confluence Cloud Enterprise is the v1 source. Server, Data Center, SharePoint, OneNote, Jira are deferred to v1.x.
-- LLM access via GitHub Copilot agent mode. No separate Anthropic API key required.
-
-## License
-
-`[NEEDS DECISION — MIT, Apache 2.0, or other? Default proposal: MIT for maximum adoption.]`
-
-## Contribution model
-
-`[NEEDS DECISION — accept community PRs from the start, or yours-only initially? Default proposal: yours-only for v1; consider community contributions in v1.x once the core stabilizes.]`
+---
 
 ## Status
 
-v1 in build: **Phases 1A–2 complete** — vendor wiki (14 concepts, 4 Base views, lint-clean). **Phase 3 active.** Confluence deferred (Phase 1B). See `docs/phase-2-exit-report.md` and `docs/roadmap.md`.
+**Phases 1A–2 complete** — vendor wiki, lint tooling, agent prompts. **Phase 3 active** — Confluence ingest and full project workflow. See `docs/roadmap.md`.
+
+---
+
+## License
+
+License TBD (MIT proposed). See repository settings for current license file.
