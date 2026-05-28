@@ -124,10 +124,10 @@ python scripts/seed-vendor-docs.py --yes
 
 When Atlassian access is unavailable:
 
-1. **Phase 1A (active):** `verify-setup.py` without Atlassian gate; vendor ingest + revalidate prompts exercised; seed a few caches per vendor you use.
-2. **Phase 2 (adjusted):** Compile vendor caches into `wiki/workspace-concepts/`; maintain `wiki/index.md` from vendor + any manual standards you add.
-3. **Phase 3:** Run agent chain projects grounded in **vendor docs + your drafts** (no cross-team Confluence standards until 1B).
-4. **Phase 1B (blocked):** Atlassian MCP spike + Confluence ingest when credentials and space access exist.
+1. **Phase 1A (complete in repo):** `verify-setup.py` without Atlassian gate; `seed-vendor-docs.py` + `revalidate-vendor-docs.py` for caches listed in `config/vendor-seed-stack.yml`.
+2. **Phase 2 (complete in repo):** `compile-workspace-external.py`, `lint-workspace.py`, Base views under `wiki/workspace-views/` — regenerate wiki locally (gitignored).
+3. **Phase 3 (active):** `/workspace-start-project` — agent chain grounded in **vendor docs + your drafts** until 1B.
+4. **Phase 1B (blocked):** Atlassian MCP spike + Confluence ingest when `atlassian.enabled=true` and credentials exist.
 
 See `docs/roadmap.md` for checklist items.
 

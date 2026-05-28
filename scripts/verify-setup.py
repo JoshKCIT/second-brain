@@ -289,8 +289,9 @@ def main() -> int:
         return 1
 
     print("SUCCESS: Second Brain workspace verified.")
-    print("Phase 1A complete. See docs/phase-1a-exit-report.md")
-    print("Next: Phase 2 (compile, Base views) or /workspace-start-project (Phase 3)")
+    print("Vendor bootstrap (Phase 1A): docs/phase-1a-exit-report.md")
+    print("Wiki compile (Phase 2): docs/phase-2-exit-report.md — run compile-workspace-external.py + lint-workspace.py locally")
+    print("Next: /workspace-start-project (Phase 3) — Confluence ingest remains Phase 1B when atlassian.enabled=true")
     return 0
 
 
