@@ -101,7 +101,7 @@ Platform maintenance items (not transcript claims). Full list: `reports/platform
 | PH-2026-05-27-003 | inter-stage output contract | 21 | accepted |
 | PH-2026-05-27-004 | advisory align-cite per stage | 19 | accepted |
 | PH-2026-05-27-005 | reopen stage protocol | 18 | accepted |
-| PH-2026-05-27-006 | platform escalation routing (with RC-162) | 16 | queued |
+| PH-2026-05-27-006 | platform escalation routing (with RC-162) | 16 | accepted |
 
 Status values for PH items: `queued`, `partial`, `accepted`, `rolled_back`.
 

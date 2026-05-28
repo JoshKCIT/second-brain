@@ -36,6 +36,10 @@ stage: vp-brief | pm-prd | architecture | engineering
 
 Scaffolds may add voice, scope, or handoff notes. They must not duplicate Tier-1 governance bullets or weaken approval gates.
 
+## Routing (RC-162)
+
+Before loading project depth, classify task type using `templates/workspace/routing-map.md` or `AGENTS.md` § Routing map. Routing is orientation-only; RC-122 read-before-write still applies.
+
 ## Tier 3 sub-scaffolds (RC-167)
 
 Optional workstream threads: `wiki/workspace-projects/{slug}/0X-{stage}/subprojects/{workstream}/`

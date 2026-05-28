@@ -58,7 +58,7 @@ Total: 10 (adopt)
 
 ### Negative / Risks
 
-- Operators create deep nests without routing maps (mitigate RC-162).
+- Operators create deep nests without routing maps (mitigate RC-162 — **done**).
 
 ### Safeguards
 

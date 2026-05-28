@@ -41,7 +41,7 @@ Use this file to track unresolved ideas from transcript review that are not yet 
 | H-2026-05-27-018 | RC-2026-05-27-140 | Dedicated raw/workspace-meetings/ lane with compile gate preserves evidence separation. | One meeting ingest pilot with approval checkpoint. | open | unassigned |
 | H-2026-05-27-019 | RC-2026-05-27-141 | Controlled tag vocabulary in config improves scoped query without vectors. | 10-question holdout vs untagged baseline. | open | unassigned |
 | H-2026-05-27-020 | RC-2026-05-27-142 | Weekly disposable pulse report from log+lint improves CEO orientation without wiki writes. | Generate one report; verify zero wiki mutation. | open | unassigned |
-| H-2026-05-27-025 | RC-2026-05-27-162 | Task-type routing map in AGENTS shim reduces mis-routed compile reads. | 5-task holdout vs baseline; merge RC-018 orientation map. | open | unassigned |
+| H-2026-05-27-025 | RC-2026-05-27-162 | Task-type routing map in AGENTS shim reduces mis-routed compile reads. | 5-task holdout vs baseline; merge RC-018 orientation map. | active | unassigned |
 | H-2026-05-27-026 | RC-2026-05-27-163 | Disposable orientation.md per stage improves resumption without wiki promotion. | Pilot two weeks; lint blocks wiki writes without compile. | active | unassigned |
 | H-2026-05-27-027 | RC-2026-05-27-164 | Session audit skill captures preferences with explicit approval only. | Three sessions; zero unapproved writes. | active | unassigned |
 | H-2026-05-27-028 | RC-2026-05-27-165 | Lean root shims with pointer resources reduce default context load. | Line audit; mandatory rules remain in default load. | open | unassigned |

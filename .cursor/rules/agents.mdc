@@ -16,6 +16,20 @@ Workspace agent chain for new projects: CEO → VP Agent → PM Agent → Archit
 
 Operations are lane-labeled: `workspace-*` for everyday project/documentation work, and `platform-*` for improving Second Brain itself. Classify the task before touching files.
 
+## Routing map (RC-162)
+
+Task → prompt → first reads. Orientation only; full table in `AGENTS.md` § Routing map and `templates/workspace/routing-map.md`.
+
+| If the user wants to… | Invoke |
+|---|---|
+| Start/resume a project | `workspace-start-project` |
+| Ingest, compile, query wiki | `workspace-ingest-*`, `workspace-compile`, `workspace-query` |
+| Align or publish docs | `workspace-align-*`, `workspace-publish` |
+| Improve Second Brain / review transcripts | `platform-transcript-librarian`, `platform-research-review` |
+| Product idea mid workspace project | **PH-006:** escalate to platform lane — do not edit protected workspace/PRD files |
+
+---
+
 ## Instruction stack (RC-161)
 
 This file is **Tier 2** (IDE shim). It inherits `AGENTS.md` (Tier 1) and adds Cursor-specific invocation only. Do not restate full root governance here—see `AGENTS.md` § Instruction stacking.

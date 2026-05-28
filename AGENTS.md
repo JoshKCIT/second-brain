@@ -57,6 +57,25 @@ Workspace-lane operations must not read platform research outputs by default. Us
 
 ---
 
+## Routing map (RC-162)
+
+Task-type → prompt/skill → first read paths. **Orientation only** — does not auto-load content or bypass RC-122/RC-018/align-cite. Full table: `templates/workspace/routing-map.md`.
+
+| Task type | Lane | Invoke | Read first |
+|---|---|---|---|
+| Onboard / configure | workspace | `second-brain` | `config/second-brain.yml`, `wiki/index.md` |
+| Start / resume project | workspace | `workspace-start-project` | `meta.yml`, stage `handoff.md`, `wiki/index.md` |
+| Stage agent work | workspace | `workspace-{vp,pm,architect,engineer}-agent` | Stage artifact, `handoff.md`, scoped wiki/raw |
+| Ingest / compile / query | workspace | `workspace-ingest-*`, `workspace-compile`, `workspace-query` | `wiki/index.md`, scoped sources per RC-018 |
+| Align / publish / lint | workspace | `workspace-align-*`, `workspace-publish`, `workspace-lint` | Target artifacts + cited paths |
+| Session audit | workspace | `workspace-session-audit` | Stage `handoff.md`, `orientation.md` |
+| **Platform escalation (PH-006)** | **platform** | **`platform-transcript-librarian` / `platform-research-review`** | **`wiki/platform-research/**` — no protected workspace/PRD edits without approval** |
+| Transcript / research / stack-lift | platform | `platform-*`, implementation backlog | Register, claim register, approved ADR |
+
+When workspace work surfaces Second Brain product ideas, **escalate to platform lane** (PH-006); do not promote transcript claims into workspace standards or projects without review.
+
+---
+
 ## Instruction stacking (RC-2026-05-27-161)
 
 Agents load rules in three tiers. Lower tiers add scope; they never override Tier 1.
@@ -69,7 +88,7 @@ Agents load rules in three tiers. Lower tiers add scope; they never override Tie
 
 **Non-overridable (Tier 1):** approval-gated ingest/sync/archive/publish; `align-cite` and `align-closure` before publish; citation-grounded claims; platform research cannot mutate canonical workspace standards/projects/PRD/roadmap/`AGENTS.md` without explicit user approval; scoped retrieval per `config/second-brain.yml`; no secrets in artifacts.
 
-Tier-2 shims and Tier-3 scaffolds must not restate full Tier-1 rule lists—reference `AGENTS.md` and add delta only. Template: `templates/workspace/instruction-stack-header.md`. Advisory duplicate-root check: `workspace-lint` check 16.
+Tier-2 shims and Tier-3 scaffolds must not restate full Tier-1 rule lists—reference `AGENTS.md` and add delta only. Template: `templates/workspace/instruction-stack-header.md`. Routing map: `templates/workspace/routing-map.md` (RC-162). Advisory duplicate-root check: `workspace-lint` check 16.
 
 ---
 
@@ -132,6 +151,8 @@ Each workspace agent has a prompt file in `.github/prompts/workspace-{agent}-age
 **Project sub-scaffold rule stacking (RC-167):** Optional `subprojects/{workstream}/` under a stage with Tier-3 `STAGE-SCAFFOLD.md`, local orientation, and resources. Inherits AGENTS + stage prompt; all sub-scaffold files use `publish_scope: exclude`. Excluded from finalize, align-closure publish set, and publish. Template: `templates/workspace/project-sub-scaffold/README.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-167-project-subfolder-rule-stacking.md`.
 
 **Session audit (RC-164):** Optional end-of-session skill (`.github/skills/session-audit/`) scans conversation and proposes `orientation.md` or `handoff.md` updates. Proposal-only; CEO approves each item before write. Never auto-writes wiki or canonical knowledge. Prompt: `.github/prompts/workspace-session-audit.prompt.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-164-session-audit-skill.md`.
+
+**Task-type routing map (RC-162):** Shims and `AGENTS.md` include task → prompt → first-read-path table for workspace and platform lanes. PH-006 platform escalation row routes mid-project product ideas to platform research without protected-file mutation. Template: `templates/workspace/routing-map.md`. ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-162-routing-map-agents-shim.md`.
 
 CEO reviews and edits between stages. Do not invoke the next agent without explicit CEO approval.
 

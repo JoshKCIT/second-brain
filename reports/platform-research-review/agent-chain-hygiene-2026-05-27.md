@@ -18,7 +18,7 @@ Post-implementation review of the workspace agent hierarchy (RC-161, RC-058) ide
 | PH-2026-05-27-003 | hygiene | accepted | inter-stage output contract (PIC-013) |
 | PH-2026-05-27-004 | hygiene | accepted | advisory align-cite per stage |
 | PH-2026-05-27-005 | hygiene | accepted | reopen stage protocol (PIC-014) |
-| PH-2026-05-27-006 | hygiene | queued | platform escalation routing (RC-162 bundle) |
+| PH-2026-05-27-006 | hygiene | accepted | platform escalation routing (PIC-020) |
 
 ## Highest-Value Claims
 

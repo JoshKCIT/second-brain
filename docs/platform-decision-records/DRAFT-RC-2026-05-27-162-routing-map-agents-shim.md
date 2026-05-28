@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft
+Accepted (PIC-2026-05-27-020)
 
 ## Source Claim
 
@@ -68,5 +68,9 @@ Total: 8 (experiment)
 
 ## Files Proposed for Future Change
 
-- `AGENTS.md` or `.cursor/rules/agents.mdc` (routing section)
-- `templates/platform-research/routing-map.example.md` (new)
+- `AGENTS.md` (routing section) — **done**
+- `templates/workspace/routing-map.md` (new) — **done**
+- `.cursor/rules/agents.mdc`, `CLAUDE.md`, `.github/copilot-instructions.md` — **done**
+- `.github/prompts/workspace-start-project.prompt.md` (PH-006 escalation) — **done**
+- `.github/prompts/workspace-lint.prompt.md` (routing freshness advisory) — **done**
+- PH-2026-05-27-006 bundled — **done** (platform escalation row)
