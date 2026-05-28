@@ -30,9 +30,9 @@ Before writing architecture artifacts:
 
 ## Session handoff (RC-058)
 
-**On resume:** Read `wiki/workspace-projects/{slug}/03-architecture/handoff.md` if present before asking the CEO to restate context.
+**On resume:** Read `wiki/workspace-projects/{slug}/03-architecture/handoff.md` if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
 
-**On session end:** Create or update `03-architecture/handoff.md` using `templates/workspace/handoff.md`. Ask the CEO to confirm accuracy before closing the session.
+**On session end:** Create or update `03-architecture/handoff.md` using `templates/workspace/handoff.md`. Optionally append daily progress. Ask the CEO to confirm accuracy before closing the session.
 
 ## Inputs
 

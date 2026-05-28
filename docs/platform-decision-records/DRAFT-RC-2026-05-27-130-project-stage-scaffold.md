@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft
+Implemented (PIC-2026-05-27-011, pending user review)
 
 ## Source Claim
 
@@ -75,6 +75,10 @@ Pilot on one active project for two weeks; measure successful "catch up last N d
 
 ## Files Proposed for Future Change
 
-- `templates/workspace/project-stage-scaffold/`
-- `.github/prompts/workspace-start-project.prompt.md`
-- `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md` (cross-link)
+- `templates/workspace/project-stage-scaffold/` — **done**
+- `.github/prompts/workspace-start-project.prompt.md` — **done**
+- `.github/prompts/workspace-{vp,pm,architect,engineer}-agent.prompt.md` — **done**
+- `.github/prompts/workspace-engineer-agent.prompt.md` (finalize exclusions) — **done**
+- `.github/prompts/workspace-publish.prompt.md` (scaffold cleanup) — **done**
+- `AGENTS.md` — **done**
+- `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md` (cross-link via templates) — **done**

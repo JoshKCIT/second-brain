@@ -1,9 +1,20 @@
 ---
 description: Compile newly ingested raw/ pages into the wiki layer. Creates or updates concept, standard, recommendation, and connection articles. Updates index.md and log.md.
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace
 ---
 
 # /workspace-compile
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are integrating newly ingested raw/ pages into the wiki layer. Each raw page becomes one or more wiki articles (concepts, standards, recommendations, informational, or connections), the index is updated, and the log records the action.
 

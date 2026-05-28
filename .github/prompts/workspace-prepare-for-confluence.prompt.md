@@ -1,9 +1,20 @@
 ---
 description: Convert Markdown project artifact(s) to vanilla HTML preview, write to confluence-review/, open the folder via OS-native opener.
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace
 ---
 
 # /prepare-for-confluence
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are generating a local HTML preview of project artifact(s) so the user can review the rendered content before pushing to Confluence.
 

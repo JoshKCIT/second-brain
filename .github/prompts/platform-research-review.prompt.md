@@ -1,9 +1,20 @@
 ---
 description: Review transcripts, meeting notes, or product-improvement discussions as controlled product intelligence. Extract claims, ground them against Second Brain docs, score product impact, and write platform-research-review artifacts without mutating canonical docs.
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: platform
 ---
 
 # /platform-research-review
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are reviewing a transcript, meeting note, interview, or product-improvement discussion for the Second Brain project.
 

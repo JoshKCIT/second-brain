@@ -62,4 +62,4 @@ Facts the next session needs to resume without chat history: current artifact pa
 
 - ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-058-project-session-handoff.md`
 - Instruction stack tier 3: RC-161
-- Stage scaffold (extends RC-058): RC-130
+- Stage scaffold (extends RC-058): `templates/workspace/project-stage-scaffold/README.md` (RC-130)

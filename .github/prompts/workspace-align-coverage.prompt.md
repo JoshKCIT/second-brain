@@ -1,9 +1,20 @@
 ---
 description: Verify a project artifact addresses every relevant requirement from in-scope standards. Gap analysis. Best-effort tier (advisory; LLM judgment).
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace
 ---
 
 # /workspace-align-coverage
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are checking whether a project artifact addresses every requirement from in-scope standards that applies to it. Best-effort tier: requirement extraction is non-trivial and LLM judgment is subjective.
 

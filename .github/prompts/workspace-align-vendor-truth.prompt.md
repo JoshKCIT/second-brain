@@ -1,9 +1,20 @@
 ---
 description: Verify vendor-domain claims cite vendor sources, not stale internal claims. Catches the S3-encryption-style failure mode where internal docs misrepresent vendor capabilities.
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace
 ---
 
 # /workspace-align-vendor-truth
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are verifying that claims about vendor capabilities (AWS, Snowflake, Atlassian, etc.) are cited from vendor sources, not from internal documentation that may be stale or incorrect.
 

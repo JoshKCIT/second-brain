@@ -1,9 +1,20 @@
 ---
 description: Ingest Confluence pages via the user's existing API-based skill. Per-page output to raw/workspace-confluence/{space-key}/pages/, synchronous compile to wiki/, post-ingest manifest with quarantine for failures.
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace
 ---
 
 # /workspace-ingest-confluence
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are ingesting Confluence pages into the user's Second Brain. The user provides a space key, page ID, page URL, or list of these. Output lands in `raw/workspace-confluence/{space-key}/pages/{page-id}--{slug}.md`. The wiki layer is compiled synchronously.
 

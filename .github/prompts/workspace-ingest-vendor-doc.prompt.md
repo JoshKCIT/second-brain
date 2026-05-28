@@ -1,9 +1,20 @@
 ---
 description: Fetch a vendor doc on demand using the defuddle skill, cache to raw/workspace-external/ with TTL frontmatter for revalidation.
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace
 ---
 
 # /workspace-ingest-vendor-doc
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are fetching a vendor documentation page (AWS, Snowflake, Atlassian, etc.) on demand because an agent is about to cite a vendor capability claim. The fetched page is cached locally with TTL frontmatter so future cites can reuse it.
 

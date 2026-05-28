@@ -32,7 +32,8 @@ priority_score =
 | 0 — Accepted foundation | Unblocks all later work | RC-014, RC-010, RC-001, RC-002, RC-015, RC-003 |
 | 1 — Policy bundle | Query/retrieval discipline | RC-122 + RC-157 (one cycle) |
 | 2 — Compile scaffolding | Agent orientation contracts | RC-018, RC-161 |
-| 3 — Session ergonomics | Multi-day project resume | RC-058 → RC-130 |
+| 3 — Session ergonomics | Multi-day project resume | RC-058 ✓ → RC-130 |
+| 3b — Hygiene | Agent chain gaps (2026-05-27 review) | PH-001 → PH-003 → … |
 | 4 — Experiments | After tiers 1–3 satisfied | RC-163→164, RC-116→117, RC-162, RC-165, RC-167 |
 | 5 — Compile lane | Raw inbox pilots | RC-146 → RC-148 → RC-149 |
 | — verified_no_change | Already in design; no cycle | RC-004, RC-006, RC-147, RC-160, RC-111 |
@@ -88,6 +89,21 @@ Status values: `queued`, `blocked`, `in_progress`, `user_review`, `accepted`, `r
 |---|---|
 | RC-2026-05-27-105, RC-115 | Finalize/publish prompts (understanding/accountability checkpoints) |
 | RC-2026-05-27-113 | Onboarding / second-brain prompt (tools-over-models framing) |
+
+## Agent chain hygiene queue (PH-*)
+
+Platform maintenance items (not transcript claims). Full list: `reports/platform-research-review/agent-chain-hygiene-2026-05-27.md`.
+
+| ID | Title | Typical priority |
+|---|---|---:|
+| PH-2026-05-27-001 | meta.yml stage state machine | 26 |
+| PH-2026-05-27-002 | start-project finalize alignment | 25 |
+| PH-2026-05-27-003 | inter-stage output contract | 21 |
+| PH-2026-05-27-004 | advisory align-cite per stage | 19 |
+| PH-2026-05-27-005 | reopen stage protocol | 18 |
+| PH-2026-05-27-006 | platform escalation routing (with RC-162) | 16 |
+
+Status values for PH items: `queued`, `partial`, `accepted`, `rolled_back`.
 
 ## Deferred (not in active queue)
 

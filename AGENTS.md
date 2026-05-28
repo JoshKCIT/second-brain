@@ -115,6 +115,8 @@ Each workspace agent has a prompt file in `.github/prompts/workspace-{agent}-age
 
 **Session handoff (RC-058):** Optional `handoff.md` per stage directory holds draft-tier restart context (`starting_context`, `next_steps`, `open_decisions`, `last_session`). Agents read on resume; update at session end after CEO confirms. Template: `templates/workspace/handoff.md`. Excluded from finalize and published artifact set.
 
+**Stage evidence scaffold (RC-130):** Optional per-stage folders `research/`, `chats/`, `daily-progress/` plus `handoff.md` for multi-day catch-up. Draft-tier only; excluded from publish set. Template: `templates/workspace/project-stage-scaffold/README.md`.
+
 CEO reviews and edits between stages. Do not invoke the next agent without explicit CEO approval.
 
 ---

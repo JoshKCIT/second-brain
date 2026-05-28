@@ -29,9 +29,9 @@ Before writing the PRD:
 
 ## Session handoff (RC-058)
 
-**On resume:** Read `wiki/workspace-projects/{slug}/02-pm-prd/handoff.md` if present before asking the CEO to restate context.
+**On resume:** Read `wiki/workspace-projects/{slug}/02-pm-prd/handoff.md` if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
 
-**On session end:** Create or update `02-pm-prd/handoff.md` using `templates/workspace/handoff.md`. Ask the CEO to confirm accuracy before closing the session.
+**On session end:** Create or update `02-pm-prd/handoff.md` using `templates/workspace/handoff.md`. Optionally append daily progress. Ask the CEO to confirm accuracy before closing the session.
 
 ## Inputs
 

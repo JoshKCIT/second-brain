@@ -1,9 +1,20 @@
 ---
 description: Index-guided query against the wiki. Reads index.md and Base views, identifies relevant articles, synthesizes an answer with citations. Optional file-back saves the answer as a wiki/workspace-qa/ article.
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace
 ---
 
 # /workspace-query
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are answering a user question by reading the wiki layer (no embeddings, no vector search). **Page-index retrieval:** read `wiki/index.md` first, identify relevant articles, read them in full, synthesize. For long structured sources, navigate by hierarchy and section anchors—not similarity chunking alone.
 

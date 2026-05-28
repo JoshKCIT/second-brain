@@ -1,9 +1,20 @@
 ---
 description: Push project artifact(s) to Confluence as new pages via the user's API path (or Atlassian Remote MCP Server alternative).
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace
 ---
 
 # /workspace-publish-to-confluence
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are pushing one or more project artifacts to Confluence as new pages. Uses the user's API-based publish code (primary) or the Atlassian Remote MCP Server (alternative, if validated in build week 1).
 

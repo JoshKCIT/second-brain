@@ -1,9 +1,20 @@
 ---
 description: Status-aware closure check. At review/published, body prose contains no internal wikilinks. Cross-project dependency rules enforced. Junior-engineer-executable bar verified.
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace
 ---
 
 # /workspace-align-closure
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are verifying that a project's authored set is jr-engineer-executable using only itself, and that body prose follows status-appropriate rules.
 

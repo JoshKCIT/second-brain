@@ -41,16 +41,21 @@ If the user is unsure whether technical applies, default to yes.
 ```
 wiki/workspace-projects/{slug}/
 ├── 01-vp-brief/
-│   └── handoff.md          (optional — RC-058; draft-tier session state)
+│   ├── handoff.md          (optional — RC-058)
+│   ├── research/           (optional — RC-130)
+│   ├── chats/              (optional — RC-130)
+│   └── daily-progress/     (optional — RC-130)
 ├── 02-pm-prd/
-│   └── handoff.md          (optional — RC-058)
+│   ├── handoff.md
+│   ├── research/
+│   ├── chats/
+│   └── daily-progress/
 ├── 03-architecture/        (created only if technical)
-│   └── handoff.md          (optional — RC-058)
+│   └── … same scaffold …
 ├── 04-engineering/
-│   └── handoff.md          (optional — RC-058)
+│   └── … same scaffold …
 ├── meta.yml
 ├── retrieval-contract.md   (optional; recommended for multi-standard projects — RC-018)
-├── STAGE-SCAFFOLD.md       (optional tier-3 rules per stage — RC-161; draft-tier, not canonical)
 └── README.md
 ```
 
@@ -76,6 +81,8 @@ alignment_defaults:
 ```
 
 `README.md` is a brief project overview generated from the CEO's intent.
+
+When creating stage directories, optionally create empty `research/`, `chats/`, and `daily-progress/` subdirs per `templates/workspace/project-stage-scaffold/README.md` (RC-130). Scaffold is draft-tier; never part of publish set.
 
 Append entry to `wiki/log.md`:
 
@@ -141,12 +148,9 @@ Output: `wiki/workspace-projects/{slug}/04-engineering/{spec-files}.md` at statu
 
 ## Step 11: Finalize
 
-Run the finalize step (Engineer-led):
+Run the finalize step per `.github/prompts/workspace-engineer-agent.prompt.md` **Finalize step** section (Engineer-led). Do not duplicate finalize rules here.
 
-- For every artifact in `wiki/workspace-projects/{slug}/`:
-  - Rewrite body wikilinks to prose (inline content; move pure-navigation links to `## See Also`)
-  - Verify frontmatter completeness
-  - Update `status: review`
+Engineer must exclude draft-tier files and scaffold paths (`handoff.md`, `retrieval-contract.md`, `README.md`, `research/**`, `chats/**`, `daily-progress/**`) from wikilink rewrite and `review` promotion.
 
 ## Step 12: Run pre-publish align gates
 
@@ -176,8 +180,9 @@ If invoked again on a project that already has artifacts (detected by `wiki/work
 
 1. Read `meta.yml` and existing stage artifacts to determine the current stage.
 2. Read `handoff.md` in the active stage directory if present (RC-058). Use `starting_context`, `next_steps`, and `open_decisions` before asking the CEO to re-explain.
-3. If no handoff exists, infer state from artifact frontmatter (`status`, `stage`) and `wiki/log.md` entries for the project.
-4. At orchestration session end, create or update the active stage's `handoff.md` via `templates/workspace/handoff.md` and ask the CEO to confirm accuracy.
+3. Read `daily-progress/` in the active stage (newest 3 files first) for catch-up (RC-130).
+4. If no handoff exists, infer state from artifact frontmatter (`status`, `stage`) and `wiki/log.md` entries for the project.
+5. At orchestration session end, create or update the active stage's `handoff.md` via `templates/workspace/handoff.md` and ask the CEO to confirm accuracy.
 
 ## On error
 

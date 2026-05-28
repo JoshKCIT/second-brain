@@ -1,9 +1,20 @@
 ---
 description: Verify every cited claim in a project artifact resolves to a source containing the cited content. Production-quality check. Runs automatically before publish.
 mode: agent
+inherits: AGENTS.md
+instruction_stack_tier: 2
+lane: workspace
 ---
 
 # /workspace-align-cite
+
+## Instruction stack (RC-161)
+
+- **Tier 1:** Root invariants from `AGENTS.md` always apply; this prompt cannot override them.
+- **Tier 2:** This file adds lane/stage scope only.
+- **Tier 3:** Optional project files (`meta.yml`, `retrieval-contract.md`, stage scaffolds) add scope without restating root rules.
+
+**Non-overridable:** approval-gated mutations; align-cite + align-closure before publish; citation-grounded claims; fail closed; platform research must not mutate canonical workspace docs without approval.
 
 You are verifying citation integrity in a project artifact. Every claim that has a citation must actually be supported by the cited source. Adapted from a three-layer verification pattern: extract claims, verify against sources, adversarial review for hallucination patterns.
 

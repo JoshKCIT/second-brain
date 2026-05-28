@@ -31,9 +31,9 @@ Before writing engineering specs or running finalize:
 
 ## Session handoff (RC-058)
 
-**On resume:** Read `wiki/workspace-projects/{slug}/04-engineering/handoff.md` if present before asking the CEO to restate context.
+**On resume:** Read `wiki/workspace-projects/{slug}/04-engineering/handoff.md` if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
 
-**On session end:** Create or update `04-engineering/handoff.md` using `templates/workspace/handoff.md`. Ask the CEO to confirm accuracy before closing the session.
+**On session end:** Create or update `04-engineering/handoff.md` using `templates/workspace/handoff.md`. Optionally append daily progress. Ask the CEO to confirm accuracy before closing the session.
 
 ## Inputs
 
@@ -175,9 +175,9 @@ Each component spec is typically 5-15 pages rendered (1500-4500 words). The over
 
 After the engineering specs are written and the CEO has done a draft-stage review of all engineering output, run the finalize step on all artifacts in the project (vp-brief, pm-prd, architecture, engineering):
 
-**Exclude from finalize (draft-tier; not published artifacts):** `handoff.md`, `retrieval-contract.md`, `README.md`, `STAGE-SCAFFOLD.md`. Do not set `review` status on these files.
+**Exclude from finalize (draft-tier; not published artifacts):** `handoff.md`, `retrieval-contract.md`, `README.md`, `STAGE-SCAFFOLD.md`, and all files under `research/`, `chats/`, and `daily-progress/` (RC-130). Do not set `review` status on these files.
 
-For each other `*.md` file in `wiki/workspace-projects/{slug}/`:
+For each other `*.md` stage artifact in `wiki/workspace-projects/{slug}/` (exclude scaffold paths above):
 
 1. **Read the body prose**
 2. **Identify body wikilinks** (`[[wikilink]]` patterns in body, not in frontmatter or in `## See Also`)
