@@ -18,18 +18,19 @@ Operations are lane-labeled: `workspace-*` for everyday project/documentation wo
 
 1. Filesystem-first. Markdown and JSON only.
 2. Citation-grounded. Every claim has a source link.
-3. Authority + domain tagged sources. Vendor claims cite vendor sources; internal claims cite internal sources.
-4. Approval-gated mutations. Ingest, sync, archive, remove, publish require explicit user approval.
-5. Scoped retrieval per project from `config/second-brain.yml`.
-6. Multi-step orchestration with persistent state. Agents hand off through `wiki/workspace-projects/{slug}/0X-{stage}/`.
-7. The LLM owns the wiki layer. Direct human edits set `manually_edited: true`.
-8. Vendor truth fetched, cached, validated (90-day default TTL).
-9. Project deliverable closure: jr-engineer-executable from the published artifact set alone.
-10. Body-prose-clean at review and published. Wikilinks allowed at `draft`. Navigation goes in `## See Also` or frontmatter at higher statuses.
-11. Three-state lifecycle: `in-progress` → `published` → `archived`. No cross in-progress dependencies.
-12. Vendor citation: parenthetical attribution + See Also link. Internal standards: inline relevant rules + Confluence URL in See Also.
-13. Safety: fail closed, explicit tool allowlists, append-only audit in `wiki/log.md`, no secrets in vault or logs.
-14. No telemetry.
+3. Read-before-write (RC-122). Read scoped index and sources before artifact edits; record consulted paths in frontmatter `sources`.
+4. Authority + domain tagged sources. Vendor claims cite vendor sources; internal claims cite internal sources.
+5. Approval-gated mutations. Ingest, sync, archive, remove, publish require explicit user approval.
+6. Scoped retrieval per project from `config/second-brain.yml`.
+7. Multi-step orchestration with persistent state. Agents hand off through `wiki/workspace-projects/{slug}/0X-{stage}/`.
+8. The LLM owns the wiki layer. Direct human edits set `manually_edited: true`.
+9. Vendor truth fetched, cached, validated (90-day default TTL).
+10. Project deliverable closure: jr-engineer-executable from the published artifact set alone.
+11. Body-prose-clean at review and published. Wikilinks allowed at `draft`. Navigation goes in `## See Also` or frontmatter at higher statuses.
+12. Three-state lifecycle: `in-progress` → `published` → `archived`. No cross in-progress dependencies.
+13. Vendor citation: parenthetical attribution + See Also link. Internal standards: inline relevant rules + Confluence URL in See Also.
+14. Safety: fail closed, explicit tool allowlists, append-only audit in `wiki/log.md`, no secrets in vault or logs.
+15. No telemetry.
 
 ## How operations are invoked
 

@@ -18,18 +18,19 @@ Operations are lane-labeled: `workspace-*` for everyday project/documentation wo
 
 1. **Filesystem-first.** Every artifact is plain Markdown or JSON.
 2. **Citation-grounded.** No claim without a source link.
-3. **Authority + domain tagged sources.** Each source carries `authority` (`standard`/`recommendation`/`informational`) and `domain` (`internal`/`vendor:aws`/`industry:nist`/etc.). Vendor capability claims cite vendor sources; internal architecture claims cite internal sources. The source authoritative for the claim's domain wins.
-4. **Approval-gated mutations.** Ingest, sync, archive, remove, publish all require explicit user approval after diff or preview.
-5. **Scoped retrieval per project.** Default in-scope sources from `config/second-brain.yml`; projects layer additional scope.
-6. **Multi-step orchestration with persistent state.** Iterative, resumable; agents hand off through the filesystem at `wiki/workspace-projects/{slug}/0X-{stage}/`.
-7. **The LLM owns the wiki layer.** Humans read; you write. Direct human edits set `manually_edited: true` in frontmatter for lint visibility.
-8. **Vendor truth: fetched, cached, time-validated.** Vendor docs cached on first use, revalidated per TTL (90 days default; 365 hard max).
-9. **Project deliverable closure.** A published project's authored set must be jr-engineer-executable using only that set.
-10. **Body-prose-clean at review and published.** Wikilinks in body prose are allowed at `draft` (agent collaboration). At `review` and `published`, body contains no internal `[[wikilinks]]`; navigation lives in `## See Also` or frontmatter.
-11. **Three-state lifecycle.** Projects move through `in-progress` (sub-states `draft`, `review`) → `published` (curated, referenceable) → `archived` (excluded from default search and reference). In-progress projects cannot reference other in-progress or archived projects. Resolution: finish the dependency, archive it, or restate.
-12. **Vendor citation:** parenthetical attribution + See Also link (e.g., "S3 supports SSE-KMS (per AWS docs)" with the URL in See Also). **Internal standards:** inline the relevant rules in body prose + provide Confluence URL in See Also (the reader may not have access to the linked page).
-13. **Safety:** fail closed; explicit tool allowlists; require human approval for high-impact tools (publish to Confluence, archive); append-only audit in `wiki/log.md`; never write secrets to vault, index, or logs.
-14. **No telemetry.** No phone-home, no analytics.
+3. **Read-before-write (RC-122).** Read scoped index/catalog and relevant sources before proposing artifact edits; record consulted paths in frontmatter `sources`.
+4. **Authority + domain tagged sources.** Each source carries `authority` (`standard`/`recommendation`/`informational`) and `domain` (`internal`/`vendor:aws`/`industry:nist`/etc.). Vendor capability claims cite vendor sources; internal architecture claims cite internal sources. The source authoritative for the claim's domain wins.
+5. **Approval-gated mutations.** Ingest, sync, archive, remove, publish all require explicit user approval after diff or preview.
+6. **Scoped retrieval per project.** Default in-scope sources from `config/second-brain.yml`; projects layer additional scope.
+7. **Multi-step orchestration with persistent state.** Iterative, resumable; agents hand off through the filesystem at `wiki/workspace-projects/{slug}/0X-{stage}/`.
+8. **The LLM owns the wiki layer.** Humans read; you write. Direct human edits set `manually_edited: true` in frontmatter for lint visibility.
+9. **Vendor truth: fetched, cached, time-validated.** Vendor docs cached on first use, revalidated per TTL (90 days default; 365 hard max).
+10. **Project deliverable closure.** A published project's authored set must be jr-engineer-executable using only that set.
+11. **Body-prose-clean at review and published.** Wikilinks in body prose are allowed at `draft` (agent collaboration). At `review` and `published`, body contains no internal `[[wikilinks]]`; navigation lives in `## See Also` or frontmatter.
+12. **Three-state lifecycle.** Projects move through `in-progress` (sub-states `draft`, `review`) → `published` (curated, referenceable) → `archived` (excluded from default search and reference). In-progress projects cannot reference other in-progress or archived projects. Resolution: finish the dependency, archive it, or restate.
+13. **Vendor citation:** parenthetical attribution + See Also link (e.g., "S3 supports SSE-KMS (per AWS docs)" with the URL in See Also). **Internal standards:** inline the relevant rules in body prose + provide Confluence URL in See Also (the reader may not have access to the linked page).
+14. **Safety:** fail closed; explicit tool allowlists; require human approval for high-impact tools (publish to Confluence, archive); append-only audit in `wiki/log.md`; never write secrets to vault, index, or logs.
+15. **No telemetry.** No phone-home, no analytics.
 
 ## How to invoke verbs
 

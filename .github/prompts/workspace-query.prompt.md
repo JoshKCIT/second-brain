@@ -9,7 +9,11 @@ You are answering a user question by reading the wiki layer (no embeddings, no v
 
 **Citation ≠ retrieval:** Retrieved context is not citation support. Do not treat semantic similarity or retrieval confidence as verified evidence. Answers must cite section-anchored sources; project artifacts require `align-cite` before publish.
 
-Policy ADR: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`
+**Read-before-write (RC-122):** Complete index navigation and full article reads before synthesizing. Do not answer from parametric knowledge when scoped wiki sources exist.
+
+**Citation-grounded query (RC-157):** Every response includes a **Sources consulted** section listing wiki paths, `raw/` paths, and vendor cache paths actually read (paths must exist on disk). Place it before the answer body.
+
+Policy ADRs: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`, `DRAFT-RC-2026-05-27-122-read-before-write-retrieval.md`, `DRAFT-RC-2026-05-27-157-citation-grounded-query.md`
 
 ## Inputs
 
@@ -44,7 +48,17 @@ If `--include-archives` is not set, exclude any article with `archived: true` in
 
 Read each candidate article in full. Extract relevant content.
 
-### Step 5: Synthesize
+### Step 5: List sources consulted
+
+Before synthesizing, emit **Sources consulted** as a bullet list of paths actually read (deduplicated):
+
+- Wiki: `wiki/workspace-standards/...`, `wiki/workspace-concepts/...`, etc.
+- Raw: `raw/workspace-confluence/...`, `raw/workspace-external/...` when read for vendor truth
+- Do not list articles you identified from the index but did not read in full
+
+Each path must exist on disk. If none apply after honest search, state that explicitly.
+
+### Step 6: Synthesize
 
 Compose an answer that:
 
@@ -53,7 +67,7 @@ Compose an answer that:
 - Uses the authority+domain rule for conflicts: vendor truth for vendor claims; internal standards for internal architecture
 - If a vendor capability is cited but no cached vendor doc exists in `raw/workspace-external/`, offer to ingest it via `/workspace-ingest-vendor-doc` before continuing
 
-### Step 6: Coverage transparency
+### Step 7: Coverage transparency
 
 If you cannot fully answer:
 
@@ -62,7 +76,7 @@ If you cannot fully answer:
 - Report scope limitations: "Pages on W you may have ingested are not in the current project's scope."
 - Do not fabricate.
 
-### Step 7: File-back (if requested)
+### Step 8: File-back (if requested)
 
 If `--file-back` is set, save the answer as `wiki/workspace-qa/{slug}.md`:
 
@@ -96,7 +110,7 @@ status: published
 
 Update `wiki/index.md` to list the new qa article. Append to `wiki/log.md`.
 
-### Step 8: Append to log
+### Step 9: Append to log
 
 ```
 ## [{ISO timestamp}] query | "{question}"
@@ -114,3 +128,20 @@ If after reading the index, no articles seem relevant:
 - Offer remediation: ingest a relevant Confluence space, broaden project scope, or ask a follow-up question
 
 Do not fabricate an answer from general knowledge if the wiki has no support for the claim.
+
+## Response format (required)
+
+Every query response (with or without `--file-back`):
+
+```markdown
+## Sources consulted
+
+- `wiki/...` — read in full
+- `raw/...` — if applicable
+
+## Answer
+
+{synthesis with section-anchored citations}
+```
+
+If coverage is partial, add `## Coverage gaps` after the answer.

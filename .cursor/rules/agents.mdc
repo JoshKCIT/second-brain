@@ -20,18 +20,19 @@ Operations are lane-labeled: `workspace-*` for everyday project/documentation wo
 
 1. Filesystem-first; Markdown and JSON only
 2. Citation-grounded; every claim has a source link
-3. Authority + domain tagged sources; vendor claims cite vendor; internal claims cite internal; conflicts resolved by claim domain
-4. Approval-gated mutations; ingest/sync/archive/remove/publish require explicit user approval
-5. Scoped retrieval per project from `config/second-brain.yml`
-6. Multi-step orchestration; agents hand off through `wiki/workspace-projects/{slug}/0X-{stage}/`
-7. The LLM owns `wiki/`; humans read it
-8. Vendor truth fetched-cached-validated (90-day default TTL)
-9. Project closure: jr-engineer-executable from published artifact set alone
-10. Body-prose-clean at review and published; wikilinks allowed at draft; navigation goes in `## See Also`
-11. Three-state lifecycle: in-progress → published → archived; no cross in-progress dependencies
-12. Vendor citation: parenthetical + See Also link; Internal standards: inline rules + Confluence URL
-13. Safety: fail closed, explicit allowlists, append-only audit, no secrets in artifacts
-14. No telemetry
+3. Read-before-write; read scoped index and sources before artifact edits (RC-122)
+4. Authority + domain tagged sources; vendor claims cite vendor; internal claims cite internal; conflicts resolved by claim domain
+5. Approval-gated mutations; ingest/sync/archive/remove/publish require explicit user approval
+6. Scoped retrieval per project from `config/second-brain.yml`
+7. Multi-step orchestration; agents hand off through `wiki/workspace-projects/{slug}/0X-{stage}/`
+8. The LLM owns `wiki/`; humans read it
+9. Vendor truth fetched-cached-validated (90-day default TTL)
+10. Project closure: jr-engineer-executable from published artifact set alone
+11. Body-prose-clean at review and published; wikilinks allowed at draft; navigation goes in `## See Also`
+12. Three-state lifecycle: in-progress → published → archived; no cross in-progress dependencies
+13. Vendor citation: parenthetical + See Also link; Internal standards: inline rules + Confluence URL
+14. Safety: fail closed, explicit allowlists, append-only audit, no secrets in artifacts
+15. No telemetry
 
 ## How to invoke verbs
 

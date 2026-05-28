@@ -95,6 +95,8 @@ Engineer-led finalize step → status: review
 
 Each workspace agent has a prompt file in `.github/prompts/workspace-{agent}-agent.prompt.md` with role definition, input contract, output contract, source-of-truth scope, and human checkpoint logic.
 
+**Read-before-write (RC-122):** Workspace agents read scoped index/catalog and relevant sources before proposing artifact edits; record consulted paths in frontmatter `sources`. Retrieval precedes generation; `align-cite` still required before publish.
+
 CEO reviews and edits between stages. Do not invoke the next agent without explicit CEO approval.
 
 ---
@@ -554,15 +556,20 @@ Guidelines:
 
 **v1 retrieval policy (RC-2026-05-27-001, RC-2026-05-27-002):** Page-index / structure-aware retrieval is the default. The agent navigates by catalog entries, document hierarchy, and section anchors—not embedding similarity alone. **Retrieved context is not citation support.** Similarity, chunk proximity, or retrieval confidence never substitutes for `align-cite` verification before publish.
 
+**Read-before-write (RC-2026-05-27-122):** Workspace agents read scoped index/catalog and relevant sources before proposing artifact edits. Retrieval and questioning precede generation. Scoped reads per `config/second-brain.yml`; do not read the entire repo without scope.
+
+**Citation-grounded query (RC-2026-05-27-157):** Every query response lists **Sources consulted** (wiki paths, `raw/` paths, and vendor cache paths actually read) before the synthesized answer. Listed paths must exist on disk. The source list does not substitute for `align-cite` at publish time.
+
 For long structured sources (Confluence pages, multi-section artifacts), prefer section-tree navigation over blind chunking. Any future vector, hybrid, graph, or rerank retriever must pass a holdout evaluation showing improved citation precision and inspectability without weakening junior-engineer closure before adoption.
 
 1. Read `wiki/index.md` first
 2. Identify 3-10 relevant articles based on the question
 3. Read those articles in full
-4. Synthesize an answer with section-anchored citations
-5. If `--file-back`: create a `wiki/workspace-qa/` article and update index and log
+4. List sources consulted (paths that exist on disk)
+5. Synthesize an answer with section-anchored citations
+6. If `--file-back`: create a `wiki/workspace-qa/` article and update index and log
 
-Decision record: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`
+Decision records: `docs/platform-decision-records/DRAFT-RC-2026-05-27-001-page-index-retrieval.md`, `DRAFT-RC-2026-05-27-122-read-before-write-retrieval.md`, `DRAFT-RC-2026-05-27-157-citation-grounded-query.md`
 
 ### 5. Transcript librarian (import and queue)
 
