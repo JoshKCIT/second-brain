@@ -102,6 +102,20 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-05-27] session | PIC-2026-05-27-004 implemented
+
+- Changed:
+  - Lightweight intent/safety/regulatory posture sections added to platform ADR template.
+  - RC-015 experiment ADR promoted to Accepted; hypothesis H-005 marked active.
+
+- Open:
+  - User accept/reject of PIC-2026-05-27-004.
+
+- Next:
+  - On accept: mark RC-015 accepted (experiment continues on next 3 ADRs); queue RC-003.
+
+---
+
 ## [2026-05-27] session | platform research review import
 
 - Changed:

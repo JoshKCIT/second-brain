@@ -59,6 +59,16 @@ The transcript contains a plausible experiment around agent orientation. The gra
 
 - Validate token-saving and benchmark claims before citing them.
 
+## Trust Loop Summary
+
+Fail-closed guardrails applied during review: vendor and benchmark claims marked `unvalidated`; no transcript claim promoted to canonical knowledge without draft ADR routing. See claim register `validation_status` and `correction_route` fields.
+
+## Correction Routes
+
+| Claim ID | Decision | Correction route |
+|---|---|---|
+| See claim register | — | Approve via implementation backlog ADR review; reject via backlog rollback; reopen rejected claims per `rejected-ideas.md`. |
+
 ## Protected Files Not Modified
 
 Confirmed: no canonical standards, PRD, product brief, roadmap, architecture rationale, AGENTS.md, or raw files were modified based on this transcript.

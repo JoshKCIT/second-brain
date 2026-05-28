@@ -255,6 +255,8 @@ If a claim is adopted or moved to experiment, optionally create:
 docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md
 ```
 
+Use `templates/platform-research/platform-adr.md`. Include brief **Intent**, **Safety and non-goals**, and optional **Regulatory posture** sections (experiment RC-2026-05-27-015). Mark transcript-derived legal claims `unvalidated` until primary-source checks.
+
 ## Required Report Format
 
 The impact report must include:

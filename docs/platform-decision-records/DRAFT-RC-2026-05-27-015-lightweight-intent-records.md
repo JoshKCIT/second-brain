@@ -1,8 +1,14 @@
-# DRAFT ADR: RC-2026-05-27-015 - Lightweight Intent Records
+# ADR: RC-2026-05-27-015 - Lightweight Intent Records
 
 ## Status
 
-Draft
+Accepted (experiment)
+
+## Approval
+
+- Approved: 2026-05-27
+- Cycle: PIC-2026-05-27-004
+- Notes: User approved via continue; template experiment applied.
 
 ## Source Claim
 

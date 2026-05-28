@@ -26,6 +26,26 @@ State the proposed decision:
 - reject
 - monitor
 
+## Intent
+
+Brief, decision-focused statements. Do not copy unvalidated legal or regulatory claims from transcripts.
+
+- **Intended outcome:** What this change should achieve for Second Brain
+- **In scope:** Behaviors, artifacts, or workflows this decision covers
+- **Out of scope:** What this decision explicitly does not cover
+
+## Safety and non-goals
+
+- **Safety posture:** Fail-closed rules, approval gates, rollback expectations
+- **Non-goals:** Capabilities or claims this decision does not introduce
+
+## Regulatory posture (optional)
+
+Use only when the source discusses legal, compliance, or regulatory topics.
+
+- **Legal/regulatory claims:** none | unvalidated | validated
+- **Notes:** Mark transcript-derived legal statements `unvalidated` until checked against primary sources. Do not promote them to canonical requirements.
+
 ## Rationale
 
 Explain why this decision improves or protects Second Brain.

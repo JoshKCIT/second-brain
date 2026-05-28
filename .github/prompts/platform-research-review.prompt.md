@@ -140,6 +140,8 @@ If a claim is adopted or moved to experiment, optionally create:
 docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md
 ```
 
+Use `templates/platform-research/platform-adr.md` (includes lightweight **Intent**, **Safety and non-goals**, and optional **Regulatory posture** sections per experiment RC-2026-05-27-015). Do not copy unvalidated legal claims from transcripts into canonical requirements.
+
 ## Final Response
 
 Summarize:

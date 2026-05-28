@@ -21,6 +21,7 @@ Each transcript review produces a claim-plus-evidence package. Preserve negative
 | Final recommendations | `reports/platform-research-review/final-recommendations-{date}.md` |
 | Stack analysis | `reports/platform-research-review/claim-stack-analysis-{date}.md` |
 | Draft ADR | `docs/platform-decision-records/DRAFT-{claim_id}-{short-title}.md` |
+| Platform ADR template | `templates/platform-research/platform-adr.md` |
 
 ## Validation
 
