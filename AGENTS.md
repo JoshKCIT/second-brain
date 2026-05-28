@@ -113,6 +113,8 @@ Each workspace agent has a prompt file in `.github/prompts/workspace-{agent}-age
 
 **Read-before-write (RC-122):** Workspace agents read scoped index/catalog and relevant sources before proposing artifact edits; record consulted paths in frontmatter `sources`. Retrieval precedes generation; `align-cite` still required before publish.
 
+**Session handoff (RC-058):** Optional `handoff.md` per stage directory holds draft-tier restart context (`starting_context`, `next_steps`, `open_decisions`, `last_session`). Agents read on resume; update at session end after CEO confirms. Template: `templates/workspace/handoff.md`. Excluded from finalize and published artifact set.
+
 CEO reviews and edits between stages. Do not invoke the next agent without explicit CEO approval.
 
 ---

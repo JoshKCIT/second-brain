@@ -2,7 +2,7 @@
 
 ## Status
 
-Draft
+Accepted (PIC-2026-05-27-010)
 
 ## Source Claim
 
@@ -68,6 +68,9 @@ One pilot project uses handoff.md for two sessions; measure successful resumptio
 
 ## Files Proposed for Future Change
 
-- `templates/workspace/` handoff template
-- `.github/prompts/workspace-engineer-agent.prompt.md`
-- `.github/prompts/finalize.prompt.md`
+- `templates/workspace/handoff.md` (template) — **done**
+- `.github/prompts/workspace-engineer-agent.prompt.md` (finalize hook + exclusions) — **done**
+- `.github/prompts/workspace-start-project.prompt.md` (skeleton + resumability) — **done**
+- `.github/prompts/workspace-{vp,pm,architect,engineer}-agent.prompt.md` (session read/write) — **done**
+- `AGENTS.md` (agent chain note) — **done**
+- `wiki/platform-research/open-hypotheses.md` (H-009 active) — **done**

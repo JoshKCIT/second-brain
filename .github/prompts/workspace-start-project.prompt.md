@@ -41,9 +41,13 @@ If the user is unsure whether technical applies, default to yes.
 ```
 wiki/workspace-projects/{slug}/
 ├── 01-vp-brief/
+│   └── handoff.md          (optional — RC-058; draft-tier session state)
 ├── 02-pm-prd/
-├── 03-architecture/   (created only if technical)
+│   └── handoff.md          (optional — RC-058)
+├── 03-architecture/        (created only if technical)
+│   └── handoff.md          (optional — RC-058)
 ├── 04-engineering/
+│   └── handoff.md          (optional — RC-058)
 ├── meta.yml
 ├── retrieval-contract.md   (optional; recommended for multi-standard projects — RC-018)
 ├── STAGE-SCAFFOLD.md       (optional tier-3 rules per stage — RC-161; draft-tier, not canonical)
@@ -168,7 +172,12 @@ Tell the CEO: project is at `review` status; run `/workspace-publish` when ready
 
 ## Resumability
 
-If invoked again on a project that already has artifacts (detected by `wiki/workspace-projects/{slug}/meta.yml` exists), resume at the next incomplete stage rather than starting over. Read the existing artifacts and `meta.yml` to determine where to pick up.
+If invoked again on a project that already has artifacts (detected by `wiki/workspace-projects/{slug}/meta.yml` exists), resume at the next incomplete stage rather than starting over.
+
+1. Read `meta.yml` and existing stage artifacts to determine the current stage.
+2. Read `handoff.md` in the active stage directory if present (RC-058). Use `starting_context`, `next_steps`, and `open_decisions` before asking the CEO to re-explain.
+3. If no handoff exists, infer state from artifact frontmatter (`status`, `stage`) and `wiki/log.md` entries for the project.
+4. At orchestration session end, create or update the active stage's `handoff.md` via `templates/workspace/handoff.md` and ask the CEO to confirm accuracy.
 
 ## On error
 
