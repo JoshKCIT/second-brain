@@ -2,7 +2,7 @@
 
 ## Status
 
-Implemented (PIC-2026-05-27-011, pending user review)
+Accepted (PIC-2026-05-27-011)
 
 ## Source Claim
 

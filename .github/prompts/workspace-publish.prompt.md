@@ -61,7 +61,7 @@ Invoke the chosen branch. Wait for it to complete.
 After successful publish:
 
 - For review: artifact stays at status `review`; the HTML preview is just a preview
-- For Confluence: transition status to `published` on every published artifact; update `wiki/workspace-projects/{slug}/meta.yml` `status: published`
+- For Confluence: transition status to `published` on every published artifact; update `wiki/workspace-projects/{slug}/meta.yml`: `status: published`, `stage_gate: approved`, `updated` timestamp (PH-001)
 - **Scaffold cleanup (RC-130):** Offer CEO choice to archive or delete per-stage `research/`, `chats/`, `daily-progress/`, and `handoff.md` under `wiki/workspace-projects/{slug}/`. Published jr-engineer set excludes scaffold; optional move to `wiki/workspace-archives/projects/{slug}/scaffold/` for audit.
 
 ## Step 5: Append to log

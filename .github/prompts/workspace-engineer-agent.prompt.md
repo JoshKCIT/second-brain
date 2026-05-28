@@ -33,7 +33,11 @@ Before writing engineering specs or running finalize:
 
 **On resume:** Read `wiki/workspace-projects/{slug}/04-engineering/handoff.md` if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
 
-**On session end:** Create or update `04-engineering/handoff.md` using `templates/workspace/handoff.md`. Optionally append daily progress. Ask the CEO to confirm accuracy before closing the session.
+**On session end:** Create or update `04-engineering/handoff.md`. Optionally append daily progress. Update `meta.yml`: `stage_gate: awaiting_ceo_review` when engineering drafts complete; when running finalize set `current_stage: finalize` then `align` per PH-001 transition table (PH-001). Ask the CEO to confirm accuracy before closing the session.
+
+## Project stage state (PH-001)
+
+On invoke, read `meta.yml`. Confirm `current_stage` is `engineering` or `finalize`. Do not set `last_completed` without CEO approval via orchestrator.
 
 ## Inputs
 
@@ -202,7 +206,7 @@ After all files are finalized:
    - Total wikilinks rewritten: {count}
    - Total See Also entries created: {count}
    ```
-4. Tell the CEO finalize is complete; the project is ready for `align-cite` and `align-closure` (which `start-project` runs automatically next)
+4. Tell the CEO finalize is complete; update `meta.yml`: `current_stage: align`, `stage_gate: agent_work`, `last_completed: finalize`, `sub_status: review` (PH-001). Project is ready for `align-cite` and `align-closure` (which `start-project` runs automatically next)
 
 ## Handoff
 

@@ -31,7 +31,11 @@ Before writing the PRD:
 
 **On resume:** Read `wiki/workspace-projects/{slug}/02-pm-prd/handoff.md` if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
 
-**On session end:** Create or update `02-pm-prd/handoff.md` using `templates/workspace/handoff.md`. Optionally append daily progress. Ask the CEO to confirm accuracy before closing the session.
+**On session end:** Create or update `02-pm-prd/handoff.md`. Optionally append daily progress. Update `meta.yml`: `stage_gate: awaiting_ceo_review` (PH-001). Ask the CEO to confirm accuracy before closing the session.
+
+## Project stage state (PH-001)
+
+On invoke, read `meta.yml`. Confirm `current_stage` is `pm-prd`. Do not advance stage fields without CEO approval via orchestrator.
 
 ## Inputs
 

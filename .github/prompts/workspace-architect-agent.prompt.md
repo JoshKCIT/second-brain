@@ -32,7 +32,11 @@ Before writing architecture artifacts:
 
 **On resume:** Read `wiki/workspace-projects/{slug}/03-architecture/handoff.md` if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
 
-**On session end:** Create or update `03-architecture/handoff.md` using `templates/workspace/handoff.md`. Optionally append daily progress. Ask the CEO to confirm accuracy before closing the session.
+**On session end:** Create or update `03-architecture/handoff.md`. Optionally append daily progress. Update `meta.yml`: `stage_gate: awaiting_ceo_review` (PH-001). Ask the CEO to confirm accuracy before closing the session.
+
+## Project stage state (PH-001)
+
+On invoke, read `meta.yml`. Confirm `current_stage` is `architecture`. Do not advance stage fields without CEO approval via orchestrator.
 
 ## Inputs
 

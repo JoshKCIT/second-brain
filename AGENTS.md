@@ -117,6 +117,8 @@ Each workspace agent has a prompt file in `.github/prompts/workspace-{agent}-age
 
 **Stage evidence scaffold (RC-130):** Optional per-stage folders `research/`, `chats/`, `daily-progress/` plus `handoff.md` for multi-day catch-up. Draft-tier only; excluded from publish set. Template: `templates/workspace/project-stage-scaffold/README.md`.
 
+**Project stage state (PH-001):** `meta.yml` fields `current_stage`, `stage_gate`, and `last_completed` are the authoritative resumability signal. Template: `templates/workspace/project-meta.yml.md`. Orchestrator updates at CEO gates; stage agents read on invoke and set `stage_gate: awaiting_ceo_review` when draft work completes.
+
 CEO reviews and edits between stages. Do not invoke the next agent without explicit CEO approval.
 
 ---

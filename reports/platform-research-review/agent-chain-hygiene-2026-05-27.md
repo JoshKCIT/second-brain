@@ -13,8 +13,8 @@ Post-implementation review of the workspace agent hierarchy (RC-161, RC-058) ide
 
 | ID | Type | Decision | Summary |
 |---|---|---|---|
-| PH-2026-05-27-001 | hygiene | queued | meta.yml stage state machine |
-| PH-2026-05-27-002 | hygiene | partial | start-project finalize alignment |
+| PH-2026-05-27-001 | hygiene | accepted | meta.yml stage state machine |
+| PH-2026-05-27-002 | hygiene | accepted | start-project finalize alignment |
 | PH-2026-05-27-003 | hygiene | queued | inter-stage output contract |
 | PH-2026-05-27-004 | hygiene | queued | advisory align-cite per stage |
 | PH-2026-05-27-005 | hygiene | queued | reopen stage protocol |

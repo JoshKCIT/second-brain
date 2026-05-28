@@ -33,7 +33,11 @@ Retrieval is not citation support; `align-cite` still required before publish.
 
 **On resume:** Read `wiki/workspace-projects/{slug}/01-vp-brief/handoff.md` if present. Scan `daily-progress/` (newest 3 files) for catch-up (RC-130).
 
-**On session end:** Create or update `01-vp-brief/handoff.md` using `templates/workspace/handoff.md`. Optionally append `daily-progress/YYYY-MM-DD.md` using `templates/workspace/project-stage-scaffold/daily-progress.md`. Ask the CEO to confirm accuracy before closing the session. Handoff and scaffold files are draft-tier; never promote to wiki or publish set.
+**On session end:** Create or update `01-vp-brief/handoff.md` using `templates/workspace/handoff.md`. Optionally append daily progress. Update `meta.yml`: `stage_gate: awaiting_ceo_review`, `updated` timestamp (PH-001). Ask the CEO to confirm accuracy before closing the session. Handoff and scaffold files are draft-tier; never promote to wiki or publish set.
+
+## Project stage state (PH-001)
+
+On invoke, read `wiki/workspace-projects/{slug}/meta.yml`. Confirm `current_stage` is `vp-brief` (or CEO explicitly restarted this stage). Do not advance `current_stage` or set `last_completed`—orchestrator updates those at CEO approval.
 
 ## Inputs
 

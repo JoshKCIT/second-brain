@@ -59,7 +59,7 @@ wiki/workspace-projects/{slug}/
 └── README.md
 ```
 
-`meta.yml` content:
+`meta.yml` content (template: `templates/workspace/project-meta.yml.md`, PH-001):
 
 ```yaml
 slug: {slug}
@@ -69,15 +69,43 @@ sub_status: draft
 created: {ISO date}
 updated: {ISO date}
 technical: {true|false}
-in_scope_spaces:           # inherits from config/second-brain.yml; user can extend
+current_stage: vp-brief
+stage_gate: agent_work
+last_completed: null
+in_scope_spaces:
   - {space-key}
-  - ...
-in_scope_jira_projects: [] # v1.x
-authority_overrides: {}     # per-source overrides
+in_scope_jira_projects: []
+authority_overrides: {}
 alignment_defaults:
   align_cite: production
   align_conformance: best-effort
   align_coverage: best-effort
+```
+
+## Project stage state (PH-001)
+
+Update `meta.yml` at every chain step and CEO gate. **`current_stage` + `stage_gate` + `last_completed` are authoritative for resumability.**
+
+| Step / event | `current_stage` | `stage_gate` | `last_completed` |
+|---|---|---|---|
+| Skeleton created | `vp-brief` | `agent_work` | `null` |
+| VP draft complete | `vp-brief` | `awaiting_ceo_review` | unchanged |
+| CEO approves VP | `pm-prd` | `agent_work` | `vp-brief` |
+| PM draft complete | `pm-prd` | `awaiting_ceo_review` | unchanged |
+| CEO approves PM (technical) | `architecture` | `agent_work` | `pm-prd` |
+| CEO approves PM (non-technical) | `engineering` | `agent_work` | `pm-prd` |
+| Architect draft complete | `architecture` | `awaiting_ceo_review` | unchanged |
+| CEO approves architecture | `engineering` | `agent_work` | `architecture` |
+| Engineer draft complete | `engineering` | `awaiting_ceo_review` | unchanged |
+| CEO approves engineering | `finalize` | `agent_work` | `engineering` |
+| Finalize complete | `align` | `agent_work` | `finalize` |
+| Align gates pass | `ready-for-publish` | `awaiting_ceo_review` | `finalize` |
+| CEO stops | unchanged | `blocked` | unchanged |
+
+Always set `updated` when writing `meta.yml`. Append transition to `wiki/log.md`:
+
+```
+## [{ISO timestamp}] project-state | {slug} | stage={current_stage} gate={stage_gate} last_completed={last_completed}
 ```
 
 `README.md` is a brief project overview generated from the CEO's intent.
@@ -159,7 +187,7 @@ Run automatically:
 - `.github/prompts/workspace-align-cite.prompt.md` against the active set
 - `.github/prompts/workspace-align-closure.prompt.md` against the active set
 
-Report results to the CEO. If violations, present resolution options. If clean, mark the project ready for publish.
+Report results to the CEO. If violations, present resolution options. If clean, update `meta.yml`: `current_stage: ready-for-publish`, `stage_gate: awaiting_ceo_review`, `last_completed: finalize`.
 
 ## Step 13: Closing
 
@@ -176,13 +204,17 @@ Tell the CEO: project is at `review` status; run `/workspace-publish` when ready
 
 ## Resumability
 
-If invoked again on a project that already has artifacts (detected by `wiki/workspace-projects/{slug}/meta.yml` exists), resume at the next incomplete stage rather than starting over.
+If invoked again on a project that already has artifacts (detected by `wiki/workspace-projects/{slug}/meta.yml` exists), resume using **PH-001 state first**:
 
-1. Read `meta.yml` and existing stage artifacts to determine the current stage.
-2. Read `handoff.md` in the active stage directory if present (RC-058). Use `starting_context`, `next_steps`, and `open_decisions` before asking the CEO to re-explain.
-3. Read `daily-progress/` in the active stage (newest 3 files first) for catch-up (RC-130).
-4. If no handoff exists, infer state from artifact frontmatter (`status`, `stage`) and `wiki/log.md` entries for the project.
-5. At orchestration session end, create or update the active stage's `handoff.md` via `templates/workspace/handoff.md` and ask the CEO to confirm accuracy.
+1. Read `meta.yml` **`current_stage`**, **`stage_gate`**, and **`last_completed`**.
+   - `stage_gate: awaiting_ceo_review` → present the artifact for `current_stage`; wait for CEO (do not invoke next agent).
+   - `stage_gate: agent_work` → invoke the agent for `current_stage` (or finalize/align if `current_stage` is `finalize` / `align`).
+   - `stage_gate: blocked` → report state; ask CEO how to proceed.
+   - `stage_gate: approved` at stage boundary → advance per transition table above.
+2. Read `handoff.md` in the active stage directory (RC-058).
+3. Read `daily-progress/` in the active stage (newest 3 files, RC-130).
+4. **Fallback only** if PH-001 fields missing: infer from artifact frontmatter and `wiki/log.md`.
+5. At session end, update `handoff.md` and `meta.yml`; ask CEO to confirm.
 
 ## On error
 
