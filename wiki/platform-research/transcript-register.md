@@ -22,6 +22,7 @@ python scripts/sync-transcript-register.py --root .
 | Slug | Status | Source | Claims | Impact |
 |------|--------|--------|--------|--------|
 | 5-skills-ai-operating-system-1-percent-guide | `reviewed` | `raw/platform-transcripts/5_Skills_to_Build_an_AI_Operating_System_Like_The_1%_Full_Guide.txt` | 5-skills-ai-operating-system-1-percent-guide-claims.md | 5-skills-ai-operating-system-1-percent-guide-impact-report.md |
+| agentic-ai-evolution---watching-a-coding-agent-evolve-in-real-time | `reviewed` | `raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt` | agentic-ai-evolution---watching-a-coding-agent-evolve-in-real-time-claims.md | agentic-ai-evolution---watching-a-coding-agent-evolve-in-real-time-impact-report.md |
 | analog-vs-ai-second-brain | `reviewed` | `raw/platform-transcripts/Analog_vs._AI_-_Which_is_better_for_your_Second_Brain.txt` | analog-vs-ai-second-brain-claims.md | analog-vs-ai-second-brain-impact-report.md |
 | karpathy-vibe-coding-agentic-engineering | `reviewed` | `raw/platform-transcripts/Andrej_Karpathy_-_From_Vibe_Coding_to_Agentic_Engineering.txt` | karpathy-vibe-coding-agentic-engineering-claims.md | karpathy-vibe-coding-agentic-engineering-impact-report.md |
 | build-claude-knowledge-base-self-improves | `reviewed` | `raw/platform-transcripts/Build_A_Claude_Knowledge_Base_That_Self-Improves.txt` | build-claude-knowledge-base-self-improves-claims.md | build-claude-knowledge-base-self-improves-impact-report.md |
@@ -30,7 +31,9 @@ python scripts/sync-transcript-register.py --root .
 | claude-code-obsidian-second-brain-learns | `reviewed` | `raw/platform-transcripts/Claude_Code_+_Obsidian_-_Build_a_Second_Brain_That_Actually_Learns.txt` | claude-code-obsidian-second-brain-learns-claims.md | claude-code-obsidian-second-brain-learns-impact-report.md |
 | claude-code-can-be-your-second-brain | `reviewed` | `raw/platform-transcripts/Claude_Code_Can_Be_Your_Second_Brain.txt` | claude-code-can-be-your-second-brain-claims.md | claude-code-can-be-your-second-brain-impact-report.md |
 | custom-instructions-agents-skills | `reviewed` | `raw/platform-transcripts/Custom_Instructions_vs_Custom_Agents_vs_Agent_Skills_Explained.txt` | custom-instructions-agents-skills-claims.md | custom-instructions-agents-skills-impact-report.md |
+| full-walkthrough---workflow-for-ai-coding-matt-pocock | `queued` | `raw/platform-transcripts/Full_Walkthrough_-_Workflow_for_AI_Coding_Matt_Pocock.txt` | — | — |
 | gitkb-distributed-knowledge-graph-texas-ready-ai | `reviewed` | `raw/platform-transcripts/GitKB_-_Distributed_Knowledge_Graph_+_Texas_Ready_AI_2-30Min_Talks.txt` | gitkb-distributed-knowledge-graph-texas-ready-ai-claims.md | gitkb-distributed-knowledge-graph-texas-ready-ai-impact-report.md |
+| going-from-l4-to-l5-is-80%-change-management-anish-agarwal-traversal-humanx-2026 | `queued` | `raw/platform-transcripts/Going_from_L4_to_L5_Is_80%_Change_Management_Anish_Agarwal_Traversal_HumanX_2026.txt` | — | — |
 | graphify-instant-knowledge-graph | `reviewed` | `raw/platform-transcripts/Graphify_-_Instant_Knowledge_Graph_for_Claude_Code_Antigravity_FREE.txt` | graphify-instant-knowledge-graph-claims.md | graphify-instant-knowledge-graph-impact-report.md |
 | how-i-organise-my-life-using-notion---in-the-ai-era | `reviewed` | `raw/platform-transcripts/How_I_Organise_My_Life_Using_Notion_-_In_the_AI_Era.txt` | how-i-organise-my-life-using-notion---in-the-ai-era-claims.md | how-i-organise-my-life-using-notion---in-the-ai-era-impact-report.md |
 | how-did-i-build-second-brain-with-ai | `reviewed` | `raw/platform-transcripts/How_did_I_build_a_second_brain_with_AI.txt` | how-did-i-build-second-brain-with-ai-claims.md | how-did-i-build-second-brain-with-ai-impact-report.md |
@@ -45,14 +48,16 @@ python scripts/sync-transcript-register.py --root .
 | stanford-meta-harness | `reviewed` | `raw/platform-transcripts/Researcher_at_Stanford_released_a_new_paper_for_an_automated_ai_agent_harmess_ai_tech_fyp.txt` | stanford-meta-harness-claims.md | stanford-meta-harness-impact-report.md |
 | robot-girlfriends-recursive-ai-agents-ai-news | `reviewed` | `raw/platform-transcripts/Robot_girlfriends_recursive_AI_agents_full_AI_research_Happy_Horse_-_AI_NEWS.txt` | robot-girlfriends-recursive-ai-agents-ai-news-claims.md | robot-girlfriends-recursive-ai-agents-ai-news-impact-report.md |
 | ai-native-shift-george-thomas | `reviewed` | `raw/platform-transcripts/The_AI-Native_Shift_-_Second_Brain_for_AI_with_George_B._Thomas.txt` | ai-native-shift-george-thomas-claims.md | ai-native-shift-george-thomas-impact-report.md |
+| the-agent-development-lifecycle---build-test-deploy-monitor-interrupt-26 | `queued` | `raw/platform-transcripts/The_Agent_Development_Lifecycle_-_Build_Test_Deploy_Monitor_Interrupt_26.txt` | — | — |
 | pi-coding-agent-competitor | `reviewed` | `raw/platform-transcripts/The_Pi_Coding_Agent_-_The_ONLY_REAL_Claude_Code_COMPETITOR.txt` | pi-coding-agent-competitor-claims.md | pi-coding-agent-competitor-impact-report.md |
+| this-open-source-repo-just-solved-claude-code-s-1-problem | `reviewed` | `raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt` | this-open-source-repo-just-solved-claude-code-s-1-problem-claims.md | this-open-source-repo-just-solved-claude-code-s-1-problem-impact-report.md |
 | why-2026-build-second-brain | `reviewed` | `raw/platform-transcripts/Why_2026_Is_the_Year_to_Build_a_Second_Brain_And_Why_You_NEED_One.txt` | why-2026-build-second-brain-claims.md | why-2026-build-second-brain-impact-report.md |
 | openclaw-hermes-distractions | `reviewed` | `raw/platform-transcripts/Why_OpenClaw_and_Hermes_are_distractions_do_this_instead_to_become_AI_fluent.txt` | openclaw-hermes-distractions-claims.md | openclaw-hermes-distractions-impact-report.md |
 | git-workflow-wrong | `reviewed` | `raw/platform-transcripts/You_ve_Been_Using_Git_Wrong.txt` | git-workflow-wrong-claims.md | git-workflow-wrong-impact-report.md |
 | second-brain-no-vector-database | `reviewed` | `raw/platform-transcripts/second-brain-no-vector-database.txt` | second-brain-no-vector-database-claims.md | second-brain-no-vector-database-impact-report.md |
 | second-brain-self-learning-ideas | `reviewed` | `raw/platform-transcripts/second-brain-self-learning-ideas.txt` | second-brain-self-learning-ideas-claims.md | second-brain-self-learning-ideas-impact-report.md |
 
-_Last synced: 2026-05-27. 30 total — 0 queued, 0 partial, 30 reviewed, 0 skipped._
+_Last synced: 2026-06-09. 35 total — 3 queued, 0 partial, 32 reviewed, 0 skipped._
 
 ## Records
 
@@ -65,6 +70,18 @@ imported: 2026-05-27
 reviewed: 2026-05-27
 claims_analysis: wiki/platform-research/transcript-analyses/5-skills-ai-operating-system-1-percent-guide-claims.md
 impact_report: reports/platform-research-review/5-skills-ai-operating-system-1-percent-guide-impact-report.md
+notes: ""
+```
+
+```yaml
+slug: agentic-ai-evolution---watching-a-coding-agent-evolve-in-real-time
+status: reviewed
+source: raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt
+title: "agentic-ai-evolution---watching-a-coding-agent-evolve-in-real-time"
+imported: 2026-06-09
+reviewed: 2026-06-09
+claims_analysis: wiki/platform-research/transcript-analyses/agentic-ai-evolution---watching-a-coding-agent-evolve-in-real-time-claims.md
+impact_report: reports/platform-research-review/agentic-ai-evolution---watching-a-coding-agent-evolve-in-real-time-impact-report.md
 notes: ""
 ```
 
@@ -165,6 +182,18 @@ notes: ""
 ```
 
 ```yaml
+slug: full-walkthrough---workflow-for-ai-coding-matt-pocock
+status: queued
+source: raw/platform-transcripts/Full_Walkthrough_-_Workflow_for_AI_Coding_Matt_Pocock.txt
+title: "full-walkthrough---workflow-for-ai-coding-matt-pocock"
+imported: 2026-06-09
+reviewed: 
+claims_analysis: 
+impact_report: 
+notes: ""
+```
+
+```yaml
 slug: gitkb-distributed-knowledge-graph-texas-ready-ai
 status: reviewed
 source: raw/platform-transcripts/GitKB_-_Distributed_Knowledge_Graph_+_Texas_Ready_AI_2-30Min_Talks.txt
@@ -173,6 +202,18 @@ imported: 2026-05-27
 reviewed: 2026-05-27
 claims_analysis: wiki/platform-research/transcript-analyses/gitkb-distributed-knowledge-graph-texas-ready-ai-claims.md
 impact_report: reports/platform-research-review/gitkb-distributed-knowledge-graph-texas-ready-ai-impact-report.md
+notes: ""
+```
+
+```yaml
+slug: going-from-l4-to-l5-is-80%-change-management-anish-agarwal-traversal-humanx-2026
+status: queued
+source: raw/platform-transcripts/Going_from_L4_to_L5_Is_80%_Change_Management_Anish_Agarwal_Traversal_HumanX_2026.txt
+title: "going-from-l4-to-l5-is-80%-change-management-anish-agarwal-traversal-humanx-2026"
+imported: 2026-06-09
+reviewed: 
+claims_analysis: 
+impact_report: 
 notes: ""
 ```
 
@@ -345,6 +386,18 @@ notes: ""
 ```
 
 ```yaml
+slug: the-agent-development-lifecycle---build-test-deploy-monitor-interrupt-26
+status: queued
+source: raw/platform-transcripts/The_Agent_Development_Lifecycle_-_Build_Test_Deploy_Monitor_Interrupt_26.txt
+title: "the-agent-development-lifecycle---build-test-deploy-monitor-interrupt-26"
+imported: 2026-06-09
+reviewed: 
+claims_analysis: 
+impact_report: 
+notes: ""
+```
+
+```yaml
 slug: pi-coding-agent-competitor
 status: reviewed
 source: raw/platform-transcripts/The_Pi_Coding_Agent_-_The_ONLY_REAL_Claude_Code_COMPETITOR.txt
@@ -353,6 +406,18 @@ imported: 2026-05-27
 reviewed: 2026-05-27
 claims_analysis: wiki/platform-research/transcript-analyses/pi-coding-agent-competitor-claims.md
 impact_report: reports/platform-research-review/pi-coding-agent-competitor-impact-report.md
+notes: ""
+```
+
+```yaml
+slug: this-open-source-repo-just-solved-claude-code-s-1-problem
+status: reviewed
+source: raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt
+title: "this-open-source-repo-just-solved-claude-code-s-1-problem"
+imported: 2026-06-09
+reviewed: 2026-06-09
+claims_analysis: wiki/platform-research/transcript-analyses/this-open-source-repo-just-solved-claude-code-s-1-problem-claims.md
+impact_report: reports/platform-research-review/this-open-source-repo-just-solved-claude-code-s-1-problem-impact-report.md
 notes: ""
 ```
 

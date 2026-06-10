@@ -1,8 +1,14 @@
-# DRAFT ADR: PH-2026-06-09-001 - Chain Profile Schema
+# ADR: PH-2026-06-09-001 - Chain Profile Schema
 
 ## Status
 
-Draft
+Accepted (PIC-2026-06-09-026, 2026-06-09)
+
+## Approval
+
+- Approved: 2026-06-09
+- Cycle: PIC-2026-06-09-026
+- Notes: Chain profile schema; meta.yml fields; chain-profiles templates; start-project picker.
 
 ## Source Claim
 

@@ -1,8 +1,14 @@
-# DRAFT ADR: PH-2026-06-09-002 - Technical Doc Initiative Profile (Default)
+# ADR: PH-2026-06-09-002 - Technical Doc Initiative Profile (Default)
 
 ## Status
 
-Draft
+Accepted (PIC-2026-06-09-027, 2026-06-09)
+
+## Approval
+
+- Approved: 2026-06-09
+- Cycle: PIC-2026-06-09-027
+- Notes: Full default profile spec in `templates/workspace/chain-profiles/technical-doc-initiative.md`; zero behavior change.
 
 ## Source Claim
 
