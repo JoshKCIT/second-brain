@@ -1,0 +1,44 @@
+# Microsoft 365 platform vendor doc seeds (vendor slug: microsoft-365).
+# Productivity suite and services — distinct from vendor:azure and vendor:microsoft-365-copilot.
+# Run: python scripts/seed-vendor-docs.py --seed-file config/microsoft-365-seed-stack.yml --yes
+
+seed_topics:
+  - vendor: microsoft-365
+    topic: enterprise-overview
+    url: https://learn.microsoft.com/en-us/microsoft-365/enterprise/microsoft-365-overview
+    slug: microsoft-365-overview
+
+  - vendor: microsoft-365
+    topic: microsoft-graph
+    url: https://learn.microsoft.com/en-us/graph/overview
+    slug: graph-overview
+
+  - vendor: microsoft-365
+    topic: graph-api
+    url: https://learn.microsoft.com/en-us/graph/use-the-api
+    slug: use-the-api
+
+  - vendor: microsoft-365
+    topic: teams-overview
+    url: https://learn.microsoft.com/en-us/microsoftteams/teams-overview
+    slug: teams-overview
+
+  - vendor: microsoft-365
+    topic: sharepoint-overview
+    url: https://learn.microsoft.com/en-us/sharepoint/introduction
+    slug: introduction
+
+  - vendor: microsoft-365
+    topic: entra-overview
+    url: https://learn.microsoft.com/en-us/entra/fundamentals/what-is-entra
+    slug: what-is-entra
+
+  - vendor: microsoft-365
+    topic: graph-auth
+    url: https://learn.microsoft.com/en-us/graph/auth/auth-concepts
+    slug: auth-concepts
+
+  - vendor: microsoft-365
+    topic: security-compliance
+    url: https://learn.microsoft.com/en-us/microsoft-365/enterprise/essentials-compliance
+    slug: essentials-compliance

@@ -45,9 +45,12 @@ stages:
 
 | profile_id | File | Status | Notes |
 |---|---|---|---|
-| `technical-doc-initiative` | `technical-doc-initiative.md` | active | Default; VP → PM → Architect? → Engineer → finalize |
+| `technical-doc-initiative` | `technical-doc-initiative.md` | **active (default)** | VP → PM → Architect? → Engineer → finalize → align → publish (PH-2026-06-09-002) |
 
-Planned (PH-2026-06-09-002 … 007): meeting-synthesis, knowledge-hub; specialist stages (technical-writer, architect-reviewer, qa).
+| Optional stage `technical-writing` | PH-2026-06-09-003 | `workspace-technical-writer-agent` — polish before finalize; not in default profile v1 |
+| Optional stage `architect-review` | PH-2026-06-09-004 | `workspace-architect-reviewer-agent` — advisory standards conformance report; not in default profile v1 |
+
+Planned (PH-2026-06-09-005 … 007): meeting-synthesis, knowledge-hub profiles; qa optional stage.
 
 ## Orchestrator rules
 
@@ -61,4 +64,5 @@ Planned (PH-2026-06-09-002 … 007): meeting-synthesis, knowledge-hub; specialis
 
 - `templates/workspace/project-meta.yml.md` — `chain_profile` fields
 - `templates/workspace/experiment-registry.md` — structural hygiene PH-001–008
-- ADR: `docs/platform-decision-records/DRAFT-PH-2026-06-09-001-chain-profile-schema.md`
+- ADR: `docs/platform-decision-records/PH-2026-06-09-001-chain-profile-schema.md`
+- Default profile ADR: `docs/platform-decision-records/PH-2026-06-09-002-technical-doc-initiative-profile.md`

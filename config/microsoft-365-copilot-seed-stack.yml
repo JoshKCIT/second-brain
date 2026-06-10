@@ -1,0 +1,44 @@
+# Microsoft 365 Copilot vendor doc seeds (vendor slug: microsoft-365-copilot).
+# In-app M365 Copilot — distinct from vendor:microsoft-copilot-studio and vendor:microsoft-365.
+# Run: python scripts/seed-vendor-docs.py --seed-file config/microsoft-365-copilot-seed-stack.yml --yes
+
+seed_topics:
+  - vendor: microsoft-365-copilot
+    topic: overview
+    url: https://learn.microsoft.com/en-us/microsoft-365/copilot/microsoft-365-copilot-overview
+    slug: microsoft-365-copilot-overview
+
+  - vendor: microsoft-365-copilot
+    topic: agents-overview
+    url: https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/agents-overview
+    slug: agents-overview
+
+  - vendor: microsoft-365-copilot
+    topic: declarative-agents
+    url: https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/overview-declarative-agent
+    slug: overview-declarative-agent
+
+  - vendor: microsoft-365-copilot
+    topic: declarative-agent-architecture
+    url: https://learn.microsoft.com/en-us/microsoft-365-copilot/extensibility/declarative-agent-architecture
+    slug: declarative-agent-architecture
+
+  - vendor: microsoft-365-copilot
+    topic: licensing-cost
+    url: https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/cost-considerations
+    slug: cost-considerations
+
+  - vendor: microsoft-365-copilot
+    topic: copilot-chat
+    url: https://learn.microsoft.com/en-us/copilot/overview
+    slug: copilot-chat-overview
+
+  - vendor: microsoft-365-copilot
+    topic: microsoft-cloud-copilot
+    url: https://learn.microsoft.com/en-us/microsoft-cloud/dev/copilot/overview
+    slug: copilot-overview
+
+  - vendor: microsoft-365-copilot
+    topic: declarative-agent-faq
+    url: https://learn.microsoft.com/en-us/microsoft-365/copilot/extensibility/transparency-faq-declarative-agent
+    slug: transparency-faq-declarative-agent

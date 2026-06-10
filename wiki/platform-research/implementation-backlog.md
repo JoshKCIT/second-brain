@@ -50,7 +50,7 @@ priority_score =
 | **6 — Consolidation** | **Complete** | **PH-007 ✓** |
 | 7 — Workspace-triggered | RC queue on pilot | RC-149, RC-114, RC-050, … |
 | 8 — Park | Superseded / low band | See Parked table |
-| **9 — Chain profiles** | **Specialist stages + project-type chains** | **PH-2026-06-09-001 … 007 (queued)** |
+| **9 — Chain profiles** | **Specialist stages + project-type chains** | **PH-001 ✓, PH-002 ✓; PH-003–007 queued** |
 
 Template: `templates/platform-research/implementation-backlog.md`. Stack analysis: `reports/platform-research-review/claim-stack-analysis-2026-05-27.md`.
 
@@ -88,10 +88,10 @@ Template: `templates/platform-research/implementation-backlog.md`. Stack analysi
 | 22 | RC-2026-05-27-149 | experiment | 16 | workspace_triggered | RC-146 ✓ | — |
 | 23 | RC-2026-05-27-050 | experiment | 14 | workspace_triggered | RC-122 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-050-verbatim-cite-excerpts.md` |
 | 24 | RC-2026-05-27-055 | experiment | 10 | workspace_triggered | RC-122 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-055-identity-packs-compile.md` |
-| 25 | PH-2026-06-09-001 | hygiene | 22 | queued | PH-001 ✓, RC-130 ✓ | `docs/platform-decision-records/DRAFT-PH-2026-06-09-001-chain-profile-schema.md` |
-| 26 | PH-2026-06-09-002 | hygiene | 20 | queued | PH-2026-06-09-001 | `docs/platform-decision-records/DRAFT-PH-2026-06-09-002-technical-doc-initiative-profile.md` |
-| 27 | PH-2026-06-09-003 | experiment | 18 | queued | PH-2026-06-09-001, RC-117 ✓ | `docs/platform-decision-records/DRAFT-PH-2026-06-09-003-technical-writer-stage.md` |
-| 28 | PH-2026-06-09-004 | experiment | 17 | queued | PH-2026-06-09-001, PH-004 ✓ | `docs/platform-decision-records/DRAFT-PH-2026-06-09-004-architect-reviewer-stage.md` |
+| 25 | PH-2026-06-09-001 | hygiene | 22 | accepted | PH-001 ✓, RC-130 ✓ | `docs/platform-decision-records/PH-2026-06-09-001-chain-profile-schema.md` |
+| 26 | PH-2026-06-09-002 | hygiene | 20 | accepted | PH-2026-06-09-001 ✓ | `docs/platform-decision-records/PH-2026-06-09-002-technical-doc-initiative-profile.md` |
+| 27 | PH-2026-06-09-003 | experiment | 18 | accepted | PH-2026-06-09-001 ✓, RC-117 ✓ | `docs/platform-decision-records/PH-2026-06-09-003-technical-writer-stage.md` |
+| 28 | PH-2026-06-09-004 | experiment | 17 | accepted | PH-2026-06-09-001 ✓, PH-004 ✓ | `docs/platform-decision-records/PH-2026-06-09-004-architect-reviewer-stage.md` |
 | 29 | PH-2026-06-09-005 | experiment | 16 | queued | PH-2026-06-09-001 | `docs/platform-decision-records/DRAFT-PH-2026-06-09-005-qa-pre-publish-stage.md` |
 | 30 | PH-2026-06-09-006 | experiment | 15 | workspace_triggered | PH-2026-06-09-001, RC-140 trigger | `docs/platform-decision-records/DRAFT-PH-2026-06-09-006-meeting-synthesis-profile.md` |
 | 31 | PH-2026-06-09-007 | experiment | 14 | workspace_triggered | PH-2026-06-09-001, RC-148 ✓ | `docs/platform-decision-records/DRAFT-PH-2026-06-09-007-knowledge-hub-profile.md` |
@@ -105,8 +105,7 @@ Template: `templates/platform-research/implementation-backlog.md`. Stack analysi
 
 | Select rank | ID | Score | Status | Notes |
 |---:|---|---:|---|---|
-| 1 | PH-2026-06-09-001 | 22 | queued | **Next PIC** — `chain_profile` in meta.yml + chain-profiles templates |
-| 2 | PH-2026-06-09-002 | 20 | queued | After PH-2026-06-09-001 — codify default VP→PM→Architect?→Engineer profile |
+| 1 | PH-2026-06-09-005 | 16 | queued | **Next PIC** — QA pre-publish stage |
 
 **Phase B — doc reinforcement** (fold into existing prompts; no PIC unless bundled):
 
@@ -240,10 +239,10 @@ User request: multiple agent chains per project type (technical doc initiative, 
 
 | ID | Title | Status | Depends on | Deliverable |
 |---|---|---|---|---|
-| PH-2026-06-09-001 | Chain profile schema | queued | PH-001 ✓, RC-130 ✓ | `chain_profile` in `meta.yml`; `templates/workspace/chain-profiles/`; `workspace-start-project` profile picker |
-| PH-2026-06-09-002 | Default `technical-doc-initiative` profile | queued | PH-2026-06-09-001 | Documents current chain; no behavior change |
-| PH-2026-06-09-003 | Technical Writer stage | queued | PH-2026-06-09-001, RC-117 ✓ | `workspace-technical-writer-agent` prompt |
-| PH-2026-06-09-004 | Architect Reviewer stage | queued | PH-2026-06-09-001, PH-004 ✓ | `workspace-architect-reviewer-agent` (advisory align-conformance) |
+| PH-2026-06-09-001 | Chain profile schema | accepted | PH-001 ✓, RC-130 ✓ | PIC-026; promoted ADR |
+| PH-2026-06-09-002 | Default `technical-doc-initiative` profile | accepted | PH-2026-06-09-001 ✓ | PIC-027; promoted ADR |
+| PH-2026-06-09-003 | Technical Writer stage | accepted | PH-2026-06-09-001 ✓, RC-117 ✓ | PIC-028; promoted ADR |
+| PH-2026-06-09-004 | Architect Reviewer stage | accepted | PH-2026-06-09-001 ✓, PH-004 ✓ | PIC-029; promoted ADR |
 | PH-2026-06-09-005 | QA pre-publish stage | queued | PH-2026-06-09-001 | `workspace-qa-agent` (align-cite + align-closure + lint report) |
 | PH-2026-06-09-006 | `meeting-synthesis` profile | workspace_triggered | PH-2026-06-09-001, RC-140 | Meeting capture → synthesis → publish path; trigger: first meeting ingest |
 | PH-2026-06-09-007 | `knowledge-hub` profile | workspace_triggered | PH-2026-06-09-001, RC-148 ✓ | Hub scope → compile gates → structure; trigger: first hub project |
@@ -266,23 +265,32 @@ User request: multiple agent chains per project type (technical doc initiative, 
 ## Current cycle
 
 ```yaml
-cycle_id: PIC-2026-06-09-026
-selected_claim: PH-2026-06-09-001
-status: user_review
-started: 2026-06-09
+cycle_id: PIC-2026-06-09-029
+selected_claim: PH-2026-06-09-004
+status: accepted
+accepted: 2026-06-09
 blocked_by: none
-next_action: "CEO accept or reject PH-2026-06-09-001 implementation; on accept run promote-platform-adr.py"
+next_action: "Select PH-2026-06-09-005 for next PIC (QA pre-publish stage)"
 ```
 
-## Previous cycle (awaiting close)
+## Previous cycle
 
 ```yaml
-cycle_id: PIC-2026-05-28-025
-selected_claim: PH-2026-05-27-008
+cycle_id: PIC-2026-06-09-028
+selected_claim: PH-2026-06-09-003
 status: accepted
-accepted: 2026-05-28
-blocked_by: none
-next_action: "Superseded by PIC-2026-06-09-026"
+accepted: 2026-06-09
+outcome: "Technical Writer stage; promoted PH-2026-06-09-003-technical-writer-stage.md"
+```
+
+## Previous cycle
+
+```yaml
+cycle_id: PIC-2026-06-09-026
+selected_claim: PH-2026-06-09-001
+status: accepted
+accepted: 2026-06-09
+outcome: "chain_profile schema; templates/workspace/chain-profiles/; start-project picker; promoted PH-2026-06-09-001-chain-profile-schema.md"
 ```
 
 ## Previous cycles (closed)
@@ -504,6 +512,7 @@ Process ADR: `docs/platform-decision-records/RC-implementation-priority-loop.md`
 
 | Date | Claim ID | Action | Notes |
 |---|---|---|---|
+| 2026-06-09 | PH-2026-06-09-004 | accepted | PIC-029; Architect Reviewer stage; promoted PH-2026-06-09-004-architect-reviewer-stage.md |
 | 2026-05-28 | PH-2026-05-27-008 | accepted | PIC-025; Option A ADR promotion; 26 files renamed; 119 ref updates |
 | 2026-05-28 | RC-021, RC-118, RC-119 | rejected | Parked rescore superseded; synced to rejected-ideas.md |
 | 2026-05-28 | — | parked_rescored | 28 parked RCs individually scored; report parked-rescore-2026-05-28.md |

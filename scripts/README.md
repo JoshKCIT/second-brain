@@ -25,4 +25,4 @@ python scripts\compile-workspace-external.py
 python scripts\lint-workspace.py
 ```
 
-Seed catalog: `config/vendor-seed-stack.yml`
+Seed catalog: `config/vendor-seed-stack.yml` (all vendors); `config/aws-seed-stack.yml` (AWS); `config/ibm-db2-zos-seed-stack.yml` (Db2 12 for z/OS); `config/snowflake-seed-stack.yml` (Snowflake)

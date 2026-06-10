@@ -1,0 +1,44 @@
+# GitHub product docs vendor seeds (vendor slug: github).
+# Copilot, Actions, and platform docs — repo facts may use GitHub API/MCP separately.
+# Run: python scripts/seed-vendor-docs.py --seed-file config/github-seed-stack.yml --yes
+
+seed_topics:
+  - vendor: github
+    topic: copilot-overview
+    url: https://docs.github.com/en/copilot/get-started/what-is-github-copilot
+    slug: what-is-github-copilot
+
+  - vendor: github
+    topic: copilot-features
+    url: https://docs.github.com/en/copilot/get-started/features
+    slug: features
+
+  - vendor: github
+    topic: cloud-agent
+    url: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-cloud-agent
+    slug: about-cloud-agent
+
+  - vendor: github
+    topic: custom-agents
+    url: https://docs.github.com/en/copilot/concepts/agents/cloud-agent/about-custom-agents
+    slug: about-custom-agents
+
+  - vendor: github
+    topic: mcp-overview
+    url: https://docs.github.com/en/copilot/building-copilot-extensions/about-building-copilot-extensions
+    slug: about-building-copilot-extensions
+
+  - vendor: github
+    topic: copilot-mcp-chat
+    url: https://docs.github.com/en/copilot/customizing-copilot/using-model-context-protocol/extending-copilot-chat-with-mcp
+    slug: extending-copilot-chat-with-mcp
+
+  - vendor: github
+    topic: actions-overview
+    url: https://docs.github.com/en/actions/get-started/understanding-github-actions
+    slug: understanding-github-actions
+
+  - vendor: github
+    topic: copilot-models-pricing
+    url: https://docs.github.com/en/copilot/reference/copilot-billing/models-and-pricing
+    slug: models-and-pricing

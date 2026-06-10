@@ -20,7 +20,7 @@ chain_profile: technical-doc-initiative
 chain_profile_path: templates/workspace/chain-profiles/technical-doc-initiative.md
 
 # PH-001 stage state machine
-current_stage: vp-brief      # vp-brief | pm-prd | architecture | engineering | finalize | align | ready-for-publish
+current_stage: vp-brief      # vp-brief | pm-prd | architecture | architect-review (optional, PH-004) | engineering | technical-writing (optional, PH-003) | finalize | align | ready-for-publish
 stage_gate: agent_work         # agent_work | awaiting_ceo_review | approved | blocked
 last_completed: null           # null | vp-brief | pm-prd | architecture | engineering | finalize
 
@@ -58,7 +58,8 @@ alignment_defaults:
 
 Orchestrator reads `chain_profile` + profile file for stage order and deliverables. Legacy projects without `chain_profile` resume as `technical-doc-initiative`; offer backfill on next `meta.yml` write.
 
-Catalog: `templates/workspace/chain-profiles/README.md`
+Catalog: `templates/workspace/chain-profiles/README.md`  
+Default profile spec: `templates/workspace/chain-profiles/technical-doc-initiative.md` (PH-2026-06-09-002)
 
 ## Transition rules
 

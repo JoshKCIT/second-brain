@@ -1,0 +1,44 @@
+# Microsoft Copilot Studio vendor doc seeds (vendor slug: microsoft-copilot-studio).
+# Distinct from vendor:azure — Power Platform agent builder on Learn /microsoft-copilot-studio/.
+# Run: python scripts/seed-vendor-docs.py --seed-file config/microsoft-copilot-studio-seed-stack.yml --yes
+
+seed_topics:
+  - vendor: microsoft-copilot-studio
+    topic: overview
+    url: https://learn.microsoft.com/en-us/microsoft-copilot-studio/fundamentals-what-is-copilot-studio
+    slug: fundamentals-what-is-copilot-studio
+
+  - vendor: microsoft-copilot-studio
+    topic: generative-orchestration
+    url: https://learn.microsoft.com/en-us/microsoft-copilot-studio/advanced-generative-actions
+    slug: advanced-generative-actions
+
+  - vendor: microsoft-copilot-studio
+    topic: knowledge-sources
+    url: https://learn.microsoft.com/en-us/microsoft-copilot-studio/knowledge-copilot-studio
+    slug: knowledge-copilot-studio
+
+  - vendor: microsoft-copilot-studio
+    topic: mcp-extend-agent
+    url: https://learn.microsoft.com/en-us/microsoft-copilot-studio/agent-extend-action-mcp
+    slug: agent-extend-action-mcp
+
+  - vendor: microsoft-copilot-studio
+    topic: mcp-add-existing-server
+    url: https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-add-existing-server-to-agent
+    slug: mcp-add-existing-server-to-agent
+
+  - vendor: microsoft-copilot-studio
+    topic: mcp-create-server
+    url: https://learn.microsoft.com/en-us/microsoft-copilot-studio/mcp-create-new-server
+    slug: mcp-create-new-server
+
+  - vendor: microsoft-copilot-studio
+    topic: publish-deploy
+    url: https://learn.microsoft.com/en-us/microsoft-copilot-studio/publication-fundamentals-publish-channels
+    slug: publication-fundamentals-publish-channels
+
+  - vendor: microsoft-copilot-studio
+    topic: channels
+    url: https://learn.microsoft.com/en-us/microsoft-copilot-studio/guidance/channels
+    slug: guidance-channels

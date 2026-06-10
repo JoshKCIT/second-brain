@@ -17,6 +17,8 @@ Curated catalog of **accepted platform experiments** through PIC-023. Structural
 | RC-165 | accepted | `templates/workspace/pointer-resources/README.md` | `docs/platform-decision-records/RC-2026-05-27-165-lean-root-pointer-resources.md` | H-2026-05-27-028 | active |
 | RC-146 | accepted | `templates/workspace/raw-inbox-staging.md` | `docs/platform-decision-records/RC-2026-05-27-146-raw-inbox-staging.md` | H-2026-05-27-025 (146) | active |
 | RC-148 | accepted | `templates/workspace/topic-entity-compile.md` | `docs/platform-decision-records/RC-2026-05-27-148-topic-entity-compile.md` | H-2026-05-27-026 (148) | active |
+| PH-2026-06-09-003 | experiment | `templates/workspace/technical-writer-stage.md` | `docs/platform-decision-records/PH-2026-06-09-003-technical-writer-stage.md` | H-2026-06-09-005 | active |
+| PH-2026-06-09-004 | experiment | `templates/workspace/architect-reviewer-stage.md` | `docs/platform-decision-records/PH-2026-06-09-004-architect-reviewer-stage.md` | H-2026-06-09-005 | active |
 
 ## Pilot status values
 
@@ -39,6 +41,7 @@ Track hypotheses in `wiki/platform-research/open-hypotheses.md`.
 | PH-005 | Reopen stage protocol |
 | PH-006 | Platform escalation routing row |
 | PH-2026-06-09-001 | Chain profile schema (`chain_profile` in meta.yml; `templates/workspace/chain-profiles/`) |
+| PH-2026-06-09-002 | Default profile `technical-doc-initiative` — `templates/workspace/chain-profiles/technical-doc-initiative.md` |
 | RC-122 + RC-157 | Read-before-write; citation-grounded query |
 | RC-018 | Retrieval contract first |
 | RC-161 | Instruction stacking tiers |

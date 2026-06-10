@@ -1,0 +1,44 @@
+# Anthropic Claude API vendor doc seeds (vendor slug: anthropic).
+# Doc host: platform.claude.com (successor to docs.anthropic.com).
+# Run: python scripts/seed-vendor-docs.py --seed-file config/anthropic-seed-stack.yml --yes
+
+seed_topics:
+  - vendor: anthropic
+    topic: api-overview
+    url: https://platform.claude.com/docs/en/api/overview
+    slug: api-overview
+
+  - vendor: anthropic
+    topic: features-overview
+    url: https://platform.claude.com/docs/en/build-with-claude/overview
+    slug: build-with-claude-overview
+
+  - vendor: anthropic
+    topic: models
+    url: https://platform.claude.com/docs/en/about-claude/models/overview
+    slug: models-overview
+
+  - vendor: anthropic
+    topic: tool-use
+    url: https://platform.claude.com/docs/en/agents-and-tools/tool-use/overview
+    slug: tool-use-overview
+
+  - vendor: anthropic
+    topic: mcp-connector
+    url: https://platform.claude.com/docs/en/agents-and-tools/mcp-connector
+    slug: mcp-connector
+
+  - vendor: anthropic
+    topic: mcp-glossary
+    url: https://platform.claude.com/docs/en/about-claude/glossary
+    slug: glossary
+
+  - vendor: anthropic
+    topic: prompt-engineering
+    url: https://platform.claude.com/docs/en/build-with-claude/prompt-engineering/overview
+    slug: prompt-engineering-overview
+
+  - vendor: anthropic
+    topic: structured-outputs
+    url: https://platform.claude.com/docs/en/build-with-claude/structured-outputs
+    slug: structured-outputs

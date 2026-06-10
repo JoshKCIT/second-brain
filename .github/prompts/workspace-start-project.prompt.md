@@ -36,7 +36,7 @@ Greet the CEO and ask for:
 - **Technical or non-technical?** (determines whether Architect Agent runs)
 - **Top 2-3 concerns or constraints** known up front
 - **Parallel workstreams?** (optional — if yes, stage agents may use `subprojects/{name}/` per RC-167)
-- **Chain profile** (PH-2026-06-09-001 — default `technical-doc-initiative`): read `templates/workspace/chain-profiles/README.md` for available profiles; only `active` profiles in picker unless CEO explicitly chooses a `draft` profile
+- **Chain profile** (PH-2026-06-09-001 — default `technical-doc-initiative`): read `templates/workspace/chain-profiles/README.md` for available profiles; default spec at `templates/workspace/chain-profiles/technical-doc-initiative.md` (PH-2026-06-09-002); only `active` profiles in picker unless CEO explicitly chooses a `draft` profile
 
 If the user is unsure whether technical applies, default to yes. If unsure on profile, default to `technical-doc-initiative`.
 

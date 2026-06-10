@@ -17,6 +17,8 @@ Canonical copy lives in `AGENTS.md` § Routing map. Update this template when pr
 | Onboard / configure scope | workspace | `second-brain` | `config/second-brain.yml`, `wiki/index.md` | `config/second-brain.yml` |
 | Start or resume project | workspace | `workspace-start-project` | `wiki/index.md`, `wiki/workspace-projects/{slug}/meta.yml`, **`templates/workspace/chain-profiles/`**, stage `handoff.md`, **`templates/workspace/draft-tier-map.md`** | `wiki/workspace-projects/{slug}/**` |
 | VP / PM / Architect / Engineer stage | workspace | `workspace-{vp,pm,architect,engineer}-agent` | `meta.yml`, stage artifact, `handoff.md`, `orientation.md` | Active stage artifact + draft-tier scaffolds |
+| Technical Writer stage (optional) | workspace | `workspace-technical-writer-agent` | Upstream approved artifacts, `docs/style/exemplar-published-doc.md`, `05-technical-writing/handoff.md` | In-place prose polish on stage artifacts; `05-technical-writing/**` scaffolds |
+| Architect Reviewer stage (optional) | workspace | `workspace-architect-reviewer-agent` | `meta.yml`, retrieval contract, in-scope `wiki/workspace-standards/**`, project artifacts | `reports/workspace-architect-reviewer-*.md` only; optional `03-architecture/research/` notes |
 | Thinking-partner exploration | workspace | `workspace-thinking-partner` | Stage `handoff.md`, upstream artifacts, `orientation.md` | `thinking-notes/**` only |
 | Session end preference capture | workspace | `session-audit` skill / `workspace-session-audit` | Stage `handoff.md`, `orientation.md` | `handoff.md`, `orientation.md` only |
 | Ingest Confluence | workspace | `workspace-ingest-confluence` | `config/second-brain.yml`, scoped spaces | `raw/workspace-confluence/**`; compile after RC-146 approval |

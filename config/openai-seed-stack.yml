@@ -1,0 +1,43 @@
+# OpenAI API vendor doc seeds (vendor slug: openai).
+# Run: python scripts/seed-vendor-docs.py --seed-file config/openai-seed-stack.yml --yes
+
+seed_topics:
+  - vendor: openai
+    topic: api-platform
+    url: https://developers.openai.com/api/docs
+    slug: api-docs
+
+  - vendor: openai
+    topic: quickstart
+    url: https://developers.openai.com/api/docs/quickstart
+    slug: quickstart
+
+  - vendor: openai
+    topic: api-overview
+    url: https://developers.openai.com/api/reference/overview
+    slug: api-reference-overview
+
+  - vendor: openai
+    topic: models
+    url: https://developers.openai.com/api/docs/models
+    slug: models
+
+  - vendor: openai
+    topic: agents-sdk
+    url: https://developers.openai.com/api/docs/guides/agents
+    slug: agents-sdk
+
+  - vendor: openai
+    topic: running-agents
+    url: https://developers.openai.com/api/docs/guides/agents/running-agents
+    slug: running-agents
+
+  - vendor: openai
+    topic: tools
+    url: https://developers.openai.com/api/docs/guides/tools
+    slug: tools
+
+  - vendor: openai
+    topic: structured-outputs
+    url: https://developers.openai.com/api/docs/guides/structured-outputs
+    slug: structured-outputs

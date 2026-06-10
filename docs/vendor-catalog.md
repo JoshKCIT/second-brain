@@ -1,7 +1,7 @@
 # Vendor documentation catalog
 
 **Status:** v1.0
-**Last updated:** 2026-05-27
+**Last updated:** 2026-06-09
 
 Second Brain grounds **vendor capability claims** (what AWS, Snowflake, Terraform, etc. can do) in cached vendor documentation under `raw/workspace-external/{vendor}/`. Internal org docs (Confluence) are deferred until you have access; **vendor truth works without Atlassian.**
 
@@ -33,7 +33,7 @@ Second Brain grounds **vendor capability claims** (what AWS, Snowflake, Terrafor
 
 Agent (or you) supplies a **specific documentation URL** when citing a capability. Defuddle extracts Markdown; Second Brain stores it with TTL frontmatter.
 
-**Best for:** AWS, Azure, GCP, Snowflake, Postgres, Docker, GitHub, Informatica, IBM product docs, HashiCorp Terraform docs.
+**Best for:** AWS, Azure, GCP, Snowflake, Postgres, Docker, GitHub, OpenAI, Anthropic, Microsoft 365, Informatica, IBM product docs, HashiCorp Terraform docs.
 
 **Limits:** Does not crawl entire doc sites; does not replace site search; some pages with heavy JS may fail (retry or pick a stable HTML doc URL).
 
@@ -45,7 +45,11 @@ When you configure an MCP server in Cursor/VS Code, agents can use structured to
 |-------------------|-------------|---------------|
 | Terraform MCP | Resource schemas, provider docs, plan context | Capability claims still cache to `vendor:terraform` or `vendor:hashicorp` URLs where possible |
 | AWS / cloud MCPs (when available) | Live API metadata, service discovery | Use for drafting; **publish** still prefers cached vendor doc + `align-vendor-truth` |
-| GitHub MCP | Repo/issue/PR context | Product behavior claims cite GitHub **docs** cache; repo facts cite GitHub API/MCP with clear domain |
+| GitHub MCP | Repo/issue/PR context; built into Copilot CLI | Product behavior claims cite `vendor:github` **docs** cache; repo facts cite GitHub API/MCP with clear domain |
+| OpenAI API | Drafting, Agents SDK orchestration | Capability claims cache to `vendor:openai` URLs; SDK/MCP tool output is not canonical until verified |
+| Anthropic MCP connector | Remote MCP servers via Messages API (`mcp-client` beta) | MCP protocol originator; product claims cite `vendor:anthropic`; connected tool behavior cites the tool's vendor domain |
+| Microsoft Learn MCP | Cross-product Learn doc search/fetch (`https://learn.microsoft.com/api/mcp`) | Drafting aid; **M365 / Copilot / Studio** claims cache to their product slug, not Learn MCP output |
+| Copilot Studio + MCP | Studio agents **consume** external MCP servers via Power Platform connectors | Product behavior (auth, DLP, wizard) cites `vendor:microsoft-copilot-studio`; connected tool behavior cites the tool's vendor domain |
 
 MCP output is **not** automatically canonical. Follow RC-002: retrieval and tool output ≠ citation support until verified against cached vendor doc or explicit source.
 
@@ -66,15 +70,20 @@ Use lowercase slugs in paths and `domain: vendor:{slug}`.
 
 | Slug | Domain tag | Official doc root (starting points) | TTL override hint |
 |------|------------|-------------------------------------|-------------------|
+| `anthropic` | `vendor:anthropic` | https://platform.claude.com/docs/en | 60–90 days — Claude API; MCP protocol and connector docs |
 | `aws` | `vendor:aws` | https://docs.aws.amazon.com/ | 60–90 days |
 | `azure` | `vendor:azure` | https://learn.microsoft.com/en-us/azure/ | 90 days |
+| `microsoft-copilot-studio` | `vendor:microsoft-copilot-studio` | https://learn.microsoft.com/en-us/microsoft-copilot-studio/ | 90 days — Power Platform agent builder; distinct from `vendor:azure` and M365 Copilot |
 | `gcp` | `vendor:gcp` | https://cloud.google.com/docs | 90 days |
+| `github` | `vendor:github` | https://docs.github.com/en | 90 days — Copilot, Actions, platform docs; see `config/github-seed-stack.yml` |
+| `microsoft-365` | `vendor:microsoft-365` | https://learn.microsoft.com/en-us/microsoft-365/ | 90 days — productivity suite, Graph, Teams, SharePoint; not Azure platform |
+| `microsoft-365-copilot` | `vendor:microsoft-365-copilot` | https://learn.microsoft.com/en-us/microsoft-365/copilot/ | 90 days — in-app M365 Copilot and declarative agents; distinct from `microsoft-copilot-studio` |
+| `openai` | `vendor:openai` | https://developers.openai.com/api/docs | 60–90 days — API, Agents SDK, models |
 | `snowflake` | `vendor:snowflake` | https://docs.snowflake.com/ | 30–60 days (frequent releases) |
 | `informatica` | `vendor:informatica` | https://docs.informatica.com/ | 90 days |
-| `ibm-db2-zos` | `vendor:ibm-db2-zos` | https://www.ibm.com/docs/en/db2-for-zos | 90 days — **ibm.com/docs** pages often fail defuddle; use product page (`informational`) or **manual ingest** (`config/vendor-seed-manual/`) |
+| `ibm-db2-zos` | `vendor:ibm-db2-zos` | https://www.ibm.com/docs/en/db2-for-zos/12.0.0 | 90 days — use **SSEPEK static HTML** URLs (`/docs/en/SSEPEK_12.0.0/{book}/src/tpc/*.html`); `topic=` pages are hit-or-miss; encryption uses **manual ingest** (`config/vendor-seed-manual/`) |
 | `ibm` | `vendor:ibm` | https://www.ibm.com/docs/en | 90 days (general IBM products) |
 | `terraform` | `vendor:terraform` | https://developer.hashicorp.com/terraform/docs | 60 days |
-| `github` | `vendor:github` | https://docs.github.com/en | 90 days |
 | `docker` | `vendor:docker` | https://docs.docker.com/ | 90 days |
 | `postgres` | `vendor:postgres` | https://www.postgresql.org/docs/ | 90 days (match major version in topic path) |
 
@@ -115,8 +124,24 @@ python scripts/seed-vendor-docs.py --yes
 | Vendor | Starter topics |
 |--------|----------------|
 | `aws` | S3 SSE/SSE-KMS, bucket policies, Glue security, IAM, VPC endpoints |
+| `ibm-db2-zos` | Db2 12 intro, SQL, security, RACF, data sharing, utilities, app dev — see `config/ibm-db2-zos-seed-stack.yml` |
+| `snowflake` | 44 in-scope features (objects, integrations, Cortex, governance) — see `config/snowflake-seed-stack.yml` |
 | `snowflake` | Encryption, S3 load, storage integration, stages, Snowpipe, RBAC |
 | `informatica` | Cloud DI getting started, product hub |
+| `microsoft-copilot-studio` | Overview, generative orchestration, knowledge, MCP integration, publish/channels — see `config/microsoft-copilot-studio-seed-stack.yml` |
+| `openai` | API platform, models, Agents SDK, tools — see `config/openai-seed-stack.yml` |
+| `anthropic` | Claude API, models, tool use, MCP connector — see `config/anthropic-seed-stack.yml` |
+| `microsoft-365` | Enterprise overview, Graph, Teams, SharePoint, Entra — see `config/microsoft-365-seed-stack.yml` |
+| `microsoft-365-copilot` | M365 Copilot overview, agents, declarative agents, licensing — see `config/microsoft-365-copilot-seed-stack.yml` |
+| `github` | Copilot, cloud/custom agents, MCP, Actions — see `config/github-seed-stack.yml` |
+
+Seed one vendor:
+
+```bash
+python scripts/seed-vendor-docs.py --seed-file config/microsoft-copilot-studio-seed-stack.yml --yes
+python scripts/seed-vendor-docs.py --seed-file config/openai-seed-stack.yml --yes
+# …anthropic, microsoft-365, microsoft-365-copilot, github
+```
 
 ---
 
