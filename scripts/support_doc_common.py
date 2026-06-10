@@ -329,7 +329,9 @@ def load_inventory(root: Path) -> dict[str, Any]:
 
 
 def inventory_hash(data: dict[str, Any]) -> str:
-    payload = json.dumps(data, sort_keys=True, separators=(",", ":"))
+    """Hash inventory content only; exclude volatile metadata fields."""
+    payload_data = {k: v for k, v in data.items() if k not in ("generated_at", "inventory_hash")}
+    payload = json.dumps(payload_data, sort_keys=True, separators=(",", ":"))
     return hashlib.sha256(payload.encode("utf-8")).hexdigest()[:16]
 
 

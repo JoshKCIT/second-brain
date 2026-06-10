@@ -53,13 +53,7 @@ jobs:
         run: pip install pyyaml
 
       - name: Refresh inventory (check for drift)
-        run: |
-          python scripts/sync-support-doc-inventory.py --root . --write
-          if ! git diff --quiet docs/platform-support-documentation/.inventory/inventory.json; then
-            echo "::error::inventory.json is stale. Run: python scripts/sync-support-doc-inventory.py --write"
-            git diff docs/platform-support-documentation/.inventory/inventory.json
-            exit 1
-          fi
+        run: python scripts/sync-support-doc-inventory.py --root . --check
 
       - name: Lint support documentation
         run: python scripts/lint-platform-support-docs.py --root . --strict

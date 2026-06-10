@@ -131,6 +131,11 @@ def main() -> int:
     parser = argparse.ArgumentParser(description="Sync platform support doc inventory")
     parser.add_argument("--root", type=Path, default=ROOT)
     parser.add_argument("--write", action="store_true")
+    parser.add_argument(
+        "--check",
+        action="store_true",
+        help="Exit 1 if committed inventory_hash differs from current repo scan",
+    )
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--json", action="store_true", help="Print inventory JSON to stdout")
     args = parser.parse_args()
@@ -148,6 +153,21 @@ def main() -> int:
         f"lifecycles={len(data['lifecycles'])} "
         f"routing_orphans={len(data['routing_orphans'])}"
     )
+
+    if args.check:
+        out = root / INVENTORY_REL
+        if not out.is_file():
+            print(f"ERROR: missing {out.relative_to(root)}", file=sys.stderr)
+            return 1
+        committed = json.loads(out.read_text(encoding="utf-8"))
+        if data["inventory_hash"] != committed.get("inventory_hash"):
+            print(
+                "ERROR: inventory.json is stale. Run: python scripts/sync-support-doc-inventory.py --write",
+                file=sys.stderr,
+            )
+            return 1
+        print("Inventory hash matches committed inventory.json")
+        return 0
 
     if args.dry_run:
         return 0
