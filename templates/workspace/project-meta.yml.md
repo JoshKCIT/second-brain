@@ -15,6 +15,10 @@ created: {ISO date}
 updated: {ISO date}
 technical: {true|false}
 
+# PH-2026-06-09-001 chain profile
+chain_profile: technical-doc-initiative
+chain_profile_path: templates/workspace/chain-profiles/technical-doc-initiative.md
+
 # PH-001 stage state machine
 current_stage: vp-brief      # vp-brief | pm-prd | architecture | engineering | finalize | align | ready-for-publish
 stage_gate: agent_work         # agent_work | awaiting_ceo_review | approved | blocked
@@ -47,6 +51,14 @@ alignment_defaults:
 | `invalidated_stages` | list of stage ids | Downstream artifacts marked stale after PH-005 reopen |
 | `reopen_reason` | string | Last reopen rationale; empty when none active |
 | `agent_mode_default` | `thinking` \| `artifact` | RC-116 default for stage artifacts when `agent_mode` omitted in frontmatter |
+| `chain_profile` | profile slug | PH-2026-06-09-001 — declared agent chain; default `technical-doc-initiative` |
+| `chain_profile_path` | repo-relative path | Profile definition file under `templates/workspace/chain-profiles/` |
+
+## Chain profile (PH-2026-06-09-001)
+
+Orchestrator reads `chain_profile` + profile file for stage order and deliverables. Legacy projects without `chain_profile` resume as `technical-doc-initiative`; offer backfill on next `meta.yml` write.
+
+Catalog: `templates/workspace/chain-profiles/README.md`
 
 ## Transition rules
 

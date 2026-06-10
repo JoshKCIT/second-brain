@@ -38,6 +38,7 @@ Track hypotheses in `wiki/platform-research/open-hypotheses.md`.
 | PH-004 | Advisory align-cite per stage |
 | PH-005 | Reopen stage protocol |
 | PH-006 | Platform escalation routing row |
+| PH-2026-06-09-001 | Chain profile schema (`chain_profile` in meta.yml; `templates/workspace/chain-profiles/`) |
 | RC-122 + RC-157 | Read-before-write; citation-grounded query |
 | RC-018 | Retrieval contract first |
 | RC-161 | Instruction stacking tiers |

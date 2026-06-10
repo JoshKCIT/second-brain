@@ -36,8 +36,9 @@ Greet the CEO and ask for:
 - **Technical or non-technical?** (determines whether Architect Agent runs)
 - **Top 2-3 concerns or constraints** known up front
 - **Parallel workstreams?** (optional — if yes, stage agents may use `subprojects/{name}/` per RC-167)
+- **Chain profile** (PH-2026-06-09-001 — default `technical-doc-initiative`): read `templates/workspace/chain-profiles/README.md` for available profiles; only `active` profiles in picker unless CEO explicitly chooses a `draft` profile
 
-If the user is unsure whether technical applies, default to yes.
+If the user is unsure whether technical applies, default to yes. If unsure on profile, default to `technical-doc-initiative`.
 
 ## Step 2: Create project skeleton
 
@@ -73,6 +74,8 @@ sub_status: draft
 created: {ISO date}
 updated: {ISO date}
 technical: {true|false}
+chain_profile: {profile_id}
+chain_profile_path: templates/workspace/chain-profiles/{profile_id}.md
 current_stage: vp-brief
 stage_gate: agent_work
 last_completed: null
@@ -129,6 +132,7 @@ Append entry to `wiki/log.md`:
 ## [{ISO timestamp}] start-project | {slug}
 - Created: wiki/workspace-projects/{slug}/{subdirs}
 - Technical: {true|false}
+- Chain profile: {chain_profile}
 - In-scope spaces: {list}
 ```
 
@@ -282,7 +286,8 @@ Engineering / finalize / align gates: allowed reopen targets include `vp-brief`,
 
 If invoked again on a project that already has artifacts (detected by `wiki/workspace-projects/{slug}/meta.yml` exists), resume using **PH-001 state first**:
 
-1. Read `meta.yml` **`current_stage`**, **`stage_gate`**, and **`last_completed`**.
+1. Read `meta.yml` **`current_stage`**, **`stage_gate`**, **`last_completed`**, and **`chain_profile`** (default `technical-doc-initiative` if absent).
+   - Load `chain_profile_path` or `templates/workspace/chain-profiles/{chain_profile}.md` for stage order and deliverables.
    - `stage_gate: awaiting_ceo_review` → present the artifact for `current_stage`; wait for CEO (do not invoke next agent).
    - `stage_gate: agent_work` → invoke the agent for `current_stage` (or finalize/align if `current_stage` is `finalize` / `align`).
    - `stage_gate: blocked` → report state; ask CEO how to proceed.

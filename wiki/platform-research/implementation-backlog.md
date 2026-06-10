@@ -266,12 +266,23 @@ User request: multiple agent chains per project type (technical doc initiative, 
 ## Current cycle
 
 ```yaml
+cycle_id: PIC-2026-06-09-026
+selected_claim: PH-2026-06-09-001
+status: user_review
+started: 2026-06-09
+blocked_by: none
+next_action: "CEO accept or reject PH-2026-06-09-001 implementation; on accept run promote-platform-adr.py"
+```
+
+## Previous cycle (awaiting close)
+
+```yaml
 cycle_id: PIC-2026-05-28-025
 selected_claim: PH-2026-05-27-008
 status: accepted
 accepted: 2026-05-28
 blocked_by: none
-next_action: "Select PH-2026-06-09-001 for next PIC (chain profile schema). CEO queued chain-profiles wave 2026-06-09."
+next_action: "Superseded by PIC-2026-06-09-026"
 ```
 
 ## Previous cycles (closed)
