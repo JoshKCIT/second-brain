@@ -15,7 +15,7 @@ Priority uses **stack lift**, not raw transcript impact alone. A claim with a lo
 | Rule | Value |
 |---|---|
 | Selection method | Highest `priority_score` among `queued` items with satisfied dependencies |
-| Phase gate | No new RC PIC until PH-007 accepted **or** explicit CEO unpark |
+| Phase gate | PH-007 ✓; **PH-2026-06-09 wave** queued (CEO 2026-06-09); general RC PIC pause unless workspace trigger |
 | Validation debt | ≥8 accepted experiments lack pilot — apply `validation_debt_penalty` to new RCs |
 | One item per cycle | Yes (bundled when policy-tier) |
 | User approval required before canonical edits | Yes |
@@ -50,6 +50,7 @@ priority_score =
 | **6 — Consolidation** | **Complete** | **PH-007 ✓** |
 | 7 — Workspace-triggered | RC queue on pilot | RC-149, RC-114, RC-050, … |
 | 8 — Park | Superseded / low band | See Parked table |
+| **9 — Chain profiles** | **Specialist stages + project-type chains** | **PH-2026-06-09-001 … 007 (queued)** |
 
 Template: `templates/platform-research/implementation-backlog.md`. Stack analysis: `reports/platform-research-review/claim-stack-analysis-2026-05-27.md`.
 
@@ -87,14 +88,25 @@ Template: `templates/platform-research/implementation-backlog.md`. Stack analysi
 | 22 | RC-2026-05-27-149 | experiment | 16 | workspace_triggered | RC-146 ✓ | — |
 | 23 | RC-2026-05-27-050 | experiment | 14 | workspace_triggered | RC-122 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-050-verbatim-cite-excerpts.md` |
 | 24 | RC-2026-05-27-055 | experiment | 10 | workspace_triggered | RC-122 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-05-27-055-identity-packs-compile.md` |
+| 25 | PH-2026-06-09-001 | hygiene | 22 | queued | PH-001 ✓, RC-130 ✓ | `docs/platform-decision-records/DRAFT-PH-2026-06-09-001-chain-profile-schema.md` |
+| 26 | PH-2026-06-09-002 | hygiene | 20 | queued | PH-2026-06-09-001 | `docs/platform-decision-records/DRAFT-PH-2026-06-09-002-technical-doc-initiative-profile.md` |
+| 27 | PH-2026-06-09-003 | experiment | 18 | queued | PH-2026-06-09-001, RC-117 ✓ | `docs/platform-decision-records/DRAFT-PH-2026-06-09-003-technical-writer-stage.md` |
+| 28 | PH-2026-06-09-004 | experiment | 17 | queued | PH-2026-06-09-001, PH-004 ✓ | `docs/platform-decision-records/DRAFT-PH-2026-06-09-004-architect-reviewer-stage.md` |
+| 29 | PH-2026-06-09-005 | experiment | 16 | queued | PH-2026-06-09-001 | `docs/platform-decision-records/DRAFT-PH-2026-06-09-005-qa-pre-publish-stage.md` |
+| 30 | PH-2026-06-09-006 | experiment | 15 | workspace_triggered | PH-2026-06-09-001, RC-140 trigger | `docs/platform-decision-records/DRAFT-PH-2026-06-09-006-meeting-synthesis-profile.md` |
+| 31 | PH-2026-06-09-007 | experiment | 14 | workspace_triggered | PH-2026-06-09-001, RC-148 ✓ | `docs/platform-decision-records/DRAFT-PH-2026-06-09-007-knowledge-hub-profile.md` |
+| 32 | RC-2026-05-27-136 | experiment | 12 | unpark_watch | PH-2026-06-09-001 | `docs/platform-decision-records/DRAFT-RC-2026-05-27-136-specialist-sub-agent-registry.md` |
+| 33 | RC-2026-06-09-012 | adopt | 11 | queued | RC-001 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-06-09-012-structure-vs-unstructured-retriever-heuristic.md` |
+| 34 | RC-2026-06-09-013 | experiment | 10 | queued | RC-009, RC-146 ✓ | `docs/platform-decision-records/DRAFT-RC-2026-06-09-013-three-pass-compile-orientation-map.md` |
 
-## Next selectable (rescore 2026-05-28)
+## Next selectable (rescore 2026-06-09)
 
-**Phase A — implement now** (no workspace trigger required):
+**Phase A — implement now** (CEO-directed chain-profiles wave):
 
 | Select rank | ID | Score | Status | Notes |
 |---:|---|---:|---|---|
-| — | — | — | — | PH-007 complete (PIC-024); RC PICs paused until workspace trigger |
+| 1 | PH-2026-06-09-001 | 22 | queued | **Next PIC** — `chain_profile` in meta.yml + chain-profiles templates |
+| 2 | PH-2026-06-09-002 | 20 | queued | After PH-2026-06-09-001 — codify default VP→PM→Architect?→Engineer profile |
 
 **Phase B — doc reinforcement** (fold into existing prompts; no PIC unless bundled):
 
@@ -158,10 +170,10 @@ Not in active queue unless **unpark trigger** fires or CEO explicit unpark. Full
 
 | Disposition | Count | Score range | Action |
 |---|---|---:|---|
-| `permanent_park` | 11 | 0–4 | No PIC; reject candidates noted |
+| `permanent_park` | 10 | 0–4 | No PIC; reject candidates noted |
 | `monitor` | 8 | 4–6 | Watch pilot logs |
 | `doc_reinforcement` | 3 | 6–9 | Fold into prompts |
-| `unpark_watch` | 6 | 7–9 | Re-enter on trigger |
+| `unpark_watch` | 7 | 7–12 | Re-enter on trigger |
 | `workspace_triggered` | 3 | 4–8 | Merge with Phase C |
 | `reject_candidate` | 0 | 0–2 | Synced to rejected-ideas.md |
 
@@ -176,7 +188,7 @@ Not in active queue unless **unpark trigger** fires or CEO explicit unpark. Full
 | RC-021 | 2 | **rejected** | Superseded by RC-148 compile (2026-05-28) |
 | RC-166 | 4 | workspace_triggered | Persona project (bundle RC-055) |
 | RC-135 | 3 | permanent_park | — (PH-007 registry) |
-| RC-136 | 2 | permanent_park | — |
+| RC-136 | 12 | **unpark_watch** | PH-2026-06-09-001 accepted or CEO explicit unpark |
 | RC-083 | 2 | permanent_park | — (RC-162/165) |
 | RC-138 | 6 | doc_reinforcement | Fold into routing-map |
 | RC-019 | 9 | unpark_watch | Biweekly lint cadence pain |
@@ -222,6 +234,26 @@ From `reports/platform-research-review/agent-chain-hygiene-2026-05-27.md`. Not t
 | PH-2026-05-27-007 | stack consolidation (registry + draft-tier map) | accepted | PIC-024; `templates/workspace/experiment-registry.md`, `draft-tier-map.md` |
 | PH-2026-05-27-008 | ADR promotion on PIC accept (Option A) | accepted | PIC-025; batch promote 26 ADRs + `scripts/promote-platform-adr.py` |
 
+## Chain profiles wave (CEO-directed 2026-06-09)
+
+User request: multiple agent chains per project type (technical doc initiative, meeting synthesis, knowledge hub) and specialist stages (Technical Writer, Architect Reviewer, QA). **Out of scope:** email/Teams auto-responders (RC-153, RC-159, RC-108 rejected); autonomous platform optimizer (RC-085 rejected).
+
+| ID | Title | Status | Depends on | Deliverable |
+|---|---|---|---|---|
+| PH-2026-06-09-001 | Chain profile schema | queued | PH-001 ✓, RC-130 ✓ | `chain_profile` in `meta.yml`; `templates/workspace/chain-profiles/`; `workspace-start-project` profile picker |
+| PH-2026-06-09-002 | Default `technical-doc-initiative` profile | queued | PH-2026-06-09-001 | Documents current chain; no behavior change |
+| PH-2026-06-09-003 | Technical Writer stage | queued | PH-2026-06-09-001, RC-117 ✓ | `workspace-technical-writer-agent` prompt |
+| PH-2026-06-09-004 | Architect Reviewer stage | queued | PH-2026-06-09-001, PH-004 ✓ | `workspace-architect-reviewer-agent` (advisory align-conformance) |
+| PH-2026-06-09-005 | QA pre-publish stage | queued | PH-2026-06-09-001 | `workspace-qa-agent` (align-cite + align-closure + lint report) |
+| PH-2026-06-09-006 | `meeting-synthesis` profile | workspace_triggered | PH-2026-06-09-001, RC-140 | Meeting capture → synthesis → publish path; trigger: first meeting ingest |
+| PH-2026-06-09-007 | `knowledge-hub` profile | workspace_triggered | PH-2026-06-09-001, RC-148 ✓ | Hub scope → compile gates → structure; trigger: first hub project |
+
+**Implementation order:** 001 → 002 → 003/004/005 (may parallelize) → 006/007 on trigger → RC-136 unpark optional.
+
+**Bundled transcript items (same wave, lower rank):** RC-2026-06-09-012 (retriever heuristic), RC-2026-06-09-013 (three-pass orientation map).
+
+**Related hypotheses:** H-2026-05-27-015 (RC-136), H-2026-05-27-018 (RC-140), H-2026-06-09-005 (chain profiles).
+
 ## Deferred (not in active queue)
 
 | Claim ID | Decision | Status | Re-enter when |
@@ -239,7 +271,7 @@ selected_claim: PH-2026-05-27-008
 status: accepted
 accepted: 2026-05-28
 blocked_by: none
-next_action: "PH-008 accepted. ADR promotion on PIC accept is policy. Pending ADRs remain DRAFT-* only."
+next_action: "Select PH-2026-06-09-001 for next PIC (chain profile schema). CEO queued chain-profiles wave 2026-06-09."
 ```
 
 ## Previous cycles (closed)

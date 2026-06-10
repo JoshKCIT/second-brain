@@ -20,11 +20,11 @@ Quick navigation for review. Full rejection history lives in `wiki/platform-rese
 
 | Decision | Claim IDs |
 |---|---|
-| adopt | RC-2026-05-27-001, RC-2026-05-27-002, RC-2026-05-27-004, RC-2026-05-27-006, RC-2026-05-27-010, RC-2026-05-27-014, RC-2026-05-27-016, RC-2026-05-27-017, RC-2026-05-27-018, RC-2026-05-27-032, RC-2026-05-27-035, RC-2026-05-27-039, RC-2026-05-27-082, RC-2026-05-27-087, RC-2026-05-27-089, RC-2026-05-27-090, RC-2026-05-27-091, RC-2026-05-27-092, RC-2026-05-27-093, RC-2026-05-27-097, RC-2026-05-27-098, RC-2026-05-27-105, RC-2026-05-27-111, RC-2026-05-27-113, RC-2026-05-27-115, RC-2026-05-27-137, RC-2026-05-27-147, RC-2026-05-27-157, RC-2026-05-27-158, RC-2026-05-27-160, RC-2026-05-27-161 |
-| experiment | RC-2026-05-27-003, RC-2026-05-27-007, RC-2026-05-27-008, RC-2026-05-27-009, RC-2026-05-27-012, RC-2026-05-27-015, RC-2026-05-27-019, RC-2026-05-27-020, RC-2026-05-27-021, RC-2026-05-27-024, RC-2026-05-27-029, RC-2026-05-27-030, RC-2026-05-27-031, RC-2026-05-27-036, RC-2026-05-27-037, RC-2026-05-27-038, RC-2026-05-27-042, RC-2026-05-27-083, RC-2026-05-27-094, RC-2026-05-27-102, RC-2026-05-27-103, RC-2026-05-27-107, RC-2026-05-27-112, RC-2026-05-27-114, RC-2026-05-27-135, RC-2026-05-27-136, RC-2026-05-27-138, RC-2026-05-27-139, RC-2026-05-27-140, RC-2026-05-27-141, RC-2026-05-27-142, RC-2026-05-27-146, RC-2026-05-27-148, RC-2026-05-27-149, RC-2026-05-27-162, RC-2026-05-27-163, RC-2026-05-27-164, RC-2026-05-27-165, RC-2026-05-27-166, RC-2026-05-27-167 |
-| defer | RC-2026-05-27-005, RC-2026-05-27-011, RC-2026-05-27-086, RC-2026-05-27-088, RC-2026-05-27-106 |
-| reject | RC-2026-05-27-009a, RC-2026-05-27-013, RC-2026-05-27-023, RC-2026-05-27-025, RC-2026-05-27-026, RC-2026-05-27-027, RC-2026-05-27-033, RC-2026-05-27-034, RC-2026-05-27-040, RC-2026-05-27-041, RC-2026-05-27-084, RC-2026-05-27-085, RC-2026-05-27-095, RC-2026-05-27-099, RC-2026-05-27-100, RC-2026-05-27-101, RC-2026-05-27-104, RC-2026-05-27-108, RC-2026-05-27-109, RC-2026-05-27-110, RC-2026-05-27-131, RC-2026-05-27-132, RC-2026-05-27-133, RC-2026-05-27-134, RC-2026-05-27-144, RC-2026-05-27-150, RC-2026-05-27-151, RC-2026-05-27-152, RC-2026-05-27-153, RC-2026-05-27-154, RC-2026-05-27-156, RC-2026-05-27-159, RC-2026-05-27-168, RC-2026-05-27-169, RC-2026-05-27-170, RC-2026-05-27-171, RC-2026-05-27-172, RC-2026-05-27-175 |
-| monitor | RC-2026-05-27-022, RC-2026-05-27-096, RC-2026-05-27-143, RC-2026-05-27-145, RC-2026-05-27-155, RC-2026-05-27-173, RC-2026-05-27-174 |
+| adopt | RC-2026-05-27-001, RC-2026-05-27-002, RC-2026-05-27-004, RC-2026-05-27-006, RC-2026-05-27-010, RC-2026-05-27-014, RC-2026-05-27-016, RC-2026-05-27-017, RC-2026-05-27-018, RC-2026-05-27-032, RC-2026-05-27-035, RC-2026-05-27-039, RC-2026-05-27-082, RC-2026-05-27-087, RC-2026-05-27-089, RC-2026-05-27-090, RC-2026-05-27-091, RC-2026-05-27-092, RC-2026-05-27-093, RC-2026-05-27-097, RC-2026-05-27-098, RC-2026-05-27-105, RC-2026-05-27-111, RC-2026-05-27-113, RC-2026-05-27-115, RC-2026-05-27-137, RC-2026-05-27-147, RC-2026-05-27-157, RC-2026-05-27-158, RC-2026-05-27-160, RC-2026-05-27-161, RC-2026-06-09-003, RC-2026-06-09-009, RC-2026-06-09-011, RC-2026-06-09-012 |
+| experiment | RC-2026-05-27-003, RC-2026-05-27-007, RC-2026-05-27-008, RC-2026-05-27-009, RC-2026-05-27-012, RC-2026-05-27-015, RC-2026-05-27-019, RC-2026-05-27-020, RC-2026-05-27-021, RC-2026-05-27-024, RC-2026-05-27-029, RC-2026-05-27-030, RC-2026-05-27-031, RC-2026-05-27-036, RC-2026-05-27-037, RC-2026-05-27-038, RC-2026-05-27-042, RC-2026-05-27-083, RC-2026-05-27-094, RC-2026-05-27-102, RC-2026-05-27-103, RC-2026-05-27-107, RC-2026-05-27-112, RC-2026-05-27-114, RC-2026-05-27-135, RC-2026-05-27-136, RC-2026-05-27-138, RC-2026-05-27-139, RC-2026-05-27-140, RC-2026-05-27-141, RC-2026-05-27-142, RC-2026-05-27-146, RC-2026-05-27-148, RC-2026-05-27-149, RC-2026-05-27-162, RC-2026-05-27-163, RC-2026-05-27-164, RC-2026-05-27-165, RC-2026-05-27-166, RC-2026-05-27-167, RC-2026-06-09-001, RC-2026-06-09-004, RC-2026-06-09-005, RC-2026-06-09-007, RC-2026-06-09-013 |
+| defer | RC-2026-05-27-005, RC-2026-05-27-011, RC-2026-05-27-086, RC-2026-05-27-088, RC-2026-05-27-106, RC-2026-06-09-002, RC-2026-06-09-015 |
+| reject | RC-2026-05-27-009a, RC-2026-05-27-013, RC-2026-05-27-023, RC-2026-05-27-025, RC-2026-05-27-026, RC-2026-05-27-027, RC-2026-05-27-033, RC-2026-05-27-034, RC-2026-05-27-040, RC-2026-05-27-041, RC-2026-05-27-084, RC-2026-05-27-085, RC-2026-05-27-095, RC-2026-05-27-099, RC-2026-05-27-100, RC-2026-05-27-101, RC-2026-05-27-104, RC-2026-05-27-108, RC-2026-05-27-109, RC-2026-05-27-110, RC-2026-05-27-131, RC-2026-05-27-132, RC-2026-05-27-133, RC-2026-05-27-134, RC-2026-05-27-144, RC-2026-05-27-150, RC-2026-05-27-151, RC-2026-05-27-152, RC-2026-05-27-153, RC-2026-05-27-154, RC-2026-05-27-156, RC-2026-05-27-159, RC-2026-05-27-168, RC-2026-05-27-169, RC-2026-05-27-170, RC-2026-05-27-171, RC-2026-05-27-172, RC-2026-05-27-175, RC-2026-06-09-006, RC-2026-06-09-016, RC-2026-06-09-017, RC-2026-06-09-018 |
+| monitor | RC-2026-05-27-022, RC-2026-05-27-096, RC-2026-05-27-143, RC-2026-05-27-145, RC-2026-05-27-155, RC-2026-05-27-173, RC-2026-05-27-174, RC-2026-06-09-008, RC-2026-06-09-010, RC-2026-06-09-014 |
 
 Rejected claims and recurring rejection patterns: see `wiki/platform-research/rejected-ideas.md`. Next scheduled re-review: **2026-08-27**.
 
@@ -6494,4 +6494,770 @@ next_review_after: 2026-08-27
 owner: unassigned
 status: closed
 last_reviewed: 2026-05-27
+```
+
+```yaml
+claim_id: RC-2026-06-09-001
+source_transcript: raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt
+speaker: unknown
+timestamp: "00:00:00-00:01:00"
+claim_type: problem_evidence
+atomic_claim: "Agent doom loops (repeating broken solutions) are primarily an observability failure over failure trajectories, not raw model incapability."
+verbatim_excerpt: "try the exact same broken solution, and then just fail again... break that doom loop"
+implied_assumption: "Structured failure context would break repeat-error cycles in Second Brain agent runs."
+current_design_status: partially_supported
+evidence_supplied_by_speaker: anecdotal
+requires_external_validation: false
+validation_status: supported_by_current_design
+correction_route: "Approve experiment pilot on one lint/align failure review; reject via backlog rollback."
+affected_components:
+  - platform-research-review
+  - workspace-lint
+related_second_brain_principles:
+  - inspectable_retrieval
+  - human_review_leverage
+expected_benefit: "Better root-cause visibility reduces wasted agent iterations."
+possible_regression: "Over-engineered trace tooling before failure volume exists."
+validation_method: "Pilot structured doom-loop tagging on one advisory failure report."
+impact_scores:
+  governance: 1
+  closure: 0
+  grounding: 1
+  vendor_truth: 0
+  inspectability: 2
+  maintainability: 0
+  differentiation: 1
+  enterprise_fit: 0
+  human_review_leverage: 1
+total_score: 6
+decision: experiment
+decision_rationale: "Aligns with RC-012 advisory posture; needs pilot before adopt."
+next_action: "Link to RC-012 failure-review experiment when failure data exists."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-002
+source_transcript: raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt
+speaker: unknown
+timestamp: "00:02:00-00:02:30"
+claim_type: problem_evidence
+atomic_claim: "Manual harness debugging does not scale against massive unstructured agent logs (up to millions of tokens per investigation)."
+verbatim_excerpt: "sift through up to 10 million tokens of raw, unstructured log data just trying to find a single actionable signal"
+implied_assumption: "Second Brain will accumulate enough agent trace volume to require automated distillation."
+current_design_status: partially_supported
+evidence_supplied_by_speaker: anecdotal
+requires_external_validation: false
+validation_status: supported_by_current_design
+correction_route: "Re-enter when RC-012 failure-data blocker clears; defer until then."
+affected_components:
+  - wiki/log.md
+  - reports/
+related_second_brain_principles:
+  - inspectability
+  - governance
+expected_benefit: "Motivates structured failure reports over raw log dumps."
+possible_regression: "Building trace infrastructure before real failures exist."
+validation_method: "Defer until lint/align/publish failure corpus available."
+impact_scores:
+  governance: 1
+  closure: 0
+  grounding: 1
+  vendor_truth: 0
+  inspectability: 1
+  maintainability: 0
+  differentiation: 0
+  enterprise_fit: 1
+  human_review_leverage: 1
+total_score: 5
+decision: defer
+decision_rationale: "Useful problem framing but blocked by RC-012 missing failure traces."
+next_action: "Re-review when roadmap RC-012 blocker clears."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-003
+source_transcript: raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt
+speaker: unknown
+timestamp: "00:02:30-00:03:00"
+claim_type: principle_claim
+atomic_claim: "Agent harness improvement is bottlenecked by observability quality, not base model capability."
+verbatim_excerpt: "agent evolution isn't actually bottlenecked by agent capability. It's bottlenecked by observability"
+implied_assumption: "Second Brain should invest in inspectable failure signals before model-tier upgrades."
+current_design_status: partially_supported
+evidence_supplied_by_speaker: anecdotal
+requires_external_validation: false
+validation_status: validated_against_design
+correction_route: "Reinforce in platform ADR narrative; approve via implementation backlog if codified."
+affected_components:
+  - AGENTS.md
+  - platform-research-review
+related_second_brain_principles:
+  - inspectable_retrieval
+  - governance
+  - human_review_leverage
+expected_benefit: "Prioritizes align/lint/reporting over generic model swaps."
+possible_regression: "Used to justify autonomy without observability investment."
+validation_method: "Cross-check against RC-001 page-index and RC-012 advisory review."
+impact_scores:
+  governance: 2
+  closure: 1
+  grounding: 1
+  vendor_truth: 0
+  inspectability: 2
+  maintainability: 1
+  differentiation: 1
+  enterprise_fit: 1
+  human_review_leverage: 1
+total_score: 10
+decision: adopt
+decision_rationale: "Strong alignment with verifiability and inspectable retrieval policy; low uncertainty."
+next_action: "Reinforce alongside RC-090/012 in platform narrative."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-004
+source_transcript: raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt
+speaker: unknown
+timestamp: "00:03:30-00:04:30"
+claim_type: architecture_proposal
+atomic_claim: "Platform harness should expose file-typed components (prompts, skills, scripts, shims) with explicit edit action space and VCS revert per component."
+verbatim_excerpt: "decouple it into seven distinct component types... every single failure maps cleanly to a single file"
+implied_assumption: "Explicit component map improves failure attribution for Second Brain platform ops."
+current_design_status: partially_supported
+evidence_supplied_by_speaker: example
+requires_external_validation: false
+validation_status: supported_by_current_design
+correction_route: "Approve experiment ADR for component map; reject via backlog rollback."
+affected_components:
+  - .github/prompts/
+  - .github/skills/
+  - scripts/
+  - AGENTS.md
+related_second_brain_principles:
+  - inspectability
+  - maintainability
+expected_benefit: "Faster failure-to-file routing in platform debugging."
+possible_regression: "Documentation overhead if map drifts from repo layout."
+validation_method: "Publish component map; test on 3 platform failure attributions."
+impact_scores:
+  governance: 1
+  closure: 0
+  grounding: 1
+  vendor_truth: 0
+  inspectability: 2
+  maintainability: 1
+  differentiation: 1
+  enterprise_fit: 1
+  human_review_leverage: 1
+total_score: 8
+decision: experiment
+decision_rationale: "Structure exists implicitly; explicit map is low-risk experiment."
+next_action: "Add harness component map to platform-research templates."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-005
+source_transcript: raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt
+speaker: unknown
+timestamp: "00:04:00-00:04:30"
+claim_type: workflow_proposal
+atomic_claim: "Failure review should distill raw agent traces into structured root-cause summaries before proposing harness changes."
+verbatim_excerpt: "agent debugger distills those logs into a layered, drill-down, evidentiary... structured, bite-sized insights"
+implied_assumption: "Distilled summaries improve RC-012 advisory failure review quality."
+current_design_status: partially_supported
+evidence_supplied_by_speaker: example
+requires_external_validation: false
+validation_status: supported_by_current_design
+correction_route: "Extend RC-012 experiment; track in open-hypotheses.md."
+affected_components:
+  - platform-research-review
+  - reports/
+related_second_brain_principles:
+  - inspectability
+  - human_review_leverage
+expected_benefit: "CEO-readable failure packages instead of raw trace dumps."
+possible_regression: "Distillation omits evidence needed for align-cite verification."
+validation_method: "One advisory failure report with layered trace summary; CEO rates usefulness."
+impact_scores:
+  governance: 1
+  closure: 1
+  grounding: 1
+  vendor_truth: 0
+  inspectability: 2
+  maintainability: 1
+  differentiation: 1
+  enterprise_fit: 1
+  human_review_leverage: 2
+total_score: 10
+decision: experiment
+decision_rationale: "Extends RC-012 safely; high inspectability upside with approval gates preserved."
+next_action: "Add trace distillation section to RC-012 DRAFT ADR on next PIC cycle."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-006
+source_transcript: raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt
+speaker: unknown
+timestamp: "00:04:30-00:05:00"
+claim_type: workflow_proposal
+atomic_claim: "Second Brain should run an unattended Evolve-agent loop that autonomously edits and commits harness changes round after round without human approval."
+verbatim_excerpt: "an Evolve agent just unattendedly edits and commits changes to the workspace. Round after round"
+implied_assumption: "Autonomous harness commits improve Second Brain faster than CEO-gated PIC cycles."
+current_design_status: contradicted
+evidence_supplied_by_speaker: example
+requires_external_validation: false
+validation_status: validated_against_design
+correction_route: "Re-review per rejected-ideas.md next_review_after; safer variant is RC-012 advisory reports only."
+affected_components:
+  - AGENTS.md
+  - .github/prompts/
+  - wiki/
+related_second_brain_principles:
+  - governance
+  - approval_gated_mutations
+  - human_review_leverage
+expected_benefit: "Faster harness iteration on coding benchmarks."
+possible_regression: "Silent mutation of Tier-1 rules; audit trail loss; duplicates RC-085/100 rejections."
+validation_method: "N/A — rejected."
+impact_scores:
+  governance: -2
+  closure: -1
+  grounding: -1
+  vendor_truth: 0
+  inspectability: -1
+  maintainability: 0
+  differentiation: -1
+  enterprise_fit: -2
+  human_review_leverage: -2
+total_score: -10
+decision: reject
+decision_rationale: "Violates approval-gated mutations and RC-012 no-auto-mutate posture."
+next_action: "Record in rejected-ideas.md."
+next_review_after: 2026-09-09
+owner: unassigned
+status: closed
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-007
+source_transcript: raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt
+speaker: unknown
+timestamp: "00:05:00-00:05:30"
+claim_type: evaluation_proposal
+atomic_claim: "Platform harness changes should ship with falsifiable change manifests, predicted outcomes, verification commands, and rollback on failed verification."
+verbatim_excerpt: "writes a change manifest... self-declared prediction... verifies if that specific file-level edit actually improved... rolls it back"
+implied_assumption: "PIC accept/rollback gains explicit falsifiability without autonomous commits."
+current_design_status: unsupported
+evidence_supplied_by_speaker: example
+requires_external_validation: false
+validation_status: supported_by_current_design
+correction_route: "Approve DRAFT ADR via implementation backlog; reject via backlog rollback."
+affected_components:
+  - wiki/platform-research/implementation-backlog.md
+  - platform-implement-backlog
+related_second_brain_principles:
+  - governance
+  - inspectability
+expected_benefit: "Clearer accept/reject criteria for platform changes."
+possible_regression: "Template friction on small PIC items."
+validation_method: "Apply manifest to next 3 PIC cycles; measure rollback clarity."
+impact_scores:
+  governance: 2
+  closure: 1
+  grounding: 1
+  vendor_truth: 0
+  inspectability: 2
+  maintainability: 1
+  differentiation: 1
+  enterprise_fit: 1
+  human_review_leverage: 1
+total_score: 10
+decision: experiment
+decision_rationale: "Extends existing PIC loop with verifiable predictions; preserves human gates."
+next_action: "Draft ADR RC-2026-06-09-007; add hypothesis to open-hypotheses.md."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-008
+source_transcript: raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt
+speaker: unknown
+timestamp: "00:05:30-00:06:30"
+claim_type: market_claim
+atomic_claim: "A-H-E raised Terminal Bench 2 pass rate from 69.7% to 77.0% in 10 iterations with a fixed GPT-4 base model, outperforming a human-designed Codex harness at 71.9%."
+verbatim_excerpt: "10 iterations of AHE lifted the pass rate from 69.7% to a massive 77.0%... crushes the human-designed codex harness, which sits at 71.9%"
+implied_assumption: "Benchmark gains transfer to governed documentation compiler workloads."
+current_design_status: unsupported
+evidence_supplied_by_speaker: data
+requires_external_validation: true
+validation_status: unvalidated
+correction_route: "Monitor; re-review when primary paper and benchmark artifacts validated."
+affected_components:
+  - out-of-scope-benchmarks
+related_second_brain_principles:
+  - scope_discipline
+expected_benefit: "External evidence that harness tuning beats model swaps on coding tasks."
+possible_regression: "Cited in product docs without validation; justifies autonomy scope creep."
+validation_method: "Fetch primary paper; reproduce or verify Terminal Bench 2 claim."
+impact_scores:
+  governance: 0
+  closure: 0
+  grounding: 0
+  vendor_truth: 0
+  inspectability: 0
+  maintainability: 0
+  differentiation: 0
+  enterprise_fit: 0
+  human_review_leverage: 0
+total_score: 0
+decision: monitor
+decision_rationale: "Unvalidated benchmark from secondary explainer; fail-closed for adopt."
+next_action: "Do not cite in canonical docs until validated."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-009
+source_transcript: raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt
+speaker: unknown
+timestamp: "00:06:30-00:07:30"
+claim_type: risk_claim
+atomic_claim: "Auto-evolving system prompts causes performance regression; Second Brain must forbid autonomous mutation of AGENTS.md, tier-2 shims, and stage prompts."
+verbatim_excerpt: "if you let it evolve the system prompt alone, performance actually goes down. It regresses"
+implied_assumption: "Code-based tools and scripts are the safe evolution surface; prose instructions require human approval."
+current_design_status: partially_supported
+evidence_supplied_by_speaker: data
+requires_external_validation: false
+validation_status: validated_against_design
+correction_route: "Approve DRAFT ADR via implementation backlog; ablation cited as motivation only—policy grounded in RC-012/161."
+affected_components:
+  - AGENTS.md
+  - .cursor/rules/agents.mdc
+  - CLAUDE.md
+  - .github/prompts/
+related_second_brain_principles:
+  - governance
+  - instruction_stacking
+  - human_review_leverage
+expected_benefit: "Prevents instruction-stack entropy and governance regression."
+possible_regression: "Over-constrains legitimate CEO-approved prompt improvements."
+validation_method: "Codify policy; verify no autonomous prompt writes outside PIC."
+impact_scores:
+  governance: 2
+  closure: 1
+  grounding: 1
+  vendor_truth: 0
+  inspectability: 1
+  maintainability: 2
+  differentiation: 1
+  enterprise_fit: 2
+  human_review_leverage: 2
+total_score: 12
+decision: adopt
+decision_rationale: "Strong governance fit; ablation claim unvalidated but policy matches existing RC-012/161 posture—adopt as explicit guardrail not benchmark citation."
+next_action: "DRAFT ADR RC-2026-06-09-009; validate ablation when primary paper available."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-010
+source_transcript: raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt
+speaker: unknown
+timestamp: "00:07:30-00:08:00"
+claim_type: principle_claim
+atomic_claim: "Applied AI engineer role shifts from builder to evolution overseer with human approval at each harness mutation."
+verbatim_excerpt: "Are we no longer builders, but just overseers of evolution?"
+implied_assumption: "CEO operator model maps to overseer not autonomous builder."
+current_design_status: partially_supported
+evidence_supplied_by_speaker: anecdotal
+requires_external_validation: false
+validation_status: supported_by_current_design
+correction_route: "Monitor; re-review when RC-012/163 pilots complete."
+affected_components:
+  - workspace agent chain
+  - platform-implement-backlog
+related_second_brain_principles:
+  - human_review_leverage
+  - governance
+expected_benefit: "Reinforces CEO gates between stages and PIC accept."
+possible_regression: "Interpreted as license to remove builder/engineer agent chain."
+validation_method: "Compare against RC-093 director accountability; no scope reduction."
+impact_scores:
+  governance: 1
+  closure: 0
+  grounding: 1
+  vendor_truth: 0
+  inspectability: 0
+  maintainability: 0
+  differentiation: 0
+  enterprise_fit: 1
+  human_review_leverage: 1
+total_score: 4
+decision: monitor
+decision_rationale: "Already partially encoded in CEO stage gates; monitor until harness review pilot data."
+next_action: "Re-review after RC-012 or RC-163 experiment results."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-011
+source_transcript: raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt
+speaker: unknown
+timestamp: "00:02:00-00:02:30"
+claim_type: principle_claim
+atomic_claim: "Graphify pass-1 deterministic tree-sitter extraction (classes, functions, imports, call graphs) without LLM cost corroborates Second Brain's structure-first page-index retrieval over embedding-first orientation."
+verbatim_excerpt: "On the first pass, we are looking at the code structure, and this is completely free... tree sitter parses your code files... This runs locally with no LLM involved."
+implied_assumption: "Inspectable hierarchy and explicit connections should be extracted before semantic enrichment."
+current_design_status: already_supported
+evidence_supplied_by_speaker: example
+requires_external_validation: true
+validation_status: validated_against_design
+correction_route: "Reinforces RC-001; reject embedding-first orientation via backlog rollback if contradicted."
+affected_components:
+  - workspace-query
+  - docs/architecture-rationale.md
+related_second_brain_principles:
+  - inspectable_retrieval
+  - citation_grounding
+expected_benefit: "External corroboration for RC-001 page-index policy when evaluating graph/RAG proposals."
+possible_regression: "Misread as mandate to add Graphify or code-graph infrastructure in v1."
+validation_method: "Map pass-1 pattern to wiki index + section-tree navigation; no Graphify install required."
+impact_scores:
+  governance: 1
+  closure: 1
+  grounding: 2
+  vendor_truth: 0
+  inspectability: 2
+  maintainability: 1
+  differentiation: 1
+  enterprise_fit: 1
+  human_review_leverage: 0
+total_score: 9
+decision: adopt
+decision_rationale: "Aligns with accepted RC-001; Graphify evidence supports structure-before-semantic discipline without adopting the product."
+next_action: "No new PIC item; cite as corroboration in retriever heuristic ADR RC-2026-06-09-012."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-012
+source_transcript: raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt
+speaker: unknown
+timestamp: "00:04:00-00:05:30"
+claim_type: architecture_proposal
+atomic_claim: "Second Brain should document a retriever-selection heuristic: structure-aware page-index or deterministic graphs for wired/hierarchical corpora; holdout-gated embedding GraphRAG only for unstructured cross-document policy corpora."
+verbatim_excerpt: "Graphify isn't using any embedding system whatsoever... GraphRAG... is great for something that's more unstructured."
+implied_assumption: "Corpus structure determines retriever choice; v1 wiki is predominantly hierarchical Markdown."
+current_design_status: partially_supported
+evidence_supplied_by_speaker: example
+requires_external_validation: false
+validation_status: supported_by_current_design
+correction_route: "Approve DRAFT ADR via implementation backlog; reject via backlog rollback."
+affected_components:
+  - docs/architecture-rationale.md
+  - workspace-query
+  - platform-research-review
+related_second_brain_principles:
+  - inspectable_retrieval
+  - source_authority
+expected_benefit: "Clearer scope filter when reviewing graph vs RAG transcript claims; prevents IDE-tool scope creep."
+possible_regression: "Heuristic misapplied to justify premature embedding adoption without holdout."
+validation_method: "Apply table to next three graph/RAG platform reviews; check consistent defer/reject decisions."
+impact_scores:
+  governance: 1
+  closure: 1
+  grounding: 1
+  vendor_truth: 0
+  inspectability: 1
+  maintainability: 1
+  differentiation: 1
+  enterprise_fit: 1
+  human_review_leverage: 0
+total_score: 7
+decision: adopt
+decision_rationale: "Codifies implicit RC-001 future-retriever gate into an explicit decision rule without enabling embeddings in v1."
+next_action: "DRAFT ADR RC-2026-06-09-012; queue in implementation-backlog after user approval."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-013
+source_transcript: raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt
+speaker: unknown
+timestamp: "00:02:00-00:03:30"
+claim_type: workflow_proposal
+atomic_claim: "Second Brain compile-time orientation maps should use a three-pass pattern: deterministic wiki structure extraction (zero LLM), optional media text extraction, then LLM semantic enrichment only for unstructured sources—output remains disposable and non-canonical."
+verbatim_excerpt: "three different passes... first pass... completely free... second pass... transcribed... third pass on docs, papers, and images... where the large language model actually comes in."
+implied_assumption: "Most compile orientation value comes from pass-1 structure; LLM cost should be limited to unstructured inputs."
+current_design_status: partially_supported
+evidence_supplied_by_speaker: example
+requires_external_validation: true
+validation_status: unvalidated
+correction_route: "Approve experiment ADR via backlog; track H-2026-06-09-004; reject via backlog rollback."
+affected_components:
+  - workspace-compile
+  - workspace-query
+  - platform-research
+related_second_brain_principles:
+  - junior_engineer_closure
+  - inspectable_retrieval
+  - human_review_leverage
+expected_benefit: "May reduce blind orientation reads during multi-standard compile without weakening align-cite."
+possible_regression: "Orientation map mistaken for canonical truth or align-cite substitute."
+validation_method: "Pilot one project: orientation read count and align-cite pass rate vs index-only baseline."
+impact_scores:
+  governance: 1
+  closure: 1
+  grounding: 0
+  vendor_truth: 0
+  inspectability: 1
+  maintainability: -1
+  differentiation: 1
+  enterprise_fit: 0
+  human_review_leverage: 1
+total_score: 4
+decision: experiment
+decision_rationale: "Extends RC-009 safer variant with concrete Graphify-inspired pipeline; worth piloting as disposable draft-tier artifact."
+next_action: "DRAFT ADR RC-2026-06-09-013; add H-2026-06-09-004 to open-hypotheses.md."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-014
+source_transcript: raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt
+speaker: unknown
+timestamp: "00:09:30-00:11:00"
+claim_type: market_claim
+atomic_claim: "In one OpenDesign repo demo, Graphify graph queries used ~80K tokens versus ~200K tokens for explorer-agent file traversal on the same trace question, with equivalent answer quality."
+verbatim_excerpt: "about 200,000 tokens total, versus over here on the non -Graphify version, we only used about 80,000. So about 40 % of the total cost"
+implied_assumption: "Token savings on code repos transfer to Second Brain wiki compile workloads."
+current_design_status: unsupported
+evidence_supplied_by_speaker: anecdotal
+requires_external_validation: true
+validation_status: unvalidated
+correction_route: "Monitor; re-review when wiki-orientation pilot produces comparable metrics."
+affected_components:
+  - platform-research
+  - RC-2026-05-27-008
+related_second_brain_principles:
+  - inspectable_retrieval
+expected_benefit: "Anecdotal ROI signal for orientation-map experiments if validated on wiki tasks."
+possible_regression: "Product decisions driven by unvalidated codebase token demos."
+validation_method: "Reproduce paired task on wiki compile orientation holdout; record token/read counts."
+impact_scores:
+  governance: 0
+  closure: 0
+  grounding: 0
+  vendor_truth: 0
+  inspectability: 0
+  maintainability: 0
+  differentiation: 0
+  enterprise_fit: 0
+  human_review_leverage: 0
+total_score: 0
+decision: monitor
+decision_rationale: "Single sponsored demo on a codebase; fail-closed for adopt/experiment until validated on Second Brain workloads."
+next_action: "Re-review after RC-013 pilot or RC-008 re-entry."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-015
+source_transcript: raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt
+speaker: unknown
+timestamp: "00:11:30-00:12:00"
+claim_type: workflow_proposal
+atomic_claim: "Deterministic AST-only graph rebuild on each commit (no LLM API cost) can keep agent orientation maps fresh for living repositories and parallel team edits."
+verbatim_excerpt: "graphify hook install, it's gonna auto -rebuild after each commit. And that is the AST only. There's no API cost associated with that."
+implied_assumption: "Second Brain needs always-fresh orientation over a frequently mutating repo."
+current_design_status: unsupported
+evidence_supplied_by_speaker: example
+requires_external_validation: true
+validation_status: unvalidated
+correction_route: "Defer until RC-013 pilot; re-queue via implementation-backlog when orientation infrastructure exists."
+affected_components:
+  - agent-onboarding
+  - platform-implement-backlog
+related_second_brain_principles:
+  - inspectable_retrieval
+  - maintainability
+expected_benefit: "Low-cost freshness for disposable orientation artifacts if pilot succeeds."
+possible_regression: "Commit hooks create hidden agent dependencies outside approval gates."
+validation_method: "After RC-013 pilot, measure stale-orientation incidents with and without incremental refresh."
+impact_scores:
+  governance: 0
+  closure: 0
+  grounding: 0
+  vendor_truth: 0
+  inspectability: 1
+  maintainability: 0
+  differentiation: 0
+  enterprise_fit: 0
+  human_review_leverage: 0
+total_score: 1
+decision: defer
+decision_rationale: "Useful only after orientation-map experiment infrastructure exists; Graphify-specific hooks not v1 dependencies."
+next_action: "Blocked on RC-2026-06-09-013 experiment outcome."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-016
+source_transcript: raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt
+speaker: unknown
+timestamp: "00:06:30-00:07:30"
+claim_type: product_requirement
+atomic_claim: "Second Brain should ship Graphify skills and always-on graphify cloud install hooks so IDE agents automatically query a repo knowledge graph every session."
+verbatim_excerpt: "Graphify Cloud install, that means it's always going to use Graphify to answer. I don't have to be explicit. It literally becomes a hook."
+implied_assumption: "Second Brain's primary users need always-on codebase graph orientation like Claude Code developers."
+current_design_status: contradicted
+evidence_supplied_by_speaker: example
+requires_external_validation: false
+validation_status: supported_by_current_design
+correction_route: "Reject; reopen only with explicit code-as-source v2 ADR."
+affected_components:
+  - agent-onboarding
+  - .github/skills
+related_second_brain_principles:
+  - governance
+  - approval_gated_mutations
+expected_benefit: "None for v1 governance band."
+possible_regression: "Silent agent dependencies on external indexing; bypasses approval gates."
+validation_method: "N/A — out of v1 scope per product-brief §1.2 and RC-009a."
+impact_scores:
+  governance: -1
+  closure: 0
+  grounding: -1
+  vendor_truth: 0
+  inspectability: -1
+  maintainability: -1
+  differentiation: -1
+  enterprise_fit: 0
+  human_review_leverage: 0
+total_score: -5
+decision: reject
+decision_rationale: "IDE-assistant hook bundling duplicates rejected RC-009a boundary; conflicts with approval-gated platform mutations."
+next_action: "Mirror in rejected-ideas.md."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-017
+source_transcript: raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt
+speaker: unknown
+timestamp: "00:09:00-00:09:30"
+claim_type: architecture_proposal
+atomic_claim: "A pre-built knowledge graph map lets agents answer repository questions accurately without repeated file traversal, reducing the need for source inspection and citation verification on orientation queries."
+verbatim_excerpt: "the actual value is the fact that now, we have handed Cloud Code a map to the Open Design repository, and I can now ask questions about it and get accurate responses."
+implied_assumption: "Graph traversal accuracy substitutes for align-cite verification."
+current_design_status: contradicted
+evidence_supplied_by_speaker: anecdotal
+requires_external_validation: false
+validation_status: supported_by_current_design
+correction_route: "Reject; same correction route as RC-2026-05-27-023."
+affected_components:
+  - workspace-align-cite
+  - workspace-query
+related_second_brain_principles:
+  - citation_grounding
+  - junior_engineer_closure
+expected_benefit: "None — weakens core differentiator."
+possible_regression: "Published artifacts cite graph summaries instead of verified sources."
+validation_method: "N/A — conflicts with RC-002 retrieved-context-is-not-citation-support."
+impact_scores:
+  governance: -2
+  closure: -1
+  grounding: -2
+  vendor_truth: 0
+  inspectability: -1
+  maintainability: 0
+  differentiation: -2
+  enterprise_fit: 0
+  human_review_leverage: -1
+total_score: -9
+decision: reject
+decision_rationale: "Directly conflicts with citation-grounded query and align-cite; same failure mode as rejected hot-cache orientation claims."
+next_action: "Mirror in rejected-ideas.md."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
+```
+
+```yaml
+claim_id: RC-2026-06-09-018
+source_transcript: raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt
+speaker: unknown
+timestamp: "00:00:30-00:03:30"
+claim_type: architecture_proposal
+atomic_claim: "Second Brain v1 should index raw/workspace-confluence and mixed media via Graphify's full three-pass pipeline (AST + Whisper transcription + LLM semantic docs) as the primary retrieval substrate."
+verbatim_excerpt: "it allows your AI coding assistant... to map your entire project, code, docs, PDF images, and videos into a knowledge graph that you can query instead of gripping through the files."
+implied_assumption: "Second Brain v1 retrieval should mirror IDE codebase assistants."
+current_design_status: unsupported
+evidence_supplied_by_speaker: example
+requires_external_validation: true
+validation_status: unvalidated
+correction_route: "Reject; reopen only with code-as-source v2 ADR."
+affected_components:
+  - workspace-query
+  - workspace-compile
+  - raw/workspace-confluence
+related_second_brain_principles:
+  - inspectable_retrieval
+  - source_authority
+expected_benefit: "None for v1 governance band."
+possible_regression: "Duplicates Sourcegraph/Cody scope; bypasses page-index and compile approval gates."
+validation_method: "N/A — rejected per RC-009a boundary."
+impact_scores:
+  governance: -1
+  closure: -1
+  grounding: -1
+  vendor_truth: 0
+  inspectability: -1
+  maintainability: -1
+  differentiation: -2
+  enterprise_fit: 0
+  human_review_leverage: 0
+total_score: -7
+decision: reject
+decision_rationale: "Full Graphify-style indexing over workspace raw sources is RC-009a-class scope creep into IDE codebase assistants."
+next_action: "Mirror in rejected-ideas.md."
+owner: unassigned
+status: open
+last_reviewed: 2026-06-09
 ```

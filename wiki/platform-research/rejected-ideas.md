@@ -15,7 +15,7 @@ python scripts/sync-rejected-register.py --root .
 | Rule | Value |
 |---|---|
 | Default re-review interval | Every 3 months |
-| Next scheduled re-review | 2026-08-26 |
+| Next scheduled re-review | 2026-09-07 |
 
 ## Summary index
 
@@ -70,8 +70,12 @@ python scripts/sync-rejected-register.py --root .
 | RC-2026-05-27-171 | Second Brain should support bulk credit card statement ingestion and... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/my-simple-claude-cowork-system-for-normal-people-claims.md |
 | RC-2026-05-27-172 | Second Brain should use Notion as external command center and auto-cr... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/my-simple-claude-cowork-system-for-normal-people-claims.md |
 | RC-2026-05-27-175 | Second Brain product mandate should include urgent adoption of a comp... | 2026-05-27 | 2026-08-27 | closed | wiki/platform-research/transcript-analyses/my-simple-claude-cowork-system-for-normal-people-claims.md |
+| RC-2026-06-09-006 | Second Brain should run an unattended Evolve-agent loop that autonomo... | 2026-06-09 | 2026-09-09 | closed | wiki/platform-research/transcript-analyses/agentic-ai-evolution---watching-a-coding-agent-evolve-in-real-time-claims.md |
+| RC-2026-06-09-016 | Second Brain should ship Graphify skills and always-on graphify cloud... | 2026-06-09 | 2026-09-09 | closed | wiki/platform-research/transcript-analyses/this-open-source-repo-just-solved-claude-code-s-1-problem-claims.md |
+| RC-2026-06-09-017 | A pre-built knowledge graph map lets agents answer repository question... | 2026-06-09 | 2026-09-09 | closed | wiki/platform-research/transcript-analyses/this-open-source-repo-just-solved-claude-code-s-1-problem-claims.md |
+| RC-2026-06-09-018 | Second Brain v1 should index raw/workspace-confluence and mixed media... | 2026-06-09 | 2026-09-09 | closed | wiki/platform-research/transcript-analyses/this-open-source-repo-just-solved-claude-code-s-1-problem-claims.md |
 
-_Last synced: 2026-05-28. 49 rejected claim(s)._
+_Last synced: 2026-06-09. 53 rejected claim(s)._
 
 ## Rejected claim records
 
@@ -1204,6 +1208,98 @@ status: closed
 last_reviewed: 2026-05-27
 ```
 
+```yaml
+record_id: RC-2026-06-09-006
+record_type: rejected_claim
+source_transcript: raw/platform-transcripts/Agentic_AI_Evolution_-_Watching_a_Coding_Agent_Evolve_in_Real-Time.txt
+claim_analysis: wiki/platform-research/transcript-analyses/agentic-ai-evolution---watching-a-coding-agent-evolve-in-real-time-claims.md
+impact_report: reports/platform-research-review/agentic-ai-evolution---watching-a-coding-agent-evolve-in-real-time-impact-report.md
+atomic_claim: "Second Brain should run an unattended Evolve-agent loop that autonomously edits and commits harness changes round after round without human approval."
+verbatim_excerpt: "an Evolve agent just unattendedly edits and commits changes to the workspace. Round after round"
+decision: reject
+decision_date: 2026-06-09
+next_review_after: 2026-09-09
+review_cadence: quarterly
+total_score: -10
+decision_rationale: "Violates approval-gated mutations and RC-012 no-auto-mutate posture."
+rejection_reason: "Silent mutation of Tier-1 rules; audit trail loss; duplicates RC-085/100 rejections."
+safer_variant: "Record in rejected-ideas.md."
+reopen_conditions:
+  - "N/A — rejected."
+owner: unassigned
+status: closed
+last_reviewed: 2026-06-09
+```
+
+```yaml
+record_id: RC-2026-06-09-016
+record_type: rejected_claim
+source_transcript: raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt
+claim_analysis: wiki/platform-research/transcript-analyses/this-open-source-repo-just-solved-claude-code-s-1-problem-claims.md
+impact_report: reports/platform-research-review/this-open-source-repo-just-solved-claude-code-s-1-problem-impact-report.md
+atomic_claim: "Second Brain should ship Graphify skills and always-on graphify cloud install hooks so IDE agents automatically query a repo knowledge graph every session."
+verbatim_excerpt: "Graphify Cloud install, that means it's always going to use Graphify to answer. I don't have to be explicit. It literally becomes a hook."
+decision: reject
+decision_date: 2026-06-09
+next_review_after: 2026-09-09
+review_cadence: quarterly
+total_score: -5
+decision_rationale: "IDE-assistant hook bundling duplicates rejected RC-009a boundary; conflicts with approval-gated platform mutations."
+rejection_reason: "Silent dependency on external repo-indexing tooling outside Second Brain governance."
+safer_variant: "Use disposable orientation maps (RC-009/RC-013 experiment) without Graphify hooks."
+reopen_conditions:
+  - "Explicit code-as-source v2 ADR approved."
+owner: unassigned
+status: closed
+last_reviewed: 2026-06-09
+```
+
+```yaml
+record_id: RC-2026-06-09-017
+record_type: rejected_claim
+source_transcript: raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt
+claim_analysis: wiki/platform-research/transcript-analyses/this-open-source-repo-just-solved-claude-code-s-1-problem-claims.md
+impact_report: reports/platform-research-review/this-open-source-repo-just-solved-claude-code-s-1-problem-impact-report.md
+atomic_claim: "A pre-built knowledge graph map lets agents answer repository questions accurately without repeated file traversal, reducing the need for source inspection and citation verification on orientation queries."
+verbatim_excerpt: "the actual value is the fact that now, we have handed Cloud Code a map to the Open Design repository, and I can now ask questions about it and get accurate responses."
+decision: reject
+decision_date: 2026-06-09
+next_review_after: 2026-09-09
+review_cadence: quarterly
+total_score: -9
+decision_rationale: "Directly conflicts with citation-grounded query and align-cite; same failure mode as RC-2026-05-27-023."
+rejection_reason: "Graph orientation treated as citation support weakens grounding and closure."
+safer_variant: "Orientation map remains advisory; align-cite still required before publish."
+reopen_conditions:
+  - "N/A — rejected."
+owner: unassigned
+status: closed
+last_reviewed: 2026-06-09
+```
+
+```yaml
+record_id: RC-2026-06-09-018
+record_type: rejected_claim
+source_transcript: raw/platform-transcripts/This_Open_Source_Repo_Just_Solved_Claude_Code_s_1_Problem.txt
+claim_analysis: wiki/platform-research/transcript-analyses/this-open-source-repo-just-solved-claude-code-s-1-problem-claims.md
+impact_report: reports/platform-research-review/this-open-source-repo-just-solved-claude-code-s-1-problem-impact-report.md
+atomic_claim: "Second Brain v1 should index raw/workspace-confluence and mixed media via Graphify's full three-pass pipeline (AST + Whisper transcription + LLM semantic docs) as the primary retrieval substrate."
+verbatim_excerpt: "it allows your AI coding assistant... to map your entire project, code, docs, PDF images, and videos into a knowledge graph that you can query instead of gripping through the files."
+decision: reject
+decision_date: 2026-06-09
+next_review_after: 2026-09-09
+review_cadence: quarterly
+total_score: -7
+decision_rationale: "Full Graphify-style indexing over workspace raw sources is RC-009a-class scope creep into IDE codebase assistants."
+rejection_reason: "Duplicates Sourcegraph/Cody scope; bypasses page-index and compile approval gates."
+safer_variant: "Reject as stated; see RC-2026-06-09-013 three-pass disposable orientation experiment."
+reopen_conditions:
+  - "Explicit code-as-source v2 ADR approved."
+owner: unassigned
+status: closed
+last_reviewed: 2026-06-09
+```
+
 ## Rejected recurring patterns
 
 One YAML block per cross-transcript pattern (`RP-*`). Preserved across sync when present.
@@ -1216,3 +1312,4 @@ _No recurring patterns recorded yet._
 |---|---|---|---|
 | 2026-05-27 | _sync_ | synced | Rebuilt from claim-register.md (46 rejects) |
 | 2026-05-28 | _sync_ | synced | Rebuilt from claim-register.md (49 rejects) |
+| 2026-06-09 | _sync_ | synced | Rebuilt from claim-register.md (50 rejects) |
