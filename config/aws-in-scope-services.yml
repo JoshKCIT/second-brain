@@ -1,0 +1,208 @@
+# In-scope AWS services (CEO stack list, 2026-06-09).
+# Seed URLs: config/aws-seed-stack.yml
+# Fetch: python scripts/seed-vendor-docs.py --seed-file config/aws-seed-stack.yml --yes
+
+in_scope_services:
+  - service: Amazon Bedrock AgentCore
+    slug: agentcore
+    seed_topics: [agentcore-overview]
+
+  - service: AWS Amplify
+    slug: amplify
+    seed_topics: [amplify-overview]
+
+  - service: Amazon API Gateway
+    slug: apigateway
+    seed_topics: [apigateway-overview]
+
+  - service: AWS AppConfig
+    slug: appconfig
+    seed_topics: [appconfig-overview]
+
+  - service: Amazon AppFlow
+    slug: appflow
+    seed_topics: [appflow-overview]
+
+  - service: AWS AppSync
+    slug: appsync
+    seed_topics: [appsync-overview]
+
+  - service: Amazon Athena
+    slug: athena
+    seed_topics: [athena-overview]
+
+  - service: Amazon Aurora MySQL
+    slug: aurora-mysql
+    seed_topics: [aurora-mysql-overview]
+
+  - service: AWS Batch
+    slug: batch
+    seed_topics: [batch-overview]
+
+  - service: Amazon Bedrock
+    slug: bedrock
+    seed_topics: [bedrock-overview]
+
+  - service: AWS Certificate Manager
+    slug: acm
+    seed_topics: [acm-overview]
+
+  - service: Amazon CloudFront
+    slug: cloudfront
+    seed_topics: [cloudfront-overview]
+
+  - service: AWS CodeBuild
+    slug: codebuild
+    seed_topics: [codebuild-overview]
+
+  - service: Amazon Cognito
+    slug: cognito
+    seed_topics: [cognito-overview]
+
+  - service: Amazon Comprehend
+    slug: comprehend
+    seed_topics: [comprehend-overview]
+
+  - service: AWS CloudTrail
+    slug: cloudtrail
+    seed_topics: [cloudtrail-overview]
+
+  - service: Amazon CloudWatch
+    slug: cloudwatch
+    seed_topics: [cloudwatch-overview]
+
+  - service: AWS Config
+    slug: config
+    seed_topics: [config-overview]
+
+  - service: AWS Database Migration Service
+    slug: dms
+    seed_topics: [dms-overview]
+
+  - service: Amazon DynamoDB
+    slug: dynamodb
+    seed_topics: [dynamodb-overview]
+
+  - service: Amazon EBS
+    slug: ebs
+    seed_topics: [ebs-overview]
+
+  - service: Amazon EC2
+    slug: ec2
+    seed_topics: [ec2-overview]
+
+  - service: Amazon ECR
+    slug: ecr
+    seed_topics: [ecr-overview]
+
+  - service: Amazon ECS
+    slug: ecs
+    seed_topics: [ecs-overview]
+
+  - service: Amazon EFS
+    slug: efs
+    seed_topics: [efs-overview]
+
+  - service: Amazon EKS
+    slug: eks
+    seed_topics: [eks-overview]
+
+  - service: Elastic Load Balancing
+    slug: elb
+    seed_topics: [elb-overview]
+
+  - service: AWS Elastic Beanstalk
+    slug: elasticbeanstalk
+    seed_topics: [elasticbeanstalk-overview]
+
+  - service: Amazon ElastiCache
+    slug: elasticache
+    seed_topics: [elasticache-overview]
+
+  - service: Amazon EMR
+    slug: emr
+    seed_topics: [emr-overview]
+
+  - service: Amazon EventBridge
+    slug: eventbridge
+    seed_topics: [eventbridge-overview]
+
+  - service: Amazon GuardDuty
+    slug: guardduty
+    seed_topics: [guardduty-overview]
+
+  - service: Amazon Keyspaces
+    slug: keyspaces
+    seed_topics: [keyspaces-overview]
+
+  - service: Amazon Kinesis
+    slug: kinesis
+    seed_topics: [kinesis-overview]
+
+  - service: AWS Lambda
+    slug: lambda
+    seed_topics: [lambda-overview]
+
+  - service: Amazon MSK
+    slug: msk
+    seed_topics: [msk-overview]
+
+  - service: Amazon OpenSearch Serverless
+    slug: opensearch-serverless
+    seed_topics: [opensearch-serverless-overview]
+
+  - service: AWS Systems Manager Parameter Store
+    slug: parameter-store
+    seed_topics: [parameter-store-overview]
+
+  - service: Amazon QuickSight
+    slug: quicksight
+    seed_topics: [quicksight-overview]
+
+  - service: Amazon RDS
+    slug: rds
+    seed_topics: [rds-overview]
+
+  - service: Amazon Route 53
+    slug: route53
+    seed_topics: [route53-overview]
+
+  - service: Amazon S3
+    slug: s3
+    seed_topics: [s3-overview, s3-server-side-encryption, s3-sse-kms, s3-bucket-policies]
+
+  - service: Amazon SageMaker
+    slug: sagemaker
+    seed_topics: [sagemaker-overview]
+
+  - service: AWS Secrets Manager
+    slug: secrets-manager
+    seed_topics: [secrets-manager-overview]
+
+  - service: Amazon SES
+    slug: ses
+    seed_topics: [ses-overview]
+
+  - service: Amazon SNS
+    slug: sns
+    seed_topics: [sns-overview]
+
+  - service: Amazon SQS
+    slug: sqs
+    seed_topics: [sqs-overview]
+
+  - service: Amazon Timestream
+    slug: timestream
+    seed_topics: [timestream-overview]
+
+  - service: Amazon VPC
+    slug: vpc
+    seed_topics: [vpc-overview, vpc-endpoints]
+
+  - service: AWS WAF
+    slug: waf
+    seed_topics: [waf-overview]
+
+  - service: Amazon WorkSpaces
+    slug: workspaces
+    seed_topics: [workspaces-overview]

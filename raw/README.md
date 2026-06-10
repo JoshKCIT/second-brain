@@ -7,7 +7,7 @@ Content in this directory is **write-once evidence**. Agents read from here; the
 | Path | Purpose |
 |---|---|
 | `workspace-confluence/{space-key}/pages/` | Confluence page mirrors |
-| `workspace-external/{vendor}/{topic}/` | Cached vendor documentation |
+| `workspace-external/{vendor}/{topic}/` | Cached vendor documentation (**git-tracked** — shared across engineers) |
 | `workspace-inbox/{YYYY-MM-DD}/` | Manual clips and unprocessed captures (RC-146) |
 | `workspace-jira/{project-key}/tickets/` | Jira tickets (v1.x) |
 | `platform-transcripts/{slug}/` | Platform-lane product intelligence (not workspace compile input) |
@@ -15,6 +15,10 @@ Content in this directory is **write-once evidence**. Agents read from here; the
 ## Inbox vs curated wiki
 
 Captures land in scoped `raw/` paths first. Compilation into `wiki/` requires **explicit user approval per batch** (RC-146). See `templates/workspace/raw-inbox-staging.md`.
+
+## Git tracking
+
+`workspace-external/` vendor caches are **committed to the repo** so all engineers share the same authoritative vendor sources. Re-seed from `config/*-seed-stack.yml` when TTL expires or topics change. Other `raw/` paths (Confluence, Jira, transcripts) remain gitignored per-user.
 
 ## Immutability
 

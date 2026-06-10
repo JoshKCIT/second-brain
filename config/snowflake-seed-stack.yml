@@ -1,0 +1,224 @@
+# Snowflake in-scope feature seeds (44 features, CEO list 2026-06-10).
+# Manifest: config/snowflake-in-scope-services.yml
+# Run: python scripts/seed-vendor-docs.py --seed-file config/snowflake-seed-stack.yml --yes
+
+seed_topics:
+  - vendor: snowflake
+    topic: api-integrations
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-api-integration
+    slug: create-api-integration
+
+  - vendor: snowflake
+    topic: database
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-database
+    slug: create-database
+
+  - vendor: snowflake
+    topic: dynamic-table
+    url: https://docs.snowflake.com/en/user-guide/dynamic-tables-about
+    slug: dynamic-tables-about
+
+  - vendor: snowflake
+    topic: entitlements-roles
+    url: https://docs.snowflake.com/en/user-guide/security-access-control-overview
+    slug: security-access-control-overview
+
+  - vendor: snowflake
+    topic: event-table
+    url: https://docs.snowflake.com/en/developer-guide/logging-tracing/event-table-setting-up
+    slug: event-table-setting-up
+
+  - vendor: snowflake
+    topic: file-format
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-file-format
+    slug: create-file-format
+
+  - vendor: snowflake
+    topic: git-repository
+    url: https://docs.snowflake.com/en/developer-guide/git/git-overview
+    slug: git-overview
+
+  - vendor: snowflake
+    topic: materialized-view
+    url: https://docs.snowflake.com/en/user-guide/views-materialized
+    slug: views-materialized
+
+  - vendor: snowflake
+    topic: notification-integrations
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-notification-integration
+    slug: create-notification-integration
+
+  - vendor: snowflake
+    topic: process-accounts-user
+    url: https://docs.snowflake.com/en/user-guide/admin-user-management
+    slug: admin-user-management
+
+  - vendor: snowflake
+    topic: programmatic-access-token
+    url: https://docs.snowflake.com/en/user-guide/programmatic-access-tokens
+    slug: programmatic-access-tokens
+
+  - vendor: snowflake
+    topic: schema
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-schema
+    slug: create-schema
+
+  - vendor: snowflake
+    topic: semantic-views
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-semantic-view
+    slug: create-semantic-view
+
+  - vendor: snowflake
+    topic: sequence
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-sequence
+    slug: create-sequence
+
+  - vendor: snowflake
+    topic: snowflake-copilot
+    url: https://docs.snowflake.com/en/user-guide/snowflake-copilot
+    slug: snowflake-copilot
+
+  - vendor: snowflake
+    topic: snowflake-notebooks
+    url: https://docs.snowflake.com/en/user-guide/ui-snowsight/notebooks
+    slug: notebooks
+
+  - vendor: snowflake
+    topic: snowpipe
+    url: https://docs.snowflake.com/en/user-guide/data-load-snowpipe
+    slug: data-load-snowpipe
+
+  - vendor: snowflake
+    topic: snowpipe-streaming
+    url: https://docs.snowflake.com/en/user-guide/data-load-snowpipe-streaming-overview
+    slug: data-load-snowpipe-streaming-overview
+
+  - vendor: snowflake
+    topic: stage
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-stage
+    slug: create-stage
+
+  - vendor: snowflake
+    topic: storage-integrations
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-storage-integration
+    slug: create-storage-integration
+
+  - vendor: snowflake
+    topic: stored-procedure
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-procedure
+    slug: create-procedure
+
+  - vendor: snowflake
+    topic: stream
+    url: https://docs.snowflake.com/en/user-guide/streams
+    slug: streams
+
+  - vendor: snowflake
+    topic: table
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-table
+    slug: create-table
+
+  - vendor: snowflake
+    topic: user-defined-function
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-function
+    slug: create-function
+
+  - vendor: snowflake
+    topic: view
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-view
+    slug: create-view
+
+  - vendor: snowflake
+    topic: catalog-integrations
+    url: https://docs.snowflake.com/en/user-guide/tables-iceberg-catalog
+    slug: tables-iceberg-catalog
+
+  - vendor: snowflake
+    topic: data-quality-metric-functions
+    url: https://docs.snowflake.com/en/user-guide/data-quality-intro
+    slug: data-quality-intro
+
+  - vendor: snowflake
+    topic: dynamic-data-masking
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-masking-policy
+    slug: create-masking-policy
+
+  - vendor: snowflake
+    topic: external-access-integrations
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-external-access-integration
+    slug: create-external-access-integration
+
+  - vendor: snowflake
+    topic: external-tables
+    url: https://docs.snowflake.com/en/user-guide/tables-external
+    slug: tables-external
+
+  - vendor: snowflake
+    topic: external-volumes
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-external-volume
+    slug: create-external-volume
+
+  - vendor: snowflake
+    topic: feature-store
+    url: https://docs.snowflake.com/en/developer-guide/snowflake-ml/feature-store/overview
+    slug: feature-store-overview
+
+  - vendor: snowflake
+    topic: iceberg-tables
+    url: https://docs.snowflake.com/en/user-guide/tables-iceberg
+    slug: tables-iceberg
+
+  - vendor: snowflake
+    topic: cortex-fine-tuning
+    url: https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-finetuning
+    slug: cortex-finetuning
+
+  - vendor: snowflake
+    topic: cortex-analyst
+    url: https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-analyst
+    slug: cortex-analyst
+
+  - vendor: snowflake
+    topic: cortex-search
+    url: https://docs.snowflake.com/en/user-guide/snowflake-cortex/cortex-search/cortex-search-overview
+    slug: cortex-search-overview
+
+  - vendor: snowflake
+    topic: document-ai
+    url: https://docs.snowflake.com/en/user-guide/snowflake-cortex/ai-documents
+    slug: ai-documents
+
+  - vendor: snowflake
+    topic: cortex-llm-functions
+    url: https://docs.snowflake.com/en/user-guide/snowflake-cortex/llm-functions
+    slug: cortex-llm-functions
+
+  - vendor: snowflake
+    topic: snowpark-container-services
+    url: https://docs.snowflake.com/en/developer-guide/snowpark-container-services/overview
+    slug: snowpark-container-services-overview
+
+  - vendor: snowflake
+    topic: streamlit
+    url: https://docs.snowflake.com/en/developer-guide/streamlit/about-streamlit
+    slug: about-streamlit
+
+  - vendor: snowflake
+    topic: alerts
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-alert
+    slug: create-alert
+
+  - vendor: snowflake
+    topic: object-tagging
+    url: https://docs.snowflake.com/en/user-guide/object-tagging
+    slug: object-tagging
+
+  - vendor: snowflake
+    topic: row-access-policies
+    url: https://docs.snowflake.com/en/sql-reference/sql/create-row-access-policy
+    slug: create-row-access-policy
+
+  - vendor: snowflake
+    topic: encryption-functions
+    url: https://docs.snowflake.com/en/sql-reference/functions-encryption
+    slug: functions-encryption

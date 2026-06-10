@@ -1,0 +1,279 @@
+# AWS in-scope vendor doc seeds (51 services + S3/VPC depth topics).
+# Manifest: config/aws-in-scope-services.yml
+# Run: python scripts/seed-vendor-docs.py --seed-file config/aws-seed-stack.yml --yes
+
+seed_topics:
+  - vendor: aws
+    topic: agentcore-overview
+    url: https://docs.aws.amazon.com/bedrock-agentcore/latest/devguide/what-is-bedrock-agentcore.html
+    slug: what-is-bedrock-agentcore
+
+  - vendor: aws
+    topic: amplify-overview
+    url: https://docs.aws.amazon.com/amplify/latest/userguide/welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: apigateway-overview
+    url: https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: appconfig-overview
+    url: https://docs.aws.amazon.com/appconfig/latest/userguide/what-is-appconfig.html
+    slug: what-is-appconfig
+
+  - vendor: aws
+    topic: appflow-overview
+    url: https://docs.aws.amazon.com/appflow/latest/userguide/what-is-appflow.html
+    slug: what-is-appflow
+
+  - vendor: aws
+    topic: appsync-overview
+    url: https://docs.aws.amazon.com/appsync/latest/devguide/what-is-appsync.html
+    slug: what-is-appsync
+
+  - vendor: aws
+    topic: athena-overview
+    url: https://docs.aws.amazon.com/athena/latest/ug/what-is.html
+    slug: what-is
+
+  - vendor: aws
+    topic: aurora-mysql-overview
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/CHAP_AuroraOverview.html
+    slug: aurora-overview
+
+  - vendor: aws
+    topic: batch-overview
+    url: https://docs.aws.amazon.com/batch/latest/userguide/Batch_GetStarted.html
+    slug: batch-get-started
+
+  - vendor: aws
+    topic: bedrock-overview
+    url: https://docs.aws.amazon.com/bedrock/latest/userguide/what-is-bedrock.html
+    slug: what-is-bedrock
+
+  - vendor: aws
+    topic: acm-overview
+    url: https://docs.aws.amazon.com/acm/latest/userguide/acm-overview.html
+    slug: acm-overview
+
+  - vendor: aws
+    topic: cloudfront-overview
+    url: https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
+    slug: introduction
+
+  - vendor: aws
+    topic: codebuild-overview
+    url: https://docs.aws.amazon.com/codebuild/latest/userguide/welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: cognito-overview
+    url: https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-identity.html
+    slug: cognito-identity
+
+  - vendor: aws
+    topic: comprehend-overview
+    url: https://docs.aws.amazon.com/comprehend/latest/dg/what-is.html
+    slug: what-is
+
+  - vendor: aws
+    topic: cloudtrail-overview
+    url: https://docs.aws.amazon.com/awscloudtrail/latest/userguide/cloudtrail-user-guide.html
+    slug: cloudtrail-user-guide
+
+  - vendor: aws
+    topic: cloudwatch-overview
+    url: https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/WhatIsCloudWatch.html
+    slug: what-is-cloudwatch
+
+  - vendor: aws
+    topic: config-overview
+    url: https://docs.aws.amazon.com/config/latest/developerguide/WhatIsConfig.html
+    slug: what-is-config
+
+  - vendor: aws
+    topic: dms-overview
+    url: https://docs.aws.amazon.com/dms/latest/userguide/Welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: dynamodb-overview
+    url: https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html
+    slug: introduction
+
+  - vendor: aws
+    topic: ebs-overview
+    url: https://docs.aws.amazon.com/ebs/latest/userguide/what-is-ebs.html
+    slug: what-is-ebs
+
+  - vendor: aws
+    topic: ec2-overview
+    url: https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/concepts.html
+    slug: concepts
+
+  - vendor: aws
+    topic: ecr-overview
+    url: https://docs.aws.amazon.com/AmazonECR/latest/userguide/what-is-ecr.html
+    slug: what-is-ecr
+
+  - vendor: aws
+    topic: ecs-overview
+    url: https://docs.aws.amazon.com/AmazonECS/latest/developerguide/Welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: efs-overview
+    url: https://docs.aws.amazon.com/efs/latest/ug/whatisefs.html
+    slug: whatisefs
+
+  - vendor: aws
+    topic: eks-overview
+    url: https://docs.aws.amazon.com/eks/latest/userguide/what-is-eks.html
+    slug: what-is-eks
+
+  - vendor: aws
+    topic: elb-overview
+    url: https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html
+    slug: introduction
+
+  - vendor: aws
+    topic: elasticbeanstalk-overview
+    url: https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/Welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: elasticache-overview
+    url: https://docs.aws.amazon.com/AmazonElastiCache/latest/dg/WhatIs.html
+    slug: what-is
+
+  - vendor: aws
+    topic: emr-overview
+    url: https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-what-is-emr.html
+    slug: emr-what-is-emr
+
+  - vendor: aws
+    topic: eventbridge-overview
+    url: https://docs.aws.amazon.com/eventbridge/latest/userguide/eb-what-is.html
+    slug: eb-what-is
+
+  - vendor: aws
+    topic: guardduty-overview
+    url: https://docs.aws.amazon.com/guardduty/latest/ug/what-is-guardduty.html
+    slug: what-is-guardduty
+
+  - vendor: aws
+    topic: keyspaces-overview
+    url: https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is-keyspaces.html
+    slug: what-is-keyspaces
+
+  - vendor: aws
+    topic: kinesis-overview
+    url: https://docs.aws.amazon.com/streams/latest/dev/introduction.html
+    slug: introduction
+
+  - vendor: aws
+    topic: lambda-overview
+    url: https://docs.aws.amazon.com/lambda/latest/dg/welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: msk-overview
+    url: https://docs.aws.amazon.com/msk/latest/developerguide/what-is-msk.html
+    slug: what-is-msk
+
+  - vendor: aws
+    topic: opensearch-serverless-overview
+    url: https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless.html
+    slug: serverless
+
+  - vendor: aws
+    topic: parameter-store-overview
+    url: https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html
+    slug: systems-manager-parameter-store
+
+  - vendor: aws
+    topic: quicksight-overview
+    url: https://docs.aws.amazon.com/quicksight/latest/user/welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: rds-overview
+    url: https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: route53-overview
+    url: https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/Welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: s3-overview
+    url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/Welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: s3-server-side-encryption
+    url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingServerSideEncryption.html
+    slug: using-server-side-encryption
+
+  - vendor: aws
+    topic: s3-sse-kms
+    url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/UsingKMSEncryption.html
+    slug: using-kms-encryption
+
+  - vendor: aws
+    topic: s3-bucket-policies
+    url: https://docs.aws.amazon.com/AmazonS3/latest/userguide/bucket-policies.html
+    slug: bucket-policies
+
+  - vendor: aws
+    topic: sagemaker-overview
+    url: https://docs.aws.amazon.com/sagemaker/latest/dg/whatis.html
+    slug: whatis
+
+  - vendor: aws
+    topic: secrets-manager-overview
+    url: https://docs.aws.amazon.com/secretsmanager/latest/userguide/intro.html
+    slug: intro
+
+  - vendor: aws
+    topic: ses-overview
+    url: https://docs.aws.amazon.com/ses/latest/dg/Welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: sns-overview
+    url: https://docs.aws.amazon.com/sns/latest/dg/welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: sqs-overview
+    url: https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/welcome.html
+    slug: welcome
+
+  - vendor: aws
+    topic: timestream-overview
+    url: https://docs.aws.amazon.com/timestream/latest/developerguide/what-is-timestream.html
+    slug: what-is-timestream
+
+  - vendor: aws
+    topic: vpc-overview
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html
+    slug: what-is-amazon-vpc
+
+  - vendor: aws
+    topic: vpc-endpoints
+    url: https://docs.aws.amazon.com/vpc/latest/privatelink/vpc-endpoints.html
+    slug: vpc-endpoints
+
+  - vendor: aws
+    topic: waf-overview
+    url: https://docs.aws.amazon.com/waf/latest/developerguide/waf-chapter.html
+    slug: waf-chapter
+
+  - vendor: aws
+    topic: workspaces-overview
+    url: https://docs.aws.amazon.com/workspaces/latest/adminguide/amazon-workspaces.html
+    slug: amazon-workspaces

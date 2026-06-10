@@ -888,11 +888,11 @@ second-brain/
 │       ├── director/                      # stub
 │       └── vp/                            # stub
 │
-├── raw/                                   # content gitignored; structure tracked
+├── raw/                                   # mostly gitignored; structure tracked
 │   ├── README.md
 │   ├── workspace-confluence/
 │   ├── workspace-jira/                    # v1.x
-│   ├── workspace-external/
+│   ├── workspace-external/                # vendor caches tracked (shared)
 │   └── platform-transcripts/
 │
 ├── wiki/                                  # content gitignored; structure tracked

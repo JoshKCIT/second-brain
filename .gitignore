@@ -12,12 +12,11 @@ config/platform-research-review.yml
 # Runtime content (per-user; never shared)
 raw/workspace-confluence/*
 raw/workspace-jira/*
-raw/workspace-external/*
 raw/platform-transcripts/*
 !raw/workspace-confluence/.gitkeep
 !raw/workspace-jira/.gitkeep
-!raw/workspace-external/.gitkeep
 !raw/platform-transcripts/.gitkeep
+# raw/workspace-external/ — tracked: shared vendor doc caches (AWS, Snowflake, IBM, etc.)
 
 wiki/workspace-standards/*
 wiki/workspace-recommendations/*

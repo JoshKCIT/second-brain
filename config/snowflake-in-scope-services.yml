@@ -1,0 +1,49 @@
+# In-scope Snowflake features (CEO list, 2026-06-10).
+# Seed URLs: config/snowflake-seed-stack.yml
+# Fetch: python scripts/seed-vendor-docs.py --seed-file config/snowflake-seed-stack.yml --yes
+
+in_scope_features:
+  - api-integrations
+  - database
+  - dynamic-table
+  - entitlements-roles
+  - event-table
+  - file-format
+  - git-repository
+  - materialized-view
+  - notification-integrations
+  - process-accounts-user
+  - programmatic-access-token
+  - schema
+  - semantic-views
+  - sequence
+  - snowflake-copilot
+  - snowflake-notebooks
+  - snowpipe
+  - snowpipe-streaming
+  - stage
+  - storage-integrations
+  - stored-procedure
+  - stream
+  - table
+  - user-defined-function
+  - view
+  - catalog-integrations
+  - data-quality-metric-functions
+  - dynamic-data-masking
+  - external-access-integrations
+  - external-tables
+  - external-volumes
+  - feature-store
+  - iceberg-tables
+  - cortex-fine-tuning
+  - cortex-analyst
+  - cortex-search
+  - document-ai
+  - cortex-llm-functions
+  - snowpark-container-services
+  - streamlit
+  - alerts
+  - object-tagging
+  - row-access-policies
+  - encryption-functions

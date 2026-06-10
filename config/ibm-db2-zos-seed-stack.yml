@@ -1,0 +1,139 @@
+# Db2 12 for z/OS vendor doc seeds (vendor slug: ibm-db2-zos).
+# Manifest: config/ibm-db2-zos-in-scope-services.yml
+# Run: python scripts/seed-vendor-docs.py --seed-file config/ibm-db2-zos-seed-stack.yml --yes
+#
+# URL pattern: SSEPEK static HTML (defuddle-compatible). See docs/vendor-catalog.md.
+
+seed_topics:
+  # --- Introduction ---
+  - vendor: ibm-db2-zos
+    topic: what-is-db2
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/intro/src/tpc/db2z_whatisdb2.html
+    slug: what-is-db2
+
+  - vendor: ibm-db2-zos
+    topic: sql-concepts
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/intro/src/tpc/db2z_db2concepts.html
+    slug: sql-concepts
+
+  - vendor: ibm-db2-zos
+    topic: sql-language
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/sqlref/src/tpc/db2z_structuredquerylanguage.html
+    slug: sql-language
+
+  - vendor: ibm-db2-zos
+    topic: pdf-manuals-index
+    url: https://www.ibm.com/docs/en/db2-for-zos/12.0.0?topic=documentation-pdf-format-manuals
+    slug: pdf-manuals-index
+
+  - vendor: ibm-db2-zos
+    topic: function-levels
+    url: https://www.ibm.com/docs/en/db2-for-zos/12.0.0?topic=12-db2-function-levels
+    slug: function-levels
+
+  # --- Administration ---
+  - vendor: ibm-db2-zos
+    topic: database-design
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/admin/src/tpc/db2z_dbdigintro.html
+    slug: database-design
+
+  - vendor: ibm-db2-zos
+    topic: installing-migrating
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/inst/src/tpc/db2z_installingmigratingdb2.html
+    slug: installing-migrating
+
+  - vendor: ibm-db2-zos
+    topic: utilities
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/ugref/src/tpc/db2z_introutilities.html
+    slug: utilities
+
+  - vendor: ibm-db2-zos
+    topic: managing-performance
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/perf/src/tpc/db2z_managingdb2perf.html
+    slug: managing-performance
+
+  - vendor: ibm-db2-zos
+    topic: commands
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/comref/src/tpc/db2z_commanddescriptions.html
+    slug: command-descriptions
+
+  - vendor: ibm-db2-zos
+    topic: troubleshooting
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/trbshoot/src/tpc/db2z_trbshoothome.html
+    slug: troubleshooting
+
+  # --- Security ---
+  - vendor: ibm-db2-zos
+    topic: security-getting-started
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/seca/src/tpc/db2z_securitydef.html
+    slug: security-getting-started
+
+  - vendor: ibm-db2-zos
+    topic: racf-overview
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/racf/src/tpc/db2z_racfoverview.html
+    slug: racf-overview
+
+  - vendor: ibm-db2-zos
+    topic: data-encryption
+    ingest_mode: manual
+    manual_template: config/vendor-seed-manual/ibm-db2-zos-data-encryption.md
+    canonical_doc_url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/pdf/db2z_12_secabook.pdf
+    slug: data-encryption
+    authority: standard
+
+  # --- Availability / continuous delivery ---
+  - vendor: ibm-db2-zos
+    topic: data-sharing
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/dshare/src/tpc/db2z_introdatasharing.html
+    slug: data-sharing
+
+  - vendor: ibm-db2-zos
+    topic: continuous-delivery
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/wnew/src/tpc/db2z_managenewcapability.html
+    slug: continuous-delivery
+
+  - vendor: ibm-db2-zos
+    topic: whats-new
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/wnew/src/tpc/db2z_wnew.html
+    slug: whats-new
+
+  # --- Application development ---
+  - vendor: ibm-db2-zos
+    topic: prepare-application
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/apsg/src/tpc/db2z_prepareapplication.html
+    slug: prepare-application
+
+  - vendor: ibm-db2-zos
+    topic: connect-application
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/apsg/src/tpc/db2z_connectapplication.html
+    slug: connect-application
+
+  - vendor: ibm-db2-zos
+    topic: program-sql
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/apsg/src/tpc/db2z_programdb2sql.html
+    slug: program-sql
+
+  - vendor: ibm-db2-zos
+    topic: json
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/json/src/tpc/db2z_jsonappdev.html
+    slug: json-application-development
+
+  - vendor: ibm-db2-zos
+    topic: rest-services
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/restserv/src/tpc/db2z_restservices.html
+    slug: rest-services
+
+  - vendor: ibm-db2-zos
+    topic: odbc
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/odbc/src/tpc/db2z_hdint.html
+    slug: odbc-introduction
+
+  - vendor: ibm-db2-zos
+    topic: purexml
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/xml/src/tpc/db2z_xmldb2.html
+    slug: purexml-overview
+
+  - vendor: ibm-db2-zos
+    topic: internationalization
+    url: https://www.ibm.com/docs/en/SSEPEK_12.0.0/char/src/tpc/db2z_introcharconv.html
+    slug: internationalization

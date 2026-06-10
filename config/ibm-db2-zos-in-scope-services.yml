@@ -1,0 +1,24 @@
+# In-scope Db2 12 for z/OS documentation topics (vendor: ibm-db2-zos).
+# Seed URLs: config/ibm-db2-zos-seed-stack.yml
+# Fetch: python scripts/seed-vendor-docs.py --seed-file config/ibm-db2-zos-seed-stack.yml --yes
+#
+# IBM ibm.com/docs topic= URLs often fail defuddle; prefer SSEPEK_12.0.0 static HTML paths
+# documented in docs/vendor-catalog.md.
+
+product: Db2 12 for z/OS
+vendor_slug: ibm-db2-zos
+domain: vendor:ibm-db2-zos
+doc_version: "12.0.0"
+doc_base: https://www.ibm.com/docs/en/SSEPEK_12.0.0
+
+topic_groups:
+  - group: introduction
+    topics: [what-is-db2, sql-concepts, sql-language, pdf-manuals-index, function-levels]
+  - group: administration
+    topics: [database-design, installing-migrating, utilities, managing-performance, commands, troubleshooting]
+  - group: security
+    topics: [security-getting-started, racf-overview, data-encryption]
+  - group: availability
+    topics: [data-sharing, continuous-delivery, whats-new]
+  - group: application-development
+    topics: [prepare-application, connect-application, program-sql, json, rest-services, odbc, purexml, internationalization]

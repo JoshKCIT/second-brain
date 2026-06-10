@@ -211,7 +211,7 @@ Other folders you might see:
 | `confluence-review/` | HTML previews before you publish to Confluence |
 | `.github/prompts/` | All the `/command` prompts the AI uses |
 
-Content in `raw/`, `wiki/`, and `reports/` is usually **not committed to git** — it lives on your machine.
+Content in most of `raw/` (Confluence, Jira, transcripts), `wiki/`, and `reports/` is usually **not committed to git** — it lives on your machine. Exception: **`raw/workspace-external/`** vendor doc caches are tracked so engineers share the same vendor truth layer.
 
 ---
 
