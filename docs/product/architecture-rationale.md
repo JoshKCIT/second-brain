@@ -232,7 +232,7 @@ Decision record: `docs/platform-decision-records/RC-2026-05-27-001-page-index-re
 
 **Why Obsidian + zero plugins:** The filesystem is the integration layer between VS Code (authoring) and Obsidian (reading). Both apps look at the same Markdown files. No plugin needed for the core architecture. Optional convenience plugins documented in README for users who feel specific friction.
 
-**Tradeoff:** Users without Obsidian installed lose the graph view, backlinks, and Bases. Mitigation: README documents Obsidian as required; setup-kit walks through install.
+**Tradeoff:** Users without Obsidian installed lose the graph view, backlinks, and Bases. Mitigation: README and platform support getting-started document Obsidian install.
 
 ---
 

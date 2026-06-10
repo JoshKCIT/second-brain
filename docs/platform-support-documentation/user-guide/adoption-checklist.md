@@ -1,11 +1,20 @@
-# Adoption Checklist
+---
+title: "Adoption checklist"
+audience: user
+generated: true
+last_sync: 2026-06-09T00:00:00Z
+status: published
+sources:
+  - "docs/product/roadmap.md"
+  - ".github/prompts/second-brain.prompt.md"
+  - "scripts/verify-setup.py"
+---
 
-**Status:** v1.0
-**Last updated:** 2026-05-27
+# Adoption checklist
 
-A quick checklist for first-time setup. Detailed walkthrough is in `setup-kit.md`. Target: complete in under 30 minutes.
+Printable checkbox path for first-time setup. **Detailed walkthrough:** [getting-started.md](getting-started.md). **Week-one narrative:** [first-week-checklist.md](first-week-checklist.md). Target: complete in under 30 minutes.
 
-**Note:** Full adoption checklist items below apply after Phase 1 ships `verify-setup.py` and ingest. Current build phase: see `docs/roadmap.md` (Phase 1 active).
+**Note:** This checklist is for operators adopting the repo (setup, first project, ongoing rhythm). Current platform build phase: see [docs/product/roadmap.md](../../product/roadmap.md) (Phase 3 active as of 2026-06-09; Phases 1A–2 complete).
 
 ## Prerequisites checklist
 
@@ -74,3 +83,13 @@ If any of the following emerges, pause and address:
   - Action: review failed conversions; the converter may need iteration on specific Confluence macros
 - [ ] Lint reports many warnings on every run
   - Action: invest a session in cleanup; address orphans, sparse articles, missing backlinks
+
+## See Also
+
+- [getting-started.md](getting-started.md)
+- [first-week-checklist.md](first-week-checklist.md)
+- [docs/product/roadmap.md](../../product/roadmap.md)
+
+## Sources consulted
+
+- docs/product/roadmap.md, second-brain.prompt.md, scripts/verify-setup.py

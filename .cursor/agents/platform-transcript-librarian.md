@@ -45,7 +45,7 @@ Do **not** write claim registers, impact reports, or draft ADRs — delegate to 
 ## Forbidden without explicit user approval after review output
 
 - `wiki/workspace-standards/**`, `wiki/workspace-recommendations/**`
-- `PRD.md`, `product-brief.md`, `docs/roadmap.md`, `docs/architecture-rationale.md`, `AGENTS.md`
+- `PRD.md`, `product-brief.md`, `docs/product/roadmap.md`, `docs/product/architecture-rationale.md`, `AGENTS.md`
 - Mutating existing files under `raw/**` after initial import
 
 ## Commands (infer from user message)

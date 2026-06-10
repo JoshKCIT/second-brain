@@ -36,8 +36,8 @@ Inspect these project files when present:
 AGENTS.md
 product-brief.md
 PRD.md
-docs/architecture-rationale.md
-docs/roadmap.md
+docs/product/architecture-rationale.md
+docs/product/roadmap.md
 wiki/platform-research/transcript-register.md
 wiki/platform-research/claim-register.md
 wiki/platform-research/rejected-ideas.md
@@ -127,8 +127,8 @@ wiki/workspace-standards/**
 wiki/workspace-recommendations/**
 PRD.md
 product-brief.md
-docs/roadmap.md
-docs/architecture-rationale.md
+docs/product/roadmap.md
+docs/product/architecture-rationale.md
 AGENTS.md
 ```
 

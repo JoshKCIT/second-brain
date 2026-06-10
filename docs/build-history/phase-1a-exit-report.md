@@ -6,7 +6,7 @@
 
 ---
 
-## Exit criteria (from `docs/roadmap.md`)
+## Exit criteria (from `docs/product/roadmap.md`)
 
 | Criterion | Result |
 |-----------|--------|
@@ -36,7 +36,7 @@ Seed catalog: `config/vendor-seed-stack.yml`
 - [x] `scripts/seed-vendor-docs.py`, `scripts/_vendor_fetch.py`
 - [x] `scripts/revalidate-vendor-docs.py` (dry-run scan)
 - [x] `config/second-brain.yml` with `vendor_sources.enabled`
-- [x] `docs/vendor-catalog.md`
+- [x] `docs/product/vendor-catalog.md`
 - [x] Prompts: `workspace-ingest-vendor-doc`, `workspace-revalidate-vendor-docs`, `workspace-align-vendor-truth`
 - [x] defuddle via npm global (`defuddle.cmd` on Windows)
 - [x] Compiled starter concepts: `wiki/workspace-concepts/snowflake-s3-storage-integration.md`, `wiki/workspace-concepts/aws-s3-server-side-encryption.md`
@@ -76,3 +76,9 @@ Atlassian / Confluence ingest remains blocked until space access and credentials
 1. **Phase 3:** `/workspace-start-project` — AWS + Snowflake + Informatica documentation
 2. **Phase 2:** Expand `/workspace-compile` for remaining vendor topics; add Obsidian Base views
 3. **Phase 1B:** When Confluence access is available
+
+---
+
+## Historical note
+
+Phase 2 (wiki compile + Base views) completed **2026-05-28**. See [phase-2-exit-report.md](phase-2-exit-report.md). Current active workspace track: Phase 3 per [roadmap.md](../product/roadmap.md).

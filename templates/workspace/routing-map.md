@@ -23,6 +23,10 @@ Canonical copy lives in `AGENTS.md` § Routing map. Update this template when pr
 | Session end preference capture | workspace | `session-audit` skill / `workspace-session-audit` | Stage `handoff.md`, `orientation.md` | `handoff.md`, `orientation.md` only |
 | Ingest Confluence | workspace | `workspace-ingest-confluence` | `config/second-brain.yml`, scoped spaces | `raw/workspace-confluence/**`; compile after RC-146 approval |
 | Ingest vendor doc | workspace | `workspace-ingest-vendor-doc` | `raw/workspace-external/{vendor}/` TTL | `raw/workspace-external/**`, `raw/workspace-inbox/**` |
+| Ingest RSS feeds | workspace | `workspace-ingest-rss` | `config/rss-feeds.yml`, `templates/workspace/rss-feed-lifecycle.md` | `raw/workspace-rss-feed/**`, `wiki/log.md` append — **no wiki compile** |
+| Triage RSS (LLM borderline) | workspace | `workspace-triage-rss` | `raw/workspace-rss-feed/rss-register.md`, `wiki/index.md` hints | Item frontmatter + register only — **advisory** |
+| Review RSS queue | workspace | `workspace-review-rss` | `raw/workspace-rss-feed/rss-register.md` | `raw/workspace-rss-feed/**`; compile via `workspace-compile` after y/n |
+| RSS hub impact (Phase 2) | workspace | `workspace-align-rss-impact` | Promoted paths, `wiki/index.md`, scoped wiki/raw | `reports/workspace-rss-impact-*.md` only |
 | Compile raw → wiki | workspace | `workspace-compile` | `wiki/index.md`, target `raw/**`, retrieval contract if multi-standard | `wiki/**`, `wiki/log.md` — **explicit batch approval required (RC-146)** |
 | Query / Q&A | workspace | `workspace-query` | `wiki/index.md` then scoped articles | Optional `wiki/workspace-qa/**` with `--file-back` |
 | Align cite / closure / vendor truth | workspace | `workspace-align-*` | Target artifact + cited sources | Reports under `reports/` only |
@@ -34,6 +38,7 @@ Canonical copy lives in `AGENTS.md` § Routing map. Update this template when pr
 | Import transcript | platform | `platform-transcript-librarian` | `wiki/platform-research/transcript-register.md` | `raw/platform-transcripts/**` after H1 approval |
 | Research review / claims | platform | `platform-research-review` | Transcript, `wiki/platform-research/claim-register.md` | Platform research artifacts only |
 | Platform implementation (PIC) | platform | **`platform-implement-backlog`** | `wiki/platform-research/implementation-backlog.md`, draft ADR | Per approved ADR; **agent runs** `promote-platform-adr.py` on accept (PH-008) |
+| Platform support documentation | platform | **`platform-sync-support-docs`** | `docs/platform-support-documentation/.inventory/inventory.json`, routing map | `docs/platform-support-documentation/**`, `reports/platform-support-doc-sync-*.md` — **CEO merge gate** |
 
 ## Platform escalation (PH-006)
 
@@ -43,7 +48,7 @@ When a **workspace** session surfaces Second Brain product ideas, transcripts, o
 2. Switch to **platform** lane per row above.
 3. Route through research review; user approves ADR before stack-lift implementation.
 
-Protected without explicit approval: `wiki/workspace-standards/**`, `wiki/workspace-recommendations/**`, `wiki/workspace-projects/**` (for platform claims), `PRD.md`, `product-brief.md`, `docs/roadmap.md`, `docs/architecture-rationale.md`, `AGENTS.md`.
+Protected without explicit approval: `wiki/workspace-standards/**`, `wiki/workspace-recommendations/**`, `wiki/workspace-projects/**` (for platform claims), `PRD.md`, `product-brief.md`, `docs/product/roadmap.md`, `docs/product/architecture-rationale.md`, `AGENTS.md`.
 
 ## Cross-links
 

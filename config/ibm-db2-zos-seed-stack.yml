@@ -2,7 +2,7 @@
 # Manifest: config/ibm-db2-zos-in-scope-services.yml
 # Run: python scripts/seed-vendor-docs.py --seed-file config/ibm-db2-zos-seed-stack.yml --yes
 #
-# URL pattern: SSEPEK static HTML (defuddle-compatible). See docs/vendor-catalog.md.
+# URL pattern: SSEPEK static HTML (defuddle-compatible). See docs/product/vendor-catalog.md.
 
 seed_topics:
   # --- Introduction ---

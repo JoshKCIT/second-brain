@@ -46,7 +46,7 @@ Expanded explanations: `templates/workspace/pointer-resources/critical-rules-exp
 
 Prompt files in `.github/prompts/`:
 
-`workspace-start-project`, `second-brain`, `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-compile`, `workspace-query`, `workspace-session-audit`, `workspace-thinking-partner`, `platform-transcript-librarian`, `platform-research-review`, **`platform-implement-backlog`**, `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`, `workspace-publish`, `workspace-archive`, `workspace-unarchive`, `workspace-lint`
+`workspace-start-project`, `second-brain`, `workspace-ingest-confluence`, `workspace-ingest-vendor-doc`, `workspace-ingest-rss`, `workspace-review-rss`, `workspace-triage-rss`, `workspace-align-rss-impact`, `workspace-compile`, `workspace-query`, `workspace-session-audit`, `workspace-thinking-partner`, `platform-transcript-librarian`, `platform-research-review`, **`platform-implement-backlog`**, **`platform-sync-support-docs`**, `workspace-align-cite`, `workspace-align-conformance`, `workspace-align-coverage`, `workspace-align-vendor-truth`, `workspace-align-closure`, `workspace-publish`, `workspace-archive`, `workspace-unarchive`, `workspace-lint`
 
 Verb descriptions: `templates/workspace/pointer-resources/verb-invocation-detail.md`
 

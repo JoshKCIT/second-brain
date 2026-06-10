@@ -91,5 +91,5 @@ Summary: fresh / stale / expired counts; refetched count; failures with URLs for
 ## See also
 
 - `.github/prompts/workspace-ingest-vendor-doc.prompt.md`
-- `docs/vendor-catalog.md`
+- `docs/product/vendor-catalog.md`
 - `AGENTS.md` — vendor doc TTL and align-vendor-truth

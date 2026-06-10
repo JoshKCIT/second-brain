@@ -4,7 +4,7 @@
 **Last updated:** 2026-05-27
 **Current phase:** Phase 3 — Query and agent chain (Phase 1A–2 complete; Phase 1B blocked)
 
-The phase plan aligns with `PRD.md` §9.3. Platform foundation work (May 2026) is complete. **Phases 1A–2 (vendor cache + wiki compile) are complete.** **Phase 3** (`/workspace-start-project`) is the active workspace track. **Confluence ingest (Phase 1B) is blocked until Atlassian access.** See `docs/vendor-catalog.md`, `docs/phase-1a-exit-report.md`, and `docs/phase-2-exit-report.md`.
+The phase plan aligns with `PRD.md` §9.3. Platform foundation work (May 2026) is complete. **Phases 1A–2 (vendor cache + wiki compile) are complete.** **Phase 3** (`/workspace-start-project`) is the active workspace track. **Confluence ingest (Phase 1B) is blocked until Atlassian access.** See `docs/product/vendor-catalog.md`, `docs/build-history/phase-1a-exit-report.md`, and `docs/build-history/phase-2-exit-report.md`.
 
 ---
 
@@ -21,7 +21,7 @@ Transcript-driven platform improvements shipped before the v1 workspace build. T
 | Lint + tests | `scripts/lint-platform-research.py`, `tests/platform_research/` |
 | Config | `config/platform-research-review.example.yml` |
 | Accepted ADRs | RC-014 (artifacts), RC-010 (trust loop), RC-001 (page-index retrieval), RC-002 (citation ≠ similarity), RC-015 (intent records, experiment), RC-003 (controlled gap review, experiment), implementation-priority-loop |
-| Canonical policy | `AGENTS.md`, `PRD.md` (retrieval), `docs/architecture-rationale.md`, `workspace-query.prompt.md` |
+| Canonical policy | `AGENTS.md`, `PRD.md` (retrieval), `docs/product/architecture-rationale.md`, `workspace-query.prompt.md` |
 
 ### Active experiments (non-blocking)
 
@@ -48,7 +48,7 @@ Implementation queue: **idle** (all queued PIC cycles through RC-003 accepted or
 
 **Unblocked without Confluence.** Vendor stack: **AWS, Snowflake, Informatica** (IBM Db2 z/OS skipped).
 
-**Exit report:** `docs/phase-1a-exit-report.md`
+**Exit report:** `docs/build-history/phase-1a-exit-report.md`
 
 **Deliverables:**
 
@@ -63,7 +63,7 @@ Implementation queue: **idle** (all queued PIC cycles through RC-003 accepted or
 - [x] align-vendor-truth dry run: `reports/workspace-align-vendor-truth-phase-1a-dry-run-2026-05-28.md`
 - [x] Hooks: **deferred** (documented in exit report; Copilot session events not verified)
 
-**Exit:** Met. See `docs/phase-1a-exit-report.md`.
+**Exit:** Met. See `docs/build-history/phase-1a-exit-report.md`.
 
 **Start checklist:**
 
@@ -94,7 +94,7 @@ Implementation queue: **idle** (all queued PIC cycles through RC-003 accepted or
 
 **Policy dependency (RC-001):** `wiki/index.md` and Base views in `wiki/workspace-views/` are the v1 retrieval substrate.
 
-**Exit report:** `docs/phase-2-exit-report.md`
+**Exit report:** `docs/build-history/phase-2-exit-report.md`
 
 **Deliverables:**
 
@@ -168,7 +168,7 @@ Implementation queue: **idle** (all queued PIC cycles through RC-003 accepted or
 - [x] `templates/personas/ceo/` populated (`AGENTS-additions.md`, `example-prompts/`, `starter-wiki/`)
 - [x] Engineer, Architect, PM, Director, VP stubs (READMEs; v1.x population)
 - [ ] `docs/style/exemplar-published-doc.md` cleaned and finalized
-- [ ] README, setup-kit, adoption-checklist polished against real pilot
+- [ ] README, platform support docs, adoption-checklist polished against real pilot
 - [ ] End-to-end pilot with a real project (may overlap Phase 3 exit)
 - [ ] `product-brief.md` gaps (`[NEEDS INPUT]` sections) filled where blocking adoption narrative
 
@@ -193,7 +193,7 @@ Implementation queue: **idle** (all queued PIC cycles through RC-003 accepted or
 ## v1.x (post-v1, prioritized)
 
 - Jira ingestion (using `atlassian-requirements-to-jira` agent pattern from `build-inputs/`)
-- Pre-ingestion of vendor doc **bundles** via vendor MCPs (AWS, Snowflake, Terraform MCP) where configured — complements Tier A URL cache (`docs/vendor-catalog.md`)
+- Pre-ingestion of vendor doc **bundles** via vendor MCPs (AWS, Snowflake, Terraform MCP) where configured — complements Tier A URL cache (`docs/product/vendor-catalog.md`)
 - Google Drive / SharePoint / OneNote as **internal** content sources (not `vendor:*`)
 - SharePoint and OneNote ingestion
 - Population of Engineer, Architect, PM, Director, VP persona templates

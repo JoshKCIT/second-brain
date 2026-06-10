@@ -3,7 +3,7 @@
 # Fetch: python scripts/seed-vendor-docs.py --seed-file config/ibm-db2-zos-seed-stack.yml --yes
 #
 # IBM ibm.com/docs topic= URLs often fail defuddle; prefer SSEPEK_12.0.0 static HTML paths
-# documented in docs/vendor-catalog.md.
+# documented in docs/product/vendor-catalog.md.
 
 product: Db2 12 for z/OS
 vendor_slug: ibm-db2-zos

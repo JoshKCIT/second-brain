@@ -1,0 +1,50 @@
+# RSS feed sources and interest rules for workspace RSS lane.
+# Copy to config/rss-feeds.yml (gitignored) and customize.
+#
+# Run:
+#   python scripts/ingest-rss.py --yes
+#   python scripts/triage-rss.py --yes
+#   python scripts/sync-rss-register.py
+
+feeds:
+  # Example: use fixture in tests; replace url for production.
+  - slug: signal-feed
+    url: https://example.com/feed.xml
+    domain: vendor:aws
+    authority: informational
+    enabled: false
+
+  - slug: noise-feed
+    url: https://example.com/noise.xml
+    domain: informational
+    authority: informational
+    enabled: false
+
+interest:
+  vendor_slugs:
+    - aws
+    - snowflake
+    - microsoft-365-copilot
+    - microsoft-copilot-studio
+    - openai
+    - anthropic
+  keywords:
+    - glue
+    - snowpipe
+    - copilot studio
+    - generative orchestration
+    - mcp
+  exclude_keywords:
+    - crypto
+    - gaming
+    - lottery
+  wiki_index_hints:
+    - workspace-concepts/
+    - workspace-standards/
+  project_slugs: []
+  thresholds:
+    auto_skip_below: 0.25
+    suggest_above: 0.45
+    high_signal_above: 0.70
+    borderline_band: [0.40, 0.55]
+  max_queue_size: 30

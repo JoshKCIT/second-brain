@@ -8,7 +8,7 @@ For Second Brain:
 
 - Treat `raw/**` as immutable source evidence.
 - Treat researcher transcripts as product-intelligence evidence, not canonical knowledge.
-- Do not promote transcript-derived claims into `wiki/workspace-standards/**`, `wiki/workspace-recommendations/**`, `PRD.md`, `product-brief.md`, `docs/roadmap.md`, or `docs/architecture-rationale.md` without an explicit user-approved decision record.
+- Do not promote transcript-derived claims into `wiki/workspace-standards/**`, `wiki/workspace-recommendations/**`, `PRD.md`, `product-brief.md`, `docs/product/roadmap.md`, or `docs/product/architecture-rationale.md` without an explicit user-approved decision record.
 - Transcript **import, queue, and register sync** → invoke or recommend `platform-transcript-librarian` (human checkpoints before writing `raw/**`).
 - Transcript **claim extraction, scoring, and research artifacts** → invoke or recommend `platform-research-reviewer`.
 - Prefer claim extraction, skeptical review, impact scoring, and draft ADRs over direct canonical edits.

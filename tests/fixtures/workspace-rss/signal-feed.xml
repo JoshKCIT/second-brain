@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Signal Feed</title>
+    <item>
+      <title>AWS Glue security updates for Snowpipe integration</title>
+      <link>https://example.com/aws-glue-snowpipe</link>
+      <guid>guid-signal-001</guid>
+      <pubDate>Mon, 09 Jun 2026 12:00:00 GMT</pubDate>
+      <description>Updates to AWS Glue security controls affecting Snowpipe loads.</description>
+    </item>
+    <item>
+      <title>Copilot Studio MCP connector guidance</title>
+      <link>https://example.com/copilot-mcp</link>
+      <guid>guid-signal-002</guid>
+      <pubDate>Mon, 09 Jun 2026 11:00:00 GMT</pubDate>
+      <description>Microsoft Copilot Studio documents MCP server integration.</description>
+    </item>
+  </channel>
+</rss>

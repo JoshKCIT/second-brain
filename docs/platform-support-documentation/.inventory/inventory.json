@@ -1,0 +1,614 @@
+{
+  "adrs": {
+    "accepted": [
+      {
+        "name": "PH-2026-05-27-003-inter-stage-output-contract.md",
+        "path": "docs/platform-decision-records/PH-2026-05-27-003-inter-stage-output-contract.md"
+      },
+      {
+        "name": "PH-2026-05-27-004-advisory-align-cite-per-stage.md",
+        "path": "docs/platform-decision-records/PH-2026-05-27-004-advisory-align-cite-per-stage.md"
+      },
+      {
+        "name": "PH-2026-05-27-005-reopen-stage-protocol.md",
+        "path": "docs/platform-decision-records/PH-2026-05-27-005-reopen-stage-protocol.md"
+      },
+      {
+        "name": "PH-2026-05-27-007-stack-consolidation.md",
+        "path": "docs/platform-decision-records/PH-2026-05-27-007-stack-consolidation.md"
+      },
+      {
+        "name": "PH-2026-05-27-008-adr-promotion-on-accept.md",
+        "path": "docs/platform-decision-records/PH-2026-05-27-008-adr-promotion-on-accept.md"
+      },
+      {
+        "name": "PH-2026-06-09-001-chain-profile-schema.md",
+        "path": "docs/platform-decision-records/PH-2026-06-09-001-chain-profile-schema.md"
+      },
+      {
+        "name": "PH-2026-06-09-002-technical-doc-initiative-profile.md",
+        "path": "docs/platform-decision-records/PH-2026-06-09-002-technical-doc-initiative-profile.md"
+      },
+      {
+        "name": "PH-2026-06-09-003-technical-writer-stage.md",
+        "path": "docs/platform-decision-records/PH-2026-06-09-003-technical-writer-stage.md"
+      },
+      {
+        "name": "PH-2026-06-09-004-architect-reviewer-stage.md",
+        "path": "docs/platform-decision-records/PH-2026-06-09-004-architect-reviewer-stage.md"
+      },
+      {
+        "name": "RC-2026-05-27-001-page-index-retrieval.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-001-page-index-retrieval.md"
+      },
+      {
+        "name": "RC-2026-05-27-003-controlled-gap-research.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-003-controlled-gap-research.md"
+      },
+      {
+        "name": "RC-2026-05-27-010-trust-loop-workflow-pattern.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-010-trust-loop-workflow-pattern.md"
+      },
+      {
+        "name": "RC-2026-05-27-014-platform-research-artifacts.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-014-platform-research-artifacts.md"
+      },
+      {
+        "name": "RC-2026-05-27-015-lightweight-intent-records.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-015-lightweight-intent-records.md"
+      },
+      {
+        "name": "RC-2026-05-27-018-retrieval-contract-first.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-018-retrieval-contract-first.md"
+      },
+      {
+        "name": "RC-2026-05-27-058-project-session-handoff.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-058-project-session-handoff.md"
+      },
+      {
+        "name": "RC-2026-05-27-116-thinking-artifact-mode-separation.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-116-thinking-artifact-mode-separation.md"
+      },
+      {
+        "name": "RC-2026-05-27-117-thinking-partner-subagent.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-117-thinking-partner-subagent.md"
+      },
+      {
+        "name": "RC-2026-05-27-122-read-before-write-retrieval.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-122-read-before-write-retrieval.md"
+      },
+      {
+        "name": "RC-2026-05-27-130-project-stage-scaffold.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-130-project-stage-scaffold.md"
+      },
+      {
+        "name": "RC-2026-05-27-146-raw-inbox-staging.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-146-raw-inbox-staging.md"
+      },
+      {
+        "name": "RC-2026-05-27-148-topic-entity-compile.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-148-topic-entity-compile.md"
+      },
+      {
+        "name": "RC-2026-05-27-157-citation-grounded-query.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-157-citation-grounded-query.md"
+      },
+      {
+        "name": "RC-2026-05-27-161-hierarchical-instruction-stacking.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-161-hierarchical-instruction-stacking.md"
+      },
+      {
+        "name": "RC-2026-05-27-162-routing-map-agents-shim.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-162-routing-map-agents-shim.md"
+      },
+      {
+        "name": "RC-2026-05-27-163-disposable-session-orientation.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-163-disposable-session-orientation.md"
+      },
+      {
+        "name": "RC-2026-05-27-164-session-audit-skill.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-164-session-audit-skill.md"
+      },
+      {
+        "name": "RC-2026-05-27-165-lean-root-pointer-resources.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-165-lean-root-pointer-resources.md"
+      },
+      {
+        "name": "RC-2026-05-27-167-project-subfolder-rule-stacking.md",
+        "path": "docs/platform-decision-records/RC-2026-05-27-167-project-subfolder-rule-stacking.md"
+      },
+      {
+        "name": "RC-2026-06-10-018-platform-support-documentation.md",
+        "path": "docs/platform-decision-records/RC-2026-06-10-018-platform-support-documentation.md"
+      },
+      {
+        "name": "RC-implementation-priority-loop.md",
+        "path": "docs/platform-decision-records/RC-implementation-priority-loop.md"
+      }
+    ],
+    "draft": [
+      {
+        "name": "DRAFT-PH-2026-06-09-005-qa-pre-publish-stage.md",
+        "path": "docs/platform-decision-records/DRAFT-PH-2026-06-09-005-qa-pre-publish-stage.md"
+      },
+      {
+        "name": "DRAFT-PH-2026-06-09-006-meeting-synthesis-profile.md",
+        "path": "docs/platform-decision-records/DRAFT-PH-2026-06-09-006-meeting-synthesis-profile.md"
+      },
+      {
+        "name": "DRAFT-PH-2026-06-09-007-knowledge-hub-profile.md",
+        "path": "docs/platform-decision-records/DRAFT-PH-2026-06-09-007-knowledge-hub-profile.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-007-disposable-graph-projection.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-007-disposable-graph-projection.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-008-session-graph-orientation.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-008-session-graph-orientation.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-012-advisory-harness-failure-review.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-012-advisory-harness-failure-review.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-050-verbatim-cite-excerpts.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-050-verbatim-cite-excerpts.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-055-identity-packs-compile.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-055-identity-packs-compile.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-094-agent-native-onboarding.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-094-agent-native-onboarding.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-105-understanding-accountability-closure.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-105-understanding-accountability-closure.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-111-hybrid-llm-deterministic-pipeline.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-111-hybrid-llm-deterministic-pipeline.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-135-agent-hub-compile-artifacts.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-135-agent-hub-compile-artifacts.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-136-specialist-sub-agent-registry.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-136-specialist-sub-agent-registry.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-139-internal-external-knowledge-taxonomy.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-139-internal-external-knowledge-taxonomy.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-140-meeting-notes-capture-lane.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-140-meeting-notes-capture-lane.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-05-27-142-weekly-pulse-disposable-report.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-05-27-142-weekly-pulse-disposable-report.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-06-09-007-falsifiable-platform-change-manifest.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-06-09-007-falsifiable-platform-change-manifest.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-06-09-009-no-auto-evolve-system-prompts.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-06-09-009-no-auto-evolve-system-prompts.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-06-09-012-structure-vs-unstructured-retriever-heuristic.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-06-09-012-structure-vs-unstructured-retriever-heuristic.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-06-09-013-three-pass-compile-orientation-map.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-06-09-013-three-pass-compile-orientation-map.md"
+      },
+      {
+        "name": "DRAFT-RC-2026-06-10-017-rss-feed-lane.md",
+        "path": "docs/platform-decision-records/DRAFT-RC-2026-06-10-017-rss-feed-lane.md"
+      },
+      {
+        "name": "DRAFT-template-research-claim.md",
+        "path": "docs/platform-decision-records/DRAFT-template-research-claim.md"
+      }
+    ]
+  },
+  "generated_at": "2026-06-10T22:41:55Z",
+  "inventory_hash": "82a931844cb8d468",
+  "lifecycles": [
+    {
+      "name": "rss-feed-lifecycle.md",
+      "path": "templates/workspace/rss-feed-lifecycle.md",
+      "type": "lifecycle"
+    },
+    {
+      "name": "README.md",
+      "path": "templates/workspace/chain-profiles/README.md",
+      "type": "chain-profile"
+    },
+    {
+      "name": "technical-doc-initiative.md",
+      "path": "templates/workspace/chain-profiles/technical-doc-initiative.md",
+      "type": "chain-profile"
+    }
+  ],
+  "prompt_inventory_count": 41,
+  "prompts": [
+    {
+      "description": "Run one platform implementation backlog (PIC) cycle \u2014 implement, validate, and on CEO accept automatically promote the ADR via promote-platform-adr.py.",
+      "lane": "platform",
+      "path": ".github/prompts/platform-implement-backlog.prompt.md",
+      "stem": "platform-implement-backlog"
+    },
+    {
+      "description": "",
+      "lane": "",
+      "path": ".github/prompts/platform-research-review/claim-miner.prompt.md",
+      "stem": "platform-research-review/claim-miner"
+    },
+    {
+      "description": "",
+      "lane": "",
+      "path": ".github/prompts/platform-research-review/evaluation-designer.prompt.md",
+      "stem": "platform-research-review/evaluation-designer"
+    },
+    {
+      "description": "Controlled platform gap review. Identifies missing platform knowledge and candidate sources without mutating canonical docs or workspace knowledge.",
+      "lane": "",
+      "path": ".github/prompts/platform-research-review/gap-review.prompt.md",
+      "stem": "platform-research-review/gap-review"
+    },
+    {
+      "description": "",
+      "lane": "",
+      "path": ".github/prompts/platform-research-review/grounding-agent.prompt.md",
+      "stem": "platform-research-review/grounding-agent"
+    },
+    {
+      "description": "",
+      "lane": "",
+      "path": ".github/prompts/platform-research-review/product-impact-judge.prompt.md",
+      "stem": "platform-research-review/product-impact-judge"
+    },
+    {
+      "description": "",
+      "lane": "",
+      "path": ".github/prompts/platform-research-review/skeptic-agent.prompt.md",
+      "stem": "platform-research-review/skeptic-agent"
+    },
+    {
+      "description": "",
+      "lane": "",
+      "path": ".github/prompts/platform-research-review/transcript-intake.prompt.md",
+      "stem": "platform-research-review/transcript-intake"
+    },
+    {
+      "description": "Review transcripts, meeting notes, or product-improvement discussions as controlled product intelligence. Extract claims, ground them against Second Brain docs, score product impact, and write platform-research-review artifacts without mutating canonical docs.",
+      "lane": "platform",
+      "path": ".github/prompts/platform-research-review.prompt.md",
+      "stem": "platform-research-review"
+    },
+    {
+      "description": "Full-regen platform support documentation from repo inventory and canonical sources. No wiki writes.",
+      "lane": "platform",
+      "path": ".github/prompts/platform-sync-support-docs.prompt.md",
+      "stem": "platform-sync-support-docs"
+    },
+    {
+      "description": "Orchestrate platform transcript import, register sync, and queued research review with human checkpoints. Delegates claim adjudication to platform-research-review.",
+      "lane": "platform",
+      "path": ".github/prompts/platform-transcript-librarian.prompt.md",
+      "stem": "platform-transcript-librarian"
+    },
+    {
+      "description": "Onboarding conversation. Configure default in-scope Confluence spaces with authority and domain mappings, naming conventions, and create the first project skeleton.",
+      "lane": "workspace",
+      "path": ".github/prompts/second-brain.prompt.md",
+      "stem": "second-brain"
+    },
+    {
+      "description": "Verify every cited claim in a project artifact resolves to a source containing the cited content. Production-quality check. Runs automatically before publish.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-align-cite.prompt.md",
+      "stem": "workspace-align-cite"
+    },
+    {
+      "description": "Status-aware closure check. At review/published, body prose contains no internal wikilinks. Cross-project dependency rules enforced. Junior-engineer-executable bar verified.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-align-closure.prompt.md",
+      "stem": "workspace-align-closure"
+    },
+    {
+      "description": "Verify a project artifact's structure, terminology, and decisions match each in-scope standard's conventions. Best-effort tier (advisory; LLM judgment).",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-align-conformance.prompt.md",
+      "stem": "workspace-align-conformance"
+    },
+    {
+      "description": "Verify a project artifact addresses every relevant requirement from in-scope standards. Gap analysis. Best-effort tier (advisory; LLM judgment).",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-align-coverage.prompt.md",
+      "stem": "workspace-align-coverage"
+    },
+    {
+      "description": "Phase 2 advisory report \u2014 how promoted RSS items relate to the knowledge hub. No wiki writes.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-align-rss-impact.prompt.md",
+      "stem": "workspace-align-rss-impact"
+    },
+    {
+      "description": "Verify vendor-domain claims cite vendor sources, not stale internal claims. Catches the S3-encryption-style failure mode where internal docs misrepresent vendor capabilities.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-align-vendor-truth.prompt.md",
+      "stem": "workspace-align-vendor-truth"
+    },
+    {
+      "description": "Architect Agent. Reads the PRD and produces an architecture document evaluating candidate approaches against requirements and in-scope standards",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-architect-agent.prompt.md",
+      "stem": "workspace-architect-agent"
+    },
+    {
+      "description": "Architect Reviewer Agent. Advisory conformance review of project artifacts against in-scope standards; report-only, no publish-bound edits.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-architect-reviewer-agent.prompt.md",
+      "stem": "workspace-architect-reviewer-agent"
+    },
+    {
+      "description": "Move a completed or deprecated project, standard, or recommendation to wiki/workspace-archives/. Excluded from default search and reference.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-archive.prompt.md",
+      "stem": "workspace-archive"
+    },
+    {
+      "description": "Compile newly ingested raw/ pages into the wiki layer. Creates or updates concept, standard, recommendation, and connection articles. Updates index.md and log.md.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-compile.prompt.md",
+      "stem": "workspace-compile"
+    },
+    {
+      "description": "Engineer Agent. Reads the architecture (or PRD if non-technical) and produces detailed implementation specs. Also runs the finalize step before review.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-engineer-agent.prompt.md",
+      "stem": "workspace-engineer-agent"
+    },
+    {
+      "description": "Ingest Confluence pages via the user's existing API-based skill. Per-page output to raw/workspace-confluence/{space-key}/pages/, synchronous compile to wiki/, post-ingest manifest with quarantine for failures.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-ingest-confluence.prompt.md",
+      "stem": "workspace-ingest-confluence"
+    },
+    {
+      "description": "Ingest RSS/Atom feeds, run deterministic triage, sync register. No wiki writes.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-ingest-rss.prompt.md",
+      "stem": "workspace-ingest-rss"
+    },
+    {
+      "description": "Fetch a vendor doc on demand using the defuddle skill, cache to raw/workspace-external/ with TTL frontmatter for revalidation.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-ingest-vendor-doc.prompt.md",
+      "stem": "workspace-ingest-vendor-doc"
+    },
+    {
+      "description": "Run all health checks on the wiki. Seven structural checks plus engineering additions. Output a structured report with severity per finding.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-lint.prompt.md",
+      "stem": "workspace-lint"
+    },
+    {
+      "description": "PM Agent. Reads the VP strategic brief and produces a Product Requirements Document with personas, requirements, user stories, and success metrics",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-pm-agent.prompt.md",
+      "stem": "workspace-pm-agent"
+    },
+    {
+      "description": "Convert Markdown project artifact(s) to vanilla HTML preview, write to confluence-review/, open the folder via OS-native opener.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-prepare-for-confluence.prompt.md",
+      "stem": "workspace-prepare-for-confluence"
+    },
+    {
+      "description": "Push project artifact(s) to Confluence as new pages via the user's API path (or Atlassian Remote MCP Server alternative).",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-publish-to-confluence.prompt.md",
+      "stem": "workspace-publish-to-confluence"
+    },
+    {
+      "description": "Branch dispatcher for publishing a project. Asks \"review or Confluence?\", routes to prepare-for-confluence (HTML preview) or publish-to-confluence (API push).",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-publish.prompt.md",
+      "stem": "workspace-publish"
+    },
+    {
+      "description": "Index-guided query against the wiki. Reads index.md and Base views, identifies relevant articles, synthesizes an answer with citations. Optional file-back saves the answer as a wiki/workspace-qa/ article.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-query.prompt.md",
+      "stem": "workspace-query"
+    },
+    {
+      "description": "Enumerate stale vendor doc caches under raw/workspace-external/ and offer batch refresh via workspace-ingest-vendor-doc.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-revalidate-vendor-docs.prompt.md",
+      "stem": "workspace-revalidate-vendor-docs"
+    },
+    {
+      "description": "Present RSS review queue; CEO promote, archive, or dismiss by item_id. Compile deferred to workspace-compile.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-review-rss.prompt.md",
+      "stem": "workspace-review-rss"
+    },
+    {
+      "description": "End-of-session audit for workspace projects. Proposes orientation and handoff updates from conversation; writes only after explicit CEO approval per item.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-session-audit.prompt.md",
+      "stem": "workspace-session-audit"
+    },
+    {
+      "description": "Orchestrates the Second Brain agent chain (CEO declares intent; VP, PM, Architect, Engineer produce artifacts in sequence with CEO review between stages)",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-start-project.prompt.md",
+      "stem": "workspace-start-project"
+    },
+    {
+      "description": "Technical Writer Agent. Polishes approved upstream project artifacts for publish-shaped prose quality without changing technical decisions or running finalize.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-technical-writer-agent.prompt.md",
+      "stem": "workspace-technical-writer-agent"
+    },
+    {
+      "description": "Optional thinking-partner sub-agent for project stages. Interview-style exploration, question logging, and idea capture without publish-shaped output.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-thinking-partner.prompt.md",
+      "stem": "workspace-thinking-partner"
+    },
+    {
+      "description": "Optional LLM triage for borderline RSS items only. Advisory; no wiki writes.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-triage-rss.prompt.md",
+      "stem": "workspace-triage-rss"
+    },
+    {
+      "description": "Reverse an archive operation. Move content from wiki/workspace-archives/ back to its original location.",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-unarchive.prompt.md",
+      "stem": "workspace-unarchive"
+    },
+    {
+      "description": "VP Agent. Translates the CEO's high-level project intent into a one-page strategic product brief (the WHAT and WHY, not the HOW)",
+      "lane": "workspace",
+      "path": ".github/prompts/workspace-vp-agent.prompt.md",
+      "stem": "workspace-vp-agent"
+    }
+  ],
+  "routing_invokes": [
+    "--file-back",
+    "platform-implement-backlog",
+    "platform-research-review",
+    "platform-sync-support-docs",
+    "platform-transcript-librarian",
+    "session-audit",
+    "workspace-align-rss-impact",
+    "workspace-architect-reviewer-agent",
+    "workspace-archive",
+    "workspace-compile",
+    "workspace-ingest-confluence",
+    "workspace-ingest-rss",
+    "workspace-ingest-vendor-doc",
+    "workspace-lint",
+    "workspace-publish",
+    "workspace-query",
+    "workspace-review-rss",
+    "workspace-session-audit",
+    "workspace-start-project",
+    "workspace-technical-writer-agent",
+    "workspace-thinking-partner",
+    "workspace-triage-rss"
+  ],
+  "routing_orphans": [
+    "--file-back",
+    "session-audit"
+  ],
+  "script_inventory_count": 19,
+  "scripts": [
+    {
+      "name": "compile-workspace-external.py",
+      "path": "scripts/compile-workspace-external.py",
+      "summary": ""
+    },
+    {
+      "name": "ingest-rss.py",
+      "path": "scripts/ingest-rss.py",
+      "summary": ""
+    },
+    {
+      "name": "lint-platform-research.py",
+      "path": "scripts/lint-platform-research.py",
+      "summary": ""
+    },
+    {
+      "name": "lint-platform-support-docs.py",
+      "path": "scripts/lint-platform-support-docs.py",
+      "summary": ""
+    },
+    {
+      "name": "lint-workspace.py",
+      "path": "scripts/lint-workspace.py",
+      "summary": ""
+    },
+    {
+      "name": "promote-platform-adr.py",
+      "path": "scripts/promote-platform-adr.py",
+      "summary": ""
+    },
+    {
+      "name": "promote-rss-item.py",
+      "path": "scripts/promote-rss-item.py",
+      "summary": ""
+    },
+    {
+      "name": "repair-rss-item-frontmatter.py",
+      "path": "scripts/repair-rss-item-frontmatter.py",
+      "summary": ""
+    },
+    {
+      "name": "revalidate-vendor-docs.py",
+      "path": "scripts/revalidate-vendor-docs.py",
+      "summary": ""
+    },
+    {
+      "name": "rss_common.py",
+      "path": "scripts/rss_common.py",
+      "summary": "Shared helpers for the workspace RSS feed lane."
+    },
+    {
+      "name": "seed-vendor-docs.py",
+      "path": "scripts/seed-vendor-docs.py",
+      "summary": ""
+    },
+    {
+      "name": "support_doc_common.py",
+      "path": "scripts/support_doc_common.py",
+      "summary": "Shared helpers for platform support documentation inventory and lint."
+    },
+    {
+      "name": "sync-rejected-register.py",
+      "path": "scripts/sync-rejected-register.py",
+      "summary": ""
+    },
+    {
+      "name": "sync-rss-register.py",
+      "path": "scripts/sync-rss-register.py",
+      "summary": ""
+    },
+    {
+      "name": "sync-support-doc-inventory.py",
+      "path": "scripts/sync-support-doc-inventory.py",
+      "summary": ""
+    },
+    {
+      "name": "sync-transcript-register.py",
+      "path": "scripts/sync-transcript-register.py",
+      "summary": ""
+    },
+    {
+      "name": "triage-rss.py",
+      "path": "scripts/triage-rss.py",
+      "summary": ""
+    },
+    {
+      "name": "update-rss-inbox.py",
+      "path": "scripts/update-rss-inbox.py",
+      "summary": ""
+    },
+    {
+      "name": "verify-setup.py",
+      "path": "scripts/verify-setup.py",
+      "summary": ""
+    }
+  ]
+}

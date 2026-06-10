@@ -38,7 +38,7 @@ Question-askers get links to source of truth; executors do not click through doz
 ## Canonical alignment
 
 - `AGENTS.md` — closure rule, internal inline + See Also pattern, page-index retrieval (RC-001/002)
-- `docs/architecture-rationale.md` — disposable projections, no premature embeddings
+- `docs/product/architecture-rationale.md` — disposable projections, no premature embeddings
 - `product-brief.md` — governance-and-closure band (not generic enterprise search)
 
 ## Re-review actions (2026-05-27)

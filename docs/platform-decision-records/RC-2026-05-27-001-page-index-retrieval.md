@@ -77,7 +77,7 @@ Use a representative holdout of long Confluence pages. Compare page-index naviga
 ## Files Proposed for Future Change
 
 ```text
-docs/architecture-rationale.md
+docs/product/architecture-rationale.md
 AGENTS.md
 PRD.md
 ```

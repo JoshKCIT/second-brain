@@ -89,8 +89,8 @@ wiki/workspace-standards/**
 wiki/workspace-recommendations/**
 PRD.md
 product-brief.md
-docs/roadmap.md
-docs/architecture-rationale.md
+docs/product/roadmap.md
+docs/product/architecture-rationale.md
 AGENTS.md
 ```
 

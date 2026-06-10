@@ -68,6 +68,9 @@ Task-type → prompt/skill → first read paths. **Orientation only** — does n
 | Stage agent work | workspace | `workspace-{vp,pm,architect,engineer}-agent` | Stage artifact, `handoff.md`, scoped wiki/raw |
 | Thinking-partner exploration | workspace | `workspace-thinking-partner` | Stage `handoff.md`, upstream artifacts |
 | Ingest / compile / query | workspace | `workspace-ingest-*`, `workspace-compile`, `workspace-query` | `wiki/index.md`, scoped sources per RC-018 |
+| Ingest / review RSS | workspace | `workspace-ingest-rss`, `workspace-review-rss`, `workspace-triage-rss` | `config/rss-feeds.yml`, `raw/workspace-rss-feed/rss-register.md` |
+| Platform support docs | platform | `platform-sync-support-docs` | `docs/platform-support-documentation/.inventory/inventory.json`, routing map |
+| RSS hub impact (Phase 2) | workspace | `workspace-align-rss-impact` | Promoted RSS paths, `wiki/index.md`, scoped wiki/raw |
 | Align / publish / lint | workspace | `workspace-align-*`, `workspace-publish`, `workspace-lint` | Target artifacts + cited paths |
 | Session audit | workspace | `workspace-session-audit` | Stage `handoff.md`, `orientation.md` |
 | **Platform escalation (PH-006)** | **platform** | **`platform-transcript-librarian` / `platform-research-review`** | **`wiki/platform-research/**` — no protected workspace/PRD edits without approval** |
@@ -107,6 +110,7 @@ Tier-2 IDE shims (`.cursor/rules/agents.mdc`, `CLAUDE.md`, `.github/copilot-inst
    - `raw/workspace-jira/{project-key}/tickets/` (v1.x)
    - `raw/workspace-external/{vendor}/{topic}/{slug}.md` for cached vendor docs
    - `raw/workspace-inbox/{YYYY-MM-DD}/` for manual clips and unprocessed captures (RC-146)
+   - `raw/workspace-rss-feed/` for RSS captures, triage queue, and promoted articles (**gitignored**, personal)
    - `raw/platform-transcripts/{slug}/transcript.md` for product-intelligence transcripts
    - You read from here; you never modify it after the initial ingest write.
 
@@ -344,7 +348,7 @@ next_action: ""
 ```
 ````
 
-Platform research-review agents may write `wiki/platform-research/**`, `reports/platform-research-review/**`, and `docs/platform-decision-records/DRAFT-*.md`. They must not directly update `wiki/workspace-standards/**`, `wiki/workspace-recommendations/**`, `PRD.md`, `product-brief.md`, `docs/roadmap.md`, `docs/architecture-rationale.md`, `AGENTS.md`, or any `raw/**` source mirror based on transcript claims alone.
+Platform research-review agents may write `wiki/platform-research/**`, `reports/platform-research-review/**`, and `docs/platform-decision-records/DRAFT-*.md`. They must not directly update `wiki/workspace-standards/**`, `wiki/workspace-recommendations/**`, `PRD.md`, `product-brief.md`, `docs/product/roadmap.md`, `docs/product/architecture-rationale.md`, `AGENTS.md`, or any `raw/**` source mirror based on transcript claims alone.
 
 Approved platform ADRs may change protected files in a separate user-approved implementation pass.
 
@@ -648,7 +652,7 @@ Prompt: `.github/prompts/platform-transcript-librarian.prompt.md`. Checkpoints: 
 Use `platform-research-review` for transcripts, meeting notes, interviews, or product-improvement discussions about Second Brain.
 
 1. Read the transcript under `raw/platform-transcripts/**` or the user-specified source note
-2. Read `AGENTS.md`, `product-brief.md`, `PRD.md`, `docs/architecture-rationale.md`, `docs/roadmap.md`, and `wiki/platform-research/claim-register.md` when present
+2. Read `AGENTS.md`, `product-brief.md`, `PRD.md`, `docs/product/architecture-rationale.md`, `docs/product/roadmap.md`, and `wiki/platform-research/claim-register.md` when present
 3. Segment the source into discussion blocks
 4. Extract atomic claims and classify each claim
 5. Ground claims against existing Second Brain docs and vendor docs when relevant
@@ -863,15 +867,16 @@ second-brain/
 ├── .windsurfrules                         # Windsurf shim
 │
 ├── docs/
-│   ├── product-brief.md
-│   ├── PRD.md
-│   ├── architecture-rationale.md
-│   ├── roadmap.md
+│   ├── product/
+│   │   ├── README.md
+│   │   ├── roadmap.md
+│   │   ├── architecture-rationale.md
+│   │   └── vendor-catalog.md
+│   ├── build-history/
 │   ├── progress-log.md
 │   ├── platform-intelligence/
+│   ├── platform-support-documentation/
 │   ├── platform-decision-records/
-│   ├── setup-kit.md
-│   ├── adoption-checklist.md
 │   └── style/
 │       └── exemplar-published-doc.md
 │

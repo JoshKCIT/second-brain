@@ -14,7 +14,7 @@ Draft
 
 ## Context
 
-Karpathy argues agent executors—not humans clicking URLs—are the primary consumer of setup and integration instructions. Second Brain already ships `.github/prompts/` and skills, but `docs/setup-kit.md` remains human-first.
+Karpathy argues agent executors—not humans clicking URLs—are the primary consumer of setup and integration instructions. Second Brain already ships `.github/prompts/` and skills; install docs live in `docs/platform-support-documentation/user-guide/getting-started.md`.
 
 ## Decision
 
@@ -23,7 +23,7 @@ Pilot agent-native onboarding blocks (copy-paste skills / prompt stubs) as the *
 ## Intent
 
 - **Intended outcome:** Faster time-to-first successful `workspace-compile` for agent-led setup.
-- **In scope:** `docs/setup-kit.md`, optional `.github/skills/second-brain-setup/`, shim references in `CLAUDE.md` / `.cursor/rules/agents.mdc`.
+- **In scope:** `docs/platform-support-documentation/user-guide/getting-started.md`, optional `.github/skills/second-brain-setup/`, shim references in `CLAUDE.md` / `.cursor/rules/agents.mdc`.
 - **Out of scope:** Changing publish/align rules; autonomous wiki mutation.
 
 ## Safety and non-goals
@@ -68,12 +68,12 @@ See claim register RC-2026-05-27-094.
 
 ## Validation Plan
 
-1. Add agent-native block to setup-kit (draft).
+1. Add agent-native block to getting-started (draft).
 2. Run one fresh-clone setup with agent only; record time-to-first compile.
 3. User approves or rolls back via implementation backlog.
 
 ## Files Proposed for Future Change
 
-- `docs/setup-kit.md`
+- `docs/platform-support-documentation/user-guide/getting-started.md`
 - `.github/skills/` (new setup skill, if approved)
 - `CLAUDE.md` / `.cursor/rules/agents.mdc` (one-line pointer only, if approved)

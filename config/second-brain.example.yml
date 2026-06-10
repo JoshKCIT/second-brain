@@ -54,7 +54,7 @@ default_in_scope_spaces:
 # Vendor doc revalidation (TTL)
 # ============================================================
 # Vendor caches live at raw/workspace-external/{vendor}/{topic}/{slug}.md
-# Fetched on demand via /workspace-ingest-vendor-doc (defuddle). See docs/vendor-catalog.md.
+# Fetched on demand via /workspace-ingest-vendor-doc (defuddle). See docs/product/vendor-catalog.md.
 vendor_revalidation:
   default_ttl_days: 90
 
@@ -79,7 +79,7 @@ vendor_revalidation:
 # Vendor sources (public documentation — no Confluence required)
 # ============================================================
 # Tier A (v1): on-demand URL fetch via defuddle.
-# Tier B (v1.x): optional vendor MCPs in the IDE — see docs/vendor-catalog.md.
+# Tier B (v1.x): optional vendor MCPs in the IDE — see docs/product/vendor-catalog.md.
 vendor_sources:
   # Default stack: AWS + Snowflake + Informatica
   enabled:

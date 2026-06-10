@@ -1,0 +1,23 @@
+feeds:
+  - slug: signal-feed
+    fixture: tests/fixtures/workspace-rss/signal-feed.xml
+    domain: vendor:aws
+    authority: informational
+    enabled: true
+
+  - slug: noise-feed
+    fixture: tests/fixtures/workspace-rss/noise-feed.xml
+    domain: informational
+    authority: informational
+    enabled: true
+
+interest:
+  vendor_slugs: [aws, microsoft-copilot-studio]
+  keywords: [glue, snowpipe, mcp]
+  exclude_keywords: [crypto, gaming, lottery]
+  thresholds:
+    auto_skip_below: 0.25
+    suggest_above: 0.45
+    high_signal_above: 0.70
+    borderline_band: [0.40, 0.55]
+  max_queue_size: 30

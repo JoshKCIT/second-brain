@@ -174,7 +174,7 @@ One paragraph that any reader can repeat back without paraphrase. Draft based on
 - **Build team.** Solo engineer (Josh) + LLM build agent inside Copilot. No PM, designer, or QA.
 - **Access.** Governed by the user's existing Confluence permissions. No ACL bypass.
 - **Secrets.** Stored in `.env` only. Never written to vault, index, or run manifests.
-- **Ingestion path.** Confluence ingestion path determined by build-week-1 spike; both Atlassian Rovo MCP Server (GA April 2026) and REST API v2 are viable. `docs/architecture-rationale.md` §5 carries the rationale and the gate criteria for the spike.
+- **Ingestion path.** Confluence ingestion path determined by build-week-1 spike; both Atlassian Rovo MCP Server (GA April 2026) and REST API v2 are viable. `docs/product/architecture-rationale.md` §5 carries the rationale and the gate criteria for the spike.
 
 ### 6.2 Soft constraints (preferences with override paths)
 - **Local-first storage.** Override path: `[NEEDS INPUT — under what circumstances would a shared backend be acceptable?]`

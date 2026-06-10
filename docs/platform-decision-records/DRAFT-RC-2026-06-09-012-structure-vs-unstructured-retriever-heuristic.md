@@ -77,5 +77,5 @@ governance +1, closure +1, grounding +1, inspectability +1, differentiation +1, 
 
 ## Files Proposed for Future Change
 
-- `docs/architecture-rationale.md` (retriever decision table section)
+- `docs/product/architecture-rationale.md` (retriever decision table section)
 - `docs/platform-intelligence/retriever-selection-heuristic.md` (new, informational)

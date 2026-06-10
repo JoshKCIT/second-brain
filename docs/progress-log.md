@@ -316,3 +316,83 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
   - Track build progress per phase in this log
 
 ---
+
+## [2026-06-10] session | Platform support documentation lane
+
+- Changed:
+  - Added `docs/platform-support-documentation/` with user, operator, and engineer guides
+  - Added `scripts/sync-support-doc-inventory.py`, `scripts/lint-platform-support-docs.py`, `scripts/support_doc_common.py`
+  - Added `.github/prompts/platform-sync-support-docs.prompt.md`
+  - Added `tests/platform_support_docs/` and ADR DRAFT-RC-2026-06-10-018
+  - Wired routing map, README, AGENTS.md, verify-setup, verb-invocation-detail
+
+- Open:
+  - Promote DRAFT-RC-2026-06-10-018 after CEO review
+  - Optional: GitHub Actions `validate-support-docs.yml` for scheduled validation (IDE-agnostic)
+
+- Next:
+  - Run `/platform-sync-support-docs` after prompt/script changes to refresh docs
+
+---
+
+## [2026-06-10] session | Promote RC-2026-06-10-018 platform support docs ADR
+
+- Changed:
+  - Promoted `DRAFT-RC-2026-06-10-018` → `RC-2026-06-10-018-platform-support-documentation.md` (PIC-2026-06-10-018)
+  - Clarified IDE-agnostic scheduled sync options in support docs engineer reference
+
+---
+
+## [2026-06-10] session | Platform support documentation v2 depth
+
+- Changed:
+  - Expanded support docs to 21 pages: workflow guides, operator concepts, glossary, CEO approval guide, IDE guide
+  - Consolidated install walkthrough into `user-guide/getting-started.md`; slimmed `docs/setup-kit.md` to pointer
+  - Extended `support_doc_common.py` and `lint-platform-support-docs.py` with depth floors, required sections, setup consolidation, manifest parity
+  - Added 8 unit test modules under `tests/platform_support_docs/`
+  - Updated `platform-sync-support-docs.prompt.md` for v2 page inventory and depth bar
+  - Updated README documentation map and RC-2026-06-10-018 Intent (v2 note)
+
+- Validation:
+  - `lint-platform-support-docs.py --strict`: 0 errors
+  - `tests/platform_support_docs`: 22 tests OK
+  - Full test suite: 53 tests OK
+
+---
+
+## [2026-06-10] session | Remove redundant setup-kit.md
+
+- Removed `docs/setup-kit.md` (content already in platform support `getting-started.md`)
+- Updated README doc map, AGENTS.md tree, PRD US-020, sync prompt, lint (dropped setup_consolidation check)
+- Tests: `test_setup_consolidation` now asserts getting-started canonical + no setup-kit file
+
+---
+
+## [2026-06-09] session | Docs restructure: status reconciliation + four options
+
+- **Phase 0 — status reconciliation**
+  - Verified Phase 2 exit criteria on disk (4 Base views, `compile-workspace-external.py`, `lint-workspace.py`, compile prompt)
+  - Fixed stale status: `phase-2-plan` → Complete (archived); adoption checklist phase note; PRD §9.3; getting-started build-phase text; phase-1a historical note
+  - Added `tests/docs_structure/test_phase_status_consistency.py`
+
+- **Option 1 — adoption checklist**
+  - New `docs/platform-support-documentation/user-guide/adoption-checklist.md` (printable checkboxes)
+  - Slimmed `first-week-checklist.md` to narrative + pointers
+  - Removed loose `docs/adoption-checklist.md`; updated manifest, STRICT_PAGES (22 pages)
+
+- **Option 2 — build history**
+  - Created `docs/build-history/`; moved phase-1a/2 exit reports and phase-2-plan
+  - Updated cross-refs (roadmap, PRD, verify-setup, HANDOFF)
+  - Added `tests/docs_structure/test_doc_paths_exist.py`
+
+- **Option 3 — README doc map**
+  - Three-tier documentation map (support / product / build-history)
+  - Slimmed README setup to pointer + quick sanity check
+
+- **Option 4 — product canon**
+  - Created `docs/product/` with roadmap, architecture-rationale, vendor-catalog, README
+  - Bulk-updated protected paths in AGENTS.md, lint-platform-research, prompts, support docs, config
+
+- **Validation:** docs_structure tests, platform_support_docs, full suite, lint-platform-research, lint-platform-support-docs --strict, verify-setup.py
+
+---

@@ -15,7 +15,7 @@ Second Brain grounds **vendor capability claims** (what AWS, Snowflake, Terrafor
 | Wiki (optional) | `wiki/workspace-concepts/`, `wiki/workspace-standards/{vendor}/` | Compiled summaries when a topic is cited often |
 | Project artifacts | `wiki/workspace-projects/{slug}/` | Body cites vendor claims with parenthetical + See Also URL |
 
-**Authority rule:** For a claim about vendor behavior, `domain: vendor:{name}` wins over internal docs. See `AGENTS.md` and `docs/architecture-rationale.md` §6–7.
+**Authority rule:** For a claim about vendor behavior, `domain: vendor:{name}` wins over internal docs. See `AGENTS.md` and `docs/product/architecture-rationale.md` §6–7.
 
 **Operations:**
 
@@ -154,7 +154,7 @@ When Atlassian access is unavailable:
 3. **Phase 3 (active):** `/workspace-start-project` — agent chain grounded in **vendor docs + your drafts** until 1B.
 4. **Phase 1B (blocked):** Atlassian MCP spike + Confluence ingest when `atlassian.enabled=true` and credentials exist.
 
-See `docs/roadmap.md` for checklist items.
+See `docs/product/roadmap.md` for checklist items.
 
 ---
 
@@ -170,7 +170,7 @@ See `docs/roadmap.md` for checklist items.
 
 ## See also
 
-- `docs/architecture-rationale.md` §6 — fetch-on-demand + TTL decision
+- `docs/product/architecture-rationale.md` §6 — fetch-on-demand + TTL decision
 - `.github/prompts/workspace-ingest-vendor-doc.prompt.md` — ingest workflow
 - `.github/prompts/workspace-align-vendor-truth.prompt.md` — alignment
-- `docs/roadmap.md` — Phase 1A / 1B split
+- `docs/product/roadmap.md` — Phase 1A / 1B split

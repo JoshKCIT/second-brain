@@ -17,8 +17,8 @@ platform_research:
     - wiki/workspace-recommendations/**
     - PRD.md
     - product-brief.md
-    - docs/roadmap.md
-    - docs/architecture-rationale.md
+    - docs/product/roadmap.md
+    - docs/product/architecture-rationale.md
     - AGENTS.md
 
   scoring_axes:
@@ -51,8 +51,8 @@ platform_research:
     - AGENTS.md
     - product-brief.md
     - PRD.md
-    - docs/architecture-rationale.md
-    - docs/roadmap.md
+    - docs/product/architecture-rationale.md
+    - docs/product/roadmap.md
     - wiki/platform-research/claim-register.md
 
   implementation_priority:

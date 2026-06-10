@@ -1,0 +1,68 @@
+# Validate platform support documentation (IDE-agnostic).
+# Full LLM regen still uses /platform-sync-support-docs in any IDE; this workflow
+# runs deterministic inventory + lint + tests on every relevant change.
+
+name: Validate support docs
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - ".github/prompts/**"
+      - "scripts/sync-support-doc-inventory.py"
+      - "scripts/lint-platform-support-docs.py"
+      - "scripts/support_doc_common.py"
+      - "docs/platform-support-documentation/**"
+      - "templates/workspace/routing-map.md"
+      - "templates/workspace/*-lifecycle.md"
+      - "templates/workspace/chain-profiles/**"
+      - "tests/platform_support_docs/**"
+      - "tests/docs_structure/**"
+      - "docs/product/**"
+      - ".github/workflows/validate-support-docs.yml"
+  pull_request:
+    paths:
+      - ".github/prompts/**"
+      - "scripts/sync-support-doc-inventory.py"
+      - "scripts/lint-platform-support-docs.py"
+      - "scripts/support_doc_common.py"
+      - "docs/platform-support-documentation/**"
+      - "templates/workspace/routing-map.md"
+      - "templates/workspace/*-lifecycle.md"
+      - "templates/workspace/chain-profiles/**"
+      - "tests/platform_support_docs/**"
+      - "tests/docs_structure/**"
+      - "docs/product/**"
+      - ".github/workflows/validate-support-docs.yml"
+  schedule:
+    # Weekly sanity check (UTC Monday 09:00)
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pyyaml
+
+      - name: Refresh inventory (check for drift)
+        run: |
+          python scripts/sync-support-doc-inventory.py --root . --write
+          if ! git diff --quiet docs/platform-support-documentation/.inventory/inventory.json; then
+            echo "::error::inventory.json is stale. Run: python scripts/sync-support-doc-inventory.py --write"
+            git diff docs/platform-support-documentation/.inventory/inventory.json
+            exit 1
+          fi
+
+      - name: Lint support documentation
+        run: python scripts/lint-platform-support-docs.py --root . --strict
+
+      - name: Unit tests (platform support docs)
+        run: python -m unittest discover -s tests/platform_support_docs -q

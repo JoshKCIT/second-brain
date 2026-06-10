@@ -8,11 +8,14 @@
 # Personal config (user-specific overrides)
 config/second-brain.yml
 config/platform-research-review.yml
+config/rss-feeds.yml
 
 # Runtime content (per-user; never shared)
 raw/workspace-confluence/*
 raw/workspace-jira/*
 raw/platform-transcripts/*
+raw/workspace-rss-feed/*
+!raw/workspace-rss-feed/.gitkeep
 !raw/workspace-confluence/.gitkeep
 !raw/workspace-jira/.gitkeep
 !raw/platform-transcripts/.gitkeep

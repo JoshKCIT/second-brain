@@ -1,6 +1,9 @@
 # Phase 2 plan — Wiki layer and compile workflow
 
-**Status:** In progress  
+**Status:** Complete (archived)  
+**Completed:** 2026-05-28  
+**Evidence:** [phase-2-exit-report.md](phase-2-exit-report.md)  
+**Superseded by:** [roadmap.md](../product/roadmap.md) Phase 3+ (this document is a historical planning record, not an active work queue)  
 **Prerequisite:** Phase 1A complete (vendor caches under `raw/workspace-external/`)  
 **Blocked parallel track:** Phase 1B (Confluence) until Atlassian access
 
@@ -24,7 +27,7 @@ Make the wiki layer a **coherent, navigable, lint-clean retrieval substrate** (R
 | 2.6 | **Frontmatter validation** | Part of lint-workspace (check 7) | Same script |
 | 2.7 | **Quarantine behavior** | Documented layout + README for failed ingest/compile | `quarantine/README.md` |
 | 2.8 | **Post-ingest manifest** | Documented UX template agents print after ingest/compile batch | `templates/workspace/post-ingest-manifest.md` |
-| 2.9 | **Phase 2 exit report** | Lint report with zero errors on vendor-only wiki | `reports/workspace-lint-{date}.md`, `docs/phase-2-exit-report.md` |
+| 2.9 | **Phase 2 exit report** | Lint report with zero errors on vendor-only wiki | `reports/workspace-lint-{date}.md`, `docs/build-history/phase-2-exit-report.md` |
 
 ---
 
@@ -67,7 +70,7 @@ Make the wiki layer a **coherent, navigable, lint-clean retrieval substrate** (R
 
 ## See also
 
-- `docs/roadmap.md` — canonical phase list  
-- `docs/phase-1a-exit-report.md` — vendor bootstrap closure  
+- `docs/product/roadmap.md` — canonical phase list  
+- `docs/build-history/phase-1a-exit-report.md` — vendor bootstrap closure  
 - `.github/prompts/workspace-compile.prompt.md` — agent-driven compile (LLM quality)  
 - `scripts/compile-workspace-external.py` — deterministic batch compile (Phase 2 bootstrap)

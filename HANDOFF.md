@@ -10,9 +10,9 @@ This document tells the next agent session (VS Code with GitHub Copilot in agent
 2. `AGENTS.md` — canonical operating spec (longer; comprehensive)
 3. `product-brief.md` — problem statement, scope, constraints, decisions log
 4. `PRD.md` — what v1 builds (functional requirements, user stories, milestones)
-5. `docs/roadmap.md` — phase plan; **Phases 1A–2 complete**; **current phase: Phase 3**; Phase 1B (Confluence) blocked
-6. `docs/vendor-catalog.md` — vendor slugs, doc roots, Tier A/B/C integration
-7. `docs/architecture-rationale.md` — why the architectural choices were made
+5. `docs/product/roadmap.md` — phase plan; **Phases 1A–2 complete**; **current phase: Phase 3**; Phase 1B (Confluence) blocked
+6. `docs/product/vendor-catalog.md` — vendor slugs, doc roots, Tier A/B/C integration
+7. `docs/product/architecture-rationale.md` — why the architectural choices were made
 8. `docs/progress-log.md` — session history; append your sessions here
 
 ---
@@ -55,14 +55,14 @@ The repo contains planning and scaffolding for workspace operations:
 ### Phase 1A–2 — complete (2026-05-28)
 
 - Vendor stack: AWS (6 topics), Snowflake (7), Informatica (2); IBM Db2 removed
-- Exit reports: `docs/phase-1a-exit-report.md`, `docs/phase-2-exit-report.md`
+- Exit reports: `docs/build-history/phase-1a-exit-report.md`, `docs/build-history/phase-2-exit-report.md`
 - Regenerate locally: `python scripts/verify-setup.py`, `python scripts/lint-workspace.py`, `python scripts/revalidate-vendor-docs.py --dry-run`
 
 ---
 
 ## Phase 3 — first workspace project (active)
 
-Per `docs/roadmap.md` Phase 3:
+Per `docs/product/roadmap.md` Phase 3:
 
 ### 0. Confirm prerequisites
 
@@ -86,7 +86,7 @@ Defer until user has Atlassian credentials and a test space.
 
 ### 1. Spike the Atlassian Remote MCP Server
 
-**Goal:** validate whether the MCP exposes the page metadata Second Brain needs (ADF body, version, last_modified, labels, ancestors, attachments, source_url, page_id, space_key). See `docs/architecture-rationale.md` §5.
+**Goal:** validate whether the MCP exposes the page metadata Second Brain needs (ADF body, version, last_modified, labels, ancestors, attachments, source_url, page_id, space_key). See `docs/product/architecture-rationale.md` §5.
 
 ### 2. Port API ingestion skill if MCP insufficient
 
@@ -160,7 +160,7 @@ Defer until user has Atlassian credentials and a test space.
 |---|---|
 | This handoff | `HANDOFF.md` |
 | Operating spec | `AGENTS.md` |
-| Phase plan | `docs/roadmap.md` |
+| Phase plan | `docs/product/roadmap.md` |
 | Platform backlog | `wiki/platform-research/implementation-backlog.md` |
 | Workspace prompts | `.github/prompts/workspace-*.prompt.md` |
 | Platform prompts | `.github/prompts/platform-research-review*`, `.github/prompts/platform-transcript-librarian.prompt.md` |

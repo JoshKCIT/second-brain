@@ -18,7 +18,7 @@ Research transcripts may influence Second Brain, but they may not directly becom
 ## Workflow
 
 1. Identify the transcript under `raw/platform-transcripts/**` or the user-specified source note.
-2. Inspect relevant project docs: `AGENTS.md`, `product-brief.md`, `PRD.md`, `docs/architecture-rationale.md`, `docs/roadmap.md`, `wiki/platform-research/transcript-register.md`, `wiki/platform-research/claim-register.md`, and `wiki/platform-research/implementation-backlog.md` if present.
+2. Inspect relevant project docs: `AGENTS.md`, `product-brief.md`, `PRD.md`, `docs/product/architecture-rationale.md`, `docs/product/roadmap.md`, `wiki/platform-research/transcript-register.md`, `wiki/platform-research/claim-register.md`, and `wiki/platform-research/implementation-backlog.md` if present.
 3. Segment the transcript into discussion blocks.
 4. Extract atomic claims.
 5. Classify claims.
@@ -63,8 +63,8 @@ Protected:
 - `wiki/workspace-recommendations/**`
 - `PRD.md`
 - `product-brief.md`
-- `docs/roadmap.md`
-- `docs/architecture-rationale.md`
+- `docs/product/roadmap.md`
+- `docs/product/architecture-rationale.md`
 - `AGENTS.md`
 
 ## Quality Bar

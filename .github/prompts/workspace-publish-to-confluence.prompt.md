@@ -117,7 +117,7 @@ The conversion is non-trivial. Choices for the build:
 - **Option B:** custom converter that handles the subset of Markdown we use (frontmatter stripped, headings, paragraphs, lists, tables, code blocks, links, basic emphasis)
 - **Option C:** delegate to the Atlassian Remote MCP Server if its publish action handles conversion internally
 
-The build-week decision is captured in `docs/architecture-rationale.md` and any build-time addendum.
+The build-week decision is captured in `docs/product/architecture-rationale.md` and any build-time addendum.
 
 ## MCP path (alternative)
 

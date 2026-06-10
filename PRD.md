@@ -359,26 +359,26 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 
 ### 9.3 Suggested phases
 
-**Last revalidated:** 2026-05-27. Detailed checklist: `docs/roadmap.md`, vendor catalog: `docs/vendor-catalog.md`. **Current phase: Phase 1A (vendor docs).** Phase 1B (Confluence) blocked until Atlassian access.
+**Last revalidated:** 2026-06-09. Detailed checklist: `docs/product/roadmap.md`, vendor catalog: `docs/product/vendor-catalog.md`. **Current phase: Phase 3 (query + agent chain).** Phases 1A–2 complete; Phase 1B (Confluence) blocked until Atlassian access.
 
 - **Platform foundation (May 2026, complete):** platform-research-review kit, accepted ADRs (RC-014, RC-010, RC-001, RC-002, RC-015, RC-003, implementation-priority-loop), page-index retrieval policy, platform lint + tests. Does not satisfy v1 workspace exits.
 
-- **Phase 1A (week 1-2): Vendor documentation bootstrap — ACTIVE**
+- **Phase 1A (week 1-2): Vendor documentation bootstrap — COMPLETE** (see `docs/build-history/phase-1a-exit-report.md`)
   - `verify-setup.py` without mandatory Atlassian; `vendor_sources` in config
   - defuddle + `/workspace-ingest-vendor-doc`; seed caches for enabled vendors
   - `/workspace-revalidate-vendor-docs`; hook verification or deferral
-  - See `docs/vendor-catalog.md` (AWS, Azure, GCP, Snowflake, Informatica, IBM, Terraform, GitHub, Docker, Postgres, …)
+  - See `docs/product/vendor-catalog.md` (AWS, Azure, GCP, Snowflake, Informatica, IBM, Terraform, GitHub, Docker, Postgres, …)
 
 - **Phase 1B: Atlassian / Confluence ingest — BLOCKED**
   - MCP spike; API ingest port; first Confluence space — when user has access
 
-- **Phase 2 (week 3-4): Wiki layer + compile workflow**
+- **Phase 2 (week 3-4): Wiki layer + compile workflow — COMPLETE** (see `docs/build-history/phase-2-exit-report.md`)
   - `wiki/index.md` and Base views as v1 retrieval substrate (RC-001)
   - `workspace-compile.prompt.md` and obsidian-markdown on real ingest
   - Quarantine, post-ingest manifest, frontmatter validation
   - Workspace lint scaffold (structural checks 1–7; separate from platform research lint)
 
-- **Phase 3 (week 5-6): Query + agent chain skeleton**
+- **Phase 3 (week 5-6): Query + agent chain skeleton — ACTIVE**
   - `workspace-query.prompt.md` (index-guided; RC-001/002 in prompt — done)
   - Agent prompts: `workspace-vp-agent`, `workspace-pm-agent`, `workspace-architect-agent`, `workspace-engineer-agent`, `workspace-start-project`
   - Finalize as engineer-agent sub-step (not a separate prompt file)
@@ -597,6 +597,6 @@ A CEO operator opens VS Code with the cloned `second-brain` repo as workspace an
 - ID: US-020
 - Description: As an alternative operator (or the CEO on a new machine), I want a clear setup checklist so that I can adopt the kit quickly.
 - Acceptance criteria:
-  - `docs/setup-kit.md` documents the steps
-  - `docs/adoption-checklist.md` provides a quick checklist
+  - `docs/platform-support-documentation/user-guide/getting-started.md` documents the steps
+  - `docs/platform-support-documentation/user-guide/adoption-checklist.md` provides a quick checklist
   - First-time setup completes in under 30 minutes assuming Atlassian credentials are available

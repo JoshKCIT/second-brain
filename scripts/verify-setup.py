@@ -27,6 +27,7 @@ RUNTIME_DIRS = [
     "raw/workspace-jira",
     "raw/workspace-external",
     "raw/platform-transcripts",
+    "raw/workspace-rss-feed",
     "wiki/workspace-standards",
     "wiki/workspace-recommendations",
     "wiki/workspace-informational",
@@ -42,6 +43,8 @@ RUNTIME_DIRS = [
     "quarantine",
     "reports",
 ]
+
+SUPPORT_DOC_DIR = "docs/platform-support-documentation"
 
 INDEX_TEMPLATE = """# Knowledge Base Index
 
@@ -230,6 +233,11 @@ def main() -> int:
     else:
         print("Runtime directories: OK (already present)")
 
+    support_base = root / SUPPORT_DOC_DIR
+    if not support_base.is_dir():
+        support_base.mkdir(parents=True, exist_ok=True)
+        created.append(SUPPORT_DOC_DIR)
+
     init = init_wiki_files(root)
     if init:
         print(f"Initialized: {', '.join(init)}")
@@ -275,6 +283,17 @@ def main() -> int:
             if not ok:
                 warnings.append(msg)
 
+        support_lint = root / "scripts" / "lint-platform-support-docs.py"
+        if support_lint.is_file() and (root / SUPPORT_DOC_DIR / "manifest.yml").is_file():
+            ok, msg = run_command(
+                [sys.executable, str(support_lint), "--root", str(root), "--strict"],
+                root,
+                "lint-platform-support-docs",
+            )
+            print(f"Support docs lint: {msg}")
+            if not ok:
+                warnings.append(msg)
+
     print()
     if warnings:
         print("Warnings:")
@@ -289,8 +308,8 @@ def main() -> int:
         return 1
 
     print("SUCCESS: Second Brain workspace verified.")
-    print("Vendor bootstrap (Phase 1A): docs/phase-1a-exit-report.md")
-    print("Wiki compile (Phase 2): docs/phase-2-exit-report.md — run compile-workspace-external.py + lint-workspace.py locally")
+    print("Vendor bootstrap (Phase 1A): docs/build-history/phase-1a-exit-report.md")
+    print("Wiki compile (Phase 2): docs/build-history/phase-2-exit-report.md — run compile-workspace-external.py + lint-workspace.py locally")
     print("Next: /workspace-start-project (Phase 3) — Confluence ingest remains Phase 1B when atlassian.enabled=true")
     return 0
 

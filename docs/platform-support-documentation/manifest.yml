@@ -1,0 +1,35 @@
+last_sync: 2026-06-10T20:00:00Z
+generator: platform-sync-support-docs/2.0
+inventory_hash: "48cfff11034ae43b"
+sources_consulted:
+  - "scripts/sync-support-doc-inventory.py"
+  - "scripts/support_doc_common.py"
+  - "scripts/lint-platform-support-docs.py"
+  - "templates/workspace/routing-map.md"
+  - "AGENTS.md"
+  - "docs/platform-support-documentation/user-guide/adoption-checklist.md"
+pages_written:
+  - "docs/platform-support-documentation/user-guide/how-second-brain-works.md"
+  - "docs/platform-support-documentation/user-guide/getting-started.md"
+  - "docs/platform-support-documentation/user-guide/adoption-checklist.md"
+  - "docs/platform-support-documentation/user-guide/first-week-checklist.md"
+  - "docs/platform-support-documentation/user-guide/workflow-ingest.md"
+  - "docs/platform-support-documentation/user-guide/workflow-compile-and-query.md"
+  - "docs/platform-support-documentation/user-guide/workflow-project-chain.md"
+  - "docs/platform-support-documentation/user-guide/workflow-align-and-publish.md"
+  - "docs/platform-support-documentation/user-guide/everyday-workflows.md"
+  - "docs/platform-support-documentation/user-guide/troubleshooting.md"
+  - "docs/platform-support-documentation/operator-guide/concepts-for-operators.md"
+  - "docs/platform-support-documentation/operator-guide/using-your-ide.md"
+  - "docs/platform-support-documentation/operator-guide/ceo-approval-guide.md"
+  - "docs/platform-support-documentation/operator-guide/glossary.md"
+  - "docs/platform-support-documentation/operator-guide/lanes-and-approval-gates.md"
+  - "docs/platform-support-documentation/operator-guide/verb-reference.md"
+  - "docs/platform-support-documentation/operator-guide/feature-catalog.md"
+  - "docs/platform-support-documentation/operator-guide/platform-lane-overview.md"
+  - "docs/platform-support-documentation/engineer-reference/architecture-map.md"
+  - "docs/platform-support-documentation/engineer-reference/scripts-and-automation.md"
+  - "docs/platform-support-documentation/engineer-reference/adr-index.md"
+  - "docs/platform-support-documentation/engineer-reference/extending-the-platform.md"
+prompt_inventory_count: 41
+script_inventory_count: 18

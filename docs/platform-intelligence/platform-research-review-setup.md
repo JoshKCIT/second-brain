@@ -33,7 +33,7 @@ Then invoke the platform-research-review prompt:
 ```text
 /platform-research-review Review @raw/platform-transcripts/{slug}/transcript.md for Second Brain product impact.
 
-Use @AGENTS.md, @product-brief.md, @PRD.md, @docs/architecture-rationale.md, @docs/roadmap.md, and @wiki/platform-research/claim-register.md if present.
+Use @AGENTS.md, @product-brief.md, @PRD.md, @docs/product/architecture-rationale.md, @docs/product/roadmap.md, and @wiki/platform-research/claim-register.md if present.
 
 Extract atomic claims, score each claim, update the claim register, and write the research impact report.
 
@@ -116,7 +116,7 @@ Proactive platform discovery without canonical mutation. Invoke:
 ```text
 /platform-gap-review Run a controlled platform gap review for Second Brain.
 
-Read product-brief.md, PRD.md, docs/architecture-rationale.md, docs/roadmap.md, wiki/platform-research/claim-register.md, wiki/platform-research/rejected-ideas.md, wiki/platform-research/open-hypotheses.md, and wiki/platform-research/implementation-backlog.md.
+Read product-brief.md, PRD.md, docs/product/architecture-rationale.md, docs/product/roadmap.md, wiki/platform-research/claim-register.md, wiki/platform-research/rejected-ideas.md, wiki/platform-research/open-hypotheses.md, and wiki/platform-research/implementation-backlog.md.
 
 Identify platform knowledge gaps and candidate sources to review later. Write reports/platform-research-review/gap-review-{date}.md. Do not modify protected files or ingest sources.
 ```
@@ -157,8 +157,8 @@ wiki/workspace-standards/**
 wiki/workspace-recommendations/**
 PRD.md
 product-brief.md
-docs/roadmap.md
-docs/architecture-rationale.md
+docs/product/roadmap.md
+docs/product/architecture-rationale.md
 AGENTS.md
 ```
 

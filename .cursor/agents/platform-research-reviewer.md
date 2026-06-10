@@ -38,8 +38,8 @@ You must not modify these files unless the user explicitly asks after reviewing 
 - `wiki/workspace-recommendations/**`
 - `PRD.md`
 - `product-brief.md`
-- `docs/roadmap.md`
-- `docs/architecture-rationale.md`
+- `docs/product/roadmap.md`
+- `docs/product/architecture-rationale.md`
 - `AGENTS.md`
 - any source mirror under `raw/**`
 
@@ -54,8 +54,8 @@ When invoked, look for:
   - `AGENTS.md`
   - `product-brief.md`
   - `PRD.md`
-  - `docs/architecture-rationale.md`
-  - `docs/roadmap.md`
+  - `docs/product/architecture-rationale.md`
+  - `docs/product/roadmap.md`
   - `wiki/platform-research/transcript-register.md`, if present
   - `wiki/platform-research/claim-register.md`, if present
   - `wiki/platform-research/implementation-backlog.md`, if present

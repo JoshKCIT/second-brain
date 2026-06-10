@@ -15,8 +15,8 @@ Before evaluating any claim, inspect these files when present:
 1. `AGENTS.md`
 2. `product-brief.md`
 3. `PRD.md`
-4. `docs/architecture-rationale.md`
-5. `docs/roadmap.md`
+4. `docs/product/architecture-rationale.md`
+5. `docs/product/roadmap.md`
 6. `wiki/platform-research/claim-register.md`
 7. Source catalogue outputs, if the claim concerns source authority
 8. Vendor docs, if the claim concerns vendor capability and web access is available

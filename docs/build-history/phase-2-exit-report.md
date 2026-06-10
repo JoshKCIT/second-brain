@@ -27,7 +27,7 @@
 | Workspace lint | `scripts/lint-workspace.py` |
 | Connection | `wiki/workspace-connections/snowflake-aws-s3-data-plane.md` |
 | Lint report | `reports/workspace-lint-2026-05-28.md` |
-| Phase 2 plan | `docs/phase-2-plan.md` |
+| Phase 2 plan | `docs/build-history/phase-2-plan.md` |
 | Quarantine README | `quarantine/README.md` |
 | Post-ingest manifest template | `templates/workspace/post-ingest-manifest.md` |
 | Compile state | `state.json` (gitignored) |

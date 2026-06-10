@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>Noise Feed</title>
+    <item>
+      <title>Crypto gaming lottery winners announced</title>
+      <link>https://example.com/crypto-gaming</link>
+      <guid>guid-noise-001</guid>
+      <pubDate>Mon, 09 Jun 2026 10:00:00 GMT</pubDate>
+      <description>Unrelated crypto gaming news.</description>
+    </item>
+    <item>
+      <title>Random celebrity gossip</title>
+      <link>https://example.com/gossip</link>
+      <guid>guid-noise-002</guid>
+      <pubDate>Mon, 09 Jun 2026 09:00:00 GMT</pubDate>
+      <description>Nothing about your stack.</description>
+    </item>
+  </channel>
+</rss>

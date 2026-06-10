@@ -24,8 +24,8 @@ Proactively find platform knowledge gaps and propose **candidate sources** for f
 ```text
 product-brief.md
 PRD.md
-docs/architecture-rationale.md
-docs/roadmap.md
+docs/product/architecture-rationale.md
+docs/product/roadmap.md
 wiki/platform-research/claim-register.md
 wiki/platform-research/rejected-ideas.md
 wiki/platform-research/open-hypotheses.md

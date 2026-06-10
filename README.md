@@ -2,7 +2,7 @@
 
 **Second Brain is a folder on your computer that an AI assistant helps you organize.** You pull in company docs (from Confluence) and public vendor docs (from AWS, Snowflake, etc.), the AI turns them into a searchable wiki, and then helps you write new project documents that cite the right sources.
 
-You do not need to be a developer to use it. You do need to install a few free tools and follow the steps below.
+You do not need to be a developer to use it. You do need to install a few free tools — **full walkthrough:** [Platform support documentation](docs/platform-support-documentation/README.md) → [Getting started](docs/platform-support-documentation/user-guide/getting-started.md).
 
 ---
 
@@ -36,108 +36,19 @@ Install these first. All are free except GitHub Copilot (your company may alread
 
 ---
 
-## Setup (follow in order)
+## Setup
 
-### Step 1 — Download the repo
+**Install and first-run walkthrough:** [Getting started](docs/platform-support-documentation/user-guide/getting-started.md) in the platform support manual (target: under 30 minutes).
 
-Open a terminal (PowerShell on Windows, Terminal on Mac).
-
-```bash
-git clone https://github.com/JoshKCIT/second-brain.git
-cd second-brain
-```
-
-You should now have a folder called `second-brain` with files like `README.md` and `AGENTS.md`.
-
-### Step 2 — Install the page-fetch helper
+Quick sanity check after clone:
 
 ```bash
-npm install -g defuddle
-pip install pyyaml
-```
-
-If `pip` fails on Windows, try `python -m pip install pyyaml`.
-
-### Step 3 — Create your config files
-
-**Environment file** (passwords and site URL — never commit this):
-
-```bash
-# Mac / Linux
-cp .env.example .env
-
-# Windows
-copy .env.example .env
-```
-
-Open `.env` in a text editor. Fill in at least:
-
-- `ATLASSIAN_SITE_URL` — e.g. `https://yourcompany.atlassian.net` (no slash at the end)
-- `ATLASSIAN_EMAIL` — your work email
-- `ATLASSIAN_API_TOKEN` — create one at [Atlassian API tokens](https://id.atlassian.com/manage-profile/security/api-tokens)
-
-**Skip Atlassian for now?** You can leave the token blank and still try the **vendor-doc demo** in Step 6. Confluence ingest needs credentials later.
-
-**Scope file** (which spaces and vendors matter to you):
-
-```bash
-# Mac / Linux
+cp .env.example .env          # or copy on Windows
 cp config/second-brain.example.yml config/second-brain.yml
-
-# Windows
-copy config\second-brain.example.yml config\second-brain.yml
-```
-
-You can edit `config/second-brain.yml` later during onboarding with the AI.
-
-### Step 4 — Run the setup checker
-
-```bash
 python scripts/verify-setup.py
 ```
 
-This creates empty folders (`wiki/`, `raw/`, etc.) and checks that Python, config, and optional Atlassian login work.
-
-**If something fails:** read the error message. Common fixes:
-
-- “python not found” → reinstall Python and enable “Add to PATH”
-- Atlassian auth failed → double-check URL, email, and token; some companies require OAuth instead of API tokens
-- `defuddle` not found → run `npm install -g defuddle` again
-
-### Step 5 — Open the project in your editor
-
-```bash
-code .
-```
-
-Or in Cursor: **File → Open Folder** → select the `second-brain` folder.
-
-Turn on your AI assistant (Copilot Agent mode, or Cursor Agent).
-
-### Step 6 — Open the wiki in Obsidian (recommended)
-
-1. Open Obsidian.
-2. **Open folder as vault** → choose the same `second-brain` folder.
-3. It should open to `wiki/index.md` (may be empty until you ingest content).
-
-### Step 7 — Run onboarding with the AI
-
-In the AI chat, type or pick:
-
-```
-/second-brain
-```
-
-If slash commands do not work, open `.github/prompts/second-brain.prompt.md` and run it as a prompt file.
-
-The AI will walk you through:
-
-- Confirming your Atlassian site (if you use Confluence)
-- Choosing which Confluence spaces to pull from
-- Saving settings to `config/second-brain.yml`
-- Optionally starting your first project
-
-**You stay in control.** The AI asks before saving or ingesting anything important.
+Then open the repo in your IDE, optional Obsidian vault on the same folder, and invoke `/second-brain` in chat.
 
 ---
 
@@ -182,7 +93,7 @@ Type these in your AI chat. They match files in `.github/prompts/`.
 3. Before publishing, run align checks the AI suggests.
 4. `/workspace-publish` when you are happy with the output.
 
-Detailed checklists: `docs/adoption-checklist.md` and `docs/setup-kit.md`.
+Detailed checklists: [adoption-checklist](docs/platform-support-documentation/user-guide/adoption-checklist.md) and [getting-started](docs/platform-support-documentation/user-guide/getting-started.md) in the platform support manual.
 
 ---
 
@@ -205,7 +116,7 @@ Other folders you might see:
 | Folder | Purpose |
 |--------|---------|
 | `config/` | Your settings (`second-brain.yml` — local, not in git) |
-| `docs/` | Product docs, setup guides, architecture notes |
+| `docs/` | Product canon, support manual, build history, maintainer log |
 | `templates/` | Starting templates for projects and research |
 | `reports/` | Lint and review reports the AI generates |
 | `confluence-review/` | HTML previews before you publish to Confluence |
@@ -240,7 +151,7 @@ You do **not** need a separate OpenAI or Anthropic API key for normal use — yo
 | AI wants to edit something you did not ask for | Say no — important changes need your approval by design |
 | Company blocks API tokens | Use OAuth fields in `.env` instead; ask IT about IP allowlists |
 
-More detail: `docs/setup-kit.md` § Common failures.
+More detail: [getting-started](docs/platform-support-documentation/user-guide/getting-started.md) and [troubleshooting](docs/platform-support-documentation/user-guide/troubleshooting.md).
 
 ---
 
@@ -266,15 +177,35 @@ Setup: `docs/platform-intelligence/platform-research-review-setup.md`.
 
 ---
 
+## Which doc should I read?
+
+| Your goal | Start here |
+|-----------|------------|
+| Install, first ingest, first project | [Platform support documentation](docs/platform-support-documentation/README.md) → [Getting started](docs/platform-support-documentation/user-guide/getting-started.md) |
+| Printable setup / adoption checkboxes | [Adoption checklist](docs/platform-support-documentation/user-guide/adoption-checklist.md) |
+| Product direction, phases, architecture | [docs/product/](docs/product/README.md) (roadmap, architecture rationale, vendor catalog) |
+| Historical phase exit reports | [docs/build-history/](docs/build-history/README.md) |
+| Maintainer changelog | [docs/progress-log.md](docs/progress-log.md) |
+| Full agent rulebook | [AGENTS.md](AGENTS.md) |
+
+---
+
 ## Documentation map
 
-| Document | When to read it |
-|----------|-----------------|
-| `docs/setup-kit.md` | Full setup walkthrough |
-| `docs/adoption-checklist.md` | Printable first-run checklist |
-| `AGENTS.md` | Complete rulebook (for power users and agents) |
-| `docs/roadmap.md` | What is built vs planned |
-| `scripts/README.md` | Helper scripts reference |
+Three tiers — support manual (operators), product canon (direction), build history (audit trail):
+
+| Tier | Path | Contents |
+|------|------|----------|
+| **Support manual** | [`docs/platform-support-documentation/`](docs/platform-support-documentation/README.md) | User, operator, and engineer guides — **start here** for install and workflows |
+| **Product canon** | [`docs/product/`](docs/product/README.md) | Roadmap, architecture rationale, vendor catalog |
+| **Build history** | [`docs/build-history/`](docs/build-history/README.md) | Phase plans and exit reports (Phases 1A–2) |
+| **Maintainer log** | [`docs/progress-log.md`](docs/progress-log.md) | Chronological build notes |
+| **Root specs** | [`PRD.md`](PRD.md), [`product-brief.md`](product-brief.md) | Product requirements and brief |
+
+| Also useful | |
+|-------------|--|
+| [`scripts/README.md`](scripts/README.md) | Helper scripts reference |
+| [`docs/platform-intelligence/`](docs/platform-intelligence/platform-research-review-setup.md) | Platform research lane setup |
 
 ---
 
@@ -288,7 +219,7 @@ Setup: `docs/platform-intelligence/platform-research-review-setup.md`.
 
 ## Status
 
-**Phases 1A–2 complete** — vendor wiki, lint tooling, agent prompts. **Phase 3 active** — Confluence ingest and full project workflow. See `docs/roadmap.md`.
+**Phases 1A–2 complete** — vendor wiki, lint tooling, agent prompts. **Phase 3 active** — agent chain and first projects. See [docs/product/roadmap.md](docs/product/roadmap.md).
 
 ---
 

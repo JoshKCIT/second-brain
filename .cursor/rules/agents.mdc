@@ -24,6 +24,8 @@ Task → prompt → first reads. Orientation only; full table in `AGENTS.md` § 
 |---|---|
 | Start/resume a project | `workspace-start-project` |
 | Ingest, compile, query wiki | `workspace-ingest-*`, `workspace-compile`, `workspace-query` |
+| RSS feed funnel | `workspace-ingest-rss`, `workspace-review-rss`, `workspace-triage-rss` |
+| Platform support docs | `platform-sync-support-docs` |
 | Align or publish docs | `workspace-align-*`, `workspace-publish` |
 | Improve Second Brain / review transcripts | `platform-transcript-librarian`, `platform-research-review` |
 | Implement approved platform ADR (PIC) | **`platform-implement-backlog`** — agent runs `promote-platform-adr.py` on accept |

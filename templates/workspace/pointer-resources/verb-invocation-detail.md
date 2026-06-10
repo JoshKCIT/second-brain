@@ -15,6 +15,10 @@ Expanded descriptions for `.github/prompts/` operations. Shims list verb **names
 | `workspace-thinking-partner` | Interview-style exploration; `thinking-notes/` only (RC-117) |
 | `workspace-ingest-confluence` | Confluence → `raw/`; compile approval-gated (RC-146) |
 | `workspace-ingest-vendor-doc` | Fetch vendor doc via defuddle → `raw/workspace-external/` |
+| `workspace-ingest-rss` | RSS ingest + triage + register sync; no wiki writes |
+| `workspace-triage-rss` | LLM advisory pass on borderline RSS items only |
+| `workspace-review-rss` | CEO promote / archive / dismiss RSS queue |
+| `workspace-align-rss-impact` | Phase 2 advisory RSS vs hub impact report |
 | `workspace-compile` | Raw → wiki; explicit batch approval required |
 | `workspace-query` | Index-guided Q&A; optional `--file-back` to `wiki/workspace-qa/` |
 | `workspace-session-audit` | End-of-session orientation/handoff proposals (RC-164) |
@@ -34,6 +38,7 @@ Expanded descriptions for `.github/prompts/` operations. Shims list verb **names
 | `platform-transcript-librarian` | Import transcripts, sync register, review queue |
 | `platform-research-review` | Claim extraction, scoring, draft ADRs |
 | `platform-implement-backlog` | One approved ADR per PIC cycle; runs `promote-platform-adr.py` on accept (PH-008) |
+| `platform-sync-support-docs` | Full-regen `docs/platform-support-documentation/` from inventory; CEO merge gate |
 
 ## Skills (`.github/skills/`)
 
