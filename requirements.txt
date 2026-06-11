@@ -1,0 +1,5 @@
+# Second Brain runtime dependencies.
+# Install with:  pip install -r requirements.txt
+# Requires Python 3.12+ (see pyproject.toml).
+feedparser>=6.0   # scripts/ingest-rss.py, rss_common.py
+pyyaml>=6.0       # scripts/verify-setup.py, support_doc_common.py, configs

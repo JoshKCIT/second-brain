@@ -35,6 +35,7 @@ Quick sanity check after clone:
 ```bash
 cp .env.example .env          # or copy on Windows
 cp config/second-brain.example.yml config/second-brain.yml
+pip install -r requirements.txt   # installs the two Python deps (feedparser, pyyaml)
 python scripts/verify-setup.py
 ```
 

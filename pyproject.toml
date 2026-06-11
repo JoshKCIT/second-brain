@@ -1,0 +1,34 @@
+# Second Brain dependency + tooling manifest.
+#
+# This repo is a filesystem-first, prompt-driven system whose deterministic work
+# is done by standalone scripts in scripts/. There is no importable package yet,
+# so this manifest exists to (1) pin the Python floor and (2) declare the two
+# third-party runtime dependencies the scripts actually import (feedparser, PyYAML).
+#
+# Primary install path (foolproof, no build backend):  pip install -r requirements.txt
+# This file pins the Python floor and declares the same deps for tooling.
+
+[build-system]
+requires = ["setuptools>=64"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "second-brain"
+version = "0.1.0"
+description = "Filesystem-first, citation-grounded knowledge base with an LLM-curated wiki layer."
+readme = "README.md"
+# lint-workspace.py and other scripts use 3.12+ syntax (PEP 701 f-strings).
+requires-python = ">=3.12"
+dependencies = [
+    "feedparser>=6.0",  # scripts/ingest-rss.py, rss_common.py
+    "pyyaml>=6.0",      # scripts/verify-setup.py, support_doc_common.py, configs
+]
+
+[project.optional-dependencies]
+# Nothing required for tests beyond the runtime deps today; kept for future use.
+dev = []
+
+# No Python package to install — the scripts are run directly. This stops
+# setuptools auto-discovery from erroring on the many top-level data folders.
+[tool.setuptools]
+py-modules = []

@@ -22,6 +22,39 @@ except ImportError:
 
 ROOT = Path(__file__).resolve().parent.parent
 
+# Third-party packages the scripts import. Keep in sync with pyproject.toml.
+REQUIRED_PACKAGES = [
+    ("yaml", "pyyaml"),
+    ("feedparser", "feedparser"),
+]
+
+
+def check_dependencies() -> tuple[bool, str]:
+    """Confirm required third-party packages are importable."""
+    import importlib
+
+    missing = []
+    for module_name, pip_name in REQUIRED_PACKAGES:
+        try:
+            importlib.import_module(module_name)
+        except ImportError:
+            missing.append(pip_name)
+    if missing:
+        names = ", ".join(missing)
+        return False, f"Missing Python packages: {names}. Run: pip install -r requirements.txt"
+    return True, "Python dependencies OK (feedparser, pyyaml)"
+
+
+def check_python_version() -> tuple[bool, str]:
+    """Scripts use 3.12+ syntax (PEP 701 f-strings); fail fast on older."""
+    if sys.version_info < (3, 12):
+        return False, (
+            f"Python {sys.version_info.major}.{sys.version_info.minor} detected; "
+            "Second Brain requires Python 3.12+ (see pyproject.toml)"
+        )
+    return True, f"Python {sys.version_info.major}.{sys.version_info.minor} OK"
+
+
 RUNTIME_DIRS = [
     "raw/workspace-confluence",
     "raw/workspace-jira",
@@ -224,6 +257,16 @@ def main() -> int:
     print(f"Second Brain verify-setup (root={root})\n")
     errors: list[str] = []
     warnings: list[str] = []
+
+    ok, msg = check_python_version()
+    print(f"Python: {msg}")
+    if not ok:
+        errors.append(msg)
+
+    ok, msg = check_dependencies()
+    print(f"Dependencies: {msg}")
+    if not ok:
+        errors.append(msg)
 
     created = ensure_dirs(root)
     if created:
