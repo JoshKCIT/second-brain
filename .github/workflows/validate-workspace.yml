@@ -13,6 +13,7 @@ on:
       - "scripts/verify-setup.py"
       - "src/**"
       - "tests/workspace/**"
+      - "examples/**"
       - "requirements.txt"
       - "pyproject.toml"
       - ".github/workflows/validate-workspace.yml"
@@ -22,6 +23,7 @@ on:
       - "scripts/verify-setup.py"
       - "src/**"
       - "tests/workspace/**"
+      - "examples/**"
       - "requirements.txt"
       - "pyproject.toml"
       - ".github/workflows/validate-workspace.yml"
@@ -62,3 +64,9 @@ jobs:
         env:
           PYTHONPATH: src
         run: python -m second_brain list
+
+      - name: align-cite passes on the worked example (3.12+)
+        if: ${{ matrix.python-version != '3.10' && matrix.python-version != '3.11' }}
+        env:
+          PYTHONPATH: src
+        run: python -m second_brain align-cite examples/workspace-projects/demo-s3-encryption/02-pm-prd/product-requirements.md
