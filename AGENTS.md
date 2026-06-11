@@ -748,32 +748,37 @@ Branch on user choice:
 
 ### 12. Lint
 
-Seven structural checks plus engineering additions:
+The lint surface has two engines. **Deterministic** checks run in code
+(`scripts/lint-workspace.py`, `scripts/lint-platform-research.py`) and emit a
+machine-checkable PASS/FAIL — these are the ones that can be publish blockers.
+**LLM** checks need semantic judgment and run from prompts. The table below is
+honest about which are implemented today (✅) vs planned (◻); do not assume a
+planned row blocks anything.
 
-| Check | Type | Catches |
-|---|---|---|
-| Broken links | Structural | Wikilinks pointing to non-existent articles |
-| Orphan pages | Structural | Articles with zero inbound links from other articles in the same set |
-| Orphan sources | Structural | Raw pages not yet compiled (RC-146: advisory for inbox staging) |
-| Stale articles | Structural | Source raw page changed since article was last compiled (content_hash differs) |
-| Missing backlinks | Structural | A links to B but B does not link back |
-| Sparse articles | Structural | Under 200 words |
-| Contradictions | LLM | Conflicting claims across articles |
-| Deprecated standards | Engineering | Standards marked deprecated still being referenced |
-| Cross-team requirement conflicts | Engineering | Two teams' standards giving incompatible guidance |
-| Missing alignment | Engineering | Project artifact lacks citation to relevant in-scope standards |
-| Incomplete ingestion | Engineering | Page in `raw/` without a wiki article referencing it |
-| Stale vendor docs | Engineering | Past TTL or hard max |
-| Status-aware closure | Engineering | Body wikilinks at review/published; cross-project violations |
-| Research review integrity | Engineering | Invalid claim records, report shape gaps, protected-file contamination |
-| Instruction stack shim duplication | Engineering | Tier-1 governance rules copied verbatim into shims instead of referencing AGENTS.md (RC-161) |
-| Orientation integrity | Engineering | RC-163: orientation files missing `not_canonical`, promoted status, or cited as wiki sources |
-| Agent mode | Engineering | RC-116: `thinking` mode artifacts at review/published or with publish-shaped markers |
-| Sub-scaffold integrity | Engineering | RC-167: `subprojects/**` missing `publish_scope: exclude`, promoted status, or cited as publish sources |
-| Thinking-notes integrity | Engineering | RC-117: `thinking-notes/**` missing `not_canonical`, promoted status, or cited as publish sources |
-| Shim line budget | Engineering | RC-165: Tier-2 shims exceed ~100 lines (advisory); extended content belongs in pointer-resources |
-| Agent chain budget | Engineering | PH-007: AGENTS § Agent chain prose exceeds ~35 lines or re-inlines experiment ADRs (advisory) |
-| Topic/entity compile integrity | Engineering | RC-148: connections missing raw `sources`, `connects` < 2, or missing Evidence/Sources sections |
+| Check | Engine | Status | Catches |
+|---|---|---|---|
+| Broken links | Deterministic | ✅ | Wikilinks pointing to non-existent articles |
+| Orphan pages | Deterministic | ✅ | Concept/connection articles with zero inbound links |
+| Orphan sources / incomplete ingestion | Deterministic | ✅ | Raw pages not referenced by any wiki article (RC-146: advisory for inbox staging) |
+| Sparse articles | Deterministic | ✅ | Under 200 words |
+| Frontmatter completeness | Deterministic | ✅ | Missing required frontmatter, `domain`, or `authority` |
+| Stale vendor docs | Deterministic | ✅ | Past `revalidate_after` TTL |
+| Status-aware closure (body wikilinks) | Deterministic | ✅ | Body `[[wikilinks]]` at review/published/archived (the cross-project-dependency half is LLM) |
+| Research review integrity | Deterministic | ✅ | Invalid claim records, report shape gaps, protected-file contamination (`lint-platform-research.py`) |
+| Instruction stack shim duplication / line budget | Deterministic | ✅ | RC-161/RC-165: shims duplicating Tier-1 rules or exceeding ~100 lines (advisory) |
+| Orientation integrity | Deterministic | ✅ | RC-163: orientation files missing `not_canonical`, promoted status, or cited as wiki sources |
+| Agent mode | Deterministic | ✅ | RC-116: `thinking` mode artifacts at review/published or with publish-shaped markers |
+| Sub-scaffold integrity | Deterministic | ✅ | RC-167: `subprojects/**` missing `publish_scope: exclude`, promoted status, or cited as publish sources |
+| Thinking-notes integrity | Deterministic | ✅ | RC-117: `thinking-notes/**` missing `not_canonical`, promoted status, or cited as publish sources |
+| Agent chain budget | Deterministic | ✅ | PH-007: AGENTS § Agent chain prose exceeds ~35 lines or re-inlines experiment ADRs (advisory) |
+| Topic/entity compile integrity | Deterministic | ✅ | RC-148: connections missing raw `sources`, `connects` < 2, or missing Evidence/Sources sections |
+| Stale articles | Deterministic | ◻ planned | Source raw page changed since compile (content_hash drift) — declared, not yet populated |
+| Missing backlinks | Deterministic | ◻ planned | A links to B but B does not link back — declared, not yet populated |
+| Contradictions | LLM | ◻ | Conflicting claims across articles |
+| Deprecated standards | LLM | ◻ | Standards marked deprecated still being referenced |
+| Cross-team requirement conflicts | LLM | ◻ | Two teams' standards giving incompatible guidance |
+| Missing alignment | LLM | ◻ | Project artifact lacks citation to relevant in-scope standards |
+| Cross-project dependency violations | LLM | ◻ | `in-progress` artifact referencing another `in-progress`/`archived` project (closure prompt) |
 
 Output: `reports/workspace-lint-{date}.md` with severity per finding.
 

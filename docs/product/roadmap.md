@@ -134,9 +134,9 @@ Implementation queue: **idle** (all queued PIC cycles through RC-003 accepted or
 
 **Deliverables:**
 
-- [ ] `workspace-align-cite` at production quality (gating before publish)
+- [~] `workspace-align-cite` — **deterministic core gating before publish (done; `second-brain align-cite`)**; LLM semantic layer in progress
 - [ ] `workspace-align-vendor-truth` at production quality
-- [ ] `workspace-align-closure` at production quality
+- [~] `workspace-align-closure` — **deterministic body-wikilink core gating before publish (done; `lint-workspace --closure-only`)**; LLM layer (cross-project deps, jr-engineer bar) in progress
 - [ ] `workspace-align-conformance` and `workspace-align-coverage` (best-effort tier)
 - [ ] `defuddle` skill integration for vendor doc fetch
 - [x] `workspace-revalidate-vendor-docs` prompt

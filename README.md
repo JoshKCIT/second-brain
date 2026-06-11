@@ -1,6 +1,8 @@
 # Second Brain
 
-**Second Brain is a folder on your computer that an AI assistant helps you organize.** You pull in company docs (from Confluence) and public vendor docs (from AWS, Snowflake, etc.), the AI turns them into a searchable wiki, and then helps you write new project documents that cite the right sources.
+**Second Brain is a folder on your computer that an AI assistant helps you organize.** You pull in public vendor docs (from AWS, Snowflake, etc.) — and, if you have it, company docs from Confluence — the AI turns them into a searchable wiki, and then helps you write new project documents that cite the right sources.
+
+**Start with the vendor path.** It needs no company credentials and works the moment you finish setup: point the AI at public AWS/Snowflake/etc. docs and it builds a cited wiki you can query and write from. Confluence ingest is an optional add-on that requires Atlassian access — layer it in later.
 
 You do not need to be a developer to use it. You do need to install a few free tools — **full walkthrough:** [How it works](docs/platform-support-documentation/user-guide/how-second-brain-works.md) → [Getting started](docs/platform-support-documentation/user-guide/getting-started.md) (or start at the [platform support documentation](docs/platform-support-documentation/README.md) index).
 
@@ -10,9 +12,10 @@ You do not need to be a developer to use it. You do need to install a few free t
 
 1. **Download** this repo to your laptop.
 2. **Open it** in VS Code (or Cursor) with an AI assistant turned on.
-3. **Optionally connect** your Atlassian account so the AI can pull Confluence pages.
-4. **Ask the AI** to ingest docs, answer questions, or start a new project (product brief → requirements → specs).
-5. **Read the results** in Obsidian (a free note-taking app) or in VS Code.
+3. **Ask the AI to ingest public vendor docs** (AWS, Snowflake, …) — no credentials needed. This is the fastest way to see it work.
+4. **Ask the AI** to answer questions or start a new project (product brief → requirements → specs).
+5. **Optionally connect** your Atlassian account later so the AI can also pull Confluence pages.
+6. **Read the results** in Obsidian (a free note-taking app) or in VS Code.
 
 The AI does the heavy lifting. Your job is to review what it produces and say yes or no before anything important gets saved or published.
 
@@ -43,9 +46,12 @@ Then open the repo in your IDE, optional Obsidian vault on the same folder, and 
 
 ---
 
-## Try it without Confluence
+## Start here: the vendor path (no Confluence needed)
 
-No Confluence access yet? You can still populate the wiki with public vendor documentation — see the vendor demo in [Getting started](docs/platform-support-documentation/user-guide/getting-started.md) (Verify setup section).
+The fastest, lowest-friction way to see Second Brain work — and the recommended
+first run — uses **public vendor documentation only**: no Atlassian account, no
+company credentials. Populate the wiki from AWS/Snowflake/etc. docs, then query
+and write from it. See the vendor demo in [Getting started](docs/platform-support-documentation/user-guide/getting-started.md) (Verify setup section). Add Confluence ingest once the vendor path feels comfortable.
 
 ---
 
@@ -56,9 +62,10 @@ Type slash commands in your AI chat; prompts live in `.github/prompts/`. Most co
 | You want to… | Type this |
 |--------------|-----------|
 | Get oriented / change settings | `/second-brain` |
-| Pull Confluence pages | `/workspace-ingest-confluence` |
+| Pull a public vendor doc (no credentials) | `/workspace-ingest-vendor-doc` |
 | Ask a question about the wiki | `/workspace-query` |
 | Start a new project doc set | `/workspace-start-project` |
+| Pull Confluence pages (needs Atlassian) | `/workspace-ingest-confluence` |
 
 Full verb list, approval gates, and workflow deep-dives: [Everyday workflows](docs/platform-support-documentation/user-guide/everyday-workflows.md) and [verb reference](docs/platform-support-documentation/operator-guide/verb-reference.md).
 

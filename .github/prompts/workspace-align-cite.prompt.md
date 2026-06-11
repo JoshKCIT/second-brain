@@ -1,5 +1,5 @@
 ---
-description: Verify every cited claim in a project artifact resolves to a source containing the cited content. Production-quality check. Runs automatically before publish.
+description: Verify every cited claim in a project artifact resolves to a source containing the cited content. Hybrid gate — a deterministic core (second-brain align-cite) runs automatically before publish and blocks; this LLM layer adds semantic judgment and never relaxes a mechanical FAIL.
 mode: agent
 inherits: AGENTS.md
 instruction_stack_tier: 2

@@ -217,8 +217,8 @@
       }
     ]
   },
-  "generated_at": "2026-06-10T22:43:59Z",
-  "inventory_hash": "7e5a7c825ceb27d6",
+  "generated_at": "2026-06-11T07:37:00Z",
+  "inventory_hash": "0e4b52bfba6a4cd0",
   "lifecycles": [
     {
       "name": "rss-feed-lifecycle.md",
@@ -311,7 +311,7 @@
       "stem": "second-brain"
     },
     {
-      "description": "Verify every cited claim in a project artifact resolves to a source containing the cited content. Production-quality check. Runs automatically before publish.",
+      "description": "Verify every cited claim in a project artifact resolves to a source containing the cited content. Hybrid gate \u2014 a deterministic core (second-brain align-cite) runs automatically before publish and blocks; this LLM layer adds semantic judgment and never relaxes a mechanical FAIL.",
       "lane": "workspace",
       "path": ".github/prompts/workspace-align-cite.prompt.md",
       "stem": "workspace-align-cite"
