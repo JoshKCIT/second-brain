@@ -24,17 +24,34 @@ You are publishing a project artifact (or set). The user picks: local review pre
 
 ## Pre-flight: alignment gates
 
-Before either branch, run automatically:
+These gates are **hybrid** (Decision A): a deterministic core in code emits a
+machine-checkable PASS/FAIL, then the prompt's LLM layer adds semantic judgment.
+**The deterministic verdict is the publish blocker; the LLM layer never relaxes a
+mechanical FAIL** — it may only downgrade a mechanical PASS to FAIL on a bad-faith
+match.
 
-1. `workspace-align-cite.prompt.md` against the artifact(s)
-2. `workspace-align-closure.prompt.md` against the project
+Run automatically, in order, before either branch:
 
-If either reports violations:
+1. **Deterministic align-cite (blocking):**
+   ```
+   second-brain align-cite {artifact-path-or-slug}
+   ```
+   (equivalently `python -m second_brain align-cite ...`). This writes
+   `reports/workspace-align-cite-{project}-{date}.md` and exits non-zero on any
+   FAIL (missing cited source path, fabricated quoted span, or a `vendor:*`
+   artifact that cites no matching vendor source). A non-zero exit is a hard
+   block — the LLM cannot overturn it.
+2. `workspace-align-cite.prompt.md` (LLM layer) against the artifact(s) — runs on
+   the rows the deterministic core marked PASS; may add FAILs, never removes them.
+3. `workspace-align-closure.prompt.md` against the project.
 
-- Show the violations
+If the deterministic core exits non-zero, or any LLM layer reports violations:
+
+- Show the violations (and the deterministic report path)
 - Ask the user: "Align gates failed. Options: (a) fix violations and retry, (b) override and proceed (logged), (c) cancel."
 - Do not proceed without explicit choice
-- If override: append to `wiki/log.md` with override reason
+- If override: append to `wiki/log.md` with override reason. (A human may override;
+  the model may not.)
 
 ## Step 1: Branch decision
 
@@ -69,7 +86,7 @@ After successful publish:
 ```
 ## [{ISO timestamp}] publish | {slug or artifact}
 - Branch: review | confluence
-- Pre-publish align: cite={pass|fail|override}, closure={pass|fail|override}
+- Pre-publish align: cite-deterministic={pass|fail|override}, cite-llm={pass|fail|override}, closure={pass|fail|override}
 - Output: {confluence-review/... path or Confluence URLs}
 - Status updated to: published (if Confluence branch)
 ```

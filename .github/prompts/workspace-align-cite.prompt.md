@@ -18,6 +18,37 @@ lane: workspace
 
 You are verifying citation integrity in a project artifact. Every claim that has a citation must actually be supported by the cited source. Adapted from a three-layer verification pattern: extract claims, verify against sources, adversarial review for hallucination patterns.
 
+## Hybrid gate (Decision A): deterministic core runs first
+
+This gate has two halves. The **deterministic core** runs first and is the
+publish blocker; your LLM layer runs second and adds semantic judgment.
+
+**Deterministic core (mechanical, in code):**
+
+```
+second-brain align-cite {artifact-path-or-slug}
+```
+
+(equivalently `python -m second_brain align-cite ...`). It writes
+`reports/workspace-align-cite-{project}-{date}.md` and exits non-zero on any of:
+every cited `sources:` path must exist; every quoted span (blockquote or long
+inline quote) must occur verbatim in a cited source; a `domain: vendor:X`
+artifact must cite at least one `vendor:X` source. **A non-zero exit is a hard
+block.**
+
+**Your LLM layer (this prompt) runs second:**
+
+- Operate on the rows the deterministic core marked **PASS**.
+- You may **downgrade** a mechanical PASS to FAIL (e.g. a bad-faith match: the
+  cited source contains the words but contradicts the claim in context).
+- You may **never upgrade** a mechanical FAIL to PASS. A deterministic FAIL
+  stands regardless of your judgment.
+- Cover what the mechanical layer cannot: paraphrased claims, semantic support,
+  hallucination patterns, cross-domain conflicts.
+
+Invariant: retrieval may decide what to read; only this verification decides what
+may publish.
+
 ## Inputs
 
 - Path to one artifact, OR a project slug (in which case run on every artifact in `wiki/workspace-projects/{slug}/`)

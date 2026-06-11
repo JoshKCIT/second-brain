@@ -32,9 +32,11 @@ SCRIPT_VERBS: dict[str, str] = {
 }
 
 # verb -> "module:function" called in-process. The function takes a single
-# argument (argv: list[str]) and returns an int exit code. Filled by PR-4
-# (the deterministic align-cite core).
-MODULE_VERBS: dict[str, str] = {}
+# argument (argv: list[str]) and returns an int exit code. These are the
+# deterministic validators — the mechanical half of the hybrid align gates.
+MODULE_VERBS: dict[str, str] = {
+    "align-cite": "second_brain.validation.align_cite:cli",
+}
 
 
 def verbs() -> list[str]:
