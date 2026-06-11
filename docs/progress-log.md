@@ -368,6 +368,15 @@ Parseable with grep: `grep "^## \[" progress-log.md`.
 
 ---
 
+## [2026-06-11] session | README slim pass after RC-018
+
+- Slimmed `README.md` to router role: prerequisites, vendor demo, everyday commands, folder map, and IDE sections now point to platform support docs
+- Aligned Day 0 entry path with support manual (`how-second-brain-works` → `getting-started`)
+- Extended "Which doc should I read?" with operator, CEO, and engineer rows
+- Validation: `lint-platform-support-docs.py --strict` (0 errors), `tests/platform_support_docs` (22 OK), `tests/docs_structure` (12 OK)
+
+---
+
 ## [2026-06-09] session | Docs restructure: status reconciliation + four options
 
 - **Phase 0 — status reconciliation**
