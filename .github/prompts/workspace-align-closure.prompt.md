@@ -18,6 +18,20 @@ lane: workspace
 
 You are verifying that a project's authored set is jr-engineer-executable using only itself, and that body prose follows status-appropriate rules.
 
+## Hybrid gate (Decision A): deterministic core runs first
+
+The body-prose-clean rule has a deterministic core that is the publish blocker:
+
+```
+second-brain lint-workspace --scope wiki/workspace-projects/{slug} --closure-only
+```
+
+It exits non-zero and lists every `body_wikilink_closure` violation — a
+`[[wikilink]]` in body prose of an artifact at status `review`/`published`/
+`archived`. **You run second and may never relax that mechanical FAIL.** Your job
+is the judgment the core cannot mechanize: cross-project dependency rules, the
+jr-engineer-executable bar, undefined jargon, and citation-pattern compliance.
+
 ## Inputs
 
 - Project slug (run on every artifact in `wiki/workspace-projects/{slug}/`)

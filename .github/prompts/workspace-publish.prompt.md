@@ -41,11 +41,22 @@ Run automatically, in order, before either branch:
    FAIL (missing cited source path, fabricated quoted span, or a `vendor:*`
    artifact that cites no matching vendor source). A non-zero exit is a hard
    block — the LLM cannot overturn it.
-2. `workspace-align-cite.prompt.md` (LLM layer) against the artifact(s) — runs on
+2. **Deterministic align-closure (blocking):**
+   ```
+   second-brain lint-workspace --scope wiki/workspace-projects/{slug} --closure-only
+   ```
+   (equivalently `python scripts/lint-workspace.py --scope ... --closure-only`).
+   This exits non-zero if any project artifact at status `review`/`published`/
+   `archived` has a `[[wikilink]]` in body prose (the closure rule; wikilinks
+   belong in `## See Also` or frontmatter). A non-zero exit is a hard block. The
+   `body_wikilink_closure` section of the lint report lists each location.
+3. `workspace-align-cite.prompt.md` (LLM layer) against the artifact(s) — runs on
    the rows the deterministic core marked PASS; may add FAILs, never removes them.
-3. `workspace-align-closure.prompt.md` against the project.
+4. `workspace-align-closure.prompt.md` (LLM layer) against the project — covers
+   cross-project dependencies and the jr-engineer-executable bar; never relaxes a
+   mechanical closure FAIL.
 
-If the deterministic core exits non-zero, or any LLM layer reports violations:
+If either deterministic core exits non-zero, or any LLM layer reports violations:
 
 - Show the violations (and the deterministic report path)
 - Ask the user: "Align gates failed. Options: (a) fix violations and retry, (b) override and proceed (logged), (c) cancel."
@@ -86,7 +97,7 @@ After successful publish:
 ```
 ## [{ISO timestamp}] publish | {slug or artifact}
 - Branch: review | confluence
-- Pre-publish align: cite-deterministic={pass|fail|override}, cite-llm={pass|fail|override}, closure={pass|fail|override}
+- Pre-publish align: cite-deterministic={pass|fail|override}, cite-llm={pass|fail|override}, closure-deterministic={pass|fail|override}, closure-llm={pass|fail|override}
 - Output: {confluence-review/... path or Confluence URLs}
 - Status updated to: published (if Confluence branch)
 ```
