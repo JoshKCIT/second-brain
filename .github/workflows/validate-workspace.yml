@@ -55,9 +55,13 @@ jobs:
 
       # verify-setup and the package CLI require the 3.12+ floor (verify-setup
       # fails fast below it by design), so they only run on supported versions.
+      # config/second-brain.yml is per-user and gitignored; seed it from the
+      # tracked example first, exactly as the README setup step instructs.
       - name: Verify setup (3.12+)
         if: ${{ matrix.python-version != '3.10' && matrix.python-version != '3.11' }}
-        run: python scripts/verify-setup.py --skip-tests --skip-defuddle
+        run: |
+          cp config/second-brain.example.yml config/second-brain.yml
+          python scripts/verify-setup.py --skip-tests --skip-defuddle
 
       - name: CLI smoke (3.12+)
         if: ${{ matrix.python-version != '3.10' && matrix.python-version != '3.11' }}
