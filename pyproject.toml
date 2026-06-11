@@ -28,7 +28,15 @@ dependencies = [
 # Nothing required for tests beyond the runtime deps today; kept for future use.
 dev = []
 
-# No Python package to install — the scripts are run directly. This stops
-# setuptools auto-discovery from erroring on the many top-level data folders.
+# Thin CLI boundary (Decision C). `pip install .` exposes the `second-brain`
+# console command; the hyphenated scripts in scripts/ are still run directly.
+[project.scripts]
+second-brain = "second_brain.cli:main"
+
+# src/ layout: discovery only looks under src/, so the many top-level data
+# folders (wiki/, raw/, docs/, ...) are never mistaken for packages.
 [tool.setuptools]
-py-modules = []
+package-dir = { "" = "src" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

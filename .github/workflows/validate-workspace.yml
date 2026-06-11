@@ -1,0 +1,64 @@
+# Validate the workspace lane (IDE-agnostic).
+# Separate from validate-support-docs.yml to keep the platform/workspace boundary
+# clean (Decision B). Runs the deterministic workspace checks: cross-version parse
+# of the lint script, the thin CLI boundary, and the tests/workspace suite.
+
+name: Validate workspace
+
+on:
+  push:
+    branches: [main, master]
+    paths:
+      - "scripts/lint-workspace.py"
+      - "scripts/verify-setup.py"
+      - "src/**"
+      - "tests/workspace/**"
+      - "requirements.txt"
+      - "pyproject.toml"
+      - ".github/workflows/validate-workspace.yml"
+  pull_request:
+    paths:
+      - "scripts/lint-workspace.py"
+      - "scripts/verify-setup.py"
+      - "src/**"
+      - "tests/workspace/**"
+      - "requirements.txt"
+      - "pyproject.toml"
+      - ".github/workflows/validate-workspace.yml"
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        # 3.10 and 3.11 confirm the PR-2 f-string fix parses below the 3.12 floor.
+        python-version: ["3.10", "3.11", "3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+
+      - name: Install runtime dependencies
+        run: pip install -r requirements.txt
+
+      - name: Parse lint-workspace.py (PR-2 cross-version check)
+        run: python -c "import ast; ast.parse(open('scripts/lint-workspace.py', encoding='utf-8').read()); print('parse OK')"
+
+      - name: Workspace unit tests (CLI boundary + lint fixtures)
+        run: python -m unittest discover -s tests/workspace -t . -v
+
+      # verify-setup and the package CLI require the 3.12+ floor (verify-setup
+      # fails fast below it by design), so they only run on supported versions.
+      - name: Verify setup (3.12+)
+        if: ${{ matrix.python-version != '3.10' && matrix.python-version != '3.11' }}
+        run: python scripts/verify-setup.py --skip-tests --skip-defuddle
+
+      - name: CLI smoke (3.12+)
+        if: ${{ matrix.python-version != '3.10' && matrix.python-version != '3.11' }}
+        env:
+          PYTHONPATH: src
+        run: python -m second_brain list
